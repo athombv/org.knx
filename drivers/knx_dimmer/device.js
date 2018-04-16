@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const KNXGeneric = require('./../generic_knx_device.js');
+const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 
 class KNXDimmer extends KNXGeneric {

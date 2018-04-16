@@ -1,1 +1,8 @@
-{}
+{
+    "settings": {
+        "ip": {
+            "title": "KNX IP settings",
+            "body": "Enter the IP address from the KNX IP gateway to use. On save, a new connection will be opened"
+        }
+    }
+}

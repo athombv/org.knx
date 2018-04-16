@@ -8,6 +8,10 @@
     "capabilities": ["onoff"],
     "pair" : [
         {
+            "id": "select_interface",
+            "$template": "select_interface"
+        },
+        {
             "id": "list_devices",
             "template": "list_devices",
             "navigation": {
