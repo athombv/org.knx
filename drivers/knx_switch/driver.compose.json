@@ -1,0 +1,68 @@
+{
+    "id": "knx_switch",
+    "name": {
+        "en": "KNX switch",
+        "nl": "KNX schakelaar"
+    },
+    "class": "light",
+    "capabilities": ["onoff"],
+    "pair" : [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices"
+        }
+    ],
+    "settings": [
+        {
+            "type": "group",
+            "label": {
+                "en": "KNX group address",
+                "nl": "KNX groep adres"
+            },
+            "children": [
+                {
+                    "id": "ga_switch",
+                    "type": "text",
+                    "label": {
+                        "en": "Switch address",
+                        "nl": "Schakel adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Status address",
+                        "nl": "Status adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "macAddress",
+            "type": "text",
+            "label": {
+                "en": "Interface MAC address"
+            },
+            "value" : "",
+            "hint": "MAC address of the required KNX IP interface"
+        }
+    ]
+}

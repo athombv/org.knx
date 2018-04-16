@@ -1,0 +1,198 @@
+{
+    "id": "knx_rgb",
+    "name": {
+        "en": "KNX RGB device",
+        "nl": "KNX RGB apparaat"
+    },
+    "class": "light",
+    "capabilities": ["onoff", "dim", "light_hue", "light_saturation"],
+    "pair" : [
+        {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+                "next": "add_devices"
+            }
+        },
+        {
+            "id": "add_devices",
+            "template": "add_devices"
+        }
+    ],
+    "settings": [
+        {
+            "type": "group",
+            "label": {
+                "en": "KNX group addresses",
+                "nl": "KNX groep adressen"
+            },
+            "children": [
+                {
+                    "id": "ga_red_switch",
+                    "type": "text",
+                    "label": {
+                        "en": "Red switch address",
+                        "nl": "Rood schakel adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_red_switch_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Red switch status address",
+                        "nl": "Rood schakel status adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_red_dim",
+                    "type": "text",
+                    "label": {
+                        "en": "Red dimming address",
+                        "nl": "Rood dim adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_red_dim_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Red dimming status address",
+                        "nl": "Rood dim status adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_green_switch",
+                    "type": "text",
+                    "label": {
+                        "en": "Green switch address",
+                        "nl": "Groen schakel adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_green_switch_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Green switch status address",
+                        "nl": "Groen schakel status adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_green_dim",
+                    "type": "text",
+                    "label": {
+                        "en": "Green dimming address",
+                        "nl": "Groen dim adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_green_dim_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Green dimming status address",
+                        "nl": "Groen dim status adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_blue_switch",
+                    "type": "text",
+                    "label": {
+                        "en": "Blue switch address",
+                        "nl": "Blauw schakel adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_blue_switch_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Blue switch status address",
+                        "nl": "Blauw schakel status adres "
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_blue_dim",
+                    "type": "text",
+                    "label": {
+                        "en": "Blue dimming address",
+                        "nl": "Blauw dim adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_blue_dim_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Blue dimming status address",
+                        "nl": "Blauw dim status adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter group address here",
+                        "nl": "Vul groepadres in"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "macAddress",
+            "type": "text",
+            "label": {
+                "en": "Interface MAC address"
+            },
+            "value" : "",
+            "hint": "MAC address of the required KNX IP interface"
+        }
+    ]
+}
