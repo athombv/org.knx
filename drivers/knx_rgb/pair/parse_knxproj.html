@@ -1,0 +1,35 @@
+<!doctype html>
+<div id="ets_input">
+    <p data-i18n="settings.ets.body">
+    </p>
+    <fieldset>
+        <legend>Upload project</legend>
+        <div class="field row">
+            <input id="file_location" accept="application/knxproj" type="file"/>
+        </div>
+        <button id="upload_button" class="right">Upload</button>
+    </fieldset>
+</div>
+
+<script type="text/html" id="devices-list-template">
+    <li class="device">
+        <label for='device-{{:mac}}' class="name">
+            <div class="overlay"></div>
+            <input class="name" value="{{:name}}" tabindex="-1" />
+        </label>
+        <label for='device-{{:mac}}' class="radio">
+            <input id='device-{{:mac}}' data-mac='{{:mac}}' type="radio" name="device" value="{{:mac}}" tabindex="{{:#index+1}}" />
+        </label>
+    </li>
+</script>
+<script>
+    Homey.setTitle('Upload a ETS project file');
+    Homey.emit('knx_groupaddresses', null, function(error, groupddressList) {
+    });
+
+    var $uploadButton = $("#upload_button");
+    $searchButton.on("click", function() {
+        Homey.emit("manual_ip_address", $ipInput.val(), function(error, interfaceList){
+        });
+    });
+</script>

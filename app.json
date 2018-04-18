@@ -23,6 +23,41 @@
   },
   "drivers": [
     {
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "list_configmodes"
+          }
+        },
+        {
+          "id": "list_configmodes"
+        },
+        {
+          "id": "learnmode",
+          "navigation": {
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "list_groupaddresses",
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "list_groupaddresses",
+          "navigation": {
+            "next": "add_devices",
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
       "id": "knx_dimmer",
       "name": {
         "en": "KNX dimmer",
@@ -32,19 +67,6 @@
       "capabilities": [
         "onoff",
         "dim"
-      ],
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
       ],
       "settings": [
         {
@@ -120,6 +142,41 @@
       ]
     },
     {
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "list_configmodes"
+          }
+        },
+        {
+          "id": "list_configmodes"
+        },
+        {
+          "id": "learnmode",
+          "navigation": {
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "list_groupaddresses",
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "list_groupaddresses",
+          "navigation": {
+            "next": "add_devices",
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
       "id": "knx_rgb",
       "name": {
         "en": "KNX RGB device",
@@ -131,19 +188,6 @@
         "dim",
         "light_hue",
         "light_saturation"
-      ],
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
       ],
       "settings": [
         {
@@ -323,6 +367,41 @@
       ]
     },
     {
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "list_configmodes"
+          }
+        },
+        {
+          "id": "list_configmodes"
+        },
+        {
+          "id": "learnmode",
+          "navigation": {
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "list_groupaddresses",
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "list_groupaddresses",
+          "navigation": {
+            "next": "add_devices",
+            "prev": "list_configmodes"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
       "id": "knx_switch",
       "name": {
         "en": "KNX switch",
@@ -331,22 +410,6 @@
       "class": "light",
       "capabilities": [
         "onoff"
-      ],
-      "pair": [
-        {
-          "id": "select_interface"
-        },
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
       ],
       "settings": [
         {

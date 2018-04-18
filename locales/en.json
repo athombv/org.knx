@@ -3,6 +3,26 @@
         "ip": {
             "title": "KNX IP settings",
             "body": "Enter the IP address from the KNX IP gateway to use. On save, a new connection will be opened"
+        },
+        "configmode": {
+            "title": "Choose KNX configuration method",
+            "body": " Choose the configuration method wich will be used to add the KNX device to Homey.",
+            "learnmode": {
+                "title" : "Learnmode",
+                "explanation": "Pair a KNX button to a virtual button in Homey."
+            },
+            "existingga": {
+                "title": "Existing groupaddresses",
+                "explanation": "Reuse already configured groupaddresses."
+            },
+            "newxml": {
+                "title": "Upload new ETS configuration",
+                "explanation": "Upload a ETS configuration file (*.knxproj) to extract and store the KNX groupaddresses."
+            }
+        },
+        "ets": {
+            "title": "Upload an ETS project",
+            "body": "Upload a ETS configuration file (*.knxproj) to extract the KNX groupaddresses."
         }
     }
 }

@@ -1,4 +1,5 @@
 {
+    "$extends" :["knx_driver"],
     "id": "knx_switch",
     "name": {
         "en": "KNX switch",
@@ -6,23 +7,6 @@
     },
     "class": "light",
     "capabilities": ["onoff"],
-    "pair" : [
-        {
-            "id": "select_interface",
-            "$template": "select_interface"
-        },
-        {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
-                "next": "add_devices"
-            }
-        },
-        {
-            "id": "add_devices",
-            "template": "add_devices"
-        }
-    ],
     "settings": [
         {
             "type": "group",

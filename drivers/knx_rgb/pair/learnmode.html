@@ -1,0 +1,31 @@
+<!doctype html>
+<ul id="configmode-list"></ul>
+<div id="configmode_input">
+    <h1 data-i18n="settings.configmode.title">
+    </h1>
+    <p data-i18n="settings.configmode.body">
+    </p>
+    <legend data-i18n="settings.configmode.explanation"></legend>
+    <button id="button_learnmode" class="right">Learn mode</button>
+    <button id="button_existingxml" class="right">Existing groupaddresses</button>
+    <button id="button_newxml" class="right">New groupaddresses</button>
+</div>
+
+<script>
+    Homey.setTitle('Select the configmode to use');
+    var $learnModeButton = $("#button_learnmode");
+    var $existingXMLButton = $("#button_existingxml");
+    var $newXMLButton = $("#button_newxml");
+
+    $learnModeButton.on("click", function() {
+        Homey.showView('learnmode');
+    });
+
+    $existingXMLButton.on("click", function() {
+        Homey.showView('list_groupaddresses');
+    });
+
+    $newXMLButton.on("click", function() {
+        Homey.showView('newxml');
+    });
+</script>
