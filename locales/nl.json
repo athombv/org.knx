@@ -1,0 +1,32 @@
+{
+    "settings": {
+        "ip": {
+            "title": "KNX IP instellingen",
+            "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek IP interface om deze te controleren",
+            "singleip": "Configureer IP Interface",
+            "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
+            "searchbutton": "Zoek IP interface"
+        },
+        "configmode": {
+            "title": "Kies een KNX configuratiemethode",
+            "body": " Kies de configuratiemodus welke gebruikt zal worden om het KNX apparaat toe te voegen.",
+            "learnmode": {
+                "title" : "Inleermodus",
+                "explanation": "Combineer een KNX schakelaar aan een virtuele schakelaar binnen Homey."
+            },
+            "existingga": {
+                "title": "Bestaande groepadressen",
+                "explanation": "Hergebruik reeds teogevoegde groepadressen."
+            },
+            "newxml": {
+                "title": "Nieuwe ETS configuratie",
+                "explanation": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen en te bewaren in Homey."
+            }
+        },
+        "ets": {
+            "title": "Upload een ETS project",
+            "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen."
+        },
+        "groupaddresses" : "Groupadressen selecteren"
+    }
+}

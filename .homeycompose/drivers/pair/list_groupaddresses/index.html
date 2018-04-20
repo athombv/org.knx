@@ -1,49 +1,32 @@
 <!doctype html>
-<ul id="devices-list"></ul>
-<div id="ip_input" style="display: none">
-    <h1 data-i18n="settings.ip.title">
-    </h1>
-    <p data-i18n="settings.ip.body">
-    </p>
-    <fieldset>
-        <legend>KNX IP Settings</legend>
-        <div class="field row">
-            <label for="ip_address">KNX IP gateway address</label>
-            <input id="ip_address" type="text" value="" />
-        </div>
-        <button id="search_button" class="right">Search KNX interface</button>
-    </fieldset>
-</div>
-
-<script type="text/html" id="devices-list-template">
-    <li class="device">
-        <label for='device-{{:mac}}' class="name">
+<ul id="groupaddress-list"></ul>
+<script type="text/html" id="ga-list-template">
+    <li class="ga">
+        <label for='ga-{{:address}}' class="name">
             <div class="overlay"></div>
             <input class="name" value="{{:name}}" tabindex="-1" />
         </label>
-        <label for='device-{{:mac}}' class="radio">
-            <input id='device-{{:mac}}' data-mac='{{:mac}}' type="radio" name="device" value="{{:mac}}" tabindex="{{:#index+1}}" />
+        <label for='ga-{{:address}}' class="radio">
+            <input id='ga-{{:address}}' data-address='{{:address}}' type="radio" name="ga" value="{{:address}}" tabindex="{{:#index+1}}" />
         </label>
     </li>
 </script>
 <script>
-    Homey.setTitle('Select groupaddresses to use');
+    Homey.setTitle(Homey.__("settings.groupaddresses"));
     function renderKNXInterfaceList(interfaceList) {
-        var devices_render = $('#devices-list-template').render(interfaceList, {
+        var ga_render = $('#ga-list-template').render(interfaceList, {
             stringify: JSON.stringify
         });
-        var $devList = $('#devices-list');
-        $devList.html(devices_render);
-        $devList.find(":radio").change(function(){
-            Homey.emit('selected_interface', $(this).data('mac'));
+        var $gaList = $('#groupaddress-list');
+        $gaList.html(ga_render);
+        $gaList.find(":radio").change(function(){
+            //Homey.emit('selected_interface', $(this).data('ga'));
         });
-        if ($devList.children().length) {
-            $($($devList.children()[0]).find(":radio")[0]).click();
-        } else {
-            $("#ip_input").css("display", "block");
+        if ($gaList.children().length) {
+            $($($gaList.children()[0]).find(":radio")[0]).click();
         }
     }
-    Homey.emit('list_interfaces', null, function(error, interfaceList) {
+    Homey.emit('list_etsimport', null, function(error, interfaceList) {
         renderKNXInterfaceList(interfaceList);
     });
 

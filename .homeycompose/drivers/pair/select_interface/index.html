@@ -6,12 +6,12 @@
     <p data-i18n="settings.ip.body">
     </p>
     <fieldset>
-        <legend>KNX IP Settings</legend>
+        <legend data-i18n="settings.ip.singleip"></legend>
         <div class="field row">
-            <label for="ip_address">KNX IP gateway address</label>
+            <label for="ip_address" data-i18n="settings.ip.interfaceaddress"></label>
             <input id="ip_address" type="text" value="" />
         </div>
-        <button id="search_button" class="right">Search KNX interface</button>
+        <button id="search_button" class="right" data-i18n="settings.ip.searchbutton"></button>
     </fieldset>
 </div>
 
@@ -27,7 +27,7 @@
     </li>
 </script>
 <script>
-    Homey.setTitle('Select KNX IP Interface');
+    Homey.setTitle(Homey.__("settings.ip.title"));
     function renderKNXInterfaceList(interfaceList) {
         var devices_render = $('#devices-list-template').render(interfaceList, {
             stringify: JSON.stringify

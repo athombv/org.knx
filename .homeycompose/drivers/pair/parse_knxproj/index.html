@@ -7,7 +7,6 @@
         <div class="field row">
             <input id="file-input" accept="application/knxproj" type="file"/>
         </div>
-        <button id="upload_button" class="right">Upload</button>
     </fieldset>
 </div>
 
@@ -22,7 +21,9 @@
     </li>
 </script>
 <script>
-    Homey.setTitle('Upload a ETS project file');
+    Homey.setTitle(Homey.__("settings.ets.title"));
+    var knxGroupAdresses = {};
+    var uploaded = false;
 	function onerror(message) {
 		console.error(message);
 	}
@@ -47,9 +48,45 @@
         model.getEntryFile(entry, function(rawXML) {
             var parser = new DOMParser();
             parsedXMLData = parser.parseFromString(rawXML, "application/xml");
-            console.log(parsedXMLData);
             // Parsing of ETS project file starts here
-            Homey.showView('list_groupaddresses');
+            // Gather the needed information from the parsed XML
+            groupAddress3Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupRange > GroupAddress');
+            groupAddress2Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupAddress');
+            groupAddressConnectors = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > Topology > Area > Line > DeviceInstance > ComObjectInstanceRefs > ComObjectInstanceRef > Connectors > *');
+
+            // Start parsing the GroupAddresses
+            if (groupAddress3Level.length > 0) {
+                groupAddress3Level.forEach((groupAddressData) => {
+                    address = groupAddressData.getAttribute('Address');
+                    id = groupAddressData.getAttribute('Id');
+                    name = groupAddressData.getAttribute('Name');
+                    ga = `${address >> 11 & 0x1F}/${address >> 8 & 0x7}/${address & 0xFF}`;
+                    knxGroupAdresses[id] = {ga, name};
+                    if (groupAddressData.hasAttribute('DatapointType')) {
+                        dpt = groupAddressData.getAttribute('DatapointType');
+                        knxGroupAdresses[id].dpt = dpt;
+                    }
+                });
+            }
+            // Else if because it's either 2 or 3 level in a project
+            else if (groupAddress2Level > 0) {
+                groupAddress2Level.forEach((address) => {
+                    console.log(address.getAttribute('Address'));
+                });
+            }
+            // Try to couple a send or receive connector to groupaddresses
+            if (groupAddressConnectors.length > 0) {
+                groupAddressConnectors.forEach((connector => {
+                    groupId = connector.getAttribute('GroupAddressRefId');
+                    if(knxGroupAdresses[groupId]) {
+                        knxGroupAdresses[groupId].connector = connector.tagName.toLowerCase();
+                    }
+                }));
+            }
+        console.log(knxGroupAdresses);
+        // emit parsed list to homey
+        Homey.emit('uploaded_groupaddresses', knxGroupAdresses);
+        Homey.showView('list_groupaddresses');
         });
     }
 
@@ -57,15 +94,17 @@
     console.log(fileInput);
 
     fileInput.addEventListener('change', function() {
-        console.log('file nput changed');
-        fileInput.disabled = true;
-        model.getEntries(fileInput.files[0], function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.filename.match(/\/0\.xml$/i)) {
-                    console.log('0.xml found with regex', entry.filename);
-                    extractParseProjectFile(entry);
-                }
+        if (!uploaded) {
+            fileInput.disabled = true;
+            model.getEntries(fileInput.files[0], function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.filename.match(/\/0\.xml$/i)) {
+                        console.log('0.xml found with regex', entry.filename);
+                        extractParseProjectFile(entry);
+                    }
+                });
             });
-        });
+            uploaded = true;
+        }
     }, false);
 </script>

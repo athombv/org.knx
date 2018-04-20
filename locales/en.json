@@ -2,7 +2,10 @@
     "settings": {
         "ip": {
             "title": "KNX IP settings",
-            "body": "Enter the IP address from the KNX IP gateway to use. On save, a new connection will be opened"
+            "body": "Enter the IP address from the KNX IP gateway to use. Press the search IP interface button to search",
+            "singleip": "Configure IP Interface",
+            "interfaceaddress": "Enter the IP interface IPv4 address",
+            "searchbutton": "Search IP interface"
         },
         "configmode": {
             "title": "Choose KNX configuration method",
@@ -16,13 +19,14 @@
                 "explanation": "Reuse already configured groupaddresses."
             },
             "newxml": {
-                "title": "Upload new ETS configuration",
+                "title": "New ETS configuration",
                 "explanation": "Upload a ETS configuration file (*.knxproj) to extract and store the KNX groupaddresses."
             }
         },
         "ets": {
             "title": "Upload an ETS project",
             "body": "Upload a ETS configuration file (*.knxproj) to extract the KNX groupaddresses."
-        }
+        },
+        "groupaddresses" : "Select groupaddresses"
     }
 }

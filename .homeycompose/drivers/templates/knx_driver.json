@@ -9,7 +9,10 @@
         },
         {
             "id": "list_configmodes",
-            "$template": "list_configmodes"
+            "$template": "list_configmodes",
+            "navigation": {
+                "prev": "select_interface"
+            }
         },
         {
             "id": "learnmode",

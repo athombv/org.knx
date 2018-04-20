@@ -31,7 +31,10 @@
           }
         },
         {
-          "id": "list_configmodes"
+          "id": "list_configmodes",
+          "navigation": {
+            "prev": "select_interface"
+          }
         },
         {
           "id": "learnmode",
@@ -150,7 +153,10 @@
           }
         },
         {
-          "id": "list_configmodes"
+          "id": "list_configmodes",
+          "navigation": {
+            "prev": "select_interface"
+          }
         },
         {
           "id": "learnmode",
@@ -375,7 +381,10 @@
           }
         },
         {
-          "id": "list_configmodes"
+          "id": "list_configmodes",
+          "navigation": {
+            "prev": "select_interface"
+          }
         },
         {
           "id": "learnmode",

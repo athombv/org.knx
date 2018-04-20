@@ -6,13 +6,13 @@
     <p data-i18n="settings.configmode.body">
     </p>
     <legend data-i18n="settings.configmode.explanation"></legend>
-    <button id="button_learnmode" class="right">Learn mode</button>
-    <button id="button_existingxml" class="right">Existing groupaddresses</button>
-    <button id="button_newxml" class="right">New groupaddresses</button>
+    <button id="button_learnmode" class="right" data-i18n="settings.configmode.learnmode.title"></button>
+    <button id="button_existingxml" class="right" data-i18n="settings.configmode.existingga.title"></button>
+    <button id="button_newxml" class="right"data-i18n="settings.configmode.newxml.title"></button>
 </div>
 
 <script>
-    Homey.setTitle('Select the configmode to use');
+    Homey.setTitle(Homey.__("settings.configmode.title"));
     var $learnModeButton = $("#button_learnmode");
     var $existingXMLButton = $("#button_existingxml");
     var $newXMLButton = $("#button_newxml");
