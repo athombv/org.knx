@@ -4,37 +4,30 @@
     <li class="ga">
         <label for='ga-{{:address}}' class="name">
             <div class="overlay"></div>
-            <input class="name" value="{{:name}}" tabindex="-1" />
-        </label>
-        <label for='ga-{{:address}}' class="radio">
-            <input id='ga-{{:address}}' data-address='{{:address}}' type="radio" name="ga" value="{{:address}}" tabindex="{{:#index+1}}" />
+            <input id='ga-{{:address}}' data-address='{{:address}}' type="checkbox" name="ga" tabindex="{{:#index+1}}" />
+            '{{:name}}, address: {{:address}}'
         </label>
     </li>
 </script>
 <script>
     Homey.setTitle(Homey.__("settings.groupaddresses"));
-    function renderKNXInterfaceList(interfaceList) {
-        var ga_render = $('#ga-list-template').render(interfaceList, {
+    function renderKNXInterfaceList(groupAddressList) {
+        var ga_render = $('#ga-list-template').render(groupAddressList, {
             stringify: JSON.stringify
         });
         var $gaList = $('#groupaddress-list');
         $gaList.html(ga_render);
-        $gaList.find(":radio").change(function(){
+        $gaList.find(":checkbox").change(function(){
             //Homey.emit('selected_interface', $(this).data('ga'));
         });
         if ($gaList.children().length) {
-            $($($gaList.children()[0]).find(":radio")[0]).click();
+            $($($gaList.children()[0]).find(":checkbox")[0]).click();
         }
     }
-    Homey.emit('list_etsimport', null, function(error, interfaceList) {
-        renderKNXInterfaceList(interfaceList);
-    });
-
-    var $ipInput = $("#ip_address");
-    var $searchButton = $("#search_button");
-    $searchButton.on("click", function() {
-        Homey.emit("manual_ip_address", $ipInput.val(), function(error, interfaceList){
-            renderKNXInterfaceList(interfaceList);
-        });
+    Homey.emit('list_etsimport', null, function(error, groupAddressList) {
+        if (groupAddressList) {
+            console.log('received:', groupAddressList);
+            renderKNXInterfaceList(groupAddressList);
+        } else {console.log('no groupaddresses received')}
     });
 </script>
