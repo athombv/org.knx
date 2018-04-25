@@ -1,0 +1,63 @@
+<!doctype html>
+<div id="ga_input">
+    <p data-i18n="settings.groupaddresses.body">
+    </p>
+    <fieldset>
+        <div class="field row">
+            <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
+            <input id="toggle_address" type="text" class="right">
+            <select id="toggle_address">
+                <option value="ga1">1/1/0</option>
+                <option value="ga2">1/0/1</option>
+            </select>
+            <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
+            <input id="status_address" type="text" class="right">
+            <select id="toggle_address">
+                <option value="ga1">2/1/0</option>
+                <option value="ga2">2/0/1</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
+            <div class="field row">
+                <label for="dim_address" class="left" data-i18n="settings.groupaddresses.dimmer.value"></label>
+                <input id="dim_address" type="text" class="right">
+                <select id="dim_address">
+                    <option value="ga1">2/1/0</option>
+                    <option value="ga2">2/0/1</option>
+                </select>
+                <select>
+                    <option value="dpt1">Datapoint 5 (4bit control)</option>
+                    <option value="dpt1">Datapoint 7 (8bit control)</option>
+                </select>
+                <label for="brightness_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
+                <input id="brightness_address" type="text" class="right">
+                <select id="brightness_address">
+                    <option value="ga1">2/1/0</option>
+                    <option value="ga2">2/0/1</option>
+                </select>
+                <select>
+                    <option value="dpt1">Datapoint 1 (1bit control)</option>
+                    <option value="dpt1">Datapoint 5 (4bit control)</option>
+                </select>
+            </div>
+        </fieldset>
+    <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
+    <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
+</div>
+<script>
+    Homey.setTitle(Homey.__('Groupaddresses.... Groupaddresses everywhere!'));
+
+    var $newXMLButton = $("#button_newxml");
+    var $xmlText = $("#xmltext");
+    $newXMLButton.on("click", function() {
+        Homey.showView('parse_knxproj');
+    });
+    // Check if there are uploaded groupaddresses available
+    Homey.emit('list_etsimport', function(error, groupAddressList) {
+        if(groupAddressList && groupAddressList.length > 0) {
+            console.log(groupAddressList);
+            $xmlText.text = "A ETS export has already been uploaded";
+        }
+    });
+</script>

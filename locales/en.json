@@ -5,7 +5,8 @@
             "body": "Enter the IP address from the KNX IP gateway to use. Press the search IP interface button to search",
             "singleip": "Configure IP Interface",
             "interfaceaddress": "Enter the IP interface IPv4 address",
-            "searchbutton": "Search IP interface"
+            "searchbutton": "Check IP interface",
+            "scanbutton": "Scan the network for IP interfaces"
         },
         "configmode": {
             "title": "Choose KNX configuration method",
@@ -27,6 +28,16 @@
             "title": "Upload an ETS project",
             "body": "Upload a ETS configuration file (*.knxproj) to extract the KNX groupaddresses."
         },
-        "groupaddresses" : "Select groupaddresses"
+        "groupaddresses" : {
+            "body": "Select which groupaddresses to use with the new device",
+            "switch": {
+                "toggle": "Select switch address",
+                "status" : "Select status address"
+            },
+            "dimmer": {
+                "value": "Select dimming address",
+                "status": "Select dimvalue address"
+            }
+        }
     }
 }

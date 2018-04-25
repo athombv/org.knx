@@ -4,7 +4,7 @@
             "id": "select_interface",
             "$template": "select_interface",
             "navigation": {
-                "next": "list_configmodes"
+                "next": "select_groupaddresses"
             }
         },
         {
@@ -18,23 +18,23 @@
             "id": "learnmode",
             "$template": "learnmode",
             "navigation": {
-                "prev": "list_configmodes"
+                "prev": "select_groupaddresses"
             }
         },
         {
             "id": "parse_knxproj",
             "$template": "parse_knxproj",
             "navigation": {
-                "next": "list_groupaddresses",
-                "prev": "list_configmodes"
+                "next": "select_groupaddresses",
+                "prev": "select_groupaddresses"
             }
         },
         {
-            "id": "list_groupaddresses",
-            "$template": "list_groupaddresses",
+            "id": "select_groupaddresses",
+            "$template": "select_groupaddresses",
             "navigation": {
-                "next": "add_devices",
-                "prev": "list_configmodes"
+                "next" : "add_devices",
+                "prev": "select_interface"
             }
         },
         {

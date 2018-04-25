@@ -25,6 +25,14 @@ class KNXApp extends Homey.App {
 	discoverKNXInterfaceOnIP(ipAddress) {
 		return this.knxInterfaceManager.discoverKNXInterfaceOnIP(ipAddress);
 	}
+
+	connectInterface(macAddress) {
+		this.knxInterfaceManager.connectInterface(macAddress);
+	}
+
+	searchInterfaces() {
+		this.knxInterfaceManager.searchInterfaces();
+	}
 }
 
 module.exports = KNXApp;
