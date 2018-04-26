@@ -6,15 +6,15 @@
         <div class="field row">
             <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
             <input id="toggle_address" type="text" class="right">
-            <select id="toggle_address">
-                <option value="ga1">1/1/0</option>
-                <option value="ga2">1/0/1</option>
+            <select id="toggle_address_select">
+                <option value="1/1/0">1/1/0</option>
+                <option value="1/0/1">1/0/1</option>
             </select>
             <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
             <input id="status_address" type="text" class="right">
-            <select id="toggle_address">
-                <option value="ga1">2/1/0</option>
-                <option value="ga2">2/0/1</option>
+            <select id="status_address_select">
+                <option value="2/1/0">2/1/0</option>
+                <option value="2/0/1">2/0/1</option>
             </select>
         </div>
     </fieldset>
@@ -53,6 +53,14 @@
     $newXMLButton.on("click", function() {
         Homey.showView('parse_knxproj');
     });
+
+    var $toggleAddressField = $("#toggle_address");
+    var $toggleAddressDropdown = $("#toggle_address_select");
+    $toggleAddressDropdown.on("change", function() {
+        $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
+        console.log($toggleAddressField);
+    });
+
     // Check if there are uploaded groupaddresses available
     Homey.emit('list_etsimport', function(error, groupAddressList) {
         if(groupAddressList && groupAddressList.length > 0) {
