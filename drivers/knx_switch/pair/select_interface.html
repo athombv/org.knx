@@ -20,7 +20,7 @@
     <li class="device">
         <label for='device-{{:mac}}' class="name">
             <div class="overlay"></div>
-            <input class="name" value="{{:name}} on IP: {{:ip}}" tabindex="-1" />
+            <input class="name" value="{{:name}} (IP: {{:ip}})" tabindex="-1" />
         </label>
         <label for='device-{{:mac}}' class="radio">
             <input id='device-{{:mac}}' data-mac='{{:mac}}' type="radio" name="device" value="{{:mac}}" tabindex="{{:#index+1}}" />
@@ -37,7 +37,7 @@
         $devList.html(devices_render);
         $devList.find(":radio").change(function(){
             console.log('selected', $(this).data('mac'));
-            if ($(this).data('mac') === '0000000000') {
+            if ($(this).data('mac') === '000000000000') {
                 console.log('User selected manual IP interface');
                 $("#ip_input").css("display", "block");
             } else {
@@ -53,7 +53,7 @@
         }
     }
     Homey.emit('list_interfaces', null, function(error, interfaceList) {
-        interfaceList.push({name: 'Manual', mac:'0000000000'});
+        interfaceList.push({name: 'Manual', mac:'000000000000', ip: "enter IP dddress manually"});
         renderKNXInterfaceList(interfaceList);
     });
 

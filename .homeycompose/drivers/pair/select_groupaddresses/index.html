@@ -56,6 +56,7 @@
 
     var $toggleAddressField = $("#toggle_address");
     var $toggleAddressDropdown = $("#toggle_address_select");
+    $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
     $toggleAddressDropdown.on("change", function() {
         $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
         console.log($toggleAddressField);
