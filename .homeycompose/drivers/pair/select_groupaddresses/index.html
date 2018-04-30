@@ -44,14 +44,24 @@
         </fieldset>
     <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
     <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
+    <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
+    <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
 </div>
 <script>
     Homey.setTitle(Homey.__('Groupaddresses.... Groupaddresses everywhere!'));
 
-    var $newXMLButton = $("#button_newxml");
-    var $xmlText = $("#xmltext");
-    $newXMLButton.on("click", function() {
-        Homey.showView('parse_knxproj');
+    var $newXMLButton = $('#button_newxml');
+    var $xmlText = $('#xmltext');
+    $newXMLButton.on('click', function() {
+        Homey.showView('parse_knxproj')
+    });
+
+    
+    var $learnmodeButton = $('#learnmode_button');
+    $learnmodeButton.on('click', function() {
+        Homey.emit('learnmode'), function(error, filteredList) {
+            console.log('learnmode list', filteredList);
+        }
     });
 
     var $toggleAddressField = $("#toggle_address");

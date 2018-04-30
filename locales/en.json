@@ -12,7 +12,7 @@
             "title": "Choose KNX configuration method",
             "body": " Choose the configuration method wich will be used to add the KNX device to Homey.",
             "learnmode": {
-                "title" : "Learnmode",
+                "title" : "Start learnmode",
                 "explanation": "Pair a KNX button to a virtual button in Homey."
             },
             "existingga": {
