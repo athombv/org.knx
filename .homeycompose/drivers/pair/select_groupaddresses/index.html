@@ -76,7 +76,9 @@
     Homey.emit('list_etsimport', function(error, groupAddressList) {
         if(groupAddressList && groupAddressList.length > 0) {
             console.log(groupAddressList);
-            $xmlText.text = "A ETS export has already been uploaded";
+            console.log($xmlText);
+            $xmlText[0].textContent = "A ETS export has already been uploaded for this interface.";
+            // Zet ze in de dropdown en disable handmatige invoer?
         }
     });
 </script>
