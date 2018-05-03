@@ -33,6 +33,19 @@ class KNXApp extends Homey.App {
 	searchInterfaces() {
 		this.knxInterfaceManager.searchInterfaces();
 	}
+
+	async startLearnmodeSwitch(macAddress, time) {
+		let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(macAddress);
+		return knxInterfaceToUse.learnModeSwitch(time);
+	}
+
+	testGroupAddress(macAddress, groupAddress) {
+		let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(macAddress);
+		knxInterfaceToUse.writeKNXGroupAddress(groupAddress, 1, 'DPT1');
+		setTimeout(() => {
+			knxInterfaceToUse.writeKNXGroupAddress(groupAddress, 0, 'DPT1');
+		}, 3000);
+	}
 }
 
 module.exports = KNXApp;

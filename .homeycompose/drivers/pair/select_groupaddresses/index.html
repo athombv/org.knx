@@ -46,26 +46,55 @@
     <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
     <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
     <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
+    <select id="learnmode_dropwdown" style="display: none"></select>
+    <button id="test_button" class="right">TEST</button>
 </div>
 <script>
     Homey.setTitle(Homey.__('Groupaddresses.... Groupaddresses everywhere!'));
 
+    // Global variables
+
+    // Buttons
+    var $learnmodeButton = $('#learnmode_button');
     var $newXMLButton = $('#button_newxml');
+    var $testButton = $("#test_button");
+
+    // Fields
+    var $toggleAddressField = $("#toggle_address");
+
+    // Dropdowns
+    var $toggleAddressDropdown = $("#toggle_address_select");
+    var $learnmodeDropdown = document.getElementById("learnmode_dropwdown");
+
     var $xmlText = $('#xmltext');
+
     $newXMLButton.on('click', function() {
         Homey.showView('parse_knxproj')
     });
 
-    
-    var $learnmodeButton = $('#learnmode_button');
     $learnmodeButton.on('click', function() {
-        Homey.emit('learnmode'), function(error, filteredList) {
-            console.log('learnmode list', filteredList);
-        }
+        $learnmodeDropdown.innerHTML = "";
+        Homey.emit('learnmode', function(error, filteredList) {
+            if(filteredList && filteredList.length > 0) {
+                console.log('learnmode list', filteredList);
+                filteredList.forEach(function(event) {
+                    var optionEl = document.createElement("option");
+                    optionEl.value = event.destination;
+                    optionEl.textContent = "Groupaddress " + event.destination;
+                    $learnmodeDropdown.appendChild(optionEl);
+                })
+            }
+        });
+        $("#learnmode_dropwdown").css("display", "block");
     });
 
-    var $toggleAddressField = $("#toggle_address");
-    var $toggleAddressDropdown = $("#toggle_address_select");
+    $testButton.on('click', function() {
+        console.log($learnmodeDropdown);
+        Homey.emit('test_groupaddress', $learnmodeDropdown.value, function(error, result) {
+            console.log(result);
+        });
+    });
+    
     $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
     $toggleAddressDropdown.on("change", function() {
         $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
