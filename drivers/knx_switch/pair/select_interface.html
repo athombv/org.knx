@@ -1,5 +1,5 @@
 <!doctype html>
-<ul id="devices-list"></ul>
+<ul id="interfaces-list"></ul>
 <div id="ip_input" style="display: none">
     <h1 data-i18n="settings.ip.title">
     </h1>
@@ -16,7 +16,7 @@
     </fieldset>
 </div>
 
-<script type="text/html" id="devices-list-template">
+<script type="text/html" id="interfaces-list-template">
     <li class="device">
         <label for='device-{{:mac}}' class="name">
             <div class="overlay"></div>
@@ -30,11 +30,11 @@
 <script>
     Homey.setTitle(Homey.__("settings.ip.title"));
     function renderKNXInterfaceList(interfaceList) {
-        var devices_render = $('#devices-list-template').render(interfaceList, {
+        var interfaces_render = $('#interfaces-list-template').render(interfaceList, {
             stringify: JSON.stringify
         });
-        var $devList = $('#devices-list');
-        $devList.html(devices_render);
+        var $devList = $('#interfaces-list');
+        $devList.html(interfaces_render);
         $devList.find(":radio").change(function(){
             console.log('selected', $(this).data('mac'));
             if ($(this).data('mac') === '000000000000') {

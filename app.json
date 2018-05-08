@@ -52,20 +52,8 @@
         {
           "id": "select_groupaddresses",
           "navigation": {
-            "next": "list_devices",
             "prev": "select_interface"
           }
-        },
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
         }
       ],
       "id": "knx_dimmer",
@@ -181,20 +169,8 @@
         {
           "id": "select_groupaddresses",
           "navigation": {
-            "next": "list_devices",
             "prev": "select_interface"
           }
-        },
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
         }
       ],
       "id": "knx_rgb",
@@ -416,20 +392,8 @@
         {
           "id": "select_groupaddresses",
           "navigation": {
-            "next": "list_devices",
             "prev": "select_interface"
           }
-        },
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
         }
       ],
       "id": "knx_switch",

@@ -6,66 +6,58 @@
         <div class="field row">
             <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
             <input id="toggle_address" type="text" class="right">
-            <select id="toggle_address_select">
-                <option value="1/1/0">1/1/0</option>
-                <option value="1/0/1">1/0/1</option>
-            </select>
+            <select id="switchga_dropwdown"></select>
             <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
             <input id="status_address" type="text" class="right">
-            <select id="status_address_select">
-                <option value="2/1/0">2/1/0</option>
-                <option value="2/0/1">2/0/1</option>
-            </select>
+            <select id="switchstatusga_dropdown"></select>
         </div>
     </fieldset>
-    <fieldset>
-            <div class="field row">
-                <label for="dim_address" class="left" data-i18n="settings.groupaddresses.dimmer.value"></label>
-                <input id="dim_address" type="text" class="right">
-                <select id="dim_address">
-                    <option value="ga1">2/1/0</option>
-                    <option value="ga2">2/0/1</option>
-                </select>
-                <select>
-                    <option value="dpt1">Datapoint 5 (4bit control)</option>
-                    <option value="dpt1">Datapoint 7 (8bit control)</option>
-                </select>
-                <label for="brightness_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
-                <input id="brightness_address" type="text" class="right">
-                <select id="brightness_address">
-                    <option value="ga1">2/1/0</option>
-                    <option value="ga2">2/0/1</option>
-                </select>
-                <select>
-                    <option value="dpt1">Datapoint 1 (1bit control)</option>
-                    <option value="dpt1">Datapoint 5 (4bit control)</option>
-                </select>
-            </div>
-        </fieldset>
     <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
     <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
     <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
     <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
     <select id="learnmode_dropwdown" style="display: none"></select>
     <button id="test_button" class="right">TEST</button>
+    <button id="save_button" class="right">Save device</button>
 </div>
 <script>
     Homey.setTitle(Homey.__('Groupaddresses.... Groupaddresses everywhere!'));
-
+    // Global variables
+    var interfaceMAC;
+    var switchGA = '';
+    var groupAddresses;
+    Homey.emit('return_selected_interface', function(error, macAddress) {
+        interfaceMAC = macAddress;
+        console.log('MAC:', interfaceMAC);
+    });
     // Buttons
     var $learnmodeButton = $('#learnmode_button');
     var $newXMLButton = $('#button_newxml');
     var $testButton = $("#test_button");
+    var $saveButton = $("#save_button");
 
     // Fields
     var $toggleAddressField = $("#toggle_address");
 
     // Dropdowns
-    var $toggleAddressDropdown = $("#toggle_address_select");
+    var $switchGADropDown = document.getElementById("switchga_dropwdown");
+    var $switchStatusGADropDown = document.getElementById("switchstatusga_dropdown");
     var $learnmodeDropdown = document.getElementById("learnmode_dropwdown");
 
     var $xmlText = $('#xmltext');
 
+    // Helper functions
+
+    function listGroupAddressesDropdown(selectItem, filter) {
+        groupAddresses.forEach(function(etsEntry) {
+            var optionEl = document.createElement("option");
+            optionEl.value = etsEntry.address;
+            optionEl.textContent = "Groupaddress " + etsEntry.address;
+            selectItem.appendChild(optionEl);
+        })
+    }
+
+    // Button acctions
     $newXMLButton.on('click', function() {
         Homey.showView('parse_knxproj')
     });
@@ -91,21 +83,41 @@
         Homey.emit('test_groupaddress', $learnmodeDropdown.value, function(error, result) {
             console.log(result);
         });
+        switchGA = $learnmodeDropdown.value;
     });
-    
-    $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
-    $toggleAddressDropdown.on("change", function() {
-        $toggleAddressField[0].value = $toggleAddressDropdown[0].value;
-        console.log($toggleAddressField);
-    });
+
+    $saveButton.on('click', function() {
+        if(interfaceMAC) {
+            console.log('Saving this device');
+            Homey.addDevice({
+                data: {
+                    id: switchGA
+                },
+                name: 'KNX device',
+                // initial settings (optional)
+                settings: { 'ga_switch': switchGA,
+                            'macAddress': interfaceMAC
+                },
+                // initial store, changeable with device.setStore
+                // store: { 'x': 'y' }
+            }, function(err, result){
+                if(err) return Homey.alert(err);
+                Homey.done();
+            });
+        } else {
+            console.log('Cannot save device, no MAC address');
+        }
+    })
 
     // Check if there are uploaded groupaddresses available
     Homey.emit('list_etsimport', function(error, groupAddressList) {
         if(groupAddressList && groupAddressList.length > 0) {
+            groupAddresses = groupAddressList;
             console.log(groupAddressList);
             console.log($xmlText);
             $xmlText[0].textContent = "A ETS export has already been uploaded for this interface.";
-            // Zet ze in de dropdown en disable handmatige invoer?
+            listGroupAddressesDropdown($switchGADropDown);
+            listGroupAddressesDropdown($switchStatusGADropDown);
         }
     });
 </script>

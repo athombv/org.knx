@@ -27,7 +27,8 @@ class KNXSwitch extends KNXGeneric {
         return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
         .catch((knxerror) => {
             this.log(knxerror);
-            throw new Error('Switching the device failed!');
+            // gooi later een error naar de interface
+            //throw new Error('switching_failed');
         });
     }
 }
