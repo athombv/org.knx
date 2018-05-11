@@ -6,17 +6,27 @@
         <div class="field row">
             <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
             <input id="toggle_address" type="text" class="right">
-            <select id="switchga_dropwdown"></select>
+            <select id="switchga_dropdown"></select>
             <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
             <input id="status_address" type="text" class="right">
             <select id="switchstatusga_dropdown"></select>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="field row">
+            <label for="dim_address" class="left" data-i18n="settings.groupaddresses.dimmer.value"></label>
+            <input id="dim_address" type="text" class="right">
+            <select id="dimga_dropdown"></select>
+            <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
+            <input id="dim_status_address" type="text" class="right">
+            <select id="dim_statusga_dropdown"></select>
         </div>
     </fieldset>
     <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
     <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
     <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
     <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
-    <select id="learnmode_dropwdown" style="display: none"></select>
+    <select id="learnmode_dropdown" style="display: none"></select>
     <button id="test_button" class="right">TEST</button>
     <button id="save_button" class="right">Save device</button>
 </div>
@@ -40,10 +50,13 @@
     var $toggleAddressField = $("#toggle_address");
 
     // Dropdowns
-    var $switchGADropDown = document.getElementById("switchga_dropwdown");
+    var $switchGADropdown = document.getElementById("switchga_dropdown");
+    var $switchGADropdownClicker = $('#switchga_dropdown');
     var $switchStatusGADropDown = document.getElementById("switchstatusga_dropdown");
-    var $learnmodeDropdown = document.getElementById("learnmode_dropwdown");
+    var $dimGADropdown = document.getElementById("dimga_dropdown");
+    var $dimStatusGADropdown = document.getElementById("dim_statusga_dropdown");
 
+    var $learnmodeDropdown = document.getElementById("learnmode_dropdown");
     var $xmlText = $('#xmltext');
 
     // Helper functions
@@ -52,7 +65,7 @@
         groupAddresses.forEach(function(etsEntry) {
             var optionEl = document.createElement("option");
             optionEl.value = etsEntry.address;
-            optionEl.textContent = "Groupaddress " + etsEntry.address;
+            optionEl.textContent = etsEntry.name + ", groupaddress: " + etsEntry.address;
             selectItem.appendChild(optionEl);
         })
     }
@@ -60,6 +73,10 @@
     // Button acctions
     $newXMLButton.on('click', function() {
         Homey.showView('parse_knxproj')
+    });
+
+    $switchGADropdownClicker.on('click', function() {
+        $toggleAddressField[0].text = switchGADropdown.value;
     });
 
     $learnmodeButton.on('click', function() {
@@ -72,14 +89,13 @@
                     optionEl.value = event.destination;
                     optionEl.textContent = "Groupaddress " + event.destination;
                     $learnmodeDropdown.appendChild(optionEl);
-                })
+                });
+                $("#learnmode_dropdown").css("display", "block");
             }
         });
-        $("#learnmode_dropwdown").css("display", "block");
     });
 
     $testButton.on('click', function() {
-        console.log($learnmodeDropdown);
         Homey.emit('test_groupaddress', $learnmodeDropdown.value, function(error, result) {
             console.log(result);
         });
@@ -89,17 +105,18 @@
     $saveButton.on('click', function() {
         if(interfaceMAC) {
             console.log('Saving this device');
+            if (!switchGA) {
+                switchGA = $switchGADropdown.value;
+            }
             Homey.addDevice({
                 data: {
                     id: switchGA
                 },
                 name: 'KNX device',
-                // initial settings (optional)
                 settings: { 'ga_switch': switchGA,
+                            'ga_status' : $switchStatusGADropDown.value,
                             'macAddress': interfaceMAC
                 },
-                // initial store, changeable with device.setStore
-                // store: { 'x': 'y' }
             }, function(err, result){
                 if(err) return Homey.alert(err);
                 Homey.done();
@@ -116,8 +133,10 @@
             console.log(groupAddressList);
             console.log($xmlText);
             $xmlText[0].textContent = "A ETS export has already been uploaded for this interface.";
-            listGroupAddressesDropdown($switchGADropDown);
+            listGroupAddressesDropdown($switchGADropdown);
             listGroupAddressesDropdown($switchStatusGADropDown);
+            listGroupAddressesDropdown($dimGADropdown);
+            listGroupAddressesDropdown($dimStatusGADropdown);
         }
     });
 </script>
