@@ -31,24 +31,28 @@ class KNXDimmer extends KNXGeneric {
     }
 
     onCapabilityOnoff(value, opts) {
-        return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
-        .catch((knxerror) => {
-            this.log(knxerror);
-            throw new Error('Switching the device failed!');
-        });
+        if(this.knxInterface) {
+            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
+            .catch((knxerror) => {
+                this.log(knxerror);
+                throw new Error('Switching the device failed!');
+            });
+        }
     }
 
     onCapabilityDim(value, opts) {
-        if (value > 0) {
-            this.setCapabilityValue('onoff', true);
-        } else {
-            this.setCapabilityValue('onoff', false);
+        if(this.knxInterface) {
+            if (value > 0) {
+                this.setCapabilityValue('onoff', true);
+            } else {
+                this.setCapabilityValue('onoff', false);
+            }
+            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_dim'), value * 255, 'DPT5')
+            .catch( (knxerror) => {
+                this.log(knxerror);
+                throw new Error('Switching the device failed!');
+            });
         }
-        return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_dim'), value * 255, 'DPT5')
-        .catch( (knxerror) => {
-            this.log(knxerror);
-            throw new Error('Switching the device failed!');
-        });
     }
 }
 

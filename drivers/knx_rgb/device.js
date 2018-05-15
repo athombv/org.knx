@@ -40,20 +40,22 @@ class KNXRGB extends KNXGeneric {
 
     // this method is called when the Device has requested a state change (turned on or off)
     onCapabilityOnoff(value, opts) {
-        if (value === true) {
-            return Promise.all([
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_switch'), 1, 'DPT1'),
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_switch'), 1, 'DPT1'),
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_switch'), 1, 'DPT1')
-            ]);
-            return new Error('Switching the device failed!');
-        } else {
-            return Promise.all([
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_switch'), 0, 'DPT1'),
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_switch'), 0, 'DPT1'),
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_switch'), 0, 'DPT1')
-            ]);
-            return new Error('Switching the device failed!');
+        if(this.knxInterface) {
+            if (value === true) {
+                return Promise.all([
+                    this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_switch'), 1, 'DPT1'),
+                    this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_switch'), 1, 'DPT1'),
+                    this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_switch'), 1, 'DPT1')
+                ]);
+                return new Error('Switching the device failed!');
+            } else {
+                return Promise.all([
+                    this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_switch'), 0, 'DPT1'),
+                    this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_switch'), 0, 'DPT1'),
+                    this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_switch'), 0, 'DPT1')
+                ]);
+                return new Error('Switching the device failed!');
+            }
         }
     }
 
@@ -80,14 +82,16 @@ class KNXRGB extends KNXGeneric {
         }
         this.log(colors);
 
-        return Promise.all([
-            this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_dim'), (colors.r), 'DPT5'),
-            this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_dim'), (colors.g), 'DPT5'),
-            this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_dim'), (colors.b), 'DPT5')
-        ])
-        .then(() => {
-            this.setCapabilityValue('onoff', true);
-        }) 
+        if (this.knxInterface) {
+            return Promise.all([
+                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_dim'), (colors.r), 'DPT5'),
+                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_dim'), (colors.g), 'DPT5'),
+                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_dim'), (colors.b), 'DPT5')
+            ])
+            .then(() => {
+                this.setCapabilityValue('onoff', true);
+            })
+        }
     }
 
     async getCurrentHSVColor() {

@@ -20,16 +20,20 @@ class KNXSwitch extends KNXGeneric {
     }
 
     onKNXConnection() {
-        this.knxInterface.readKNXGroupAddress(this.getSetting('ga_status'));
+        if (this.knxInterface) {
+            this.knxInterface.readKNXGroupAddress(this.getSetting('ga_status'));
+        }
     }
 
     onCapabilityOnoff(value, opts) {
-        return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
-        .catch((knxerror) => {
-            this.log(knxerror);
-            // gooi later een error naar de interface
-            //throw new Error('switching_failed');
-        });
+        if (this.knxInterface) {
+            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
+            .catch((knxerror) => {
+                this.log(knxerror);
+                // gooi later een error naar de interface
+                //throw new Error('switching_failed');
+            });
+        }
     }
 }
 
