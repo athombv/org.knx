@@ -5,14 +5,15 @@
             "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek IP interface om deze te controleren",
             "singleip": "Configureer IP Interface",
             "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
-            "searchbutton": "Zoek IP interface"
+            "searchbutton": "Zoek IP interface",
+            "scanbutton": "Scan het netwerk voor IP interfaces"
         },
         "configmode": {
             "title": "Kies een KNX configuratiemethode",
             "body": " Kies de configuratiemodus welke gebruikt zal worden om het KNX apparaat toe te voegen.",
             "learnmode": {
                 "title" : "Inleermodus",
-                "explanation": "Combineer een KNX schakelaar aan een virtuele schakelaar binnen Homey."
+                "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey."
             },
             "existingga": {
                 "title": "Bestaande groepadressen",
@@ -27,6 +28,30 @@
             "title": "Upload een ETS project",
             "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen."
         },
-        "groupaddresses" : "Groupadressen selecteren"
+        "groupaddresses" : {
+            "body": "Selecteer de groepadressen voor het nieuwe apparaat",
+            "switch": {
+                "toggle": "Selecteer schakel adres",
+                "status" : "Selecteer status adres"
+            },
+            "dimmer": {
+                "value": "Selecteer dimmer adres",
+                "status": "Selecteer dimvalue adres"
+            },
+            "rgb": {
+                "red_toggle_action": "Schakel adres rood kanaal",
+                "red_toggle_status": "Status adres rood kanaal",
+                "red_dim_value": "Dim adres rood kanaal",
+                "red_dim_status": "Dim status adres rood kanaal",
+                "green_toggle_action": "Schakel adres groen kanaal",
+                "green_toggle_status": "Status adres groen kanaal",
+                "green_dim_value": "Dim adres groen kanaal",
+                "green_dim_status": "Dim status adres groen kanaal",
+                "blue_toggle_action": "Schakel adres blauw kanaal",
+                "blue_toggle_status": "Status adres blauw kanaal",
+                "blue_dim_value": "Dim adres blauw kanaal",
+                "blue_dim_status": "Dim status adres blauw kanaal"
+            }
+        }
     }
 }

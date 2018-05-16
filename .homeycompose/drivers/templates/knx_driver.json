@@ -8,20 +8,6 @@
             }
         },
         {
-            "id": "list_configmodes",
-            "$template": "list_configmodes",
-            "navigation": {
-                "prev": "select_interface"
-            }
-        },
-        {
-            "id": "learnmode",
-            "$template": "learnmode",
-            "navigation": {
-                "prev": "select_groupaddresses"
-            }
-        },
-        {
             "id": "parse_knxproj",
             "$template": "parse_knxproj",
             "navigation": {

@@ -2,61 +2,117 @@
 <div id="ga_input">
     <p data-i18n="settings.groupaddresses.body">
     </p>
-    <fieldset>
-        <div class="field row">
+    <fieldset id="knx-switch-fieldset" style="display: block">
+        <div class="knx-switch field row">
             <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
-            <input id="toggle_address" type="text" class="right">
-            <select id="switchga_dropdown"></select>
+            <select id="switchga_dropdown" class="knx-dropdown"></select>
+            <input id="toggle_address" type="text" class="knx-text right">
             <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
-            <input id="status_address" type="text" class="right">
-            <select id="switchstatusga_dropdown"></select>
+            <select id="switchstatusga_dropdown" class="knx-dropdown"></select>
+            <input id="status_address" type="text" class="knx-text right">
         </div>
     </fieldset>
-    <fieldset>
-        <div class="field row">
+    <fieldset id="knx-dimmer-fieldset" style="display: none">
+        <div class="knx-dimmer field row">
             <label for="dim_address" class="left" data-i18n="settings.groupaddresses.dimmer.value"></label>
-            <input id="dim_address" type="text" class="right">
-            <select id="dimga_dropdown"></select>
+            <select id="dimga_dropdown" class="knx-dropdown"></select>
+            <input id="dim_address" type="text" class="knx-text right">
             <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
-            <input id="dim_status_address" type="text" class="right">
-            <select id="dim_statusga_dropdown"></select>
+            <select id="dim_statusga_dropdown" class="knx-dropdown"></select>
+            <input id="dim_status_address" type="text" class="knx-text right">
         </div>
     </fieldset>
+    <fieldset id="knx-rgb-fieldset" style="display: none">
+        <div class="knx-rgb field row">
+            <label for="red_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.red_toggle_action"></label>
+            <select id="red_toggle_dropdown" class="knx-dropdown"></select>
+            <input id="red_toggle_input" type="text" class="knx-text right">
+            <label for="red_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.red_toggle_status"></label>
+            <select id="red_toggle_status_dropdown" class="knx-dropdown"></select>
+            <input id="red_toggle_status_input" type="text" class="knx-text right">
+
+            <label for="red_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.red_dim_value"></label>
+            <select id="red_dim_dropdown" class="knx-dropdown"></select>
+            <input id="red_dim_input" type="text" class="knx-text right">
+            <label for="red_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.red_dim_status"></label>
+            <select id="red_dim_status_dropdown" class="knx-dropdown"></select>
+            <input id="red_dim_status_input" type="text" class="knx-text right">
+        </div>
+        <div class="knx-rgb field row">
+            <label for="green_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.green_toggle_action"></label>
+            <select id="green_toggle_dropdown" class="knx-dropdown"></select>
+            <input id="green_toggle_input" type="text" class="knx-text right">
+            <label for="green_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.green_toggle_status"></label>
+            <select id="green_toggle_status_dropdown" class="knx-dropdown"></select>
+            <input id="green_toggle_status_input" type="text" class="knx-text right">
+
+            <label for="green_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.green_dim_value"></label>
+            <select id="green_dim_dropdown" class="knx-dropdown"></select>
+            <input id="green_dim_input" type="text" class="knx-text right">
+            <label for="green_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.green_dim_status"></label>
+            <select id="green_dim_status_dropdown" class="knx-dropdown"></select>
+            <input id="green_dim_status_input" type="text" class="knx-text right">
+        </div>
+        <div class="knx-rgb field row">
+            <label for="blue_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_toggle_action"></label>
+            <select id="blue_toggle_dropdown" class="knx-dropdown"></select>
+            <input id="blue_toggle_input" type="text" class="knx-text right">
+            <label for="blue_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_toggle_status"></label>
+            <select id="blue_toggle_status_dropdown" class="knx-dropdown"></select>
+            <input id="blue_toggle_status_input" type="text" class="knx-text right">
+
+            <label for="blue_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_dim_value"></label>
+            <select id="blue_dim_dropdown" class="knx-dropdown"></select>
+            <input id="blue_dim_input" type="text" class="knx-text right">
+            <label for="blue_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_dim_status"></label>
+            <select id="blue_dim_status_dropdown" class="knx-dropdown"></select>
+            <input id="blue_dim_status_input" type="text" class="knx-text right">
+            </div>
+        </fieldset>
     <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
     <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
     <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
     <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
     <select id="learnmode_dropdown" style="display: none"></select>
-    <button id="test_button" class="right">TEST</button>
-    <button id="save_button" class="right">Save device</button>
+    <button id="test_button" class="right" data-i18n="settings.configmode.learnmode.testbutton"></button>
+    <button id="save_button" class="right" data-i18n="settings.groupaddresses.save"></button>
 </div>
 <script>
-    Homey.setTitle(Homey.__('Groupaddresses.... Groupaddresses everywhere!'));
+    Homey.setTitle(Homey.__("settings.groupaddresses.body"));
     // Global variables
+    var deviceType;
     var interfaceMAC;
-    var switchGA = '';
     var groupAddresses;
     Homey.emit('return_selected_interface', function(error, macAddress) {
         interfaceMAC = macAddress;
-        console.log('MAC:', interfaceMAC);
+        //console.log('MAC:', interfaceMAC);
     });
+
+    Homey.getOptions(function(err, options) {
+       deviceType = options.devicetype;
+    });
+
+    switch(deviceType) {
+        case 'switch':
+            console.log('device is a switch/lightbulb');
+            break;
+        case 'dimmer':
+            console.log('device is a dimmer');
+            $("#knx-dimmer-fieldset").css("display", "block");
+            break;
+        case 'rgb':
+            console.log('device is a rgb');
+            $("#knx-switch-fieldset").css("display", "none");
+            $("#knx-rgb-fieldset").css("display", "block");
+            break;
+    }
+
     // Buttons
     var $learnmodeButton = $('#learnmode_button');
     var $newXMLButton = $('#button_newxml');
     var $testButton = $("#test_button");
     var $saveButton = $("#save_button");
 
-    // Fields
-    var $toggleAddressField = $("#toggle_address");
-
-    // Dropdowns
-    var $switchGADropdown = document.getElementById("switchga_dropdown");
-    var $switchGADropdownClicker = $('#switchga_dropdown');
-    var $switchStatusGADropDown = document.getElementById("switchstatusga_dropdown");
-    var $dimGADropdown = document.getElementById("dimga_dropdown");
-    var $dimStatusGADropdown = document.getElementById("dim_statusga_dropdown");
-
-    var $learnmodeDropdown = document.getElementById("learnmode_dropdown");
     var $xmlText = $('#xmltext');
 
     // Helper functions
@@ -66,7 +122,7 @@
             var optionEl = document.createElement("option");
             optionEl.value = etsEntry.address;
             optionEl.textContent = etsEntry.name + ", groupaddress: " + etsEntry.address;
-            selectItem.appendChild(optionEl);
+            $(selectItem).append(optionEl);
         })
     }
 
@@ -75,15 +131,16 @@
         Homey.showView('parse_knxproj')
     });
 
-    $switchGADropdownClicker.on('click', function() {
-        $toggleAddressField[0].text = switchGADropdown.value;
-    });
+    $('.knx-dropdown').on('change', function() {
+        var value = $(this).val();
+        $(this).next('.knx-text').val(value);
+    })
 
     $learnmodeButton.on('click', function() {
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
             if(filteredList && filteredList.length > 0) {
-                console.log('learnmode list', filteredList);
+                //console.log('learnmode list', filteredList);
                 filteredList.forEach(function(event) {
                     var optionEl = document.createElement("option");
                     optionEl.value = event.destination;
@@ -97,30 +154,75 @@
 
     $testButton.on('click', function() {
         Homey.emit('test_groupaddress', $learnmodeDropdown.value, function(error, result) {
-            console.log(result);
+            // do something with the result?
         });
-        switchGA = $learnmodeDropdown.value;
+        $("#toggle_address").val($learnmodeDropdown.value);
     });
 
     $saveButton.on('click', function() {
         if(interfaceMAC) {
             console.log('Saving this device');
-            if (!switchGA) {
-                switchGA = $switchGADropdown.value;
+ 
+            switch(deviceType) {
+                case 'switch':
+                    Homey.addDevice({
+                        data: {
+                            id: $("#toggle_address").val()
+                        },
+                        name: 'KNX switch',
+                        settings: { 'ga_switch': $("#toggle_address").val(),
+                                    'ga_status' : $("#status_address").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result){
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
+                case 'dimmer':
+                    Homey.addDevice({
+                        data: {
+                            id: $("#toggle_address").val()
+                        },
+                        name: 'KNX dimmer',
+                        settings: { 'ga_switch': $("#toggle_address").val(),
+                                    'ga_status' : $("#status_address").val(),
+                                    'ga_dim' : $("#dim_address").val(),
+                                    'ga_dim_status' : $("#dim_status_address").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result){
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
+                case 'rgb':
+                    Homey.addDevice({
+                        data: {
+                            id: $("#ga_red_toggle").val()
+                        },
+                        name: 'KNX RGB',
+                        settings: { 'ga_red_toggle': $("#red_toggle_input").val(),
+                                    'ga_red_toggle_status' : $("#red_toggle_status_input").val(),
+                                    'ga_red_dim' : $("#red_dim_input").val(),
+                                    'ga_red_dim_status' : $("#red_dim_status_input").val(),
+                                    'ga_green_toggle': $("#green_toggle_input").val(),
+                                    'ga_green_toggle_status' : $("#green_toggle_status_input").val(),
+                                    'ga_green_dim' : $("#green_dim_input").val(),
+                                    'ga_green_dim_status' : $("#green_dim_status_input").val(),
+                                    'ga_blue_toggle': $("#blue_toggle_input").val(),
+                                    'ga_blue_toggle_status' : $("#blue_toggle_status_input").val(),
+                                    'ga_blue_dim' : $("#blue_dim_input").val(),
+                                    'ga_blue_dim_status' : $("#blue_dim_status_input").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result){
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
             }
-            Homey.addDevice({
-                data: {
-                    id: switchGA
-                },
-                name: 'KNX device',
-                settings: { 'ga_switch': switchGA,
-                            'ga_status' : $switchStatusGADropDown.value,
-                            'macAddress': interfaceMAC
-                },
-            }, function(err, result){
-                if(err) return Homey.alert(err);
-                Homey.done();
-            });
+            
         } else {
             console.log('Cannot save device, no MAC address');
         }
@@ -130,13 +232,10 @@
     Homey.emit('list_etsimport', function(error, groupAddressList) {
         if(groupAddressList && groupAddressList.length > 0) {
             groupAddresses = groupAddressList;
-            console.log(groupAddressList);
-            console.log($xmlText);
             $xmlText[0].textContent = "A ETS export has already been uploaded for this interface.";
-            listGroupAddressesDropdown($switchGADropdown);
-            listGroupAddressesDropdown($switchStatusGADropDown);
-            listGroupAddressesDropdown($dimGADropdown);
-            listGroupAddressesDropdown($dimStatusGADropdown);
+            $('.knx-dropdown').each(function() {
+                listGroupAddressesDropdown($(this));
+            });
         }
     });
 </script>

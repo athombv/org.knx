@@ -1,8 +1,8 @@
 {
     "settings": {
         "ip": {
-            "title": "KNX IP settings",
-            "body": "Enter the IP address from the KNX IP gateway to use. Press the search IP interface button to search",
+            "title": "KNX IP settings - Select or add a KNX IP interface",
+            "body": "Enter the IP address from the KNX IP interface to use. Press the search IP interface button to search",
             "singleip": "Configure IP Interface",
             "interfaceaddress": "Enter the IP interface IPv4 address",
             "searchbutton": "Check IP interface",
@@ -13,7 +13,8 @@
             "body": " Choose the configuration method wich will be used to add the KNX device to Homey.",
             "learnmode": {
                 "title" : "Start learnmode",
-                "explanation": "Pair a KNX button to a virtual button in Homey."
+                "explanation": "Pair a KNX button to a virtual button in Homey.",
+                "testbutton": "Test groupaddress"
             },
             "existingga": {
                 "title": "Existing groupaddresses",
@@ -30,6 +31,7 @@
         },
         "groupaddresses" : {
             "body": "Select which groupaddresses to use with the new device",
+            "save" : "Save device",
             "switch": {
                 "toggle": "Select switch address",
                 "status" : "Select status address"
@@ -37,6 +39,20 @@
             "dimmer": {
                 "value": "Select dimming address",
                 "status": "Select dimvalue address"
+            },
+            "rgb": {
+                "red_toggle_action": "Toggle address red channel",
+                "red_toggle_status": "Status address red channel",
+                "red_dim_value": "Dim address red channel",
+                "red_dim_status": "Dim status address red channel",
+                "green_toggle_action": "Toggle address green channel",
+                "green_toggle_status": "Status address green channel",
+                "green_dim_value": "Dim address green channel",
+                "green_dim_status": "Dim status address green channel",
+                "blue_toggle_action": "Toggle address blue channel",
+                "blue_toggle_status": "Status address blue channel",
+                "blue_dim_value": "Dim address blue channel",
+                "blue_dim_status": "Dim status address blue channel"
             }
         }
     }
