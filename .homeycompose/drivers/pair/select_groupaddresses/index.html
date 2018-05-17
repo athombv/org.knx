@@ -69,12 +69,14 @@
             <input id="blue_dim_status_input" type="text" class="knx-text right">
             </div>
         </fieldset>
+        <fieldset id="knx-learnmode-fieldset" style="display: block">
+            <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
+            <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
+            <select id="learnmode_dropdown" style="display: none"></select>
+            <button id="test_button" class="right" data-i18n="settings.configmode.learnmode.testbutton"></button>
+        </fieldset>
     <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
     <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
-    <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
-    <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
-    <select id="learnmode_dropdown" style="display: none"></select>
-    <button id="test_button" class="right" data-i18n="settings.configmode.learnmode.testbutton"></button>
     <button id="save_button" class="right" data-i18n="settings.groupaddresses.save"></button>
 </div>
 <script>
@@ -99,19 +101,17 @@
         case 'dimmer':
             console.log('device is a dimmer');
             $("#knx-dimmer-fieldset").css("display", "block");
+            $("#knx-learnmode-fieldset").css("display", "none");
             break;
         case 'rgb':
             console.log('device is a rgb');
             $("#knx-switch-fieldset").css("display", "none");
+            $("#knx-learnmode-fieldset").css("display", "none");
             $("#knx-rgb-fieldset").css("display", "block");
             break;
     }
 
-    // Buttons
-    var $learnmodeButton = $('#learnmode_button');
-    var $newXMLButton = $('#button_newxml');
-    var $testButton = $("#test_button");
-    var $saveButton = $("#save_button");
+    $learnmodeDropdown = $('#learnmode_dropdown');
 
     var $xmlText = $('#xmltext');
 
@@ -127,7 +127,7 @@
     }
 
     // Button acctions
-    $newXMLButton.on('click', function() {
+    $('#button_newxml').on('click', function() {
         Homey.showView('parse_knxproj')
     });
 
@@ -136,7 +136,7 @@
         $(this).next('.knx-text').val(value);
     })
 
-    $learnmodeButton.on('click', function() {
+    $('#learnmode_button').on('click', function() {
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
             if(filteredList && filteredList.length > 0) {
@@ -145,21 +145,22 @@
                     var optionEl = document.createElement("option");
                     optionEl.value = event.destination;
                     optionEl.textContent = "Groupaddress " + event.destination;
-                    $learnmodeDropdown.appendChild(optionEl);
+                    $learnmodeDropdown.append(optionEl);
                 });
                 $("#learnmode_dropdown").css("display", "block");
+                $("#toggle_address").val($learnmodeDropdown.val());
             }
         });
     });
 
-    $testButton.on('click', function() {
-        Homey.emit('test_groupaddress', $learnmodeDropdown.value, function(error, result) {
-            // do something with the result?
+    $("#test_button").on('click', function() {
+        Homey.emit('test_groupaddress', $learnmodeDropdown.val(), function(error, result) {
+            if(error) Homey.alert(error);
         });
-        $("#toggle_address").val($learnmodeDropdown.value);
+        $("#toggle_address").val($learnmodeDropdown.val());
     });
 
-    $saveButton.on('click', function() {
+    $("#save_button").on('click', function() {
         if(interfaceMAC) {
             console.log('Saving this device');
  
@@ -171,7 +172,7 @@
                         },
                         name: 'KNX switch',
                         settings: { 'ga_switch': $("#toggle_address").val(),
-                                    'ga_status' : $("#status_address").val(),
+                                    'ga_status': $("#status_address").val(),
                                     'macAddress': interfaceMAC
                         },
                     }, function(err, result){
@@ -186,9 +187,9 @@
                         },
                         name: 'KNX dimmer',
                         settings: { 'ga_switch': $("#toggle_address").val(),
-                                    'ga_status' : $("#status_address").val(),
-                                    'ga_dim' : $("#dim_address").val(),
-                                    'ga_dim_status' : $("#dim_status_address").val(),
+                                    'ga_status': $("#status_address").val(),
+                                    'ga_dim': $("#dim_address").val(),
+                                    'ga_dim_status': $("#dim_status_address").val(),
                                     'macAddress': interfaceMAC
                         },
                     }, function(err, result){
@@ -203,17 +204,17 @@
                         },
                         name: 'KNX RGB',
                         settings: { 'ga_red_toggle': $("#red_toggle_input").val(),
-                                    'ga_red_toggle_status' : $("#red_toggle_status_input").val(),
-                                    'ga_red_dim' : $("#red_dim_input").val(),
-                                    'ga_red_dim_status' : $("#red_dim_status_input").val(),
+                                    'ga_red_toggle_status': $("#red_toggle_status_input").val(),
+                                    'ga_red_dim': $("#red_dim_input").val(),
+                                    'ga_red_dim_status': $("#red_dim_status_input").val(),
                                     'ga_green_toggle': $("#green_toggle_input").val(),
-                                    'ga_green_toggle_status' : $("#green_toggle_status_input").val(),
-                                    'ga_green_dim' : $("#green_dim_input").val(),
-                                    'ga_green_dim_status' : $("#green_dim_status_input").val(),
+                                    'ga_green_toggle_status': $("#green_toggle_status_input").val(),
+                                    'ga_green_dim': $("#green_dim_input").val(),
+                                    'ga_green_dim_status': $("#green_dim_status_input").val(),
                                     'ga_blue_toggle': $("#blue_toggle_input").val(),
-                                    'ga_blue_toggle_status' : $("#blue_toggle_status_input").val(),
-                                    'ga_blue_dim' : $("#blue_dim_input").val(),
-                                    'ga_blue_dim_status' : $("#blue_dim_status_input").val(),
+                                    'ga_blue_toggle_status': $("#blue_toggle_status_input").val(),
+                                    'ga_blue_dim': $("#blue_dim_input").val(),
+                                    'ga_blue_dim_status': $("#blue_dim_status_input").val(),
                                     'macAddress': interfaceMAC
                         },
                     }, function(err, result){
