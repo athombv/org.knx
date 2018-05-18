@@ -1,82 +1,131 @@
-<!doctype html>
-<div id="ga_input">
+<style type="text/css">
+.knx-wrap fieldset select,
+.knx-wrap fieldset input[type="text"] {
+	max-width: 200px;
+	float: right;
+	margin-left: 0.4em;
+}
+.knx-wrap fieldset .row label {
+	width: auto;
+}
+.knx-wrap fieldset input[type="text"] {
+	max-width: 70px;
+}
+.knx-wrap fieldset select {
+	display: none;
+}
+.knx-wrap .knx-entry {
+	overflow: hidden;
+}
+.knx-wrap .knx-entry:not(:last-child) {
+	padding-bottom: 0.4em;	
+}
+</style>
+<div class="knx-wrap" id="ga_input">
     <p data-i18n="settings.groupaddresses.body">
     </p>
     <fieldset id="knx-switch-fieldset" style="display: block">
         <div class="knx-switch field row">
-            <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
-            <select id="switchga_dropdown" class="knx-dropdown"></select>
-            <input id="toggle_address" type="text" class="knx-text right">
-            <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
-            <select id="switchstatusga_dropdown" class="knx-dropdown"></select>
-            <input id="status_address" type="text" class="knx-text right">
+	        <div class="knx-entry">
+        	    <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
+    	        <select id="switchga_dropdown" class="knx-dropdown"></select>
+	            <input id="toggle_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+	        <div class="knx-entry">
+	            <label for="status_address" class="left" data-i18n="settings.groupaddresses.switch.status"></label>
+	            <select id="switchstatusga_dropdown" class="knx-dropdown"></select>
+	            <input id="status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
         </div>
     </fieldset>
     <fieldset id="knx-dimmer-fieldset" style="display: none">
         <div class="knx-dimmer field row">
-            <label for="dim_address" class="left" data-i18n="settings.groupaddresses.dimmer.value"></label>
-            <select id="dimga_dropdown" class="knx-dropdown"></select>
-            <input id="dim_address" type="text" class="knx-text right">
-            <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
-            <select id="dim_statusga_dropdown" class="knx-dropdown"></select>
-            <input id="dim_status_address" type="text" class="knx-text right">
+	        <div class="knx-entry">
+	            <label for="dim_address" class="left" data-i18n="settings.groupaddresses.dimmer.value"></label>
+            	<select id="dimga_dropdown" class="knx-dropdown"></select>
+        	    <input id="dim_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+	        <div class="knx-entry">
+    	        <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
+	            <select id="dim_statusga_dropdown" class="knx-dropdown"></select>
+				<input id="dim_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
         </div>
     </fieldset>
     <fieldset id="knx-rgb-fieldset" style="display: none">
         <div class="knx-rgb field row">
-            <label for="red_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.red_toggle_action"></label>
-            <select id="red_toggle_dropdown" class="knx-dropdown"></select>
-            <input id="red_toggle_input" type="text" class="knx-text right">
-            <label for="red_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.red_toggle_status"></label>
-            <select id="red_toggle_status_dropdown" class="knx-dropdown"></select>
-            <input id="red_toggle_status_input" type="text" class="knx-text right">
-
-            <label for="red_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.red_dim_value"></label>
-            <select id="red_dim_dropdown" class="knx-dropdown"></select>
-            <input id="red_dim_input" type="text" class="knx-text right">
-            <label for="red_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.red_dim_status"></label>
-            <select id="red_dim_status_dropdown" class="knx-dropdown"></select>
-            <input id="red_dim_status_input" type="text" class="knx-text right">
+	        <div class="knx-entry">
+        	    <label for="red_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.red_toggle_action"></label>
+    	        <select id="red_toggle_dropdown" class="knx-dropdown"></select>
+	            <input id="red_toggle_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+    	        <label for="red_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.red_toggle_status"></label>
+	            <select id="red_toggle_status_dropdown" class="knx-dropdown"></select>
+				<input id="red_toggle_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+        	    <label for="red_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.red_dim_value"></label>
+    	        <select id="red_dim_dropdown" class="knx-dropdown"></select>
+	            <input id="red_dim_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+        	    <label for="red_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.red_dim_status"></label>
+    	        <select id="red_dim_status_dropdown" class="knx-dropdown"></select>
+	            <input id="red_dim_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
         </div>
         <div class="knx-rgb field row">
-            <label for="green_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.green_toggle_action"></label>
-            <select id="green_toggle_dropdown" class="knx-dropdown"></select>
-            <input id="green_toggle_input" type="text" class="knx-text right">
-            <label for="green_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.green_toggle_status"></label>
-            <select id="green_toggle_status_dropdown" class="knx-dropdown"></select>
-            <input id="green_toggle_status_input" type="text" class="knx-text right">
-
-            <label for="green_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.green_dim_value"></label>
-            <select id="green_dim_dropdown" class="knx-dropdown"></select>
-            <input id="green_dim_input" type="text" class="knx-text right">
-            <label for="green_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.green_dim_status"></label>
-            <select id="green_dim_status_dropdown" class="knx-dropdown"></select>
-            <input id="green_dim_status_input" type="text" class="knx-text right">
+	        <div class="knx-entry">
+            	<label for="green_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.green_toggle_action"></label>
+				<select id="green_toggle_dropdown" class="knx-dropdown"></select>
+				<input id="green_toggle_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+            	<label for="green_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.green_toggle_status"></label>
+				<select id="green_toggle_status_dropdown" class="knx-dropdown"></select>
+				<input id="green_toggle_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+        	    <label for="green_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.green_dim_value"></label>
+    	        <select id="green_dim_dropdown" class="knx-dropdown"></select>
+	            <input id="green_dim_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+	            <label for="green_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.green_dim_status"></label>
+				<select id="green_dim_status_dropdown" class="knx-dropdown"></select>
+				<input id="green_dim_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+			</div>
         </div>
         <div class="knx-rgb field row">
-            <label for="blue_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_toggle_action"></label>
-            <select id="blue_toggle_dropdown" class="knx-dropdown"></select>
-            <input id="blue_toggle_input" type="text" class="knx-text right">
-            <label for="blue_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_toggle_status"></label>
-            <select id="blue_toggle_status_dropdown" class="knx-dropdown"></select>
-            <input id="blue_toggle_status_input" type="text" class="knx-text right">
-
-            <label for="blue_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_dim_value"></label>
-            <select id="blue_dim_dropdown" class="knx-dropdown"></select>
-            <input id="blue_dim_input" type="text" class="knx-text right">
-            <label for="blue_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_dim_status"></label>
-            <select id="blue_dim_status_dropdown" class="knx-dropdown"></select>
-            <input id="blue_dim_status_input" type="text" class="knx-text right">
+	        <div class="knx-entry">
+        	    <label for="blue_toggle_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_toggle_action"></label>
+    	        <select id="blue_toggle_dropdown" class="knx-dropdown"></select>
+	            <input id="blue_toggle_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+            	<label for="blue_toggle_status_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_toggle_status"></label>
+				<select id="blue_toggle_status_dropdown" class="knx-dropdown"></select>
+				<input id="blue_toggle_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+	            <label for="blue_dim_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_dim_value"></label>
+				<select id="blue_dim_dropdown" class="knx-dropdown"></select>
+				<input id="blue_dim_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	        </div>
+	        <div class="knx-entry">
+	            <label for="blue_dim_status_label" class="left" data-i18n="settings.groupaddresses.rgb.blue_dim_status"></label>
+				<select id="blue_dim_status_dropdown" class="knx-dropdown"></select>
+				<input id="blue_dim_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
         </fieldset>
         <fieldset id="knx-learnmode-fieldset" style="display: block">
             <label id="learnmode_label" data-i18n="settings.configmode.learnmode.explanation"></label>
             <button id="learnmode_button" class="right" data-i18n="settings.configmode.learnmode.title"></button>
             <select id="learnmode_dropdown" style="display: none"></select>
-            <button id="test_button" class="right" data-i18n="settings.configmode.learnmode.testbutton"></button>
+            <button id="test_button" class="right" style="display: none;" data-i18n="settings.configmode.learnmode.testbutton"></button>
         </fieldset>
-    <label id=xmltext data-i18n="settings.configmode.newxml.explanation"></label>
-    <button id="button_newxml" class="right" data-i18n="settings.configmode.newxml.title"></button>
+    <label id="xmltext" data-i18n="settings.configmode.newxml.explanation"></label>
     <button id="save_button" class="right" data-i18n="settings.groupaddresses.save"></button>
 </div>
 <script>
@@ -112,6 +161,8 @@
     }
 
     $learnmodeDropdown = $('#learnmode_dropdown');
+    $learnmodeButton = $('#learnmode_button');
+    $testButton = $('#test_button');
 
     var $xmlText = $('#xmltext');
 
@@ -124,21 +175,21 @@
             optionEl.textContent = etsEntry.name + ", groupaddress: " + etsEntry.address;
             $(selectItem).append(optionEl);
         })
+        $(selectItem).toggle(!!groupAddresses.length)
     }
-
-    // Button acctions
-    $('#button_newxml').on('click', function() {
-        Homey.showView('parse_knxproj')
-    });
 
     $('.knx-dropdown').on('change', function() {
         var value = $(this).val();
         $(this).next('.knx-text').val(value);
     })
 
-    $('#learnmode_button').on('click', function() {
+    $learnmodeButton.on('click', function() {
+	    $learnmodeButton.attr('disabled', 'disabled');
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
+	        if( error ) return Homey.alert( error.message || error.toString(), 'error' );
+	        
+		    $learnmodeButton.removeAttr('disabled');
             if(filteredList && filteredList.length > 0) {
                 //console.log('learnmode list', filteredList);
                 filteredList.forEach(function(event) {
@@ -147,14 +198,19 @@
                     optionEl.textContent = "Groupaddress " + event.destination;
                     $learnmodeDropdown.append(optionEl);
                 });
-                $("#learnmode_dropdown").css("display", "block");
+                $learnmodeDropdown.toggle(!!filteredList.length);
+                $testButton.toggle(!!filteredList.length);
                 $("#toggle_address").val($learnmodeDropdown.val());
+            } else {
+	            Homey.alert( Homey.__('settings.configmode.learnmode.no_result'), 'info' );
             }
         });
     });
 
-    $("#test_button").on('click', function() {
+    $testButton.on('click', function() {
+	    $testButton.attr('disabled', 'disabled');
         Homey.emit('test_groupaddress', $learnmodeDropdown.val(), function(error, result) {
+		    $testButton.removeAttr('disabled');
             if(error) Homey.alert(error);
         });
         $("#toggle_address").val($learnmodeDropdown.val());
@@ -231,12 +287,25 @@
 
     // Check if there are uploaded groupaddresses available
     Homey.emit('list_etsimport', function(error, groupAddressList) {
+        if( error ) return Homey.alert( error.message || error.toString(), 'error' );
+	    
         if(groupAddressList && groupAddressList.length > 0) {
             groupAddresses = groupAddressList;
-            $xmlText[0].textContent = "A ETS export has already been uploaded for this interface.";
+            var $span = $('<span />').html(Homey.__('settings.configmode.existingxml.title'))
+            $xmlText.html($span);
+            
             $('.knx-dropdown').each(function() {
                 listGroupAddressesDropdown($(this));
             });
         }
+        
+        var $a = $('<a href="#">' + Homey.__('settings.configmode.upload') + '</a>');
+        $a.click(function(e){
+            e.preventDefault();
+			Homey.showView('parse_knxproj')	            
+			return false;
+        })
+        console.log($a)
+        $a.appendTo($xmlText);
     });
 </script>

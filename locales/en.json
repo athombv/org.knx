@@ -14,7 +14,8 @@
             "learnmode": {
                 "title" : "Start learnmode",
                 "explanation": "Pair a KNX button to a virtual button in Homey.",
-                "testbutton": "Test groupaddress"
+                "testbutton": "Test groupaddress",
+                "no_result": "No devices have been found."
             },
             "existingga": {
                 "title": "Existing groupaddresses",
@@ -22,8 +23,12 @@
             },
             "newxml": {
                 "title": "New ETS configuration",
-                "explanation": "Upload a ETS configuration file (*.knxproj) to extract and store the KNX groupaddresses."
-            }
+                "explanation": "If available, you can "
+            },
+            "existingxml": {
+	            "title": "An ETS export is already available, but you can "
+            },
+            "upload": "upload an ETS project"
         },
         "ets": {
             "title": "Upload an ETS project",
@@ -33,12 +38,12 @@
             "body": "Select which groupaddresses to use with the new device",
             "save" : "Save device",
             "switch": {
-                "toggle": "Select switch address",
-                "status" : "Select status address"
+                "toggle": "Switch address",
+                "status" : "Status address"
             },
             "dimmer": {
-                "value": "Select dimming address",
-                "status": "Select dimvalue address"
+                "value": "Dim address",
+                "status": "Status address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
