@@ -1,3 +1,34 @@
 # KNX
 
-Adds support for devices using the KNX network.
+Add your KNX devices to Homey. This app requires a KNX IP Router or Interface connected to the same Wi-Fi network as Homey.
+
+## Supported KNX devices
+
+### Binary device
+For example a light that can turn on/off, or a wall-mounted switch that can be toggled.
+
+### Dimmer device
+For example a light that can be dimmed (0% - 100%).
+
+### RGB Light
+A light or LED Strip that can change color (Red/Green/Blue).
+
+## Set-up
+
+To set-up your KNX network in Homey, this app provides three options.
+
+### Learn mode
+
+For binary devices, Homey listens for a press on a button and copies the KNX Group Address (e.g. 0/1/2).
+
+### ETS Import
+
+If there is an ETS (.knxproj-file) export available, it can be uploaded to Homey to make it easier to assign KNX Group Addresses to a Homey device. Most likely your installer can provide this file for you.
+
+### Manual entry
+
+It is possible to manually enter KNX Group Addresses during set-up (e.g. 0/1/2). These values can usually be found in a 'group address export' (.esf-file). Most likely your installer can provide this file for you.
+
+## Support
+
+KNX Networks might be complicated to set-up. Please contact your local KNX Installer if you require any assistance.
