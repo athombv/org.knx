@@ -59,6 +59,10 @@
         "onoff",
         "dim"
       ],
+      "images": {
+        "large": "/drivers/knx_dimmer/assets/images/large.png",
+        "small": "/drivers/knx_dimmer/assets/images/small.png"
+      },
       "settings": [
         {
           "type": "group",
@@ -173,6 +177,10 @@
         "light_hue",
         "light_saturation"
       ],
+      "images": {
+        "large": "/drivers/knx_rgb/assets/images/large.png",
+        "small": "/drivers/knx_rgb/assets/images/small.png"
+      },
       "settings": [
         {
           "type": "group",
@@ -388,6 +396,10 @@
       "capabilities": [
         "onoff"
       ],
+      "images": {
+        "large": "/drivers/knx_switch/assets/images/large.png",
+        "small": "/drivers/knx_switch/assets/images/small.png"
+      },
       "settings": [
         {
           "type": "group",
