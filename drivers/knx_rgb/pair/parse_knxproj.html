@@ -25,7 +25,9 @@
     var knxGroupAdresses = {};
     var uploaded = false;
 	function onerror(message) {
-		console.error(message);
+        console.error(message);
+        Homey.alert(message);
+        fileInput.disabled = false;
 	}
 
 	var model =  {

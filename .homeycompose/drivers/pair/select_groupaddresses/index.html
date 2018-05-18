@@ -187,11 +187,10 @@
 	    $learnmodeButton.attr('disabled', 'disabled');
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
-	        if( error ) return Homey.alert( error.message || error.toString(), 'error' );
+	        if(error) return Homey.alert( error.message || error.toString(), 'error' );
 	        
 		    $learnmodeButton.removeAttr('disabled');
             if(filteredList && filteredList.length > 0) {
-                //console.log('learnmode list', filteredList);
                 filteredList.forEach(function(event) {
                     var optionEl = document.createElement("option");
                     optionEl.value = event.destination;
@@ -202,16 +201,19 @@
                 $testButton.toggle(!!filteredList.length);
                 $("#toggle_address").val($learnmodeDropdown.val());
             } else {
-	            Homey.alert( Homey.__('settings.configmode.learnmode.no_result'), 'info' );
+                Homey.alert( Homey.__('settings.configmode.learnmode.no_result'), 'info' );
             }
         });
     });
 
     $testButton.on('click', function() {
-	    $testButton.attr('disabled', 'disabled');
-        Homey.emit('test_groupaddress', $learnmodeDropdown.val(), function(error, result) {
-		    $testButton.removeAttr('disabled');
+        $testButton.attr('disabled', 'disabled');
+        var testTimeMs = 3200; // this should be forwarded to the driver
+        Homey.emit('test_groupaddress', {address: $learnmodeDropdown.val(), time: testTimeMs}, function(error, result) {
             if(error) Homey.alert(error);
+            setTimeout(function() {
+                $testButton.removeAttr('disabled');
+            }, testTimeMs);
         });
         $("#toggle_address").val($learnmodeDropdown.val());
     });
@@ -305,7 +307,7 @@
 			Homey.showView('parse_knxproj')	            
 			return false;
         })
-        console.log($a)
+        //console.log($a)
         $a.appendTo($xmlText);
     });
 </script>

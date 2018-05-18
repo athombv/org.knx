@@ -47,12 +47,12 @@ class KNXApp extends Homey.App {
 
 	// Test a given groupaddress of the given interface. Currently only supports DPT1 (binary/toggle)
 	// A third parameter should be added to handle the datapointtype so that all datapoints can be tested.
-	testGroupAddress(macAddress, groupAddress) {
+	testGroupAddress(macAddress, groupAddress, time) {
 		let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(macAddress);
 		knxInterfaceToUse.writeKNXGroupAddress(groupAddress, 1, 'DPT1');
 		setTimeout(() => {
 			knxInterfaceToUse.writeKNXGroupAddress(groupAddress, 0, 'DPT1');
-		}, 3000);
+		}, time);
 	}
 }
 
