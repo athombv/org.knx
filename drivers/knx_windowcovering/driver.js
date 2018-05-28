@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const KNXGenericDriver = require('./../../lib/generic_knx_driver.js');
 
-class KNXDimmer extends KNXGenericDriver {
+class KNXWindowCovering extends KNXGenericDriver {
 }
 
-module.exports = KNXDimmer;
+module.exports = KNXWindowCovering;

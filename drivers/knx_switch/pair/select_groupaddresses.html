@@ -147,6 +147,9 @@
         case 'switch':
             console.log('device is a switch/lightbulb');
             break;
+        case 'windowcovering':
+            console.log('device is a windowcovering');
+            break;
         case 'dimmer':
             console.log('device is a dimmer');
             $("#knx-dimmer-fieldset").css("display", "block");
@@ -200,6 +203,7 @@
                 $learnmodeDropdown.toggle(!!filteredList.length);
                 $testButton.toggle(!!filteredList.length);
                 $("#toggle_address").val($learnmodeDropdown.val());
+                $("#status_address").val($learnmodeDropdown.val());
             } else {
                 Homey.alert( Homey.__('settings.configmode.learnmode.no_result'), 'info' );
             }
@@ -238,6 +242,21 @@
                         Homey.done();
                     });
                     break;
+                case 'windowcovering':
+                    Homey.addDevice({
+                            data: {
+                                id: $("#toggle_address").val()
+                            },
+                            name: 'KNX windowcovering',
+                            settings: { 'ga_switch': $("#toggle_address").val(),
+                                        'ga_status': $("#status_address").val(),
+                                        'macAddress': interfaceMAC
+                            },
+                        }, function(err, result){
+                            if(err) return Homey.alert(err);
+                            Homey.done();
+                        });
+                    break
                 case 'dimmer':
                     Homey.addDevice({
                         data: {

@@ -1,0 +1,111 @@
+<!doctype html>
+<div id="ets_input">
+    <p data-i18n="settings.ets.body">
+    </p>
+    <fieldset>
+        <legend>Upload project</legend>
+        <div class="field row">
+            <input id="file-input" accept="application/knxproj" type="file"/>
+        </div>
+    </fieldset>
+</div>
+
+<script type="text/javascript" async=false defer=false src="parse_knxproj.assets/zip.js"></script>
+<script type="text/javascript" async=false defer=false src="parse_knxproj.assets/zip-ext.js"></script>
+<script type="text/html" id="devices-list-template">
+    <li class="device">
+        <label for='device-{{:mac}}' class="name">
+            <div class="overlay"></div>
+            <input class="name" value="{{:name}}" tabindex="-1" />
+        </label>
+    </li>
+</script>
+<script>
+    Homey.setTitle(Homey.__("settings.ets.title"));
+    var knxGroupAdresses = {};
+    var uploaded = false;
+	function onerror(message) {
+        console.error(message);
+        Homey.alert(message);
+        fileInput.disabled = false;
+	}
+
+	var model =  {
+        getEntries : function(file, callback) {
+            console.log('getEntries');
+            zip.createReader(new zip.BlobReader(file), function(zipReader) {
+                zipReader.getEntries(callback);
+            }, onerror);
+        },
+        getEntryFile : function(entry, callback) {
+            console.log('getEntryFile');
+            var writer = new zip.TextWriter();
+            entry.getData(writer, function(text) {
+                callback(text);
+            });
+        }
+    };
+
+    function extractParseProjectFile(entry, li, a) {
+        model.getEntryFile(entry, function(rawXML) {
+            var parser = new DOMParser();
+            parsedXMLData = parser.parseFromString(rawXML, "application/xml");
+            // Parsing of ETS project file starts here
+            // Gather the needed information from the parsed XML
+            groupAddress3Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupRange > GroupAddress');
+            groupAddress2Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupAddress');
+            groupAddressConnectors = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > Topology > Area > Line > DeviceInstance > ComObjectInstanceRefs > ComObjectInstanceRef > Connectors > *');
+
+            // Start parsing the GroupAddresses
+            if (groupAddress3Level.length > 0) {
+                groupAddress3Level.forEach((groupAddressData) => {
+                    address = groupAddressData.getAttribute('Address');
+                    id = groupAddressData.getAttribute('Id');
+                    name = groupAddressData.getAttribute('Name');
+                    ga = `${address >> 11 & 0x1F}/${address >> 8 & 0x7}/${address & 0xFF}`;
+                    knxGroupAdresses[id] = {ga, name};
+                    if (groupAddressData.hasAttribute('DatapointType')) {
+                        dpt = groupAddressData.getAttribute('DatapointType');
+                        knxGroupAdresses[id].dpt = dpt;
+                    }
+                });
+            }
+            // Else if because it's either 2 or 3 level in a project
+            else if (groupAddress2Level > 0) {
+                groupAddress2Level.forEach((address) => {
+                    console.log(address.getAttribute('Address'));
+                });
+            }
+            // Try to couple a send or receive connector to groupaddresses
+            if (groupAddressConnectors.length > 0) {
+                groupAddressConnectors.forEach((connector => {
+                    groupId = connector.getAttribute('GroupAddressRefId');
+                    if(knxGroupAdresses[groupId]) {
+                        knxGroupAdresses[groupId].connector = connector.tagName.toLowerCase();
+                    }
+                }));
+            }
+        console.log(knxGroupAdresses);
+        // emit parsed list to homey
+        Homey.emit('uploaded_groupaddresses', knxGroupAdresses);
+        Homey.showView('select_groupaddresses');
+        });
+    }
+
+    var fileInput = document.getElementById("file-input");
+
+    fileInput.addEventListener('change', function() {
+        if (!uploaded) {
+            fileInput.disabled = true;
+            model.getEntries(fileInput.files[0], function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.filename.match(/\/0\.xml$/i)) {
+                        console.log('0.xml found with regex', entry.filename);
+                        extractParseProjectFile(entry);
+                    }
+                });
+            });
+            uploaded = true;
+        }
+    }, false);
+</script>
