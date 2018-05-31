@@ -47,6 +47,7 @@
     };
 
     function extractParseProjectFile(entry, li, a) {
+        console.log("Starting to parse the projectfile");
         model.getEntryFile(entry, function(rawXML) {
             var parser = new DOMParser();
             parsedXMLData = parser.parseFromString(rawXML, "application/xml");
@@ -54,6 +55,11 @@
             // Gather the needed information from the parsed XML
             groupAddress3Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupRange > GroupAddress');
             groupAddress2Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupAddress');
+            if (!groupAddress3Level.length > 0 && !groupAddress2Level.length > 0) {
+                // There are alternative XML strcutres arround which are both valid. If the first doesn't work, try loading the alternative.
+                // In the future more alternative may be found, they could be added here.
+                groupAddress3Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > Topology > GroupAddresses > GroupRanges > GroupRange > GroupRange > GroupAddress');
+            }
             groupAddressConnectors = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > Topology > Area > Line > DeviceInstance > ComObjectInstanceRefs > ComObjectInstanceRef > Connectors > *');
 
             // Start parsing the GroupAddresses
@@ -71,10 +77,18 @@
                 });
             }
             // Else if because it's either 2 or 3 level in a project
+            // Not tested yet, need a 2 level ETS file, and does knx.js support this anyway?
             else if (groupAddress2Level > 0) {
-                groupAddress2Level.forEach((address) => {
-                    console.log(address.getAttribute('Address'));
+                groupAddress2Level.forEach((groupAddressData) => {
+                    console.log(groupAddressData.getAttribute('Address'));
+                    address = groupAddressData.getAttribute('Address');
+                    id = groupAddressData.getAttribute('Id');
+                    name = groupAddressData.getAttribute('Name');
+                    ga = `${address >> 11 & 0x1F}/${address >> 8 & 0x7}/${address & 0xFF}`;
+                    knxGroupAdresses[id] = {ga, name};
                 });
+            } else {
+                Homey.alert('Invalid groupaddress structure in project file');
             }
             // Try to couple a send or receive connector to groupaddresses
             if (groupAddressConnectors.length > 0) {
@@ -85,10 +99,16 @@
                     }
                 }));
             }
-        console.log(knxGroupAdresses);
-        // emit parsed list to homey
-        Homey.emit('uploaded_groupaddresses', knxGroupAdresses);
-        Homey.showView('select_groupaddresses');
+            if (knxGroupAdresses) {
+                console.log(knxGroupAdresses);
+                // emit parsed list to homey
+                Homey.emit('uploaded_groupaddresses', knxGroupAdresses);
+                Homey.showView('select_groupaddresses');
+            } else {
+                // No groupaddress found, so re-enable the upload form so that the user can upload another file.
+                Homey.alert('No groupaddress found, you might have uploaded an empty project.');
+                uploaded = false;
+            }
         });
     }
 
@@ -98,14 +118,22 @@
         if (!uploaded) {
             fileInput.disabled = true;
             model.getEntries(fileInput.files[0], function(entries) {
+                var found = false;
                 entries.forEach(function(entry) {
                     if (entry.filename.match(/\/0\.xml$/i)) {
-                        console.log('0.xml found with regex', entry.filename);
+                        console.log('0.xml found in', entry.filename);
                         extractParseProjectFile(entry);
+                        found = true;
                     }
                 });
+                if (!found) {
+                    Homey.alert('No valid groupaddress XML found in the project file. Please upload a new file.');
+                    uploaded = false;
+                    fileInput.disabled = false;
+                } else {
+                    uploaded = true;
+                }
             });
-            uploaded = true;
         }
     }, false);
 </script>
