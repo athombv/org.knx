@@ -26,12 +26,24 @@ class KNXDimmer extends KNXGeneric {
     onKNXConnection() {
         // Reading the groupaddress will trigger a event on the bus.
         // This will be catched by onKNXEvent, hence the return value is not used.
-        this.knxInterface.readKNXGroupAddress(this.getSetting('ga_status'));
-        this.knxInterface.readKNXGroupAddress(this.getSetting('ga_dim_status'));
+        if (this.knxInterface) {
+            if (this.getSetting('ga_status')) {
+                this.knxInterface.readKNXGroupAddress(this.getSetting('ga_status'))
+                .catch((knxerror) => {
+                    this.log(knxerror);
+                });
+            }
+            if (this.getSetting('ga_dim_status')) {
+                this.knxInterface.readKNXGroupAddress(this.getSetting('ga_dim_status'))
+                .catch((knxerror) => {
+                    this.log(knxerror);
+                });
+            }
+        }
     }
 
     onCapabilityOnoff(value, opts) {
-        if(this.knxInterface) {
+        if(this.knxInterface && this.getSetting('ga_switch')) {
             return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
             .catch((knxerror) => {
                 this.log(knxerror);
@@ -41,7 +53,7 @@ class KNXDimmer extends KNXGeneric {
     }
 
     onCapabilityDim(value, opts) {
-        if(this.knxInterface) {
+        if(this.knxInterface && this.getSetting('ga_dim')) {
             if (value > 0) {
                 this.setCapabilityValue('onoff', true);
             } else {
@@ -50,7 +62,7 @@ class KNXDimmer extends KNXGeneric {
             return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_dim'), value * 255, 'DPT5')
             .catch( (knxerror) => {
                 this.log(knxerror);
-                throw new Error('Switching the device failed!');
+                throw new Error('Dimming the device failed!');
             });
         }
     }

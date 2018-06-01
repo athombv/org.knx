@@ -15,7 +15,7 @@ class KNXWindowCovering extends KNXGeneric {
 
     onKNXEvent(groupaddress, data) {
         if (groupaddress === this.getSetting('ga_status')) {
-            //this.setCapabilityValue('windowcoverings_state', DatapointTypeParser.onoff(data));
+            //this.setCapabilityValue('windowcoverings_state', DatapointTypeParser.upstopdown(data));
         }
     }
 
@@ -24,10 +24,16 @@ class KNXWindowCovering extends KNXGeneric {
         if (this.knxInterface) {
             switch(value) {
                 case 'up':
-                    return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), 0, 'DPT1');
+                    return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), 0, 'DPT1')
+                    .catch((knxerror) => {
+                        this.log(knxerror)
+                    });
                     break;
                 case 'down':
                     return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), 1, 'DPT1')
+                    .catch((knxerror) => {
+                        this.log(knxerror)
+                    });
             }
         }
     }
