@@ -6,21 +6,20 @@
             "singleip": "Configure IP Interface",
             "interfaceaddress": "Enter the IP interface IPv4 address",
             "searchbutton": "Check IP interface",
-            "scanbutton": "Scan the network for IP interfaces"
+            "scanbutton": "Scan the network for IP interfaces",
+            "interface_not_found": "Selected IP interface not found",
+            "interface_not_available": "Selected IP interface not available",
+            "interface_not_selected": "No IP interface selected"
         },
-        "configmode": {
-            "title": "Choose KNX configuration method",
-            "body": " Choose the configuration method wich will be used to add the KNX device to Homey.",
-            "learnmode": {
-                "title" : "Start learnmode",
-                "explanation": "Pair a KNX button to a virtual button in Homey.",
-                "testbutton": "Test groupaddress",
-                "no_result": "No devices have been found."
-            },
-            "existingga": {
-                "title": "Existing groupaddresses",
-                "explanation": "Reuse already configured groupaddresses."
-            },
+        "learnmode": {
+            "title" : "Start learnmode",
+            "explanation": "Pair a KNX button to a virtual button in Homey.",
+            "testbutton": "Test groupaddress",
+            "no_result": "No devices have been found."        
+        },
+        "projectfile": {
+            "title": "Upload an ETS project",
+            "body": "Upload a ETS configuration file (*.knxproj) to extract the KNX groupaddresses.",
             "newxml": {
                 "title": "New ETS configuration",
                 "explanation": "If available, you can "
@@ -28,22 +27,26 @@
             "existingxml": {
 	            "title": "An ETS export is already available, but you can "
             },
-            "upload": "upload an ETS project"
-        },
-        "ets": {
-            "title": "Upload an ETS project",
-            "body": "Upload a ETS configuration file (*.knxproj) to extract the KNX groupaddresses."
+            "upload": "upload an ETS project",
+            "no_valid_xml": "No valid groupaddress XML found in the project file. Please upload another project.",
+            "invalid_ga_structure": "Invalid groupaddress structure in project file",
+            "no_ga_found": "No groupaddress found, you might have uploaded an empty project."
         },
         "groupaddresses" : {
             "body": "Select which groupaddresses to use with the new device",
+            "generic_status": "Status",
             "save" : "Save device",
+            "save_error": "Cannot save device.",
             "switch": {
-                "toggle": "Switch address",
-                "status" : "Status address"
+                "toggle": "Switch address"
             },
             "dimmer": {
                 "value": "Dim address",
                 "status": "Status address"
+            },
+            "thermostat": {
+                "target": "Target temperature address",
+                "measure": "Temperature measurement address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
@@ -58,6 +61,11 @@
                 "blue_toggle_status": "Status address blue channel",
                 "blue_dim_value": "Dim address blue channel",
                 "blue_dim_status": "Dim status address blue channel"
+            },
+            "windowcovering": {
+                "upstopdown": "Up/stop/down address",
+                "tilt": "Tilt address",
+                "tilt_status": "Tilt status address"
             }
         }
     }

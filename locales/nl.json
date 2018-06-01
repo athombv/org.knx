@@ -6,37 +6,47 @@
             "singleip": "Configureer IP Interface",
             "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
             "searchbutton": "Zoek IP interface",
-            "scanbutton": "Scan het netwerk voor IP interfaces"
+            "scanbutton": "Scan het netwerk voor IP interfaces",
+            "interface_not_found": "Geselecteerde IP interface niet gevonden",
+            "interface_not_available": "Geselecteerde IP interface niet beschikbaar",
+            "interface_not_selected": "Geen IP interface geselecteerd"
         },
-        "configmode": {
-            "title": "Kies een KNX configuratiemethode",
-            "body": " Kies de configuratiemodus welke gebruikt zal worden om het KNX apparaat toe te voegen.",
-            "learnmode": {
-                "title" : "Inleermodus",
-                "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey."
-            },
-            "existingga": {
-                "title": "Bestaande groepadressen",
-                "explanation": "Hergebruik reeds teogevoegde groepadressen."
-            },
+        "learnmode": {
+            "title" : "Inleermodus",
+            "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey.",
+            "testbutton": "Test groepadres",
+            "no_result": "Geen apparaten gevonden."  
+        },
+        "projectfile": {
+            "title": "Upload een ETS project",
+            "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen.",
             "newxml": {
                 "title": "Nieuwe ETS configuratie",
                 "explanation": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen en te bewaren in Homey."
-            }
-        },
-        "ets": {
-            "title": "Upload een ETS project",
-            "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen."
+            },
+            "existingxml": {
+	            "title": "Een ETS export is al beschikbaar, maar je kunt "
+            },
+            "upload": "upload een ETS project",
+            "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
+            "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
+            "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
         },
         "groupaddresses" : {
             "body": "Selecteer de groepadressen voor het nieuwe apparaat",
+            "generic_status": "Status adres",
+            "save": "Apparaat opslaan",
+            "save_error": "Kan apparaat niet opslaan",
             "switch": {
-                "toggle": "Selecteer schakel adres",
-                "status" : "Selecteer status adres"
-            },
+                "toggle": "Schakel adres"
+            },            
             "dimmer": {
-                "value": "Selecteer dimmer adres",
-                "status": "Selecteer dimvalue adres"
+                "value": "Dimmer adres",
+                "status": "Dimwaarde adres"
+            },
+            "thermostat": {
+                "target": "Doel temperatuur adres",
+                "measure": "Ruimtetemperatuur adres"
             },
             "rgb": {
                 "red_toggle_action": "Schakel adres rood kanaal",
@@ -51,6 +61,11 @@
                 "blue_toggle_status": "Status adres blauw kanaal",
                 "blue_dim_value": "Dim adres blauw kanaal",
                 "blue_dim_status": "Dim status adres blauw kanaal"
+            },
+            "windowcovering": {
+                "upstopdown": "Omhoog/stop/omlaag adres",
+                "tilt": "Hoekverstelling adres",
+                "tilt_status": "Hoekverstelling status adres"
             }
         }
     }

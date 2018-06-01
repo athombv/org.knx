@@ -1,6 +1,6 @@
 <!doctype html>
-<div id="ets_input">
-    <p data-i18n="settings.ets.body">
+<div id="projectfile_input">
+    <p data-i18n="settings.projectfile.body">
     </p>
     <fieldset>
         <legend>Upload project</legend>
@@ -21,7 +21,7 @@
     </li>
 </script>
 <script>
-    Homey.setTitle(Homey.__("settings.ets.title"));
+    Homey.setTitle(Homey.__("settings.projectfile.title"));
     var knxGroupAdresses = {};
     var uploaded = false;
 	function onerror(message) {
@@ -88,7 +88,7 @@
                     knxGroupAdresses[id] = {ga, name};
                 });
             } else {
-                Homey.alert('Invalid groupaddress structure in project file');
+                Homey.alert(Homey.__('settings.projectfile.invalid_ga_structure'));
             }
             // Try to couple a send or receive connector to groupaddresses
             if (groupAddressConnectors.length > 0) {
@@ -106,7 +106,7 @@
                 Homey.showView('select_groupaddresses');
             } else {
                 // No groupaddress found, so re-enable the upload form so that the user can upload another file.
-                Homey.alert('No groupaddress found, you might have uploaded an empty project.');
+                Homey.alert(Homey.__('settings.projectfile.no_ga_found'));
                 uploaded = false;
             }
         });
@@ -127,7 +127,7 @@
                     }
                 });
                 if (!found) {
-                    Homey.alert('No valid groupaddress XML found in the project file. Please upload a new file.');
+                    Homey.alert(Homey.__('settings.projectfile.no_valid_xml'));
                     uploaded = false;
                     fileInput.disabled = false;
                 } else {
