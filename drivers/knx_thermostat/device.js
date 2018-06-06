@@ -11,7 +11,6 @@ class KNXThermostat extends KNXGeneric {
         super.onInit();
         this.log('KNX thermostat init');
         this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
-        this.registerCapabilityListener('measure_temperature', this.onCapabilityMeasureTemperature.bind(this));
     }
 
     onKNXEvent(groupaddress, data) {
@@ -43,25 +42,13 @@ class KNXThermostat extends KNXGeneric {
     }
 
     onCapabilityTargetTemperature(value, opts) {
-        this.log('target temp', value);
         if(this.knxInterface && this.getSetting('ga_temperature_target')) {
-            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_temperature_target'), value, 'DPT9')
+            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_temperature_target'), value, 'DPT9.1')
             .catch((knxerror) => {
                 this.log(knxerror);
                 throw new Error('Setting temperature to KNX failed!');
             });
         }
-    }
-
-    onCapabilityMeasureTemperature(value, opts) {
-        this.log('measure', value);
-        if (this.getSetting('ga_temperature_measure')) {
-            var currentTemperature = this.knxInterface.readKNXGroupAddress(this.getSetting('ga_temperature_measure'))
-            .catch((knxerror) => {
-                this.log(knxerror);
-            });
-        }
-        this.setCapabilityValue('measure_temperature', DatapointTypeParser.temperature(currentTemperature));
     }
 }
 

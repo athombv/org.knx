@@ -2,8 +2,8 @@
     "$extends" :["knx_driver"],
     "id": "knx_windowcovering_tilt",
     "name": {
-        "en": "KNX Windowcovering with tilt",
-        "nl": "KNX Raambedekking met hoekverstelling"
+        "en": "Windowcovering with tilt",
+        "nl": "Raambedekking met hoekverstelling"
     },
     "class": "windowcoverings",
     "capabilities": ["windowcoverings_state",
@@ -51,6 +51,19 @@
                     "label": {
                         "en": "Up/Down address",
                         "nl": "Op/Neer adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_stop",
+                    "type": "text",
+                    "label": {
+                        "en": "Stop address",
+                        "nl": "Stop adres"
                     },
                     "value": "",
                     "hint": {

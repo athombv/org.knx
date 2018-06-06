@@ -63,7 +63,8 @@
                 "blue_dim_status": "Dim status address blue channel"
             },
             "windowcovering": {
-                "upstopdown": "Up/stop/down address",
+                "updown": "Up/down address",
+                "stop": "Stop address",
                 "tilt": "Tilt address",
                 "tilt_status": "Tilt status address"
             }

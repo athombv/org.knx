@@ -2,8 +2,8 @@
     "$extends" :["knx_driver"],
     "id": "knx_switch",
     "name": {
-        "en": "KNX Switch",
-        "nl": "KNX Schakelaar"
+        "en": "Switch",
+        "nl": "Schakelaar"
     },
     "class": "light",
     "capabilities": ["onoff"],

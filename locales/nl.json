@@ -63,7 +63,8 @@
                 "blue_dim_status": "Dim status adres blauw kanaal"
             },
             "windowcovering": {
-                "upstopdown": "Omhoog/stop/omlaag adres",
+                "updown": "Omhoog/omlaag adres",
+                "stop": "Stop adres",
                 "tilt": "Hoekverstelling adres",
                 "tilt_status": "Hoekverstelling status adres"
             }

@@ -78,9 +78,14 @@
     <fieldset id="knx-windowcovering-fieldset" style="display: none">
         <div class="knx-windowcovering field row">
 	        <div class="knx-entry">
-	            <label for="windowcover_upstopdown_address" class="left" data-i18n="settings.groupaddresses.windowcovering.upstopdown"></label>
-            	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_upstopdown_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+	            <label for="windowcover_updown_address" class="left" data-i18n="settings.groupaddresses.windowcovering.updown"></label>
+            	<select id="windowcover_updown_ga_dropdown" class="knx-dropdown"></select>
+        	    <input id="windowcover_updown_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+            <div class="knx-entry">
+	            <label for="windowcover_stop_address" class="left" data-i18n="settings.groupaddresses.windowcovering.stop"></label>
+            	<select id="windowcover_gaupdown_dropdown" class="knx-dropdown"></select>
+        	    <input id="windowcover_stop_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
 	        <div class="knx-entry">
     	        <label for="windowcover_status_address" class="left" data-i18n="settings.groupaddresses.generic_status"></label>
@@ -92,7 +97,7 @@
 	        <div class="knx-entry">
 	            <label for="windowcover_tilt_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt"></label>
             	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_til;t_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+        	    <input id="windowcover_tilt_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
 	        <div class="knx-entry">
     	        <label for="windowcover_tilt_status_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt_status"></label>
@@ -278,6 +283,10 @@
         });
     });
 
+    $learnmodeDropdown.on('change', function(){
+        $("#switch_toggle_address").val($learnmodeDropdown.val());
+    });
+
     $testButton.on('click', function() {
         $testButton.attr('disabled', 'disabled');
         var testTimeMs = 3200; // this should be forwarded to the driver
@@ -327,10 +336,11 @@
                 case 'windowcovering':
                     Homey.addDevice({
                             data: {
-                                id: $("#windowcover_toggle_address").val()
+                                id: $("#windowcover_updown_address").val()
                             },
                             name: 'KNX Windowcovering',
-                            settings: { 'ga_switch': $("#windowcover_toggle_address").val(),
+                            settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
+                                        'ga_stop': $("#windowcover_stop_address").val(),
                                         'ga_status': $("#windowcover_status_address").val(),
                                         'macAddress': interfaceMAC
                             },
@@ -342,11 +352,14 @@
                 case 'windowcovering_tilt':
                     Homey.addDevice({
                             data: {
-                                id: $("#windowcover_toggle_address").val()
+                                id: $("#windowcover_updown_address").val()
                             },
                             name: 'KNX Windowcovering tilt',
-                            settings: { 'ga_switch': $("#windowcover_toggle_address").val(),
+                            settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
+                                        'ga_stop': $("#windowcover_stop_address").val(),
                                         'ga_status': $("#windowcover_status_address").val(),
+                                        'ga_tilt': $("#windowcover_tilt_address").val(),
+                                        'ga_tilt_status': $("#windowcover_tilt_status_address").val(),
                                         'macAddress': interfaceMAC
                             },
                         }, function(err, result){

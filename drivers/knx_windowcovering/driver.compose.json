@@ -2,8 +2,8 @@
     "$extends" :["knx_driver"],
     "id": "knx_windowcovering",
     "name": {
-        "en": "KNX Windowcovering",
-        "nl": "KNX Raambedekking"
+        "en": "Windowcovering",
+        "nl": "Raambedekking"
     },
     "class": "windowcoverings",
     "capabilities": ["windowcoverings_state"],
@@ -48,6 +48,19 @@
                     "label": {
                         "en": "Up/Down address",
                         "nl": "Op/Neer adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_stop",
+                    "type": "text",
+                    "label": {
+                        "en": "Stop address",
+                        "nl": "Stop adres"
                     },
                     "value": "",
                     "hint": {

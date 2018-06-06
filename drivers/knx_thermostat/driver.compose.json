@@ -2,8 +2,8 @@
     "$extends" :["knx_driver"],
     "id": "knx_thermostat",
     "name": {
-        "en": "KNX Thermostat",
-        "nl": "KNX Thermostaat"
+        "en": "Thermostat",
+        "nl": "Thermostaat"
     },
     "class": "thermostat",
     "capabilities": ["target_temperature",

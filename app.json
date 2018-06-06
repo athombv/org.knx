@@ -51,8 +51,8 @@
       ],
       "id": "knx_dimmer",
       "name": {
-        "en": "KNX Dimmer",
-        "nl": "KNX Dimmer"
+        "en": "Dimmer",
+        "nl": "Dimmer"
       },
       "class": "light",
       "capabilities": [
@@ -167,8 +167,8 @@
       ],
       "id": "knx_light",
       "name": {
-        "en": "KNX Light",
-        "nl": "KNX Lamp"
+        "en": "Light",
+        "nl": "Lamp"
       },
       "class": "light",
       "capabilities": [
@@ -256,8 +256,8 @@
       ],
       "id": "knx_rgb",
       "name": {
-        "en": "KNX RGB device",
-        "nl": "KNX RGB apparaat"
+        "en": "RGB device",
+        "nl": "RGB apparaat"
       },
       "class": "light",
       "capabilities": [
@@ -478,8 +478,8 @@
       ],
       "id": "knx_switch",
       "name": {
-        "en": "KNX Switch",
-        "nl": "KNX Schakelaar"
+        "en": "Switch",
+        "nl": "Schakelaar"
       },
       "class": "light",
       "capabilities": [
@@ -567,8 +567,8 @@
       ],
       "id": "knx_thermostat",
       "name": {
-        "en": "KNX Thermostat",
-        "nl": "KNX Thermostaat"
+        "en": "Thermostat",
+        "nl": "Thermostaat"
       },
       "class": "thermostat",
       "capabilities": [
@@ -657,8 +657,8 @@
       ],
       "id": "knx_windowcovering",
       "name": {
-        "en": "KNX Windowcovering",
-        "nl": "KNX Raambedekking"
+        "en": "Windowcovering",
+        "nl": "Raambedekking"
       },
       "class": "windowcoverings",
       "capabilities": [
@@ -678,6 +678,19 @@
               "label": {
                 "en": "Up/Down address",
                 "nl": "Op/Neer adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in"
+              }
+            },
+            {
+              "id": "ga_stop",
+              "type": "text",
+              "label": {
+                "en": "Stop address",
+                "nl": "Stop adres"
               },
               "value": "",
               "hint": {
@@ -742,8 +755,8 @@
       ],
       "id": "knx_windowcovering_tilt",
       "name": {
-        "en": "KNX Windowcovering with tilt",
-        "nl": "KNX Raambedekking met hoekverstelling"
+        "en": "Windowcovering with tilt",
+        "nl": "Raambedekking met hoekverstelling"
       },
       "class": "windowcoverings",
       "capabilities": [
@@ -766,6 +779,19 @@
               "label": {
                 "en": "Up/Down address",
                 "nl": "Op/Neer adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in"
+              }
+            },
+            {
+              "id": "ga_stop",
+              "type": "text",
+              "label": {
+                "en": "Stop address",
+                "nl": "Stop adres"
               },
               "value": "",
               "hint": {

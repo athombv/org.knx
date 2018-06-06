@@ -2,8 +2,8 @@
     "$extends" :["knx_driver"],
     "id": "knx_light",
     "name": {
-        "en": "KNX Light",
-        "nl": "KNX Lamp"
+        "en": "Light",
+        "nl": "Lamp"
     },
     "class": "light",
     "capabilities": ["onoff"],

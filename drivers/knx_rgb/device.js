@@ -13,15 +13,54 @@ class KNXRGB extends KNXGeneric {
         super.onInit();
         this.log('KNX RGB init');
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
-        this.registerMultipleCapabilityListener(['dim', 'light_hue', 'light_saturation'], this.onCapabilityHSV.bind(this), 500)
+        this.registerMultipleCapabilityListener(['dim', 'light_hue', 'light_saturation'], this.onCapabilityHSV.bind(this), 500);
+
+        this.KNXToggleEventHandler = this.onKNXToggleEvent.bind(this);
+        this.KNXRGBEventHandler = this.onKNXRGBEvent.bind(this);
+
+        this.ignoreEvent = false;
+        this.ignoreEventTimeOut = 4000;
     }
 
-    onKNXEvent(groupaddress, data) {
-        if (groupaddress === this.getSetting('ga_status')) {
-            this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
+    // Override because of non-shared capabilities
+    setKNXInterface(knxInterface) {
+        this.knxInterface = knxInterface;
+        // Add the handlers.
+        this.knxInterface.onKNXConnectionListener(this.KNXConnectionHandler);
+        // On/off eventlisteners
+        this.knxInterface.addKNXEventListener(this.settings.ga_red_toggle_status, this.KNXToggleEventHandler);
+        this.knxInterface.addKNXEventListener(this.settings.ga_green_toggle_status, this.KNXToggleEventHandler);
+        this.knxInterface.addKNXEventListener(this.settings.ga_blue_toggle_status, this.KNXToggleEventHandler);
+
+        // RGB value evenlisteners
+        this.knxInterface.addKNXEventListener(this.settings.ga_red_dim_status, this.KNXRGBEventHandler);
+        this.knxInterface.addKNXEventListener(this.settings.ga_green_dim_status, this.KNXRGBEventHandler);
+        this.knxInterface.addKNXEventListener(this.settings.ga_blue_dim_status, this.KNXRGBEventHandler);
+
+        this.log(this.getName(), 'is using interface:', this.knxInterface.name);
+        // Connect the interface. This is safe, because the object is already created and thus verified.
+        this.knxInterface._connectKNX();
+    }
+
+
+    // Event listeners are working, but needs a timeout. When Homey sets the RGB, it will be overriden with a slight offseted value from the device.
+    async onKNXToggleEvent(groupaddress, data) {
+        if (data && !this.ignoreEvent) {
+            const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status']);
+            if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
+                this.setCapabilityValue('onoff', true);
+            } else {
+                this.setCapabilityValue('onoff', false);
+            }
         }
-        if (groupaddress === this.getSetting('ga_dim_status')) {
-            this.setCapabilityValue('dim', DatapointTypeParser.dim(data));
+    }
+
+    async onKNXRGBEvent(groupaddress, data) {
+        const curValues = await this.getCurrentHSVColor();
+        if (curValues && !this.ignoreEvent) {
+            if(curValues.h !== 0) this.setCapabilityValue('light_hue', curValues.h);
+            if(curValues.s !== 0) this.setCapabilityValue('light_saturation', curValues.s);
+            if(curValues.v !== 0) this.setCapabilityValue('dim', curValues.v);
         }
     }
 
@@ -32,12 +71,12 @@ class KNXRGB extends KNXGeneric {
         } else {
             this.setCapabilityValue('onoff', false);
         }
-        const curValues = this.getCurrentHSVColor();
+        const curValues = await this.getCurrentHSVColor();
         if (curValues) {
             this.setCapabilityValue('light_hue', curValues.h);
             this.setCapabilityValue('light_saturation', curValues.s);
             this.setCapabilityValue('dim', curValues.v);
-        }
+        } 
     }
 
     // this method is called when the Device has requested a state change (turned on or off)
@@ -87,7 +126,11 @@ class KNXRGB extends KNXGeneric {
         }
 
         if (this.knxInterface && this.getSetting('ga_red_dim') && this.getSetting('ga_green_dim') && this.getSetting('ga_blue_dim')) {
-            this.log('setting RBG to', colors.r, colors.g, colors.b); // debug
+            // We can set the colors
+            this.ignoreEvent = true;
+            setTimeout(() => {
+                this.ignoreEvent = false;
+            }, this.ignoreEventTimeOut);
             return Promise.all([
                 this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_dim'), (colors.r), 'DPT5'),
                 this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_dim'), (colors.g), 'DPT5'),
@@ -101,11 +144,10 @@ class KNXRGB extends KNXGeneric {
 
     async getCurrentHSVColor() {
         const dimValues = await this.readSettingAddress(['ga_red_dim_status', 'ga_green_dim_status', 'ga_blue_dim_status']);
-        this.log(dimValues);
         if (dimValues) {
             const hsvValues = ColorConverter.rgb.hsv(DatapointTypeParser.colorChannel(dimValues[0]),
                         DatapointTypeParser.colorChannel(dimValues[1]), DatapointTypeParser.colorChannel(dimValues[2]));
-            hsvColor = {
+            const hsvColor = {
                 h: (hsvValues[0]/360),
                 s: (hsvValues[1]/100),
                 v: (hsvValues[2]/100)

@@ -20,24 +20,31 @@ class KNXWindowCovering extends KNXGeneric {
     }
 
     onCapabilityWindowCovering(value, opts) {
-        console.log(value);
         if (this.knxInterface) {
             switch(value) {
                 case 'up':
-                    return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 0, 'DPT1')
+                    return Promise.all([
+                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_stop'), 0, 'DPT1'),
+                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 1, 'DPT1')
+                    ])
                     .catch((knxerror) => {
                         this.log(knxerror)
                     });
                     break;
                 case 'down':
-                    return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 1, 'DPT1')
+                    return Promise.all([
+                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_stop'), 0, 'DPT1'),
+                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 0, 'DPT1')
+                    ])
                     .catch((knxerror) => {
                         this.log(knxerror)
                     });
                     break;
                 case 'idle':
-                    // no way to implement this with binary KNX types.
-                    this.log('windowcovering idle, not implemented yet');
+                    return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_stop'), 1, 'DPT1')
+                    .catch((knxerror) => {
+                        this.log(knxerror)
+                    });
                     break;
             }
         }
