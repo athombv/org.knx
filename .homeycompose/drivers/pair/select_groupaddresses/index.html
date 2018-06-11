@@ -143,46 +143,6 @@
             </div>
         </div>
     </fieldset>
-    <fieldset id="knx-windowcovering-fieldset" style="display: none">
-        <div class="knx-windowcovering field row">
-	        <div class="knx-entry">
-	            <label for="windowcover_updown_address" class="left" data-i18n="settings.groupaddresses.windowcovering.updown"></label>
-            	<select id="windowcover_updown_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_updown_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-            <div class="knx-entry">
-	            <label for="windowcover_stop_address" class="left" data-i18n="settings.groupaddresses.windowcovering.stop"></label>
-            	<select id="windowcover_gaupdown_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_stop_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="windowcover_status_address" class="left" data-i18n="settings.groupaddresses.generic_status"></label>
-	            <select id="windowcover_statusga_dropdown" class="knx-dropdown"></select>
-				<input id="windowcover_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-        <div class="knx-windowcovering-tilt field row" id="knx-windowcovering-tilt" style="display: none">
-	        <div class="knx-entry">
-	            <label for="windowcover_tilt_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt"></label>
-            	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_tilt_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="windowcover_tilt_status_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt_status"></label>
-	            <select id="windowcover_tilt_statusga_dropdown" class="knx-dropdown"></select>
-				<input id="windowcover_tilt_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-    </fieldset>
-    <fieldset id="knx-sensor-fieldset" style="display: none">
-        <div class="knx-sensor field row">
-            <div class="knx-entry">
-                <label for="sensor_address" class="left" data-i18n="settings.groupaddresses.sensor"></label>
-                <select id="sensor_ga_dropdown" class="knx-dropdown"></select>
-                <input id="sensor_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-    </fieldset>
     <fieldset id="knx-learnmode-fieldset" style="display: none">
         <label id="learnmode_label" data-i18n="settings.learnmode.explanation"></label>
         <button id="learnmode_button" class="right" data-i18n="settings.learnmode.title"></button>
@@ -229,19 +189,6 @@
         case 'thermostat':
             console.log('device is a thermostat');
             $("#knx-thermostat-fieldset").css("display", "block");
-            break;
-        case 'windowcovering':
-            console.log('device is a windowcovering');
-            $("#knx-windowcovering-fieldset").css("display", "block");
-            break;
-        case 'windowcovering_tilt':
-            console.log('device is a windowcovering with tilt');
-            $("#knx-windowcovering-fieldset").css("display", "block");
-            $("#knx-windowcovering-tilt").css("display", "block");
-            break;
-        case 'sensor':
-            console.log('device is a sensor');
-            $("#knx-sensor-fieldset").css("display", "block");
             break;
     }
 
@@ -384,40 +331,6 @@
                         Homey.done();
                     });
                     break;
-                case 'windowcovering':
-                    Homey.addDevice({
-                            data: {
-                                id: $("#windowcover_updown_address").val()
-                            },
-                            name: 'KNX Windowcovering',
-                            settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
-                                        'ga_stop': $("#windowcover_stop_address").val(),
-                                        'ga_status': $("#windowcover_status_address").val(),
-                                        'macAddress': interfaceMAC
-                            },
-                        }, function(err, result){
-                            if(err) return Homey.alert(err);
-                            Homey.done();
-                        });
-                    break;
-                case 'windowcovering_tilt':
-                    Homey.addDevice({
-                            data: {
-                                id: $("#windowcover_updown_address").val()
-                            },
-                            name: 'KNX Windowcovering tilt',
-                            settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
-                                        'ga_stop': $("#windowcover_stop_address").val(),
-                                        'ga_status': $("#windowcover_status_address").val(),
-                                        'ga_tilt': $("#windowcover_tilt_address").val(),
-                                        'ga_tilt_status': $("#windowcover_tilt_status_address").val(),
-                                        'macAddress': interfaceMAC
-                            },
-                        }, function(err, result){
-                            if(err) return Homey.alert(err);
-                            Homey.done();
-                        });
-                    break;
                 case 'thermostat':
                     Homey.addDevice({
                         data: {
@@ -426,20 +339,6 @@
                         name: 'KNX Thermostat',
                         settings: { 'ga_temperature_target': $("#temperature_target_address").val(),
                                     'ga_temperature_measure': $("#temperature_measure_address").val(),
-                                    'macAddress': interfaceMAC
-                        },
-                    }, function(err, result){
-                        if(err) return Homey.alert(err);
-                        Homey.done();
-                    });
-                    break;
-                case 'sensor':
-                    Homey.addDevice({
-                        data: {
-                            id: $("#sensor_address").val()
-                        },
-                        name: 'KNX Sensor',
-                        settings: { 'ga_sensor': $("#sensor_address").val(),
                                     'macAddress': interfaceMAC
                         },
                     }, function(err, result){
