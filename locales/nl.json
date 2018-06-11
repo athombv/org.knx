@@ -67,7 +67,8 @@
                 "stop": "Stop adres",
                 "tilt": "Hoekverstelling adres",
                 "tilt_status": "Hoekverstelling status adres"
-            }
+            },
+            "sensor": "Sensor adres"
         }
     }
 }

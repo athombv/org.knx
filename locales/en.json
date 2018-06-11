@@ -67,7 +67,8 @@
                 "stop": "Stop address",
                 "tilt": "Tilt address",
                 "tilt_status": "Tilt status address"
-            }
+            },
+            "sensor": "Sensor address"
         }
     }
 }

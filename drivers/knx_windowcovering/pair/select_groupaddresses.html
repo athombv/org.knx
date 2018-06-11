@@ -24,7 +24,7 @@
 <div class="knx-wrap" id="ga_input">
     <p data-i18n="settings.groupaddresses.body">
     </p>
-    <fieldset id="knx-light-fieldset" style="display: block">
+    <fieldset id="knx-light-fieldset" style="display: none">
         <div class="knx-light field row">
 	        <div class="knx-entry">
         	    <label for="toggle_address" class="left" data-i18n="settings.groupaddresses.switch.toggle"></label>
@@ -58,51 +58,6 @@
     	        <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
 	            <select id="dim_statusga_dropdown" class="knx-dropdown"></select>
 				<input id="dim_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-    </fieldset>
-    <fieldset id="knx-thermostat-fieldset" style="display: none">
-        <div class="knx-thermostat field row">
-	        <div class="knx-entry">
-	            <label for="temperature_target_address" class="left" data-i18n="settings.groupaddresses.thermostat.target"></label>
-            	<select id="temperature_target_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="temperature_target_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="temperature_measure_address" class="left" data-i18n="settings.groupaddresses.thermostat.measure"></label>
-	            <select id="temperature_measure_ga_dropdown" class="knx-dropdown"></select>
-				<input id="temperature_measure_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-    </fieldset>
-    <fieldset id="knx-windowcovering-fieldset" style="display: none">
-        <div class="knx-windowcovering field row">
-	        <div class="knx-entry">
-	            <label for="windowcover_updown_address" class="left" data-i18n="settings.groupaddresses.windowcovering.updown"></label>
-            	<select id="windowcover_updown_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_updown_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-            <div class="knx-entry">
-	            <label for="windowcover_stop_address" class="left" data-i18n="settings.groupaddresses.windowcovering.stop"></label>
-            	<select id="windowcover_gaupdown_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_stop_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="windowcover_status_address" class="left" data-i18n="settings.groupaddresses.generic_status"></label>
-	            <select id="windowcover_statusga_dropdown" class="knx-dropdown"></select>
-				<input id="windowcover_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-        <div class="knx-windowcovering-tilt field row" id="knx-windowcovering-tilt" style="display: none">
-	        <div class="knx-entry">
-	            <label for="windowcover_tilt_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt"></label>
-            	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_tilt_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="windowcover_tilt_status_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt_status"></label>
-	            <select id="windowcover_tilt_statusga_dropdown" class="knx-dropdown"></select>
-				<input id="windowcover_tilt_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
         </div>
     </fieldset>
@@ -172,13 +127,68 @@
 				<select id="blue_dim_status_dropdown" class="knx-dropdown"></select>
 				<input id="blue_dim_status_input" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
-        </fieldset>
-        <fieldset id="knx-learnmode-fieldset" style="display: none">
-            <label id="learnmode_label" data-i18n="settings.learnmode.explanation"></label>
-            <button id="learnmode_button" class="right" data-i18n="settings.learnmode.title"></button>
-            <select id="learnmode_dropdown" style="display: none"></select>
-            <button id="test_button" class="right" style="display: none;" data-i18n="settings.learnmode.testbutton"></button>
-        </fieldset>
+        </div>
+    </fieldset>
+    <fieldset id="knx-thermostat-fieldset" style="display: none">
+        <div class="knx-thermostat field row">
+	        <div class="knx-entry">
+	            <label for="temperature_target_address" class="left" data-i18n="settings.groupaddresses.thermostat.target"></label>
+            	<select id="temperature_target_ga_dropdown" class="knx-dropdown"></select>
+        	    <input id="temperature_target_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+	        <div class="knx-entry">
+    	        <label for="temperature_measure_address" class="left" data-i18n="settings.groupaddresses.thermostat.measure"></label>
+	            <select id="temperature_measure_ga_dropdown" class="knx-dropdown"></select>
+				<input id="temperature_measure_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="knx-windowcovering-fieldset" style="display: none">
+        <div class="knx-windowcovering field row">
+	        <div class="knx-entry">
+	            <label for="windowcover_updown_address" class="left" data-i18n="settings.groupaddresses.windowcovering.updown"></label>
+            	<select id="windowcover_updown_ga_dropdown" class="knx-dropdown"></select>
+        	    <input id="windowcover_updown_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+            <div class="knx-entry">
+	            <label for="windowcover_stop_address" class="left" data-i18n="settings.groupaddresses.windowcovering.stop"></label>
+            	<select id="windowcover_gaupdown_dropdown" class="knx-dropdown"></select>
+        	    <input id="windowcover_stop_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+	        <div class="knx-entry">
+    	        <label for="windowcover_status_address" class="left" data-i18n="settings.groupaddresses.generic_status"></label>
+	            <select id="windowcover_statusga_dropdown" class="knx-dropdown"></select>
+				<input id="windowcover_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+        </div>
+        <div class="knx-windowcovering-tilt field row" id="knx-windowcovering-tilt" style="display: none">
+	        <div class="knx-entry">
+	            <label for="windowcover_tilt_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt"></label>
+            	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
+        	    <input id="windowcover_tilt_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+	        <div class="knx-entry">
+    	        <label for="windowcover_tilt_status_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt_status"></label>
+	            <select id="windowcover_tilt_statusga_dropdown" class="knx-dropdown"></select>
+				<input id="windowcover_tilt_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="knx-sensor-fieldset" style="display: none">
+        <div class="knx-sensor field row">
+            <div class="knx-entry">
+                <label for="sensor_address" class="left" data-i18n="settings.groupaddresses.sensor"></label>
+                <select id="sensor_ga_dropdown" class="knx-dropdown"></select>
+                <input id="sensor_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="knx-learnmode-fieldset" style="display: none">
+        <label id="learnmode_label" data-i18n="settings.learnmode.explanation"></label>
+        <button id="learnmode_button" class="right" data-i18n="settings.learnmode.title"></button>
+        <select id="learnmode_dropdown" style="display: none"></select>
+        <button id="test_button" class="right" style="display: none;" data-i18n="settings.learnmode.testbutton"></button>
+    </fieldset>
     <label id="xmltext" data-i18n="settings.projectfile.newxml.explanation"></label>
     <button id="save_button" class="right" data-i18n="settings.groupaddresses.save"></button>
 </div>
@@ -198,41 +208,40 @@
     });
 
     switch(deviceType) {
+        case 'light':
+            console.log('device is a light');
+            $("#knx-light-fieldset").css("display", "block");
+            break;
         case 'switch':
             console.log('device is a switch');
-            $("#knx-light-fieldset").css("display", "none");
             $("#knx-switch-fieldset").css("display", "block");
             $("#knx-learnmode-fieldset").css("display", "block");
             break;
-        case 'light':
-            console.log('device is a light');
-            $("#knx-switch-fieldset").css("display", "none");
-            $("#knx-light-fieldset").css("display", "block");
-            break;
         case 'dimmer':
             console.log('device is a dimmer');
+            $("#knx-light-fieldset").css("display", "block");
             $("#knx-dimmer-fieldset").css("display", "block");
+            break;
+        case 'rgb':
+            console.log('device is a rgb');
+            $("#knx-rgb-fieldset").css("display", "block");
             break;
         case 'thermostat':
             console.log('device is a thermostat');
             $("#knx-thermostat-fieldset").css("display", "block");
-            $("#knx-light-fieldset").css("display", "none");
             break;
         case 'windowcovering':
             console.log('device is a windowcovering');
-            $("#knx-light-fieldset").css("display", "none");
             $("#knx-windowcovering-fieldset").css("display", "block");
             break;
         case 'windowcovering_tilt':
             console.log('device is a windowcovering with tilt');
-            $("#knx-light-fieldset").css("display", "none");
             $("#knx-windowcovering-fieldset").css("display", "block");
             $("#knx-windowcovering-tilt").css("display", "block");
             break;
-        case 'rgb':
-            console.log('device is a rgb');
-            $("#knx-switch-fieldset").css("display", "none");
-            $("#knx-rgb-fieldset").css("display", "block");
+        case 'sensor':
+            console.log('device is a sensor');
+            $("#knx-sensor-fieldset").css("display", "block");
             break;
     }
 
@@ -333,6 +342,48 @@
                         Homey.done();
                     });
                     break;
+                case 'dimmer':
+                    Homey.addDevice({
+                        data: {
+                            id: $("#toggle_address").val()
+                        },
+                        name: 'KNX Dimmer',
+                        settings: { 'ga_switch': $("#toggle_address").val(),
+                                    'ga_status': $("#toggle_status_address").val(),
+                                    'ga_dim': $("#dim_address").val(),
+                                    'ga_dim_status': $("#dim_status_address").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result){
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
+                case 'rgb':
+                    Homey.addDevice({
+                        data: {
+                            id: $("#red_toggle_input").val()
+                        },
+                        name: 'KNX RGB',
+                        settings: { 'ga_red_toggle': $("#red_toggle_input").val(),
+                                    'ga_red_toggle_status': $("#red_toggle_status_input").val(),
+                                    'ga_red_dim': $("#red_dim_input").val(),
+                                    'ga_red_dim_status': $("#red_dim_status_input").val(),
+                                    'ga_green_toggle': $("#green_toggle_input").val(),
+                                    'ga_green_toggle_status': $("#green_toggle_status_input").val(),
+                                    'ga_green_dim': $("#green_dim_input").val(),
+                                    'ga_green_dim_status': $("#green_dim_status_input").val(),
+                                    'ga_blue_toggle': $("#blue_toggle_input").val(),
+                                    'ga_blue_toggle_status': $("#blue_toggle_status_input").val(),
+                                    'ga_blue_dim': $("#blue_dim_input").val(),
+                                    'ga_blue_dim_status': $("#blue_dim_status_input").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result){
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
                 case 'windowcovering':
                     Homey.addDevice({
                             data: {
@@ -367,23 +418,6 @@
                             Homey.done();
                         });
                     break;
-                case 'dimmer':
-                    Homey.addDevice({
-                        data: {
-                            id: $("#toggle_address").val()
-                        },
-                        name: 'KNX Dimmer',
-                        settings: { 'ga_switch': $("#toggle_address").val(),
-                                    'ga_status': $("#toggle_status_address").val(),
-                                    'ga_dim': $("#dim_address").val(),
-                                    'ga_dim_status': $("#dim_status_address").val(),
-                                    'macAddress': interfaceMAC
-                        },
-                    }, function(err, result){
-                        if(err) return Homey.alert(err);
-                        Homey.done();
-                    });
-                    break;
                 case 'thermostat':
                     Homey.addDevice({
                         data: {
@@ -399,24 +433,13 @@
                         Homey.done();
                     });
                     break;
-                case 'rgb':
+                case 'sensor':
                     Homey.addDevice({
                         data: {
-                            id: $("#ga_red_toggle").val()
+                            id: $("#sensor_address").val()
                         },
-                        name: 'KNX RGB',
-                        settings: { 'ga_red_toggle': $("#red_toggle_input").val(),
-                                    'ga_red_toggle_status': $("#red_toggle_status_input").val(),
-                                    'ga_red_dim': $("#red_dim_input").val(),
-                                    'ga_red_dim_status': $("#red_dim_status_input").val(),
-                                    'ga_green_toggle': $("#green_toggle_input").val(),
-                                    'ga_green_toggle_status': $("#green_toggle_status_input").val(),
-                                    'ga_green_dim': $("#green_dim_input").val(),
-                                    'ga_green_dim_status': $("#green_dim_status_input").val(),
-                                    'ga_blue_toggle': $("#blue_toggle_input").val(),
-                                    'ga_blue_toggle_status': $("#blue_toggle_status_input").val(),
-                                    'ga_blue_dim': $("#blue_dim_input").val(),
-                                    'ga_blue_dim_status': $("#blue_dim_status_input").val(),
+                        name: 'KNX Sensor',
+                        settings: { 'ga_sensor': $("#sensor_address").val(),
                                     'macAddress': interfaceMAC
                         },
                     }, function(err, result){

@@ -25,25 +25,25 @@ class KNXWindowCovering extends KNXGeneric {
                 case 'up':
                     return Promise.all([
                         this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_stop'), 0, 'DPT1'),
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 1, 'DPT1')
+                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 0, 'DPT1')
                     ])
                     .catch((knxerror) => {
-                        this.log(knxerror)
+                        //this.log(knxerror)
                     });
                     break;
                 case 'down':
                     return Promise.all([
                         this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_stop'), 0, 'DPT1'),
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 0, 'DPT1')
+                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_up_down'), 1, 'DPT1')
                     ])
                     .catch((knxerror) => {
-                        this.log(knxerror)
+                        //this.log(knxerror)
                     });
                     break;
                 case 'idle':
                     return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_stop'), 1, 'DPT1')
                     .catch((knxerror) => {
-                        this.log(knxerror)
+                        //this.log(knxerror)
                     });
                     break;
             }
