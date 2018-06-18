@@ -4,8 +4,11 @@ Add your KNX devices to Homey. This app requires a KNX IP Router or Interface co
 
 ## Supported KNX devices
 
-### Binary device
-For example a light that can turn on/off, or a wall-mounted switch that can be toggled.
+### Switch 
+For example a wall-mounted switch that can be toggled.
+
+### Light
+For example lights that are connected to a binary outputactor. This type can only be toggled on and off.
 
 ### Dimmer device
 For example a light that can be dimmed (0% - 100%).
@@ -13,13 +16,16 @@ For example a light that can be dimmed (0% - 100%).
 ### RGB Light
 A light or LED Strip that can change color (Red/Green/Blue).
 
+### Thermostat
+KNX Thermosat. Can set the setpoint temperature and get the measured temperature.
+
 ## Set-up
 
 To set-up your KNX network in Homey, this app provides three options.
 
 ### Learn mode
 
-For binary devices, Homey listens for a press on a button and copies the KNX Group Address (e.g. 0/1/2).
+For switch devices, Homey listens for a press on a button and copies the KNX Group Address (e.g. 0/1/2).
 
 ### ETS Import
 

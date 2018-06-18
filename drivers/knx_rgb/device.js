@@ -64,6 +64,11 @@ class KNXRGB extends KNXGeneric {
         }
     }
 
+    // emtpy to just catch onoff and dim capabilites
+    onKNXEvent(groupaddress, data) {
+        
+    }
+
     async onKNXConnection() {
         const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status']);
         if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
