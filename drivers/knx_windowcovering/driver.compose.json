@@ -1,16 +1,12 @@
 {
     "$extends" :["knx_driver"],
-    "id": "knx_switch",
+    "id": "knx_windowcovering",
     "name": {
-        "en": "Switch",
-        "nl": "Schakelaar"
+        "en": "Windowcovering",
+        "nl": "Raambedekking"
     },
-    "class": "light",
-    "capabilities": ["onoff"],
-    "images": {
-	    "large": "{{driverAssetsPath}}/images/large.png",
-	    "small": "{{driverAssetsPath}}/images/small.png"
-    },
+    "class": "windowcoverings",
+    "capabilities": ["windowcoverings_state"],
     "pair" : [
         {
             "id": "select_interface",
@@ -31,7 +27,7 @@
             "id": "select_groupaddresses",
             "$template": "select_groupaddresses",
             "options": {
-                "devicetype": "switch"
+                "devicetype": "windowcovering"
             },
             "navigation": {
                 "prev": "select_interface"
@@ -47,11 +43,11 @@
             },
             "children": [
                 {
-                    "id": "ga_switch",
+                    "id": "ga_up_down",
                     "type": "text",
                     "label": {
-                        "en": "Switch address",
-                        "nl": "Schakel adres"
+                        "en": "Up/Down address",
+                        "nl": "Op/Neer adres"
                     },
                     "value": "",
                     "hint": {
@@ -75,12 +71,12 @@
             ]
         },
         {
-            "id": "inverted",
+            "id": "invert_updown",
             "type": "checkbox",
             "value": false,
             "label": {
-                "en": "Invert on/off",
-                "nl": "Wissel aan/uit"
+                "en": "Invert up/down",
+                "nl": "Wissel omhoog/omlaag"
             }
         },
         {

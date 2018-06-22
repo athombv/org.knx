@@ -1,12 +1,9 @@
 'use strict';
 
-const Homey = require('homey');
 const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 
 class KNXLight extends KNXGeneric {
-    // this method is called when the Device is inited
-    
     onInit() {
         super.onInit();
         this.log('KNX Light init');
@@ -14,15 +11,15 @@ class KNXLight extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
-        if (groupaddress === this.getSetting('ga_status')) {
+        if (groupaddress === this.settings.ga_status) {
             this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
         }
     }
 
     onKNXConnection() {
         // check if there is a correct IP interface and a status address
-        if (this.knxInterface && this.getSetting('ga_status')) {
-            this.knxInterface.readKNXGroupAddress(this.getSetting('ga_status'))
+        if (this.knxInterface && this.settings.ga_status) {
+            this.knxInterface.readKNXGroupAddress(this.settings.ga_status)
             .catch((knxerror) => {
                 this.log(knxerror);
             });
@@ -30,10 +27,11 @@ class KNXLight extends KNXGeneric {
     }
 
     onCapabilityOnoff(value, opts) {
-        if (this.knxInterface && this.getSetting('ga_switch')) {
-            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
+        if (this.knxInterface && this.settings.ga_switch) {
+            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
             .catch((knxerror) => {
-                this.log(knxerror)
+                this.log(knxerror);
+                throw new Error('Switching the device failed!');
             });
         }
     }

@@ -1,11 +1,11 @@
 {
     "$extends" :["knx_driver"],
-    "id": "knx_switch",
+    "id": "knx_sensor_generic",
     "name": {
-        "en": "Switch",
-        "nl": "Schakelaar"
+        "en": "Sensor generic",
+        "nl": "Sensor generiek"
     },
-    "class": "light",
+    "class": "sensor",
     "capabilities": ["onoff"],
     "images": {
 	    "large": "{{driverAssetsPath}}/images/large.png",
@@ -31,7 +31,7 @@
             "id": "select_groupaddresses",
             "$template": "select_groupaddresses",
             "options": {
-                "devicetype": "switch"
+                "devicetype": "sensor"
             },
             "navigation": {
                 "prev": "select_interface"
@@ -43,24 +43,11 @@
             "type": "group",
             "label": {
                 "en": "KNX groupaddress",
-                "nl": "KNX groepadressen"
+                "nl": "KNX groepadres"
             },
             "children": [
                 {
-                    "id": "ga_switch",
-                    "type": "text",
-                    "label": {
-                        "en": "Switch address",
-                        "nl": "Schakel adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_status",
+                    "id": "ga_sensor",
                     "type": "text",
                     "label": {
                         "en": "Status address",
@@ -73,15 +60,6 @@
                     }
                 }
             ]
-        },
-        {
-            "id": "inverted",
-            "type": "checkbox",
-            "value": false,
-            "label": {
-                "en": "Invert on/off",
-                "nl": "Wissel aan/uit"
-            }
         },
         {
             "id": "macAddress",
