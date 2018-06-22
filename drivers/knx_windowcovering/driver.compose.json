@@ -7,6 +7,10 @@
     },
     "class": "windowcoverings",
     "capabilities": ["windowcoverings_state"],
+    "images": {
+	    "large": "{{driverAssetsPath}}/images/large.png",
+	    "small": "{{driverAssetsPath}}/images/small.png"
+    },
     "pair" : [
         {
             "id": "select_interface",

@@ -673,6 +673,10 @@
       "capabilities": [
         "windowcoverings_state"
       ],
+      "images": {
+        "large": "/drivers/knx_windowcovering/assets/images/large.png",
+        "small": "/drivers/knx_windowcovering/assets/images/small.png"
+      },
       "settings": [
         {
           "type": "group",
