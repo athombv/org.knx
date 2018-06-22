@@ -256,8 +256,8 @@
       ],
       "id": "knx_rgb",
       "name": {
-        "en": "RGB device",
-        "nl": "RGB apparaat"
+        "en": "RGB Light",
+        "nl": "RGB Verlichting"
       },
       "class": "light",
       "capabilities": [
@@ -664,18 +664,18 @@
           }
         }
       ],
-      "id": "knx_windowcovering",
+      "id": "knx_windowcoverings",
       "name": {
-        "en": "Windowcovering",
-        "nl": "Raambedekking"
+        "en": "Windowcoverings",
+        "nl": "Raambedekkingen"
       },
       "class": "windowcoverings",
       "capabilities": [
         "windowcoverings_state"
       ],
       "images": {
-        "large": "/drivers/knx_windowcovering/assets/images/large.png",
-        "small": "/drivers/knx_windowcovering/assets/images/small.png"
+        "large": "/drivers/knx_windowcoverings/assets/images/large.png",
+        "small": "/drivers/knx_windowcoverings/assets/images/small.png"
       },
       "settings": [
         {

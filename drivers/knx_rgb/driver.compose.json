@@ -2,8 +2,8 @@
     "$extends" :["knx_driver"],
     "id": "knx_rgb",
     "name": {
-        "en": "RGB device",
-        "nl": "RGB apparaat"
+        "en": "RGB Light",
+        "nl": "RGB Verlichting"
     },
     "class": "light",
     "capabilities": ["onoff", "dim", "light_hue", "light_saturation"],

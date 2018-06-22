@@ -1,9 +1,9 @@
 {
     "$extends" :["knx_driver"],
-    "id": "knx_windowcovering",
+    "id": "knx_windowcoverings",
     "name": {
-        "en": "Windowcovering",
-        "nl": "Raambedekking"
+        "en": "Windowcoverings",
+        "nl": "Raambedekkingen"
     },
     "class": "windowcoverings",
     "capabilities": ["windowcoverings_state"],
