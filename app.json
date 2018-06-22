@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=1.5.6",
   "sdk": 2,
   "name": {
