@@ -1,14 +1,10 @@
 'use strict';
 
-const Homey = require('homey');
 const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const ColorConverter = require('color-convert');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 
 class KNXRGB extends KNXGeneric {
-
-    // this method is called when the Device is inited
-    
     onInit() {
         super.onInit();
         this.log('KNX RGB init');
@@ -19,7 +15,8 @@ class KNXRGB extends KNXGeneric {
         this.KNXRGBEventHandler = this.onKNXRGBEvent.bind(this);
 
         this.ignoreEvent = false;
-        this.ignoreEventTimeOut = 4000;
+        this.ignoreEventTimeOut = 3000;
+        this.ignoreTimeOut;
     }
 
     // Override because of non-shared capabilities
@@ -37,17 +34,19 @@ class KNXRGB extends KNXGeneric {
         this.knxInterface.addKNXEventListener(this.settings.ga_green_dim_status, this.KNXRGBEventHandler);
         this.knxInterface.addKNXEventListener(this.settings.ga_blue_dim_status, this.KNXRGBEventHandler);
 
-        this.log(this.getName(), 'is using interface:', this.knxInterface.name);
+        //this.log(this.getName(), 'is using interface:', this.knxInterface.name);
         // Connect the interface. This is safe, because the object is already created and thus verified.
         this.knxInterface._connectKNX();
     }
 
-
     // Event listeners are working, but needs a timeout. When Homey sets the RGB, it will be overriden with a slight offseted value from the device.
     async onKNXToggleEvent(groupaddress, data) {
         if (data && !this.ignoreEvent) {
-            const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status']);
-            if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
+            const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
+                .catch((error) => {
+                    this.log('Error while reading RGB values', error);
+                });
+            if (onoffvalues.map(buffer => buffer.readInt8()).includes(1)) {
                 this.setCapabilityValue('onoff', true);
             } else {
                 this.setCapabilityValue('onoff', false);
@@ -66,11 +65,14 @@ class KNXRGB extends KNXGeneric {
 
     // emtpy to just catch onoff and dim capabilites
     onKNXEvent(groupaddress, data) {
-        
+        this.log('received', groupaddress, data);
     }
 
     async onKNXConnection() {
-        const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status']);
+        const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
+        .catch((readError) => {
+            this.log(readError);
+        });
         if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
             this.setCapabilityValue('onoff', true);
         } else {
@@ -88,22 +90,28 @@ class KNXRGB extends KNXGeneric {
     onCapabilityOnoff(value, opts) {
         if(this.knxInterface) {
             if (value === true) {
-                if (this.getSetting('ga_red_toggle') && this.getSetting('ga_green_toggle') && this.getSetting('ga_blue_toggle')) {
+                if (this.settings.ga_red_toggle && this.settings.ga_green_toggle && this.settings.ga_blue_toggle) {
                     return Promise.all([
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_toggle'), 1, 'DPT1'),
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_toggle'), 1, 'DPT1'),
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_toggle'), 1, 'DPT1')
-                    ]);
-                    return new Error('Switching the device failed!');
+                        this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_toggle, 1, 'DPT1'),
+                        this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_toggle, 1, 'DPT1'),
+                        this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_toggle, 1, 'DPT1')
+                    ])
+                    .catch((knxerror) => {
+                        this.log(knxerror);
+                        throw new Error('Switching the device failed!');
+                    });
                 }
             } else {
-                if (this.getSetting('ga_red_toggle') && this.getSetting('ga_green_toggle') && this.getSetting('ga_blue_toggle')) {
+                if (this.settings.ga_red_toggle && this.settings.ga_green_toggle && this.settings.ga_blue_toggle) {
                     return Promise.all([
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_toggle'), 0, 'DPT1'),
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_toggle'), 0, 'DPT1'),
-                        this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_toggle'), 0, 'DPT1')
-                    ]);
-                    return new Error('Switching the device failed!');
+                        this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_toggle, 0, 'DPT1'),
+                        this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_toggle, 0, 'DPT1'),
+                        this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_toggle, 0, 'DPT1')
+                    ])
+                    .catch((knxerror) => {
+                        this.log(knxerror);
+                        throw new Error('Switching the device failed!');
+                    });
                 }
             }
         }
@@ -130,20 +138,27 @@ class KNXRGB extends KNXGeneric {
             b: conversion[2]
         }
 
-        if (this.knxInterface && this.getSetting('ga_red_dim') && this.getSetting('ga_green_dim') && this.getSetting('ga_blue_dim')) {
+        if (this.knxInterface && this.settings.ga_red_dim && this.settings.ga_green_dim && this.settings.ga_blue_dim) {
             // We can set the colors
             this.ignoreEvent = true;
-            setTimeout(() => {
+            if (this.ignoreTimeOut) { clearTimeout(this.ignoreTimeOut); }
+
+            this.ignoreTimeOut = setTimeout(() => {
                 this.ignoreEvent = false;
             }, this.ignoreEventTimeOut);
+
             return Promise.all([
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_red_dim'), (colors.r), 'DPT5'),
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_green_dim'), (colors.g), 'DPT5'),
-                this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_blue_dim'), (colors.b), 'DPT5')
+                this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_dim, (colors.r), 'DPT5'),
+                this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_dim, (colors.g), 'DPT5'),
+                this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_dim, (colors.b), 'DPT5')
             ])
             .then(() => {
                 this.setCapabilityValue('onoff', true);
             })
+            .catch((error) => {
+                this.log(error);
+                throw new Error('Error setting HSV to KNX');
+            });
         }
     }
 
@@ -157,7 +172,7 @@ class KNXRGB extends KNXGeneric {
                 s: (hsvValues[1]/100),
                 v: (hsvValues[2]/100)
             }
-            return hsvColor
+            return hsvColor;
         }
     }
 }

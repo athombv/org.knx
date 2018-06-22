@@ -1,12 +1,8 @@
 'use strict';
-
-const Homey = require('homey');
 const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 
-class KNXSwitch extends KNXGeneric {
-    // this method is called when the Device is inited
-    
+class KNXSwitch extends KNXGeneric {    
     onInit() {
         super.onInit();
         this.log('KNX switch init');
@@ -14,15 +10,15 @@ class KNXSwitch extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
-        if (groupaddress === this.getSetting('ga_switch')) {
+        if (groupaddress === this.settings.ga_switch) {
             this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
         }
     }
 
     onKNXConnection() {
         // check if there is a correct IP interface and a status address
-        if (this.knxInterface && this.getSetting('ga_switch')) {
-            this.knxInterface.readKNXGroupAddress(this.getSetting('ga_switch')) //switches don't have a seperate status address
+        if (this.knxInterface && this.settings.ga_switch) {
+            this.knxInterface.readKNXGroupAddress(this.settings.ga_switch) //switches don't have a seperate status address
             .catch((knxerror) => {
                 this.log(knxerror);
             });
@@ -30,11 +26,18 @@ class KNXSwitch extends KNXGeneric {
     }
 
     onCapabilityOnoff(value, opts) {
-        if (this.knxInterface && this.getSetting('ga_switch')) {
-            return this.knxInterface.writeKNXGroupAddress(this.getSetting('ga_switch'), value, 'DPT1')
-            .catch((knxerror) => {
-                this.log(knxerror)
-            });
+        if (this.knxInterface && this.settings.ga_switch) {
+            if (this.settings.inverted === true) {
+                return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1')
+                .catch((knxerror) => {
+                    this.log(knxerror)
+                });
+            } else {
+                return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
+                .catch((knxerror) => {
+                    this.log(knxerror)
+                });
+            }
         }
     }
 }

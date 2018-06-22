@@ -2,7 +2,7 @@
 
 const KNXGenericDriver = require('./../../lib/generic_knx_driver.js');
 
-class KNXRGB extends KNXGenericDriver {
+class KNXWindowCovering extends KNXGenericDriver {
 }
 
-module.exports = KNXRGB;
+module.exports = KNXWindowCovering;
