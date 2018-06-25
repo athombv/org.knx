@@ -1,12 +1,12 @@
 {
     "$extends" :["knx_driver"],
-    "id": "knx_sensor_generic",
+    "id": "knx_windowcoverings",
     "name": {
-        "en": "Sensor generic",
-        "nl": "Sensor generiek"
+        "en": "Windowcoverings",
+        "nl": "Raambedekkingen"
     },
-    "class": "sensor",
-    "capabilities": ["onoff"],
+    "class": "windowcoverings",
+    "capabilities": ["windowcoverings_state"],
     "images": {
 	    "large": "{{driverAssetsPath}}/images/large.png",
 	    "small": "{{driverAssetsPath}}/images/small.png"
@@ -31,7 +31,7 @@
             "id": "select_groupaddresses",
             "$template": "select_groupaddresses",
             "options": {
-                "devicetype": "sensor"
+                "devicetype": "windowcovering"
             },
             "navigation": {
                 "prev": "select_interface"
@@ -43,11 +43,24 @@
             "type": "group",
             "label": {
                 "en": "KNX groupaddress",
-                "nl": "KNX groepadres"
+                "nl": "KNX groepadressen"
             },
             "children": [
                 {
-                    "id": "ga_sensor",
+                    "id": "ga_up_down",
+                    "type": "text",
+                    "label": {
+                        "en": "Up/Down address",
+                        "nl": "Op/Neer adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
+                    }
+                },
+                {
+                    "id": "ga_status",
                     "type": "text",
                     "label": {
                         "en": "Status address",
@@ -60,6 +73,15 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "invert_updown",
+            "type": "checkbox",
+            "value": false,
+            "label": {
+                "en": "Invert up/down",
+                "nl": "Wissel omhoog/omlaag"
+            }
         },
         {
             "id": "macAddress",
