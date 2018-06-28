@@ -18,7 +18,7 @@
             "no_result": "Geen apparaten gevonden."  
         },
         "projectfile": {
-            "title": "Upload een ETS project",
+            "title": "ETS project uploaden",
             "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen.",
             "newxml": {
                 "title": "Nieuwe ETS configuratie",
