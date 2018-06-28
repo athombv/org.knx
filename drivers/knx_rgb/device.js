@@ -39,17 +39,18 @@ class KNXRGB extends KNXGeneric {
         this.knxInterface._connectKNX();
     }
 
-    // Event listeners are working, but needs a timeout. When Homey sets the RGB, it will be overriden with a slight offseted value from the device.
     async onKNXToggleEvent(groupaddress, data) {
         if (data && !this.ignoreEvent) {
             const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
                 .catch((error) => {
                     this.log('Error while reading RGB values', error);
                 });
-            if (onoffvalues.map(buffer => buffer.readInt8()).includes(1)) {
-                this.setCapabilityValue('onoff', true);
-            } else {
-                this.setCapabilityValue('onoff', false);
+            if (onoffvalues) {
+                if (onoffvalues.map(buffer => buffer.readInt8()).includes(1)) {
+                    this.setCapabilityValue('onoff', true);
+                } else {
+                    this.setCapabilityValue('onoff', false);
+                }
             }
         }
     }
@@ -73,17 +74,19 @@ class KNXRGB extends KNXGeneric {
         .catch((readError) => {
             this.log(readError);
         });
-        if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
-            this.setCapabilityValue('onoff', true);
-        } else {
-            this.setCapabilityValue('onoff', false);
+        if (onoffvalues) {
+            if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
+                this.setCapabilityValue('onoff', true);
+            } else {
+                this.setCapabilityValue('onoff', false);
+            }
+            const curValues = await this.getCurrentHSVColor();
+            if (curValues) {
+                this.setCapabilityValue('light_hue', curValues.h);
+                this.setCapabilityValue('light_saturation', curValues.s);
+                this.setCapabilityValue('dim', curValues.v);
+            }
         }
-        const curValues = await this.getCurrentHSVColor();
-        if (curValues) {
-            this.setCapabilityValue('light_hue', curValues.h);
-            this.setCapabilityValue('light_saturation', curValues.s);
-            this.setCapabilityValue('dim', curValues.v);
-        } 
     }
 
     // this method is called when the Device has requested a state change (turned on or off)

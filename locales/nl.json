@@ -22,10 +22,10 @@
             "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen.",
             "newxml": {
                 "title": "Nieuwe ETS configuratie",
-                "explanation": "Upload een ETS bestand (*.knxproj) om de KNX groepadressen te bewaren in Homey."
+                "explanation": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen en te bewaren in Homey. "
             },
             "existingxml": {
-	            "title": "Een ETS export is al beschikbaar, maar je kunt een "
+	            "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
             },
             "upload": "ETS project uploaden",
             "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
