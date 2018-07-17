@@ -699,6 +699,19 @@
               }
             },
             {
+              "id": "ga_stop",
+              "type": "text",
+              "label": {
+                "en": "Stop address",
+                "nl": "Stop adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in"
+              }
+            },
+            {
               "id": "ga_status",
               "type": "text",
               "label": {
