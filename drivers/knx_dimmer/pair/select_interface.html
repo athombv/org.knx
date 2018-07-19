@@ -59,15 +59,23 @@
         }
     }
     Homey.emit('list_interfaces', null, function(error, interfaceList) {
-        interfaceList.push({name: 'Manual', mac:'000000000000', ip: "enter adddress manually"});
-        renderKNXInterfaceList(interfaceList);
+        if (interfaceList) {
+            interfaceList.push({name: 'Manual', mac:'000000000000', ip: "enter adddress manually"});
+            renderKNXInterfaceList(interfaceList);
+        } else if (error) {
+            Homey.alert(error);
+        }
     });
 
     var $ipInput = $("#ip_address");
     var $searchButton = $("#search_button");
     $searchButton.on("click", function() {
-        Homey.emit("manual_ip_address", $ipInput.val(), function(error, interfaceList){
-            renderKNXInterfaceList(interfaceList);
+        Homey.emit("manual_ip_address", $ipInput.val(), function(error, interfaceList) {
+            if(interfaceList) {
+                renderKNXInterfaceList(interfaceList);
+            } else if (error) {
+                Homey.alert(error);
+            }
         });
     });
 </script>

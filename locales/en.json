@@ -6,10 +6,11 @@
             "singleip": "Configure IP Interface",
             "interfaceaddress": "Enter the IP interface IPv4 address",
             "searchbutton": "Check IP interface",
-            "scanbutton": "Scan the network for IP interfaces",
-            "interface_not_found": "Selected IP interface not found",
-            "interface_not_available": "Selected IP interface not available",
-            "interface_not_selected": "No IP interface selected"
+            "scanbutton": "(Re)Scan the network for IP interfaces",
+            "interface_not_found": "Selected IP interface not found.",
+            "interface_not_available": "Selected IP interface not available.",
+            "interface_not_selected": "No IP interface selected.",
+            "search_already_running": "Already searching for IP interface(s)."
         },
         "learnmode": {
             "title" : "Start learnmode",

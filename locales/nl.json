@@ -9,7 +9,8 @@
             "scanbutton": "Scan het netwerk voor IP interfaces",
             "interface_not_found": "Geselecteerde IP interface niet gevonden",
             "interface_not_available": "Geselecteerde IP interface niet beschikbaar",
-            "interface_not_selected": "Geen IP interface geselecteerd"
+            "interface_not_selected": "Geen IP interface geselecteerd",
+            "search_already_running": "Reeds aan het zoeken naar IP interface(s)."
         },
         "learnmode": {
             "title" : "Inleermodus",
