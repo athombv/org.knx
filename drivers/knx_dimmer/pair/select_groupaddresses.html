@@ -161,18 +161,6 @@
 				<input id="windowcover_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
         </div>
-        <div class="knx-windowcovering-tilt field row" id="knx-windowcovering-tilt" style="display: none">
-	        <div class="knx-entry">
-	            <label for="windowcover_tilt_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt"></label>
-            	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_tilt_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="windowcover_tilt_status_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt_status"></label>
-	            <select id="windowcover_tilt_statusga_dropdown" class="knx-dropdown"></select>
-				<input id="windowcover_tilt_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
     </fieldset>
     <fieldset id="knx-sensor-fieldset" style="display: none">
         <div class="knx-sensor field row">
@@ -196,11 +184,16 @@
     Homey.setTitle(Homey.__("settings.groupaddresses.body"));
     // Global variables
     var deviceType;
+    var deviceUuid; //const?
     var interfaceMAC;
     var groupAddresses;
+
     Homey.emit('return_selected_interface', function(error, macAddress) {
         interfaceMAC = macAddress;
-        //console.log('MAC:', interfaceMAC);
+    });
+
+    Homey.emit('get_uuid', function(error, uuid) {
+        deviceUuid = uuid;
     });
 
     Homey.getOptions(function(err, options) {
@@ -233,11 +226,6 @@
         case 'windowcovering':
             console.log('device is a windowcovering');
             $("#knx-windowcovering-fieldset").css("display", "block");
-            break;
-        case 'windowcovering_tilt':
-            console.log('device is a windowcovering with tilt');
-            $("#knx-windowcovering-fieldset").css("display", "block");
-            $("#knx-windowcovering-tilt").css("display", "block");
             break;
         case 'sensor':
             console.log('device is a sensor');
@@ -316,7 +304,7 @@
                 case 'light':
                     Homey.addDevice({
                         data: {
-                            id: $("#toggle_address").val()
+                           id: deviceUuid
                         },
                         name: 'KNX Light',
                         settings: { 'ga_switch': $("#toggle_address").val(),
@@ -331,7 +319,7 @@
                 case 'switch':
                     Homey.addDevice({
                         data: {
-                            id: $("#switch_toggle_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Switch',
                         settings: { 'ga_switch': $("#switch_toggle_address").val(),
@@ -345,7 +333,7 @@
                 case 'dimmer':
                     Homey.addDevice({
                         data: {
-                            id: $("#toggle_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Dimmer',
                         settings: { 'ga_switch': $("#toggle_address").val(),
@@ -362,7 +350,7 @@
                 case 'rgb':
                     Homey.addDevice({
                         data: {
-                            id: $("#red_toggle_input").val()
+                            id: deviceUuid
                         },
                         name: 'KNX RGB',
                         settings: { 'ga_red_toggle': $("#red_toggle_input").val(),
@@ -387,7 +375,7 @@
                 case 'thermostat':
                     Homey.addDevice({
                         data: {
-                            id: $("#temperature_target_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Thermostat',
                         settings: { 'ga_temperature_target': $("#temperature_target_address").val(),
@@ -402,7 +390,7 @@
                 case 'windowcovering':
                     Homey.addDevice({
                             data: {
-                                id: $("#windowcover_updown_address").val()
+                                id: deviceUuid
                             },
                             name: 'KNX Windowcovering',
                             settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
@@ -415,27 +403,10 @@
                             Homey.done();
                         });
                     break;
-                case 'windowcovering_tilt':
-                    Homey.addDevice({
-                            data: {
-                                id: $("#windowcover_updown_address").val()
-                            },
-                            name: 'KNX Windowcovering tilt',
-                            settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
-                                        'ga_status': $("#windowcover_status_address").val(),
-                                        'ga_tilt': $("#windowcover_tilt_address").val(),
-                                        'ga_tilt_status': $("#windowcover_tilt_status_address").val(),
-                                        'macAddress': interfaceMAC
-                            },
-                        }, function(err, result){
-                            if(err) return Homey.alert(err);
-                            Homey.done();
-                        });
-                    break;
                 case 'sensor':
                     Homey.addDevice({
                         data: {
-                            id: $("#sensor_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Sensor',
                         settings: { 'ga_sensor': $("#sensor_address").val(),
@@ -473,7 +444,6 @@
 			Homey.showView('parse_knxproj')	            
 			return false;
         })
-        //console.log($a)
         $a.appendTo($xmlText);
     });
 </script>

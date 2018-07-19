@@ -37,6 +37,8 @@
             "generic_status": "Status",
             "save" : "Save device",
             "save_error": "Cannot save device.",
+            "settings_error": "Settings could not be saved, ",
+            "duplicate_groupaddress": " this groupaddress is already in use by ",
             "switch": {
                 "toggle": "Switch address"
             },

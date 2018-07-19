@@ -2,7 +2,7 @@
     "$extends" :["knx_driver"],
     "id": "knx_rgb",
     "name": {
-        "en": "RGB Light",
+        "en": "RGB Lights",
         "nl": "RGB Verlichting"
     },
     "class": "light",

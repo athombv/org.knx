@@ -37,6 +37,8 @@
             "generic_status": "Status adres",
             "save": "Apparaat opslaan",
             "save_error": "Kan apparaat niet opslaan",
+            "settings_error": "Instellingen kunnen niet worden opgeslagen, ",
+            "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
             "switch": {
                 "toggle": "Schakel adres"
             },            
