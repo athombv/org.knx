@@ -29,12 +29,14 @@ class KNXSwitch extends KNXGeneric {
             if (this.settings.inverted === true) {
                 return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1')
                 .catch((knxerror) => {
-                    this.log(knxerror)
+                    this.log(knxerror);
+                    throw new Error(Homey.__("errors.switch_failed"));
                 });
             } else {
                 return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
                 .catch((knxerror) => {
-                    this.log(knxerror)
+                    this.log(knxerror);
+                    throw new Error(Homey.__("errors.switch_failed"));
                 });
             }
         }

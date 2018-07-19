@@ -39,24 +39,28 @@ class KNXWindowCovering extends KNXGeneric {
                     if (this.settings.invert_updown === true) {
                         return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1')
                         .catch((knxerror) => {
-                            this.log(knxerror)
+                            this.log(knxerror);
+                            throw new Error(Homey.__("errors.windowcovering_failed"));
                         });
                     }
                     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1')
                     .catch((knxerror) => {
-                        this.log(knxerror)
+                        this.log(knxerror);
+                        throw new Error(Homey.__("errors.windowcovering_failed"));
                     });
                 case 'down':
                     if (this.settings.ga_stop) {this.knxInterface.writeKNXGroupAddress(this.settings.ga_stop, 0, 'DPT1')}
                     if (this.settings.invert_updown === true) {
                         return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1')
                         .catch((knxerror) => {
-                            this.log(knxerror)
+                            this.log(knxerror);
+                            throw new Error(Homey.__("errors.windowcovering_failed"));
                         });
                     }
                     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1')
                     .catch((knxerror) => {
-                        this.log(knxerror)
+                        this.log(knxerror);
+                        throw new Error(Homey.__("errors.windowcovering_failed"));
                     });
                 case 'idle':
                     this.log('stop selected, stop address', this.settings.ga_stop);
@@ -64,6 +68,7 @@ class KNXWindowCovering extends KNXGeneric {
                         return this.knxInterface.writeKNXGroupAddress(this.settings.ga_stop, 1, 'DPT1')
                         .catch((knxerror) => {
                             this.log(knxerror);
+                            throw new Error(Homey.__("errors.windowcovering_failed"));
                         })
                     }
             }

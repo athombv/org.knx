@@ -33,11 +33,11 @@
             "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
         },
         "groupaddresses" : {
+            "generic": "Groepadres",
+            "pairing_list": ", groepadres: ",
             "body": "Selecteer de groepadressen voor het nieuwe apparaat",
             "generic_status": "Status adres",
             "save": "Apparaat opslaan",
-            "save_error": "Kan apparaat niet opslaan",
-            "settings_error": "Instellingen kunnen niet worden opgeslagen, ",
             "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
             "switch": {
                 "toggle": "Schakel adres"
@@ -72,5 +72,17 @@
             },
             "sensor": "Sensor adres"
         }
+    },
+    "errors": {
+        "generic_error": "There was an error: ",
+        "save_error": "Kan apparaat niet opslaan",
+        "settings_save": "Instellingen kunnen niet worden opgeslagen, ",
+        "switch_failed": "Schakelen van apparaat mislukt!",
+        "dim_failed": "Dimmen van apparaat mislukt!",
+        "rgb_failed": "Kleur veranderen mislukt!",
+        "temperature_set_failed": "Temperatuur instellen mislukt!",
+        "temperature_get_failed": "Temperatuur ophalen mislukt!",
+        "windowcovering_failed": "Raambedekking schakelen mislukt!",
+        "windowcovering_stop_failed": "Raambedekking stoppen mislukt!"
     }
 }

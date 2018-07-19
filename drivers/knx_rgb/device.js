@@ -100,7 +100,7 @@ class KNXRGB extends KNXGeneric {
                     ])
                     .catch((knxerror) => {
                         this.log(knxerror);
-                        throw new Error('Switching the device failed!');
+                        throw new Error(Homey.__("errors.switch_failed"));
                     });
                 }
             } else {
@@ -112,7 +112,7 @@ class KNXRGB extends KNXGeneric {
                     ])
                     .catch((knxerror) => {
                         this.log(knxerror);
-                        throw new Error('Switching the device failed!');
+                        throw new Error(Homey.__("errors.switch_failed"));
                     });
                 }
             }
@@ -159,7 +159,7 @@ class KNXRGB extends KNXGeneric {
             })
             .catch((error) => {
                 this.log(error);
-                throw new Error('Error setting HSV to KNX');
+                throw new Error(Homey.__("errors.rgb_failed"));
             });
         }
     }

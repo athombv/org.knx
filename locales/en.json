@@ -33,11 +33,11 @@
             "no_ga_found": "No groupaddress found, you might have uploaded an empty project."
         },
         "groupaddresses" : {
+            "generic": "Groupaddress",
+            "pairing_list": ", groupaddress: ",
             "body": "Select which groupaddresses to use with the new device",
             "generic_status": "Status",
-            "save" : "Save device",
-            "save_error": "Cannot save device.",
-            "settings_error": "Settings could not be saved, ",
+            "save" : "Save device",            
             "duplicate_groupaddress": " this groupaddress is already in use by ",
             "switch": {
                 "toggle": "Switch address"
@@ -72,5 +72,17 @@
             },
             "sensor": "Sensor address"
         }
+    },
+    "errors": {
+        "generic_error": "There was an error: ",
+        "save_error": "Cannot save device.",
+        "settings_save": "Settings could not be saved, ",
+        "switch_failed": "Switching the device failed!",
+        "dim_failed": "Dimming the device failed!",
+        "rgb_failed": "Setting color failed!",
+        "temperature_set_failed": "Setting temperature failed!",
+        "temperature_get_failed": "Getting temperature failed!",
+        "windowcovering_failed": "Changing state failed!",
+        "windowcovering_stop_failed": "Stopping windowcovering failed!"
     }
 }

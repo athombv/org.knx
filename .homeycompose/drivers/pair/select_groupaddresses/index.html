@@ -245,7 +245,7 @@
         groupAddresses.forEach(function(etsEntry) {
             var optionEl = document.createElement("option");
             optionEl.value = etsEntry.address;
-            optionEl.textContent = etsEntry.name + ", groupaddress: " + etsEntry.address;
+            optionEl.textContent = etsEntry.name + Homey.__('settings.groupaddresses.pairing_list') + etsEntry.address;
             $(selectItem).append(optionEl);
         })
         $(selectItem).toggle(!!groupAddresses.length)
@@ -260,14 +260,14 @@
 	    $learnmodeButton.attr('disabled', 'disabled');
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
-	        if(error) return Homey.alert( error.message || error.toString(), 'error' );
+	        if(error) return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString(), 'error' );
 	        
 		    $learnmodeButton.removeAttr('disabled');
             if(filteredList && filteredList.length > 0) {
                 filteredList.forEach(function(event) {
                     var optionEl = document.createElement("option");
                     optionEl.value = event.destination;
-                    optionEl.textContent = "Groupaddress " + event.destination;
+                    optionEl.textContent = Homey.__('settings.groupaddresses.generic') + event.destination;
                     $learnmodeDropdown.append(optionEl);
                 });
                 $learnmodeDropdown.toggle(!!filteredList.length);
@@ -275,7 +275,7 @@
                 $("#switch_toggle_address").val($learnmodeDropdown.val());
                 //$("#status_address").val($learnmodeDropdown.val());
             } else {
-                Homey.alert( Homey.__('settings.learnmode.no_result'), 'info'  );
+                Homey.alert(Homey.__('settings.learnmode.no_result'), 'info');
             }
         });
     });
@@ -286,7 +286,7 @@
 
     $testButton.on('click', function() {
         $testButton.attr('disabled', 'disabled');
-        var testTimeMs = 3200; // this should be forwarded to the driver
+        var testTimeMs = 3200;
         Homey.emit('test_groupaddress', {address: $learnmodeDropdown.val(), time: testTimeMs}, function(error, result) {
             if(error) Homey.alert(error);
             setTimeout(function() {
@@ -420,13 +420,13 @@
             }
             
         } else {
-            Homey.alert(Homey.__('settings.groupaddresses.save_error'), Homey.__('settings.ip.interface_not_selected'));
+            Homey.alert(Homey.__('errors.save_error'), Homey.__('settings.ip.interface_not_selected'));
         }
     })
 
     // Check if there are uploaded groupaddresses available
     Homey.emit('list_etsimport', function(error, groupAddressList) {
-        if( error ) return Homey.alert( error.message || error.toString(), 'error' );
+        if(error) return Homey.alert(Homey.__('errors.generic_error'),error.message || error.toString(), 'error');
 	    
         if(groupAddressList && groupAddressList.length > 0) {
             groupAddresses = groupAddressList;

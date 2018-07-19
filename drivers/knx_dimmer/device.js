@@ -43,7 +43,7 @@ class KNXDimmer extends KNXGeneric {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
             .catch((knxerror) => {
                 this.log(knxerror);
-                throw new Error('Switching the device failed!');
+                throw new Error(Homey.__("errors.switch_failed"));
             });
         }
     }
@@ -58,7 +58,7 @@ class KNXDimmer extends KNXGeneric {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5')
             .catch( (knxerror) => {
                 this.log(knxerror);
-                throw new Error('Dimming the device failed!');
+                throw new Error(Homey.__("errors.dim_failed"));
             });
         }
     }
