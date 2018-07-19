@@ -6,7 +6,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXThermostat extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX thermostat init');
         this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     }
 

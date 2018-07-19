@@ -7,7 +7,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXRGB extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX RGB init');
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
         this.registerMultipleCapabilityListener(['dim', 'light_hue', 'light_saturation'], this.onCapabilityHSV.bind(this), 500);
 

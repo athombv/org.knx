@@ -6,7 +6,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXDimmer extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX switch init');
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
         this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
     }

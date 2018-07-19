@@ -6,7 +6,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXLight extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX Light init');
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
     }
 

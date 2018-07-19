@@ -6,7 +6,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXWindowCovering extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX Windowcovering init');
         this.registerCapabilityListener('windowcoverings_state', this.onCapabilityWindowCovering.bind(this));
     }
 
