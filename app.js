@@ -29,16 +29,16 @@ class KNXApp extends Homey.App {
 		return this.knxInterfaceManager.discoverKNXInterfaceOnIP(ipAddress);
 	}
 
+	// Let the interfacemanager search the ethernet network for KNX IP interfaces through multicast.
+	searchInterfaces() {
+		return this.knxInterfaceManager.searchInterfaces();
+	}
+
 	// Let the interfacemanager open the connection for the IP interface with the corresponding MAC address.
 	connectInterface(macAddress) {
 		this.knxInterfaceManager.connectInterface(macAddress);
 	}
 
-	// Let the interfacemanager search the ethernet network for KNX IP interfaces through multicast.
-	searchInterfaces() {
-		this.knxInterfaceManager.searchInterfaces();
-	}
-	
 	// Obtain the interface to use by MAC address, then start the learnmode on it.
 	async startLearnmodeSwitch(macAddress, time) {
 		let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(macAddress);

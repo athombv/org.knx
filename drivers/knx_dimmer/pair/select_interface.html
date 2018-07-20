@@ -17,7 +17,6 @@
             <label for="ip_address" data-i18n="settings.ip.interfaceaddress"></label>
             <input id="ip_address" type="text" value="" />
         </div>
-        <button id="scan_button" class="left" data-i18n="settings.ip.scanbutton"></button>
         <button id="search_button" class="right" data-i18n="settings.ip.searchbutton"></button>
     </fieldset>
 </div>
@@ -58,14 +57,29 @@
             $("#ip_input").css("display", "block");
         }
     }
+
     Homey.emit('list_interfaces', null, function(error, interfaceList) {
         if (interfaceList) {
-            interfaceList.push({name: 'Manual', mac:'000000000000', ip: "enter adddress manually"});
+            interfaceList.push({name: Homey.__('settings.ip.manual_interface'), mac:'000000000000', ip: Homey.__('settings.ip.manual_interface_input')});
             renderKNXInterfaceList(interfaceList);
         } else if (error) {
             Homey.alert(error);
         }
     });
+
+    /*
+    var $scanButton = $("#scan_button");
+    $scanButton.on("click", function() {
+        Homey.emit("search_interfaces", function(error, interfaceList) {
+            if (interfaceList) {
+                interfaceList.push({name: Homey.__('settings.ip.manual_interface'), mac:'000000000000', ip: Homey.__('settings.ip.manual_interface_input')});
+                renderKNXInterfaceList(interfaceList);
+            } else if (error) {
+                Homey.alert(error);
+            }
+        });
+    });
+    */
 
     var $ipInput = $("#ip_address");
     var $searchButton = $("#search_button");
@@ -74,7 +88,17 @@
             if(interfaceList) {
                 renderKNXInterfaceList(interfaceList);
             } else if (error) {
-                Homey.alert(error);
+                console.log('ip error', error);
+                switch(error) {
+                    case 'invalid_ip':
+                        Homey.alert(Homey.__("errors.ip.invalid_ip")); break;
+                    case 'interface_not_found':
+                        Homey.alert(Homey.__("errors.ip.interface_not_found")); break;
+                    case 'search_already_running':
+                        Homey.alert(Homey.__("errors.ip.search_already_running")); break;
+                    default:
+                        Homey.alert((Homey.__("errors.generic_error") + error)); break;
+                }
             }
         });
     });
