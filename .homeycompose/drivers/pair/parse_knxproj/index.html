@@ -88,7 +88,7 @@
                     knxGroupAdresses[id] = {ga, name};
                 });
             } else {
-                Homey.alert(Homey.__('settings.projectfile.invalid_ga_structure'));
+                Homey.alert(Homey.__('errors.projectfile.invalid_ga_structure'));
             }
             // Try to couple a send or receive connector to groupaddresses
             if (groupAddressConnectors.length > 0) {
@@ -106,7 +106,7 @@
                 Homey.showView('select_groupaddresses');
             } else {
                 // No groupaddress found, so re-enable the upload form so that the user can upload another file.
-                Homey.alert(Homey.__('settings.projectfile.no_ga_found'));
+                Homey.alert(Homey.__('errors.projectfile.no_ga_found'));
                 uploaded = false;
             }
         });
@@ -127,7 +127,7 @@
                     }
                 });
                 if (!found) {
-                    Homey.alert(Homey.__('settings.projectfile.no_valid_xml'));
+                    Homey.alert(Homey.__('errors.projectfile.no_valid_xml'));
                     uploaded = false;
                     fileInput.disabled = false;
                 } else {

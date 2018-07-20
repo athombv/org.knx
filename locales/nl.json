@@ -7,10 +7,8 @@
             "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
             "searchbutton": "Zoek IP interface",
             "scanbutton": "Scan het netwerk voor IP interfaces",
-            "interface_not_found": "Geselecteerde IP interface niet gevonden",
-            "interface_not_available": "Geselecteerde IP interface niet beschikbaar",
-            "interface_not_selected": "Geen IP interface geselecteerd",
-            "search_already_running": "Reeds aan het zoeken naar IP interface(s)."
+            "manual_interface": "Handmatige configuratie",
+            "manual_interface_input": "vul handmatig een adres in."
         },
         "learnmode": {
             "title" : "Inleermodus",
@@ -28,10 +26,7 @@
             "existingxml": {
 	            "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
             },
-            "upload": "ETS project uploaden",
-            "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
-            "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
-            "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
+            "upload": "ETS project uploaden"
         },
         "groupaddresses" : {
             "generic": "Groepadres",
@@ -75,7 +70,7 @@
         }
     },
     "errors": {
-        "generic_error": "There was an error: ",
+        "generic_error": "Er is een fout opgetreden: ",
         "save_error": "Kan apparaat niet opslaan",
         "settings_save": "Instellingen kunnen niet worden opgeslagen, ",
         "switch_failed": "Schakelen van apparaat mislukt!",
@@ -84,6 +79,18 @@
         "temperature_set_failed": "Temperatuur instellen mislukt!",
         "temperature_get_failed": "Temperatuur ophalen mislukt!",
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
-        "windowcovering_stop_failed": "Raambedekking stoppen mislukt!"
+        "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
+        "ip": {
+            "invalid_ip": "Ongeldig IP adres of geen invoer.",
+            "interface_not_found": "Geselecteerde IP interface niet gevonden.",
+            "interface_not_available": "Geselecteerde IP interface niet beschikbaar.",
+            "interface_not_selected": "Geen IP interface geselecteerd.",
+            "search_already_running": "Reeds aan het zoeken naar IP interface(s)."
+        },
+        "projectfile": {
+            "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
+            "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
+            "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
+        }
     }
 }

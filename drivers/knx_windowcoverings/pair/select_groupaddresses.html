@@ -263,7 +263,7 @@
 	        if(error) return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString(), 'error' );
 	        
 		    $learnmodeButton.removeAttr('disabled');
-            if(filteredList && filteredList.length > 0) {
+            if (filteredList && filteredList.length > 0) {
                 filteredList.forEach(function(event) {
                     var optionEl = document.createElement("option");
                     optionEl.value = event.destination;
@@ -420,13 +420,16 @@
             }
             
         } else {
-            Homey.alert(Homey.__('errors.save_error'), Homey.__('settings.ip.interface_not_selected'));
+            Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
         }
     })
 
     // Check if there are uploaded groupaddresses available
     Homey.emit('list_etsimport', function(error, groupAddressList) {
-        if(error) return Homey.alert(Homey.__('errors.generic_error'),error.message || error.toString(), 'error');
+        if(error) {
+            console.log('ets error', error.message, error.toString());
+            return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString());
+        }
 	    
         if(groupAddressList && groupAddressList.length > 0) {
             groupAddresses = groupAddressList;
@@ -441,7 +444,7 @@
         var $a = $('<a href="#">' + Homey.__('settings.projectfile.upload') + '</a>');
         $a.click(function(e){
             e.preventDefault();
-			Homey.showView('parse_knxproj')	            
+			Homey.showView('parse_knxproj');
 			return false;
         })
         $a.appendTo($xmlText);
