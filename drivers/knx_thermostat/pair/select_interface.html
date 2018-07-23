@@ -17,6 +17,7 @@
             <label for="ip_address" data-i18n="settings.ip.interfaceaddress"></label>
             <input id="ip_address" type="text" value="" />
         </div>
+        <button id="scan_button" class="left" data-i18n="settings.ip.scanbutton"></button>
         <button id="search_button" class="right" data-i18n="settings.ip.searchbutton"></button>
     </fieldset>
 </div>
@@ -41,12 +42,12 @@
         var $devList = $('#interfaces-list');
         $devList.html(interfaces_render);
         $devList.find(":radio").change(function(){
-            console.log('selected', $(this).data('mac'));
+            //console.log('selected', $(this).data('mac'));
             if ($(this).data('mac') === '000000000000') {
-                console.log('User selected manual IP interface');
+                //console.log('User selected manual IP interface');
                 $("#ip_input").css("display", "block");
             } else {
-                console.log('Connect to the selected interface');
+                //console.log('Connect to the selected interface');
                 $("#ip_input").css("display", "none");
                 Homey.emit('selected_interface', $(this).data('mac'));
             }
@@ -66,8 +67,7 @@
             Homey.alert(error);
         }
     });
-
-    /*
+    
     var $scanButton = $("#scan_button");
     $scanButton.on("click", function() {
         Homey.emit("search_interfaces", function(error, interfaceList) {
@@ -75,11 +75,15 @@
                 interfaceList.push({name: Homey.__('settings.ip.manual_interface'), mac:'000000000000', ip: Homey.__('settings.ip.manual_interface_input')});
                 renderKNXInterfaceList(interfaceList);
             } else if (error) {
-                Homey.alert(error);
+                switch(error) {
+                    case 'search_already_running':
+                        Homey.alert(Homey.__("errors.ip.search_already_running")); break;
+                    default:
+                        Homey.alert((Homey.__("errors.generic_error") + error)); break;
+                }
             }
         });
     });
-    */
 
     var $ipInput = $("#ip_address");
     var $searchButton = $("#search_button");
@@ -88,7 +92,6 @@
             if(interfaceList) {
                 renderKNXInterfaceList(interfaceList);
             } else if (error) {
-                console.log('ip error', error);
                 switch(error) {
                     case 'invalid_ip':
                         Homey.alert(Homey.__("errors.ip.invalid_ip")); break;
