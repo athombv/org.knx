@@ -2,10 +2,10 @@
     "settings": {
         "ip": {
             "title": "KNX IP settings - Select or add a KNX IP interface",
-            "body": "Enter the IP address from the KNX IP interface to use. Press the search IP interface button to search",
+            "body": "Enter the IP address from the KNX IP interface to use. Press the search IP interface button to search.",
             "singleip": "Configure IP Interface",
-            "interfaceaddress": "Enter the IP interface IPv4 address",
-            "searchbutton": "Check IP interface",
+            "interfaceaddress": "Enter a IPv4 address",
+            "searchbutton": "Search interface",
             "scanbutton": "(Re)Scan the network for IP interfaces",
             "manual_interface": "Manual configuration",
             "manual_interface_input": "enter adddress manually"

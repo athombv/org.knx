@@ -2,10 +2,10 @@
     "settings": {
         "ip": {
             "title": "KNX IP instellingen",
-            "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek IP interface om deze te controleren",
+            "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek interface om deze te controleren.",
             "singleip": "Configureer IP Interface",
             "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
-            "searchbutton": "Zoek IP interface",
+            "searchbutton": "Zoek interface",
             "scanbutton": "Scan het netwerk voor IP interfaces",
             "manual_interface": "Handmatige configuratie",
             "manual_interface_input": "vul handmatig een adres in."
