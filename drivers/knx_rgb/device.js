@@ -7,7 +7,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXRGB extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX RGB init');
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
         this.registerMultipleCapabilityListener(['dim', 'light_hue', 'light_saturation'], this.onCapabilityHSV.bind(this), 500);
 
@@ -101,7 +100,7 @@ class KNXRGB extends KNXGeneric {
                     ])
                     .catch((knxerror) => {
                         this.log(knxerror);
-                        throw new Error('Switching the device failed!');
+                        throw new Error(Homey.__("errors.switch_failed"));
                     });
                 }
             } else {
@@ -113,7 +112,7 @@ class KNXRGB extends KNXGeneric {
                     ])
                     .catch((knxerror) => {
                         this.log(knxerror);
-                        throw new Error('Switching the device failed!');
+                        throw new Error(Homey.__("errors.switch_failed"));
                     });
                 }
             }
@@ -160,7 +159,7 @@ class KNXRGB extends KNXGeneric {
             })
             .catch((error) => {
                 this.log(error);
-                throw new Error('Error setting HSV to KNX');
+                throw new Error(Homey.__("errors.rgb_failed"));
             });
         }
     }

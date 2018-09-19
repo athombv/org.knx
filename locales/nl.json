@@ -2,14 +2,13 @@
     "settings": {
         "ip": {
             "title": "KNX IP instellingen",
-            "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek IP interface om deze te controleren",
+            "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek interface om deze te controleren.",
             "singleip": "Configureer IP Interface",
             "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
-            "searchbutton": "Zoek IP interface",
+            "searchbutton": "Zoek interface",
             "scanbutton": "Scan het netwerk voor IP interfaces",
-            "interface_not_found": "Geselecteerde IP interface niet gevonden",
-            "interface_not_available": "Geselecteerde IP interface niet beschikbaar",
-            "interface_not_selected": "Geen IP interface geselecteerd"
+            "manual_interface": "Handmatige configuratie",
+            "manual_interface_input": "vul handmatig een adres in."
         },
         "learnmode": {
             "title" : "Inleermodus",
@@ -27,16 +26,15 @@
             "existingxml": {
 	            "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
             },
-            "upload": "ETS project uploaden",
-            "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
-            "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
-            "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
+            "upload": "ETS project uploaden"
         },
         "groupaddresses" : {
+            "generic": "Groepadres",
+            "pairing_list": ", groepadres: ",
             "body": "Selecteer de groepadressen voor het nieuwe apparaat",
             "generic_status": "Status adres",
             "save": "Apparaat opslaan",
-            "save_error": "Kan apparaat niet opslaan",
+            "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
             "switch": {
                 "toggle": "Schakel adres"
             },            
@@ -69,6 +67,30 @@
                 "tilt_status": "Hoekverstelling status adres"
             },
             "sensor": "Sensor adres"
+        }
+    },
+    "errors": {
+        "generic_error": "Er is een fout opgetreden: ",
+        "save_error": "Kan apparaat niet opslaan",
+        "settings_save": "Instellingen kunnen niet worden opgeslagen, ",
+        "switch_failed": "Schakelen van apparaat mislukt!",
+        "dim_failed": "Dimmen van apparaat mislukt!",
+        "rgb_failed": "Kleur veranderen mislukt!",
+        "temperature_set_failed": "Temperatuur instellen mislukt!",
+        "temperature_get_failed": "Temperatuur ophalen mislukt!",
+        "windowcovering_failed": "Raambedekking schakelen mislukt!",
+        "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
+        "ip": {
+            "invalid_ip": "Ongeldig IP adres of geen invoer.",
+            "interface_not_found": "Geselecteerde IP interface niet gevonden.",
+            "interface_not_available": "Geselecteerde IP interface niet beschikbaar.",
+            "interface_not_selected": "Geen IP interface geselecteerd.",
+            "search_already_running": "Reeds aan het zoeken naar IP interface(s)."
+        },
+        "projectfile": {
+            "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
+            "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
+            "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
         }
     }
 }

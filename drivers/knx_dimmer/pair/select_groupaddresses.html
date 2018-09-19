@@ -151,21 +151,14 @@
         	    <input id="windowcover_updown_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
 	        <div class="knx-entry">
+    	        <label for="windowcover_stop_address" class="left" data-i18n="settings.groupaddresses.windowcovering.stop"></label>
+	            <select id="windowcover_stopga_dropdown" class="knx-dropdown"></select>
+				<input id="windowcover_stop_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+            <div class="knx-entry">
     	        <label for="windowcover_status_address" class="left" data-i18n="settings.groupaddresses.generic_status"></label>
 	            <select id="windowcover_statusga_dropdown" class="knx-dropdown"></select>
 				<input id="windowcover_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-        </div>
-        <div class="knx-windowcovering-tilt field row" id="knx-windowcovering-tilt" style="display: none">
-	        <div class="knx-entry">
-	            <label for="windowcover_tilt_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt"></label>
-            	<select id="windowcover_ga_dropdown" class="knx-dropdown"></select>
-        	    <input id="windowcover_tilt_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
-            </div>
-	        <div class="knx-entry">
-    	        <label for="windowcover_tilt_status_address" class="left" data-i18n="settings.groupaddresses.windowcovering.tilt_status"></label>
-	            <select id="windowcover_tilt_statusga_dropdown" class="knx-dropdown"></select>
-				<input id="windowcover_tilt_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
         </div>
     </fieldset>
@@ -191,11 +184,16 @@
     Homey.setTitle(Homey.__("settings.groupaddresses.body"));
     // Global variables
     var deviceType;
+    var deviceUuid; //const?
     var interfaceMAC;
     var groupAddresses;
+
     Homey.emit('return_selected_interface', function(error, macAddress) {
         interfaceMAC = macAddress;
-        //console.log('MAC:', interfaceMAC);
+    });
+
+    Homey.emit('get_uuid', function(error, uuid) {
+        deviceUuid = uuid;
     });
 
     Homey.getOptions(function(err, options) {
@@ -229,11 +227,6 @@
             console.log('device is a windowcovering');
             $("#knx-windowcovering-fieldset").css("display", "block");
             break;
-        case 'windowcovering_tilt':
-            console.log('device is a windowcovering with tilt');
-            $("#knx-windowcovering-fieldset").css("display", "block");
-            $("#knx-windowcovering-tilt").css("display", "block");
-            break;
         case 'sensor':
             console.log('device is a sensor');
             $("#knx-sensor-fieldset").css("display", "block");
@@ -252,7 +245,7 @@
         groupAddresses.forEach(function(etsEntry) {
             var optionEl = document.createElement("option");
             optionEl.value = etsEntry.address;
-            optionEl.textContent = etsEntry.name + ", groupaddress: " + etsEntry.address;
+            optionEl.textContent = etsEntry.name + Homey.__('settings.groupaddresses.pairing_list') + etsEntry.address;
             $(selectItem).append(optionEl);
         })
         $(selectItem).toggle(!!groupAddresses.length)
@@ -267,14 +260,14 @@
 	    $learnmodeButton.attr('disabled', 'disabled');
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
-	        if(error) return Homey.alert( error.message || error.toString(), 'error' );
+	        if(error) return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString(), 'error' );
 	        
 		    $learnmodeButton.removeAttr('disabled');
-            if(filteredList && filteredList.length > 0) {
+            if (filteredList && filteredList.length > 0) {
                 filteredList.forEach(function(event) {
                     var optionEl = document.createElement("option");
                     optionEl.value = event.destination;
-                    optionEl.textContent = "Groupaddress " + event.destination;
+                    optionEl.textContent = Homey.__('settings.groupaddresses.generic') + event.destination;
                     $learnmodeDropdown.append(optionEl);
                 });
                 $learnmodeDropdown.toggle(!!filteredList.length);
@@ -282,7 +275,7 @@
                 $("#switch_toggle_address").val($learnmodeDropdown.val());
                 //$("#status_address").val($learnmodeDropdown.val());
             } else {
-                Homey.alert( Homey.__('settings.learnmode.no_result'), 'info'  );
+                Homey.alert(Homey.__('settings.learnmode.no_result'), 'info');
             }
         });
     });
@@ -293,7 +286,7 @@
 
     $testButton.on('click', function() {
         $testButton.attr('disabled', 'disabled');
-        var testTimeMs = 3200; // this should be forwarded to the driver
+        var testTimeMs = 3200;
         Homey.emit('test_groupaddress', {address: $learnmodeDropdown.val(), time: testTimeMs}, function(error, result) {
             if(error) Homey.alert(error);
             setTimeout(function() {
@@ -311,7 +304,7 @@
                 case 'light':
                     Homey.addDevice({
                         data: {
-                            id: $("#toggle_address").val()
+                           id: deviceUuid
                         },
                         name: 'KNX Light',
                         settings: { 'ga_switch': $("#toggle_address").val(),
@@ -326,7 +319,7 @@
                 case 'switch':
                     Homey.addDevice({
                         data: {
-                            id: $("#switch_toggle_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Switch',
                         settings: { 'ga_switch': $("#switch_toggle_address").val(),
@@ -340,7 +333,7 @@
                 case 'dimmer':
                     Homey.addDevice({
                         data: {
-                            id: $("#toggle_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Dimmer',
                         settings: { 'ga_switch': $("#toggle_address").val(),
@@ -357,7 +350,7 @@
                 case 'rgb':
                     Homey.addDevice({
                         data: {
-                            id: $("#red_toggle_input").val()
+                            id: deviceUuid
                         },
                         name: 'KNX RGB',
                         settings: { 'ga_red_toggle': $("#red_toggle_input").val(),
@@ -382,7 +375,7 @@
                 case 'thermostat':
                     Homey.addDevice({
                         data: {
-                            id: $("#temperature_target_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Thermostat',
                         settings: { 'ga_temperature_target': $("#temperature_target_address").val(),
@@ -397,28 +390,12 @@
                 case 'windowcovering':
                     Homey.addDevice({
                             data: {
-                                id: $("#windowcover_updown_address").val()
+                                id: deviceUuid
                             },
                             name: 'KNX Windowcovering',
                             settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
+                                        'ga_stop': $("#windowcover_stop_address").val(),
                                         'ga_status': $("#windowcover_status_address").val(),
-                                        'macAddress': interfaceMAC
-                            },
-                        }, function(err, result){
-                            if(err) return Homey.alert(err);
-                            Homey.done();
-                        });
-                    break;
-                case 'windowcovering_tilt':
-                    Homey.addDevice({
-                            data: {
-                                id: $("#windowcover_updown_address").val()
-                            },
-                            name: 'KNX Windowcovering tilt',
-                            settings: { 'ga_up_down': $("#windowcover_updown_address").val(),
-                                        'ga_status': $("#windowcover_status_address").val(),
-                                        'ga_tilt': $("#windowcover_tilt_address").val(),
-                                        'ga_tilt_status': $("#windowcover_tilt_status_address").val(),
                                         'macAddress': interfaceMAC
                             },
                         }, function(err, result){
@@ -429,7 +406,7 @@
                 case 'sensor':
                     Homey.addDevice({
                         data: {
-                            id: $("#sensor_address").val()
+                            id: deviceUuid
                         },
                         name: 'KNX Sensor',
                         settings: { 'ga_sensor': $("#sensor_address").val(),
@@ -443,13 +420,16 @@
             }
             
         } else {
-            Homey.alert(Homey.__('settings.groupaddresses.save_error'), Homey.__('settings.ip.interface_not_selected'));
+            Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
         }
     })
 
     // Check if there are uploaded groupaddresses available
     Homey.emit('list_etsimport', function(error, groupAddressList) {
-        if( error ) return Homey.alert( error.message || error.toString(), 'error' );
+        if(error) {
+            console.log('ets error', error.message, error.toString());
+            return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString());
+        }
 	    
         if(groupAddressList && groupAddressList.length > 0) {
             groupAddresses = groupAddressList;
@@ -464,10 +444,9 @@
         var $a = $('<a href="#">' + Homey.__('settings.projectfile.upload') + '</a>');
         $a.click(function(e){
             e.preventDefault();
-			Homey.showView('parse_knxproj')	            
+			Homey.showView('parse_knxproj');
 			return false;
         })
-        //console.log($a)
         $a.appendTo($xmlText);
     });
 </script>

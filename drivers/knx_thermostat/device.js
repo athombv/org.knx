@@ -6,7 +6,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXThermostat extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX thermostat init');
         this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     }
 
@@ -45,7 +44,7 @@ class KNXThermostat extends KNXGeneric {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
             .catch((knxerror) => {
                 this.log(knxerror);
-                throw new Error('Setting temperature to KNX failed!');
+                throw new Error(Homey.__("errors.temperature_set_failed"));
             });
         }
     }
@@ -55,6 +54,7 @@ class KNXThermostat extends KNXGeneric {
             this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
             .catch((knxerror) => {
                 this.log(knxerror);
+                throw new Error(Homey.__("errors.temperature_get_failed"));
             });
         }
     }

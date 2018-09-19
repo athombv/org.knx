@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "compatibility": ">=1.5.6",
   "sdk": 2,
   "brandColor": "#006BB3",
@@ -257,7 +257,7 @@
       ],
       "id": "knx_rgb",
       "name": {
-        "en": "RGB Light",
+        "en": "RGB Lights",
         "nl": "RGB Verlichting"
       },
       "class": "light",
@@ -692,6 +692,19 @@
               "label": {
                 "en": "Up/Down address",
                 "nl": "Op/Neer adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in"
+              }
+            },
+            {
+              "id": "ga_stop",
+              "type": "text",
+              "label": {
+                "en": "Stop address",
+                "nl": "Stop adres"
               },
               "value": "",
               "hint": {

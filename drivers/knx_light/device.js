@@ -6,7 +6,6 @@ const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 class KNXLight extends KNXGeneric {
     onInit() {
         super.onInit();
-        this.log('KNX Light init');
         this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
     }
 
@@ -31,7 +30,7 @@ class KNXLight extends KNXGeneric {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
             .catch((knxerror) => {
                 this.log(knxerror);
-                throw new Error('Switching the device failed!');
+                throw new Error(Homey.__("errors.switch_failed"));
             });
         }
     }

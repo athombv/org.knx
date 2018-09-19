@@ -2,14 +2,13 @@
     "settings": {
         "ip": {
             "title": "KNX IP settings - Select or add a KNX IP interface",
-            "body": "Enter the IP address from the KNX IP interface to use. Press the search IP interface button to search",
+            "body": "Enter the IP address from the KNX IP interface to use. Press the search IP interface button to search.",
             "singleip": "Configure IP Interface",
-            "interfaceaddress": "Enter the IP interface IPv4 address",
-            "searchbutton": "Check IP interface",
-            "scanbutton": "Scan the network for IP interfaces",
-            "interface_not_found": "Selected IP interface not found",
-            "interface_not_available": "Selected IP interface not available",
-            "interface_not_selected": "No IP interface selected"
+            "interfaceaddress": "Enter a IPv4 address",
+            "searchbutton": "Search interface",
+            "scanbutton": "(Re)Scan the network for IP interfaces",
+            "manual_interface": "Manual configuration",
+            "manual_interface_input": "enter adddress manually"
         },
         "learnmode": {
             "title" : "Start learnmode",
@@ -27,16 +26,15 @@
             "existingxml": {
 	            "title": "An ETS export is already available, but you can "
             },
-            "upload": "upload an ETS project",
-            "no_valid_xml": "No valid groupaddress XML found in the project file. Please upload another project.",
-            "invalid_ga_structure": "Invalid groupaddress structure in project file",
-            "no_ga_found": "No groupaddress found, you might have uploaded an empty project."
+            "upload": "upload an ETS project"
         },
         "groupaddresses" : {
+            "generic": "Groupaddress",
+            "pairing_list": ", groupaddress: ",
             "body": "Select which groupaddresses to use with the new device",
             "generic_status": "Status",
-            "save" : "Save device",
-            "save_error": "Cannot save device.",
+            "save" : "Save device",            
+            "duplicate_groupaddress": " this groupaddress is already in use by ",
             "switch": {
                 "toggle": "Switch address"
             },
@@ -69,6 +67,30 @@
                 "tilt_status": "Tilt status address"
             },
             "sensor": "Sensor address"
+        }
+    },
+    "errors": {
+        "generic_error": "There was an error: ",
+        "save_error": "Cannot save device.",
+        "settings_save": "Settings could not be saved, ",
+        "switch_failed": "Switching the device failed!",
+        "dim_failed": "Dimming the device failed!",
+        "rgb_failed": "Setting color failed!",
+        "temperature_set_failed": "Setting temperature failed!",
+        "temperature_get_failed": "Getting temperature failed!",
+        "windowcovering_failed": "Changing state failed!",
+        "windowcovering_stop_failed": "Stopping windowcovering failed!",
+        "ip": {
+            "invalid_ip": "Invalid IP or empty input.",
+            "interface_not_found": "Selected IP interface not found.",
+            "interface_not_available": "Selected IP interface not available.",
+            "interface_not_selected": "No IP interface selected.",
+            "search_already_running": "Already searching for IP interface(s)."
+        },
+        "projectfile": {
+            "no_valid_xml": "No valid groupaddress XML found in the project file. Please upload another project.",
+            "invalid_ga_structure": "Invalid groupaddress structure in project file",
+            "no_ga_found": "No groupaddress found, you might have uploaded an empty project."
         }
     }
 }
