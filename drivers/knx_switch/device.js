@@ -25,6 +25,7 @@ class KNXSwitch extends KNXGeneric {
     }
 
     onCapabilityOnoff(value, opts) {
+        this.log('switching device', value);
         if (this.knxInterface && this.settings.ga_switch) {
             if (this.settings.inverted === true) {
                 return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1')
