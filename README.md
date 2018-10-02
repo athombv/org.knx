@@ -25,6 +25,9 @@ KNX Thermosat. Can set the setpoint temperature and get the measured temperature
 ### Windowcoverings
 Windowcoverings like sunblinds or curtains.
 
+### Temperature sensor
+A temperature measurement device.
+
 ## Set-up
 
 To set-up your KNX network in Homey, this app provides three options.

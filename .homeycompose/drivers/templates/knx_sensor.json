@@ -22,23 +22,11 @@
         {
             "id": "select_groupaddresses",
             "$template": "select_groupaddresses",
+            "options": {
+                "devicetype": "sensor"
+            },
             "navigation": {
                 "prev": "select_interface"
-            }
-        }
-    ],
-    "settings": [
-        {
-            "id": "macAddress",
-            "type": "text",
-            "label": {
-                "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
-            },
-            "value" : "",
-            "hint": {
-                "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
             }
         }
     ]

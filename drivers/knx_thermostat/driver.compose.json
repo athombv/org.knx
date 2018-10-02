@@ -6,12 +6,10 @@
         "nl": "Thermostaat"
     },
     "class": "thermostat",
-    "capabilities": ["target_temperature",
-                     "measure_temperature"],
-    "images": {
-	    "large": "{{driverAssetsPath}}/images/large.png",
-	    "small": "{{driverAssetsPath}}/images/small.png"
-    },
+    "capabilities": [
+        "target_temperature",
+        "measure_temperature"
+    ],
     "pair" : [
         {
             "id": "select_interface",
