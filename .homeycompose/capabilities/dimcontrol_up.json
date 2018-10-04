@@ -1,0 +1,9 @@
+{
+    "title": {
+        "en": "Dim up",
+        "nl": "Dim omhoog"
+    },
+    "type": "boolean",
+    "getable": true,
+    "setable": true
+}

@@ -54,7 +54,7 @@
             	<select id="dimga_dropdown" class="knx-dropdown"></select>
         	    <input id="dim_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
-	        <div class="knx-entry">
+	        <div class="knx-entry" id="knx-dimmer-status-entry">
     	        <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
 	            <select id="dim_statusga_dropdown" class="knx-dropdown"></select>
 				<input id="dim_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
@@ -215,6 +215,12 @@
             $("#knx-light-fieldset").css("display", "block");
             $("#knx-dimmer-fieldset").css("display", "block");
             break;
+        case 'dimcontrol':
+            console.log('device is a dimcontrol');
+            $("#knx-light-fieldset").css("display", "block");
+            $("#knx-dimmer-fieldset").css("display", "block");
+            $("#knx-dimmer-status-entry").css("display", "none");
+            break;
         case 'rgb':
             console.log('device is a rgb');
             $("#knx-rgb-fieldset").css("display", "block");
@@ -336,6 +342,22 @@
                             id: deviceUuid
                         },
                         name: 'KNX Dimmer',
+                        settings: { 'ga_switch': $("#toggle_address").val(),
+                                    'ga_status': $("#toggle_status_address").val(),
+                                    'ga_dim': $("#dim_address").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result){
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
+                case 'dimcontrol':
+                    Homey.addDevice({
+                        data: {
+                            id: deviceUuid
+                        },
+                        name: 'KNX Relative Dimmer',
                         settings: { 'ga_switch': $("#toggle_address").val(),
                                     'ga_status': $("#toggle_status_address").val(),
                                     'ga_dim': $("#dim_address").val(),
