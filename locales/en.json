@@ -66,8 +66,10 @@
                 "tilt": "Tilt address",
                 "tilt_status": "Tilt status address"
             },
-            "sensor": "Sensor address"
-        }
+            "sensor": "Sensor address",
+            "scene": "Scene address"
+        },
+        "scene_number" : "Scene number"
     },
     "errors": {
         "generic_error": "There was an error: ",
