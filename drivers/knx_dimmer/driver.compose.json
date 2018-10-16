@@ -8,9 +8,9 @@
     "class": "light",
     "capabilities": ["onoff", "dim"],
     "capabilitiesOptions": {
-        "onoff": {
-            "setOnDim": "false"
-        }
+		"onoff": {
+			"setOnDim": false
+}
     },
     "pair" : [
         {

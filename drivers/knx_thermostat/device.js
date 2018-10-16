@@ -12,10 +12,10 @@ class KNXThermostat extends KNXGeneric {
     onKNXEvent(groupaddress, data) {
         this.log('event', data);
         if (groupaddress === this.settings.ga_temperature_target) {
-            this.setCapabilityValue('target_temperature', DatapointTypeParser.temperature(data));
+            this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data));
         }
         if (groupaddress === this.settings.ga_temperature_measure) {
-            this.setCapabilityValue('measure_temperature', DatapointTypeParser.temperature(data));
+            this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data));
         }
     }
 

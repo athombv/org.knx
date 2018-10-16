@@ -3,7 +3,7 @@
 const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
 
-class KNXTemperatureSensor extends KNXGeneric {
+class KNXLuminanceSensor extends KNXGeneric {
     onInit() {
         super.onInit();
     }
@@ -11,7 +11,7 @@ class KNXTemperatureSensor extends KNXGeneric {
     onKNXEvent(groupaddress, data) {
         this.log('event', data);
         if (groupaddress === this.settings.ga_sensor) {
-            this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data));
+            this.setCapabilityValue('measure_luminance', DatapointTypeParser.dpt9(data));
         }
     }
 
@@ -26,15 +26,15 @@ class KNXTemperatureSensor extends KNXGeneric {
         }
     }
 
-    getMeasuredTemperature() {
+    getMeasuredLuminance() {
         if (this.settings.ga_sensor) {
             this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
             .catch((knxerror) => {
                 this.log(knxerror);
-                throw new Error(Homey.__("errors.temperature_get_failed"));
+                throw new Error(Homey.__("errors.sensor_get_failed"));
             });
         }
     }
 }
 
-module.exports = KNXTemperatureSensor;
+module.exports = KNXLuminanceSensor;
