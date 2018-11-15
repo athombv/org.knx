@@ -10,7 +10,7 @@ class KNXThermostat extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
-        this.log('event', data);
+        super.onKNXEvent(groupaddress, data);
         if (groupaddress === this.settings.ga_temperature_target) {
             this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data));
         }
@@ -20,9 +20,11 @@ class KNXThermostat extends KNXGeneric {
     }
 
     onKNXConnection() {
-        // Reading the groupaddress will trigger a event on the bus.
-        // This will be catched by onKNXEvent, hence the return value is not used.
-        if (this.knxInterface) {
+        super.onKNXConnection(connectionStatus);
+
+        if (connectionStatus === 'connected') {
+            // Reading the groupaddress will trigger a event on the bus.
+            // This will be catched by onKNXEvent, hence the return value is not used.
             if (this.settings.ga_temperature_target) {
                 this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_target)
                 .catch((knxerror) => {

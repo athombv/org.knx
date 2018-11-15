@@ -18,6 +18,7 @@ class KNXScene extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
+        super.onKNXEvent(groupaddress, data);
         if (groupaddress === this.settings.ga_scene) {
             this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
         }

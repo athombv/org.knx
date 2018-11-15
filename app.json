@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "compatibility": ">=1.5.6",
   "sdk": 2,
   "brandColor": "#006BB3",
@@ -71,6 +71,17 @@
             "prev": "select_interface"
           }
         }
+      ],
+      "id": "knx_dimcontrol",
+      "name": {
+        "en": "Dimmer relative",
+        "nl": "Dimmer relatief"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dimcontrol_up",
+        "dimcontrol_down"
       ],
       "settings": [
         {
@@ -191,29 +202,40 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_dimcontrol",
-      "name": {
-        "en": "Dimmer relative",
-        "nl": "Dimmer relatief"
-      },
-      "class": "light",
-      "capabilities": [
-        "onoff",
-        "dimcontrol_up",
-        "dimcontrol_down"
       ],
       "mobile": {
         "components": [
@@ -336,17 +358,39 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
       ],
       "id": "knx_dimmer",
@@ -394,6 +438,15 @@
           }
         }
       ],
+      "id": "knx_light",
+      "name": {
+        "en": "Light",
+        "nl": "Lamp"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
       "settings": [
         {
           "type": "group",
@@ -431,27 +484,40 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_light",
-      "name": {
-        "en": "Light",
-        "nl": "Lamp"
-      },
-      "class": "light",
-      "capabilities": [
-        "onoff"
       ]
     },
     {
@@ -516,17 +582,39 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
       ]
     },
@@ -558,6 +646,18 @@
             "prev": "select_interface"
           }
         }
+      ],
+      "id": "knx_rgb",
+      "name": {
+        "en": "RGB Lights",
+        "nl": "RGB Verlichting"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation"
       ],
       "settings": [
         {
@@ -726,30 +826,40 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_rgb",
-      "name": {
-        "en": "RGB Lights",
-        "nl": "RGB Verlichting"
-      },
-      "class": "light",
-      "capabilities": [
-        "onoff",
-        "dim",
-        "light_hue",
-        "light_saturation"
       ]
     },
     {
@@ -780,6 +890,15 @@
             "prev": "select_interface"
           }
         }
+      ],
+      "id": "knx_scene",
+      "name": {
+        "en": "Scene",
+        "nl": "Scene"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff"
       ],
       "settings": [
         {
@@ -818,27 +937,40 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_scene",
-      "name": {
-        "en": "Scene",
-        "nl": "Scene"
-      },
-      "class": "other",
-      "capabilities": [
-        "onoff"
       ],
       "mobile": {
         "components": [
@@ -886,6 +1018,15 @@
           }
         }
       ],
+      "id": "knx_switch",
+      "name": {
+        "en": "Switch",
+        "nl": "Schakelaar"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
       "settings": [
         {
           "type": "group",
@@ -932,27 +1073,40 @@
           }
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_switch",
-      "name": {
-        "en": "Switch",
-        "nl": "Schakelaar"
-      },
-      "class": "light",
-      "capabilities": [
-        "onoff"
       ]
     },
     {
@@ -1017,17 +1171,39 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1059,6 +1235,16 @@
             "prev": "select_interface"
           }
         }
+      ],
+      "id": "knx_thermostat",
+      "name": {
+        "en": "Thermostat",
+        "nl": "Thermostaat"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "target_temperature",
+        "measure_temperature"
       ],
       "settings": [
         {
@@ -1097,28 +1283,40 @@
           ]
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_thermostat",
-      "name": {
-        "en": "Thermostat",
-        "nl": "Thermostaat"
-      },
-      "class": "thermostat",
-      "capabilities": [
-        "target_temperature",
-        "measure_temperature"
       ]
     },
     {
@@ -1149,6 +1347,15 @@
             "prev": "select_interface"
           }
         }
+      ],
+      "id": "knx_windowcoverings",
+      "name": {
+        "en": "Windowcoverings",
+        "nl": "Raambedekkingen"
+      },
+      "class": "windowcoverings",
+      "capabilities": [
+        "windowcoverings_state"
       ],
       "settings": [
         {
@@ -1209,27 +1416,40 @@
           }
         },
         {
-          "id": "macAddress",
-          "type": "text",
+          "type": "group",
           "label": {
-            "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "en": "Network settings",
+            "nl": "Netwerk instellingen"
           },
-          "value": "",
-          "hint": {
-            "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
-          }
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
         }
-      ],
-      "id": "knx_windowcoverings",
-      "name": {
-        "en": "Windowcoverings",
-        "nl": "Raambedekkingen"
-      },
-      "class": "windowcoverings",
-      "capabilities": [
-        "windowcoverings_state"
       ]
     }
   ],

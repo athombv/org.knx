@@ -9,6 +9,7 @@ class KNXLuminanceSensor extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
+        super.onKNXEvent(groupaddress, data);
         this.log('event', data);
         if (groupaddress === this.settings.ga_sensor) {
             this.setCapabilityValue('measure_luminance', DatapointTypeParser.dpt9(data));
@@ -16,13 +17,17 @@ class KNXLuminanceSensor extends KNXGeneric {
     }
 
     onKNXConnection() {
-        // Reading the groupaddress will trigger a event on the bus.
-        // This will be catched by onKNXEvent, hence the return value is not used.
-        if (this.knxInterface && this.settings.ga_sensor) {
-            this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
-            .catch((knxerror) => {
-                this.log(knxerror);
-            });
+        super.onKNXConnection(connectionStatus);
+
+        if (connectionStatus === 'connected') {
+            // Reading the groupaddress will trigger a event on the bus.
+            // This will be catched by onKNXEvent, hence the return value is not used.
+            if (this.settings.ga_sensor) {
+                this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
+                .catch((knxerror) => {
+                    this.log(knxerror);
+                });
+            }
         }
     }
 

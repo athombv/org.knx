@@ -42,7 +42,7 @@ class KNXRGB extends KNXGeneric {
         if (data && !this.ignoreEvent) {
             const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
                 .catch((error) => {
-                    this.log('Error while reading RGB values', error);
+                    this.log('Error while reading RGB switch values', error);
                 });
             if (onoffvalues) {
                 if (onoffvalues.map(buffer => buffer.readInt8()).includes(1)) {
@@ -55,6 +55,7 @@ class KNXRGB extends KNXGeneric {
     }
 
     async onKNXRGBEvent(groupaddress, data) {
+        this.log('received rgb event');
         const curValues = await this.getCurrentHSVColor();
         if (curValues && !this.ignoreEvent) {
             if(curValues.h !== 0) this.setCapabilityValue('light_hue', curValues.h);
@@ -63,27 +64,28 @@ class KNXRGB extends KNXGeneric {
         }
     }
 
-    // emtpy to just catch onoff and dim capabilites
-    onKNXEvent(groupaddress, data) {
-        this.log('received', groupaddress, data);
-    }
-
     async onKNXConnection() {
-        const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
-        .catch((readError) => {
-            this.log(readError);
-        });
-        if (onoffvalues) {
-            if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
-                this.setCapabilityValue('onoff', true);
-            } else {
-                this.setCapabilityValue('onoff', false);
-            }
-            const curValues = await this.getCurrentHSVColor();
-            if (curValues) {
-                this.setCapabilityValue('light_hue', curValues.h);
-                this.setCapabilityValue('light_saturation', curValues.s);
-                this.setCapabilityValue('dim', curValues.v);
+        super.onKNXConnection(connectionStatus);
+
+        if (connectionStatus === 'connected') {
+            // Reading the groupaddress will trigger a event on the bus.
+            // This will be catched by onKNXEvent, hence the return value is not used.
+            const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
+            .catch((readError) => {
+                this.log(readError);
+            });
+            if (onoffvalues) {
+                if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
+                    this.setCapabilityValue('onoff', true);
+                } else {
+                    this.setCapabilityValue('onoff', false);
+                }
+                const curValues = await this.getCurrentHSVColor();
+                if (curValues) {
+                    this.setCapabilityValue('light_hue', curValues.h);
+                    this.setCapabilityValue('light_saturation', curValues.s);
+                    this.setCapabilityValue('dim', curValues.v);
+                }
             }
         }
     }

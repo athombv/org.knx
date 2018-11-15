@@ -1,35 +1,5 @@
 {
-    "$extends" :["knx_sensor"],
-    "id": "knx_luminance_sensor",
-    "name": {
-        "en": "Luminance Sensor",
-        "nl": "Licht intensiteit sensor"
-    },
-    "class": "sensor",
-    "capabilities": ["measure_luminance"],
     "settings": [
-        {
-            "type": "group",
-            "label": {
-                "en": "KNX groupaddress",
-                "nl": "KNX groepadressen"
-            },
-            "children": [
-                {
-                    "id": "ga_sensor",
-                    "type": "text",
-                    "label": {
-                        "en": "Luminance measurement address",
-                        "nl": "Licht meting adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                }
-            ]
-        },
         {
             "type": "group",
             "label": {
