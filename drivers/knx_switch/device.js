@@ -15,7 +15,7 @@ class KNXSwitch extends KNXGeneric {
         }
     }
 
-    onKNXConnection() {
+    onKNXConnection(connectionStatus) {
         super.onKNXConnection(connectionStatus);
 
         if (connectionStatus === 'connected') {

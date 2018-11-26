@@ -64,7 +64,7 @@ class KNXRGB extends KNXGeneric {
         }
     }
 
-    async onKNXConnection() {
+    async onKNXConnection(connectionStatus) {
         super.onKNXConnection(connectionStatus);
 
         if (connectionStatus === 'connected') {
