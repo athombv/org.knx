@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "compatibility": ">=1.5.6",
   "sdk": 2,
   "brandColor": "#006BB3",
