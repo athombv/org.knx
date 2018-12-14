@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "compatibility": ">=1.5.6",
   "sdk": 2,
   "brandColor": "#006BB3",
@@ -25,6 +25,22 @@
     "email": "info@athom.nl"
   },
   "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Trigger by a KNX scene",
+          "nl": "Wordt getriggerd door een KNX scene"
+        },
+        "args": [
+          {
+            "name": "knx_scene",
+            "type": "device",
+            "filter": "driver_id=knx_scene"
+          }
+        ],
+        "id": "trigger_from_scene"
+      }
+    ],
     "actions": [
       {
         "title": {
@@ -38,7 +54,7 @@
             "filter": "driver_id=knx_scene"
           }
         ],
-        "id": "trigger_scene"
+        "id": "trigger_to_scene"
       }
     ]
   },
