@@ -12,9 +12,10 @@ For example lights that are connected to a binary outputactor. This type can onl
 
 ### Dimmer device
 For example a light that can be dimmed (0% - 100%).
-This device can only control dimmers that are setup for direct control (0-100%, KNX datapoint 5).
-Dimmers that are using dimcontrol with fixed steps are not (yet) supported.
-Please contact your KNX installer to change your dimactor to support direct control.
+This device can only control dimmers that user percentages (KNX datapoint 5).
+
+### Step Dimmer
+Button based step dimmers. For dimactors that don't or can't support direct dimming.
 
 ### RGB Light
 A light or LED Strip that can change color (Red/Green/Blue).
@@ -23,7 +24,13 @@ A light or LED Strip that can change color (Red/Green/Blue).
 KNX Thermosat. Can set the setpoint temperature and get the measured temperature.
 
 ### Windowcoverings
-Windowcoverings like sunblinds or curtains.
+Windowcoverings like sunblinds or curtains. Currently only Up/Down is supported.
+
+### Temperature sensor
+A temperature measurement device.
+
+### Scene
+Device within Homey which triggers a KNX scene to become active.
 
 ## Set-up
 

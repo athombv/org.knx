@@ -66,8 +66,10 @@
                 "tilt": "Hoekverstelling adres",
                 "tilt_status": "Hoekverstelling status adres"
             },
-            "sensor": "Sensor adres"
-        }
+            "sensor": "Sensor adres",
+            "scene": "Scene adres"
+        },
+        "scene_number" : "Scene nummer"
     },
     "errors": {
         "generic_error": "Er is een fout opgetreden: ",

@@ -1,5 +1,5 @@
 {
-    "$extends" :["knx_driver"],
+    "$extends" :["knx_driver", "knx.settings"],
     "id": "knx_dimmer",
     "name": {
         "en": "Dimmer",
@@ -7,9 +7,10 @@
     },
     "class": "light",
     "capabilities": ["onoff", "dim"],
-    "images": {
-	    "large": "{{driverAssetsPath}}/images/large.png",
-	    "small": "{{driverAssetsPath}}/images/small.png"
+    "capabilitiesOptions": {
+		"onoff": {
+			"setOnDim": false
+}
     },
     "pair" : [
         {
@@ -101,17 +102,39 @@
             ]
         },
         {
-            "id": "macAddress",
-            "type": "text",
+            "type": "group",
             "label": {
-                "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "en": "Network settings",
+                "nl": "Netwerk instellingen"
             },
-            "value" : "",
-            "hint": {
-                "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
-            }
+            "children": [
+                {
+                    "id": "macAddress",
+                    "type": "text",
+                    "label": {
+                        "en": "Interface MAC address",
+                        "nl": "Interface MAC adres"
+                    },
+                    "value" : "",
+                    "hint": {
+                        "en": "MAC address of the required KNX IP interface",
+                        "nl": "MAC adres van de KNX IP interface"
+                    }
+                },
+                {
+                    "id": "ipAddress",
+                    "type": "text",
+                    "label": {
+                        "en": "Interface IP address",
+                        "nl": "Interface IP adres"
+                    },
+                    "value" : "",
+                    "hint": {
+                        "en": "IP address of the required KNX IP interface",
+                        "nl": "IP adres van de KNX IP interface"
+                    }
+                }
+            ]
         }
     ]
 }

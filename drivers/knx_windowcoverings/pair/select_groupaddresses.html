@@ -54,7 +54,7 @@
             	<select id="dimga_dropdown" class="knx-dropdown"></select>
         	    <input id="dim_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
-	        <div class="knx-entry">
+	        <div class="knx-entry" id="knx-dimmer-status-entry">
     	        <label for="dim_status_address" class="left" data-i18n="settings.groupaddresses.dimmer.status"></label>
 	            <select id="dim_statusga_dropdown" class="knx-dropdown"></select>
 				<input id="dim_status_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
@@ -170,7 +170,22 @@
                 <input id="sensor_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
             </div>
         </div>
-</fieldset>
+    </fieldset>
+    <fieldset id="knx-scene-fieldset" style="display: none">
+        <div class="knx-scene field row">
+            <div class="knx-entry">
+                <label for="scene_address" class="left" data-i18n="settings.groupaddresses.scene"></label>
+                <select id="scene_ga_dropdown" class="knx-dropdown"></select>
+                <input id="scene_address" type="text" class="knx-text right" placeholder="e.g. 0/1/2" />
+            </div>
+        </div>
+        <div class="knx-scene field row">
+            <div class="knx-entry">
+                <label for="scene_number" class="left" data-i18n="settings.scene_number"></label>
+                <input id="scene_number" type="text" class="knx-text right" placeholder="e.g. 8" />
+            </div>
+        </div>
+    </fieldset>
     <fieldset id="knx-learnmode-fieldset" style="display: none">
         <label id="learnmode_label" data-i18n="settings.learnmode.explanation"></label>
         <button id="learnmode_button" class="right" data-i18n="settings.learnmode.title"></button>
@@ -215,6 +230,12 @@
             $("#knx-light-fieldset").css("display", "block");
             $("#knx-dimmer-fieldset").css("display", "block");
             break;
+        case 'dimcontrol':
+            console.log('device is a dimcontrol');
+            $("#knx-light-fieldset").css("display", "block");
+            $("#knx-dimmer-fieldset").css("display", "block");
+            $("#knx-dimmer-status-entry").css("display", "none");
+            break;
         case 'rgb':
             console.log('device is a rgb');
             $("#knx-rgb-fieldset").css("display", "block");
@@ -230,6 +251,10 @@
         case 'sensor':
             console.log('device is a sensor');
             $("#knx-sensor-fieldset").css("display", "block");
+            break;
+        case 'scene':
+            console.log('device is a scene');
+            $("#knx-scene-fieldset").css("display", "block");
             break;
     }
 
@@ -273,14 +298,13 @@
                 $learnmodeDropdown.toggle(!!filteredList.length);
                 $testButton.toggle(!!filteredList.length);
                 $("#switch_toggle_address").val($learnmodeDropdown.val());
-                //$("#status_address").val($learnmodeDropdown.val());
             } else {
                 Homey.alert(Homey.__('settings.learnmode.no_result'), 'info');
             }
         });
     });
 
-    $learnmodeDropdown.on('change', function(){
+    $learnmodeDropdown.on('change', function() {
         $("#switch_toggle_address").val($learnmodeDropdown.val());
     });
 
@@ -311,7 +335,7 @@
                                     'ga_status': $("#toggle_status_address").val(),
                                     'macAddress': interfaceMAC
                         },
-                    }, function(err, result){
+                    }, function(err, result) {
                         if(err) return Homey.alert(err);
                         Homey.done();
                     });
@@ -325,7 +349,7 @@
                         settings: { 'ga_switch': $("#switch_toggle_address").val(),
                                     'macAddress': interfaceMAC
                         },
-                    }, function(err, result){
+                    }, function(err, result) {
                         if(err) return Homey.alert(err);
                         Homey.done();
                     });
@@ -342,7 +366,23 @@
                                     'ga_dim_status': $("#dim_status_address").val(),
                                     'macAddress': interfaceMAC
                         },
-                    }, function(err, result){
+                    }, function(err, result) {
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
+                case 'dimcontrol':
+                    Homey.addDevice({
+                        data: {
+                            id: deviceUuid
+                        },
+                        name: 'KNX Relative Dimmer',
+                        settings: { 'ga_switch': $("#toggle_address").val(),
+                                    'ga_status': $("#toggle_status_address").val(),
+                                    'ga_dim': $("#dim_address").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result) {
                         if(err) return Homey.alert(err);
                         Homey.done();
                     });
@@ -367,7 +407,7 @@
                                     'ga_blue_dim_status': $("#blue_dim_status_input").val(),
                                     'macAddress': interfaceMAC
                         },
-                    }, function(err, result){
+                    }, function(err, result) {
                         if(err) return Homey.alert(err);
                         Homey.done();
                     });
@@ -382,7 +422,7 @@
                                     'ga_temperature_measure': $("#temperature_measure_address").val(),
                                     'macAddress': interfaceMAC
                         },
-                    }, function(err, result){
+                    }, function(err, result) {
                         if(err) return Homey.alert(err);
                         Homey.done();
                     });
@@ -398,7 +438,7 @@
                                         'ga_status': $("#windowcover_status_address").val(),
                                         'macAddress': interfaceMAC
                             },
-                        }, function(err, result){
+                        }, function(err, result) {
                             if(err) return Homey.alert(err);
                             Homey.done();
                         });
@@ -412,7 +452,22 @@
                         settings: { 'ga_sensor': $("#sensor_address").val(),
                                     'macAddress': interfaceMAC
                         },
-                    }, function(err, result){
+                    }, function(err, result) {
+                        if(err) return Homey.alert(err);
+                        Homey.done();
+                    });
+                    break;
+                case 'scene':
+                    Homey.addDevice({
+                        data: {
+                            id: deviceUuid
+                        },
+                        name: 'KNX Scene',
+                        settings: { 'ga_scene': $("#scene_address").val(),
+                                    'scene_number': $("#scene_number").val(),
+                                    'macAddress': interfaceMAC
+                        },
+                    }, function(err, result) {
                         if(err) return Homey.alert(err);
                         Homey.done();
                     });

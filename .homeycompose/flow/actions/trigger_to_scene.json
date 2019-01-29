@@ -1,0 +1,13 @@
+{
+    "title": {
+        "en": "Trigger scene",
+        "nl": "Start scene"
+    },
+    "args": [
+        {
+            "name": "knx_scene",
+            "type": "device",
+            "filter": "driver_id=knx_scene"
+        }
+    ]
+}

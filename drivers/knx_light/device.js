@@ -10,18 +10,24 @@ class KNXLight extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
+        super.onKNXEvent(groupaddress, data);
         if (groupaddress === this.settings.ga_status) {
             this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
         }
     }
 
-    onKNXConnection() {
-        // check if there is a correct IP interface and a status address
-        if (this.knxInterface && this.settings.ga_status) {
-            this.knxInterface.readKNXGroupAddress(this.settings.ga_status)
-            .catch((knxerror) => {
-                this.log(knxerror);
-            });
+    onKNXConnection(connectionStatus) {
+        super.onKNXConnection(connectionStatus);
+
+        if (connectionStatus === 'connected') {
+            // Reading the groupaddress will trigger a event on the bus.
+            // This will be catched by onKNXEvent, hence the return value is not used.
+            if (this.settings.ga_status) {
+                this.knxInterface.readKNXGroupAddress(this.settings.ga_status)
+                .catch((knxerror) => {
+                    this.log(knxerror);
+                });
+            }
         }
     }
 

@@ -10,6 +10,7 @@ class KNXWindowCovering extends KNXGeneric {
     }
 
     onKNXEvent(groupaddress, data) {
+        super.onKNXEvent(groupaddress, data);
         if (groupaddress === this.settings.ga_status) {
             const state = DatapointTypeParser.onoff(data);
             if (state) {

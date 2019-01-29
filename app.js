@@ -10,7 +10,10 @@ class KNXApp extends Homey.App {
 		this.knxInterfaceManager = new KNXInterfaceManager();
 		this.knxInterfaceManager.on('interface_found', (knxInterface) => {
 			this.emit('interface_found', knxInterface);
-			this.emit('interface_found:' + knxInterface.macAddress, knxInterface);
+			this.emit('interface_found' + knxInterface.macAddress, knxInterface);
+		});
+		this.knxInterfaceManager.on('no_interfaces', () => {
+			this.emit('no_interfaces');
 		});
 	}
 

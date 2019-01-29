@@ -1,18 +1,18 @@
 /**
 * knx.js - a KNX protocol stack in pure Javascript
-* (C) 2016-2017 Elias Karakoulakis
+* (C) 2016-2018 Elias Karakoulakis
 */
 
-var os = require('os');
-var dgram = require('dgram');
-var util = require('util');
+const os = require('os');
+const util = require('util');
+const dgram = require('dgram');
+const machina = require('machina');
 
-var machina = require('machina');
-
-var FSM = require('./FSM.js');
-var DPTLib = require('./dptlib');
-var KnxConstants = require('./KnxConstants.js');
-var KnxNetProtocol = require('./KnxProtocol.js');
+const FSM = require('./FSM');
+const DPTLib = require('./dptlib');
+const KnxLog = require('./KnxLog');
+const KnxConstants = require('./KnxConstants');
+const KnxNetProtocol = require('./KnxProtocol');
 
 // bind incoming UDP packet handler
 FSM.prototype.onUdpSocketMessage = function(msg, rinfo, callback) {
@@ -22,27 +22,23 @@ FSM.prototype.onUdpSocketMessage = function(msg, rinfo, callback) {
     reader.KNXNetHeader('tmp');
     var dg = reader.next()['tmp'];
     var descr = this.datagramDesc(dg);
-    this.debugPrint(util.format(
-      "Received %s message: %j", descr, dg
-    ));
+    KnxLog.get().trace('(%s): Received %s message: %j', this.compositeState(), descr, dg);
     if (!isNaN(this.channel_id) &&
       ((dg.hasOwnProperty('connstate') &&
           dg.connstate.channel_id != this.channel_id) ||
         (dg.hasOwnProperty('tunnstate') &&
           dg.tunnstate.channel_id != this.channel_id))) {
-      this.debugPrint(util.format(
-        "*** Ignoring %s datagram for other channel (own: %d)",
-        descr, this.channel_id));
+      KnxLog.get().trace('(%s): *** Ignoring %s datagram for other channel (own: %d)',
+        this.compositeState(), descr, this.channel_id);
     } else {
       // ... to drive the state machine (eg "inbound_TUNNELING_REQUEST_L_Data.ind")
       var signal = util.format('inbound_%s', descr);
       this.handle(signal, dg);
     }
   } catch(err) {
-    console.log(err.stack);
-    this.debugPrint(util.format(
-      "%s: Incomplete/unparseable UDP packet: %s", err, msg.toString('hex')
-    ));
+    KnxLog.get().debug('(%s): Incomplete/unparseable UDP packet: %s: %s',
+      this.compositeState(),err, msg.toString('hex')
+    );
   }
 };
 
@@ -71,6 +67,7 @@ FSM.prototype.AddCRI = function(datagram) {
 }
 
 FSM.prototype.AddCEMI = function(datagram, msgcode) {
+  var sendAck = ((msgcode || 0x11) == 0x11) && !this.options.suppress_ack_ldatareq; // only for L_Data.req
   datagram.cemi = {
     msgcode: msgcode || 0x11, // default: L_Data.req for tunneling
     ctrl: {
@@ -79,7 +76,7 @@ FSM.prototype.AddCEMI = function(datagram, msgcode) {
       repeat: 1, // the OPPOSITE: 1=do NOT repeat
       broadcast: 1, // 0-system broadcast 1-broadcast
       priority: 3, // 0-system 1-normal 2-urgent 3-low
-      acknowledge: (msgcode || 0x11) == 0x11 ? 1 : 0, // only for L_Data.req
+      acknowledge: sendAck ? 1 : 0,
       confirm: 0, // FIXME: only for L_Data.con 0-ok 1-error
       // 2nd byte
       destAddrType: 1, // FIXME: 0-physical 1-groupaddr
@@ -153,9 +150,8 @@ FSM.prototype.prepareDatagram = function(svcType) {
       this.AddTunnState(datagram);
       break;
     default:
-      console.trace('Do not know how to deal with svc type %d', svcType);
+      log.debug('Do not know how to deal with svc type %d', svcType);
   }
-  //console.log(datagram);
   return datagram;
 }
 
@@ -164,7 +160,6 @@ send the datagram over the wire
 */
 FSM.prototype.send = function(datagram, callback) {
   var conn = this;
-  //try {
   var cemitype;
   this.writer = KnxNetProtocol.createWriter();
   switch (datagram.service_type) {
@@ -178,25 +173,22 @@ FSM.prototype.send = function(datagram, callback) {
   var buf = packet.buffer;
   var svctype = KnxConstants.keyText('SERVICE_TYPE', datagram.service_type);
   var descr = this.datagramDesc(datagram);
-  this.debugPrint(util.format('Sending %s ==> %j', descr, datagram));
+  KnxLog.get().trace('(%s): Sending %s ==> %j', this.compositeState(), descr, datagram);
   this.socket.send(
     buf, 0, buf.length,
     conn.remoteEndpoint.port, conn.remoteEndpoint.addr.toString(),
     function(err) {
-      conn.debugPrint(util.format('UDP send %s: %s %s',
+      KnxLog.get().trace('(%s): UDP sent %s: %s %s', conn.compositeState(),
         (err ? err.toString() : 'OK'), descr, buf.toString('hex')
-      ));
+      );
       if (typeof callback === 'function') callback(err);
     }
   );
-  /*} catch (e) {
-    console.log(util.format("*** ERROR: %s", e));
-  }*/
 }
 
 FSM.prototype.write = function(grpaddr, value, dptid, callback) {
   if (grpaddr == null || value == null) {
-    console.trace('You must supply both grpaddr and value!');
+    log.warn('You must supply both grpaddr and value!');
     return;
   }
   // outbound request onto the state machine
@@ -211,7 +203,7 @@ FSM.prototype.write = function(grpaddr, value, dptid, callback) {
 
 FSM.prototype.respond = function(grpaddr, value, dptid) {
   if (grpaddr == null || value == null) {
-    console.trace('You must supply both grpaddr and value!');
+    log.warn('You must supply both grpaddr and value!');
     return;
   }
   var serviceType = this.useTunneling ?
@@ -228,11 +220,11 @@ FSM.prototype.respond = function(grpaddr, value, dptid) {
 
 FSM.prototype.writeRaw = function(grpaddr, value, bitlength, callback) {
   if (grpaddr == null || value == null) {
-    console.trace('You must supply both grpaddr and value!');
+    log.warn('You must supply both grpaddr and value!');
     return;
   }
   if (!Buffer.isBuffer(value)) {
-    console.trace('Value must be a buffer!');
+    log.warn('Value must be a buffer!');
     return;
   }
   // outbound request onto the state machine
@@ -253,7 +245,7 @@ FSM.prototype.read = function(grpaddr, callback) {
     var conn = this;
     // when the response arrives:
     var responseEvent = 'GroupValue_Response_' + grpaddr;
-    this.debugPrint('Binding connection to ' + responseEvent);
+    KnxLog.get().trace('Binding connection to ' + responseEvent);
     var binding = function(src, data) {
         // unbind the event handler
         conn.off(responseEvent, binding);
@@ -278,17 +270,10 @@ FSM.prototype.read = function(grpaddr, callback) {
   });
 }
 
-FSM.prototype.Disconnect = function(msg) {
+FSM.prototype.Disconnect = function(cb) {
   this.transition("disconnecting");
   // machina.js removeAllListeners equivalent:
   // this.off();
-}
-
-FSM.prototype.debugPrint = function(msg) {
-  if (this.options.debug) {
-    var ts = new Date().toISOString().replace(/T/, ' ').replace(/Z$/, '');
-    console.log('%s (%s):\t%s', ts, this.compositeState(), msg);
-  }
 }
 
 // return a descriptor for this datagram (TUNNELING_REQUEST_L_Data.ind)

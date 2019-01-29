@@ -1,0 +1,13 @@
+{
+    "title": {
+        "en": "Trigger by a KNX scene",
+        "nl": "Wordt getriggerd door een KNX scene"
+    },
+    "args": [
+        {
+            "name": "knx_scene",
+            "type": "device",
+            "filter": "driver_id=knx_scene"
+        }
+    ]
+}

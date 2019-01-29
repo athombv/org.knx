@@ -1,0 +1,9 @@
+{
+    "title": {
+        "en": "Dim down",
+        "nl": "Dim omlaag"
+    },
+    "type": "boolean",
+    "getable": true,
+    "setable": true
+}
