@@ -1,5 +1,7 @@
 'use strict';
 
+const Homey = require('homey');
+
 const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const ColorConverter = require('color-convert');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');

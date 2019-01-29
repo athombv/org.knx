@@ -1,8 +1,9 @@
 'use strict';
 
+const Homey = require('homey');
+
 const KNXGeneric = require('./../../lib/generic_knx_device.js');
 const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
-const Homey = require('homey');
 
 class KNXScene extends KNXGeneric {
     onInit() {
