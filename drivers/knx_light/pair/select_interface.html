@@ -64,7 +64,7 @@
             interfaceList.push({name: Homey.__('settings.ip.manual_interface'), mac:'000000000000', ip: Homey.__('settings.ip.manual_interface_input')});
             renderKNXInterfaceList(interfaceList);
         } else if (error) {
-            Homey.alert(error);
+            Homey.alert(error.message);
         }
     });
     
@@ -75,12 +75,7 @@
                 interfaceList.push({name: Homey.__('settings.ip.manual_interface'), mac:'000000000000', ip: Homey.__('settings.ip.manual_interface_input')});
                 renderKNXInterfaceList(interfaceList);
             } else if (error) {
-                switch(error) {
-                    case 'search_already_running':
-                        Homey.alert(Homey.__("errors.ip.search_already_running")); break;
-                    default:
-                        Homey.alert((Homey.__("errors.generic_error") + error)); break;
-                }
+                return Homey.alert(error.message);
             }
         });
     });
@@ -92,16 +87,7 @@
             if(interfaceList) {
                 renderKNXInterfaceList(interfaceList);
             } else if (error) {
-                switch(error) {
-                    case 'invalid_ip':
-                        Homey.alert(Homey.__("errors.ip.invalid_ip")); break;
-                    case 'interface_not_found':
-                        Homey.alert(Homey.__("errors.ip.interface_not_found")); break;
-                    case 'search_already_running':
-                        Homey.alert(Homey.__("errors.ip.search_already_running")); break;
-                    default:
-                        Homey.alert((Homey.__("errors.generic_error") + error)); break;
-                }
+                Homey.alert(error.message);
             }
         });
     });

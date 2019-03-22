@@ -87,7 +87,9 @@
             "interface_not_found": "Selected IP interface not found.",
             "interface_not_available": "Selected IP interface not available.",
             "interface_not_selected": "No IP interface selected.",
-            "search_already_running": "Already searching for IP interface(s)."
+            "search_already_running": "Already searching for IP interface(s).",
+            "no_valid_mac": "The MAC address is invalid.",
+            "no_matching_interface": "No IP interface with this MAC adres available."
         },
         "projectfile": {
             "no_valid_xml": "No valid groupaddress XML found in the project file. Please upload another project.",

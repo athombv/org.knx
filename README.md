@@ -4,11 +4,17 @@ Add your KNX devices to Homey. This app requires a KNX IP Router or Interface co
 
 ## Changelog
 
-### V1.0.12
+### v1.0.14
+Bugfixes and crash preventions.
+
+### v1.0.13
+Added automatic re-detection of KNX interfaces. This should re-find the used KNX interface if it's IP has changed over time.
+
+### v1.0.12
 Small bugfixes and error handling.
 
-### V1.0.11
-Connection improvements.
+### v1.0.11
+KNX Connection improvements.
 
 ## Supported KNX devices
 
@@ -45,17 +51,13 @@ Device within Homey which triggers a KNX scene to become active.
 To set-up your KNX network in Homey, this app provides three options.
 
 ### Learn mode
-
 For switch devices, Homey listens for a press on a button and copies the KNX Group Address (e.g. 0/1/2).
 
 ### ETS Import
-
 If there is an ETS (.knxproj-file) export available, it can be uploaded to Homey to make it easier to assign KNX Group Addresses to a Homey device. Most likely your installer can provide this file for you.
 
 ### Manual entry
-
 It is possible to manually enter KNX Group Addresses during set-up (e.g. 0/1/2). These values can usually be found in a 'group address export' (.esf-file). Most likely your installer can provide this file for you.
 
 ## Support
-
 KNX Networks might be complicated to set-up. Please contact your local KNX Installer if you require any assistance.
