@@ -4,7 +4,7 @@ Add your KNX devices to Homey. This app requires a KNX IP Router or Interface co
 
 ## Changelog
 
-### v1.0.14
+### v1.0.15
 Bugfixes and crash preventions.
 
 ### v1.0.13
