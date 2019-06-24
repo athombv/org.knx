@@ -2,10 +2,10 @@
 
 const Homey = require('homey');
 
-const KNXGeneric = require('./../../lib/generic_knx_device.js');
-const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
+const KNXGenericDevice = require('./../../lib/GenericKNXDevice');
+const DatapointTypeParser = require('./../../lib/DatapointTypeParser');
 
-class KNXLuminanceSensor extends KNXGeneric {
+class KNXLuminanceSensor extends KNXGenericDevice {
     onInit() {
         super.onInit();
     }

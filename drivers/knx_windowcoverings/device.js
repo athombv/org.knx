@@ -1,9 +1,9 @@
 'use strict';
 
-const KNXGeneric = require('./../../lib/generic_knx_device.js');
-const DatapointTypeParser = require('./../../lib/DatapointTypeParser.js');
+const KNXGenericDevice = require('./../../lib/GenericKNXDevice');
+const DatapointTypeParser = require('./../../lib/DatapointTypeParser');
 
-class KNXWindowCovering extends KNXGeneric {
+class KNXWindowCovering extends KNXGenericDevice {
     onInit() {
         super.onInit();
         this.registerCapabilityListener('windowcoverings_state', this.onCapabilityWindowCovering.bind(this));
