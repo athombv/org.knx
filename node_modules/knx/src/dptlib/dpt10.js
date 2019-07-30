@@ -16,14 +16,17 @@ var timeRegexp = /(\d{1,2}):(\d{1,2}):(\d{1,2})/;
 
 exports.formatAPDU = function(value) {
   var apdu_data = new Buffer(3);
+  var dow, hour, minute, second;
+  // day of week. NOTE: JS Sunday = 0
   switch(typeof value) {
     case 'string':
       // try to parse
       match = timeRegexp.exec(value);
       if (match) {
-        apdu_data[0] = parseInt(match[1]);
-        apdu_data[1] = parseInt(match[2]);
-        apdu_data[2] = parseInt(match[3]);
+        dow = ((new Date().getDay()-7) % 7)+7;
+        hour = parseInt(match[1]);
+        minute = parseInt(match[2]);
+        second = parseInt(match[3]);
       } else {
         log.warn("DPT10: invalid time format (%s)", value);
       }
@@ -36,27 +39,37 @@ exports.formatAPDU = function(value) {
     case 'number':
       value = new Date(value);
     default:
-      apdu_data[0] = value.getHours();
-      apdu_data[1] = value.getMinutes();
-      apdu_data[2] = value.getSeconds();
+      dow = ((value.getDay()-7) % 7)+7;
+      hour = value.getHours();
+      minute = value.getMinutes();
+      second = value.getSeconds();
   }
+  apdu_data[0] = (dow<<5) + hour;
+  apdu_data[1] = minute;
+  apdu_data[2] = second;
   return apdu_data;
 }
 
-// Javascript contains no notion of "time of day", hence this function
-// returns a string representation of the time. Beware, no timezone!
+// return a JS Date from a DPT10 payload, with DOW/hour/month/seconds set to the buffer values.
+// The week/month/year are inherited from the current timestamp.
 exports.fromBuffer = function(buf) {
   if (buf.length != 3) log.warn("DPT10: Buffer should be 3 bytes long")
   else {
     var d = new Date();
-    // FIXME: no ability to setDay() without week context
+    var dow = (buf[0] & 0b11100000) >> 5;
     var hours = buf[0] & 0b00011111;
     var minutes = buf[1];
     var seconds = buf[2];
     if (hours >= 0 & hours <= 23 &
       minutes >= 0 & minutes <= 59 &
       seconds >= 0 & seconds <= 59) {
-      return util.format("%d:%d:%d", hours, minutes, seconds);
+      if (d.getDay() != dow) {
+        // adjust day of month to get the day of week right
+        d.setDate(d.getDate() + dow - d.getDay());
+      }
+      d.setHours(hours);
+      d.setMinutes(minutes);
+      d.setSeconds(seconds);
     } else {
       log.warn(
         "DPT10: buffer %j (decoded as %d:%d:%d) is not a valid time",
