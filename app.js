@@ -11,6 +11,7 @@ class KNXApp extends Homey.App {
 		Homey.ManagerCloud.getLocalAddress()
 		.then((address) => {
 			const homeyIP = address.split(':', 1).toString();
+			this.log('Homey IP + Parsed IP', address, homeyIP);
 			this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
 			this.knxInterfaceManager.on('interface_found', (knxInterface) => {
 				this.emit('interface_found', knxInterface);
