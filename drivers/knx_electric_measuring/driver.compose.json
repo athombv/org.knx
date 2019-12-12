@@ -1,0 +1,69 @@
+{
+    "$extends" :["knx_sensor"],
+    "id": "knx_electric_measuring",
+    "name": {
+        "en": "Electric Energy Measurement",
+        "nl": "Elektrische verbruik meter"
+    },
+    "class": "sensor",
+    "capabilities": ["measure_power"],
+    "settings": [
+        {
+            "type": "group",
+            "label": {
+                "en": "KNX groupaddress",
+                "nl": "KNX groepadressen"
+            },
+            "children": [
+                {
+                    "id": "ga_sensor",
+                    "type": "text",
+                    "label": {
+                        "en": "Electrical Energy measurement address",
+                        "nl": "Energie meting adres"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "label": {
+                "en": "Network settings",
+                "nl": "Netwerk instellingen"
+            },
+            "children": [
+                {
+                    "id": "macAddress",
+                    "type": "text",
+                    "label": {
+                        "en": "Interface MAC address",
+                        "nl": "Interface MAC adres"
+                    },
+                    "value" : "",
+                    "hint": {
+                        "en": "MAC address of the required KNX IP interface",
+                        "nl": "MAC adres van de KNX IP interface"
+                    }
+                },
+                {
+                    "id": "ipAddress",
+                    "type": "text",
+                    "label": {
+                        "en": "Interface IP address",
+                        "nl": "Interface IP adres"
+                    },
+                    "value" : "",
+                    "hint": {
+                        "en": "IP address of the required KNX IP interface",
+                        "nl": "IP adres van de KNX IP interface"
+                    }
+                }
+            ]
+        }
+    ]
+}
