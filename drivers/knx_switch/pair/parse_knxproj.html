@@ -24,9 +24,9 @@
     Homey.setTitle(Homey.__("settings.projectfile.title"));
     var knxGroupAdresses = {};
     var uploaded = false;
-	function onerror(error) {
-        console.error(error);
-        Homey.alert(error.message);
+	function onerror(message) {
+        console.error(message);
+        Homey.alert(message);
         fileInput.disabled = false;
 	}
 
