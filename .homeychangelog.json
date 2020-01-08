@@ -1,0 +1,10 @@
+{
+    "1.1.1": {
+        "en": "Add support for electric power measurement devices.",
+        "nl": "Voegt ondersteuning toe voor elektrische verbruikmeters."
+    },
+    "1.1.0": {
+        "en": "Connection to KNX network improvements and small protocol fixes.",
+        "nl": "Betere verbinding naar het KNX netwerk en vele kleine verbeteringen."
+    }
+}
