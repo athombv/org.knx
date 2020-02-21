@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "compatibility": ">=3.0.0",
   "sdk": 2,
   "brandColor": "#006BB3",
@@ -455,8 +455,8 @@
         }
       ],
       "name": {
-        "en": "KW Sensor",
-        "nl": "KW sensor"
+        "en": "Electric Power Measuring Sensor",
+        "nl": "Elektrische vermogen sensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -474,8 +474,8 @@
               "id": "ga_sensor",
               "type": "text",
               "label": {
-                "en": "Temperature measurement address",
-                "nl": "Temperatuur meting adres"
+                "en": "Measurement address",
+                "nl": "Meting adres"
               },
               "value": "",
               "hint": {

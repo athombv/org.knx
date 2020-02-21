@@ -1,4 +1,8 @@
 {
+    "1.1.2": {
+        "en": "Improve KNX connection stability.",
+        "nl": "Verbeterde stabiliteit van de KNX verbinding."
+    },
     "1.1.1": {
         "en": "Add support for electric power measurement devices.",
         "nl": "Voegt ondersteuning toe voor elektrische verbruikmeters."
