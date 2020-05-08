@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
  Copyright (c) 2013 Gildas Lormeau. All rights reserved.
 

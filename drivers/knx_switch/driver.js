@@ -1,6 +1,6 @@
 'use strict';
 
-const KNXGenericDriver = require('./../../lib/GenericKNXDriver');
+const KNXGenericDriver = require('../../lib/GenericKNXDriver');
 
 class KNXSwitch extends KNXGenericDriver {
 }

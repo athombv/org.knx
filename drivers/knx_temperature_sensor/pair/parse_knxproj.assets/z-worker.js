@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* jshint worker:true */
 (function main(global) {
 	"use strict";
