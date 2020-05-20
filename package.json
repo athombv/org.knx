@@ -1,0 +1,29 @@
+{
+  "name": "org.knx",
+  "version": "1.1.2",
+  "description": "Add KNX based devices to Homey.",
+  "main": "app.js",
+  "dependencies": {
+    "color-convert": "^2.0.1",
+    "ip": "^1.1.5",
+    "knx": "^2.3.7",
+    "promise-queue": "^2.2.5",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-athom": "^2.1.0"
+  },
+  "scripts": {
+    "run": "homey app run",
+    "build": "homey app build",
+    "validate": "homey app validate -l publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athombv/org.knx.git"
+  },
+  "author": "Athom B.V.",
+  "homepage": "https://github.com/athombv/org.knx#readme"
+}

@@ -1,0 +1,1 @@
+Breid de mogelijkheden van je KNX netwerk uit met alle apparaten welke je toegevoegd hebt aan Homey. Bestuur je draadloze lampen via KNX of bestuur je KNX apparaten met een draadloze sensor.

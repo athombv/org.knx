@@ -1,6 +1,6 @@
 'use strict';
 
-const KNXGenericDriver = require('./../../lib/generic_knx_driver.js');
+const KNXGenericDriver = require('../../lib/GenericKNXDriver');
 
 class KNXThermostat extends KNXGenericDriver {
 }

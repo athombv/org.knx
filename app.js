@@ -7,14 +7,20 @@ class KNXApp extends Homey.App {
 	
 	onInit() {
 		this.log('KNXApp is running...');
-		this.knxInterfaceManager = new KNXInterfaceManager();
-		this.knxInterfaceManager.on('interface_found', (knxInterface) => {
-			this.emit('interface_found', knxInterface);
-			this.emit('interface_found' + knxInterface.macAddress, knxInterface);
-		});
-		this.knxInterfaceManager.on('no_interfaces', () => {
-			this.emit('no_interfaces');
-		});
+
+		Homey.ManagerCloud.getLocalAddress()
+		.then((address) => {
+			const homeyIP = address.split(':', 1).toString();
+			this.log('Homey IP + Parsed IP', address, homeyIP);
+			this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
+			this.knxInterfaceManager.on('interface_found', (knxInterface) => {
+				this.emit('interface_found', knxInterface);
+				this.emit('interface_found' + knxInterface.macAddress, knxInterface);
+			});
+			this.knxInterfaceManager.on('no_interfaces', () => {
+				this.emit('no_interfaces');
+			});
+		})
 	}
 
 	// Ask the interfacemanager if there's a known IP interface with the corresponding MAC address.

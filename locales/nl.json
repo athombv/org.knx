@@ -87,7 +87,9 @@
             "interface_not_found": "Geselecteerde IP interface niet gevonden.",
             "interface_not_available": "Geselecteerde IP interface niet beschikbaar.",
             "interface_not_selected": "Geen IP interface geselecteerd.",
-            "search_already_running": "Reeds aan het zoeken naar IP interface(s)."
+            "search_already_running": "Reeds aan het zoeken naar IP interface(s).",
+            "no_valid_mac": "Het MAC adres is niet juist.",
+            "no_matching_interface": "Geen IP interface met dit MAC adres beschikbaar."
         },
         "projectfile": {
             "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
