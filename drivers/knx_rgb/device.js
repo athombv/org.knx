@@ -42,9 +42,16 @@ class KNXRGB extends KNXGenericDevice {
     this.knxInterface.addKNXEventListener(this.settings.ga_blue_dim_status,
       this.KNXRGBEventHandler);
 
-    // this.log(this.getName(), 'is using interface:', this.knxInterface.name);
+    this.log('Using interface:', this.knxInterface.name, this.knxInterface.getConnectedIPAddress());
+    this.setSettings({
+      ipAddress: this.knxInterface.getConnectedIPAddress(),
+    });
+
     // Connect the interface. This is safe, because the object is already created and thus verified.
     this.knxInterface._connectKNX();
+
+    // Make the device available since we have a KNX interface
+    this.setAvailable();
   }
 
   async onKNXToggleEvent(groupaddress, data) {
@@ -134,15 +141,15 @@ class KNXRGB extends KNXGenericDevice {
   }
 
   onCapabilityHSV(values, opts) {
-    if (typeof (values['dim']) !== 'undefined') {
+    if (typeof (values['dim']) === 'undefined') {
       values.dim = this.getCapabilityValue('dim') || 0;
     }
 
-    if (typeof (values['light_hue']) !== 'undefined') {
+    if (typeof (values['light_hue']) === 'undefined') {
       values.light_hue = this.getCapabilityValue('light_hue') || 0;
     }
 
-    if (typeof (values['light_saturation']) !== 'undefined') {
+    if (typeof (values['light_saturation']) === 'undefined') {
       values.light_saturation = this.getCapabilityValue('light_saturation') || 0;
     }
 
@@ -185,16 +192,18 @@ class KNXRGB extends KNXGenericDevice {
           throw new Error(Homey.__('errors.rgb_failed'));
         });
     }
+
     return null;
   }
 
   async getCurrentHSVColor() {
     const dimValues = await this.readSettingAddress(['ga_red_dim_status', 'ga_green_dim_status', 'ga_blue_dim_status']);
+
     if (dimValues) {
       const hsvValues = ColorConverter.rgb.hsv(
-        DatapointTypeParser.colorChannel(dimValues[0]),
-        DatapointTypeParser.colorChannel(dimValues[1]),
-        DatapointTypeParser.colorChannel(dimValues[2]),
+        DatapointTypeParser.colorChannel(dimValues[0], 255),
+        DatapointTypeParser.colorChannel(dimValues[1], 255),
+        DatapointTypeParser.colorChannel(dimValues[2], 255),
       );
       const hsvColor = {
         h: (hsvValues[0] / 360),
