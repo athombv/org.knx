@@ -10,37 +10,50 @@ const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 class KNXRGB extends KNXGenericDevice {
 
   onInit() {
+    this._KNXToggleEventHandler = this.onKNXToggleEvent.bind(this);
+    this._KNXRGBEventHandler = this.onKNXRGBEvent.bind(this);
+
+    this._rgbTimeout = null;
+    this._rgbTimeoutInterval = 500;
+
     super.onInit();
-    this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
+
+    this._onOffEventHandlerObject = { r: false, g: false, b: false };
+    this._onOffEventHandlerObject.r = this.getCapabilityValue('onoff') || false;
+    this._onOffEventHandlerObject.g = this.getCapabilityValue('onoff') || false;
+    this._onOffEventHandlerObject.b = this.getCapabilityValue('onoff') || false;
+
+    this._hsvEventHandlerObject = { h: 0, s: 0, v: 0 };
+    this._hsvEventHandlerObject.h = this.getCapabilityValue('light_hue') || 0;
+    this._hsvEventHandlerObject.s = this.getCapabilityValue('light_saturation') || 0;
+    this._hsvEventHandlerObject.v = this.getCapabilityValue('dim') || 0;
+
+    this.registerCapabilityListener('onoff', this.onCapabilityOnOff.bind(this));
     this.registerMultipleCapabilityListener(['dim', 'light_hue', 'light_saturation'], this.onCapabilityHSV.bind(this), 500);
-
-    this.KNXToggleEventHandler = this.onKNXToggleEvent.bind(this);
-    this.KNXRGBEventHandler = this.onKNXRGBEvent.bind(this);
-
-    this.ignoreEvent = false;
-    this.ignoreEventTimeOut = 3000;
   }
 
   // Override because of non-shared capabilities
   setKNXInterface(knxInterface) {
     this.knxInterface = knxInterface;
+
     // Add the handlers.
     this.knxInterface.onKNXConnectionListener(this.KNXConnectionHandler);
-    // On/off eventlisteners
-    this.knxInterface.addKNXEventListener(this.settings.ga_red_toggle_status,
-      this.KNXToggleEventHandler);
-    this.knxInterface.addKNXEventListener(this.settings.ga_green_toggle_status,
-      this.KNXToggleEventHandler);
-    this.knxInterface.addKNXEventListener(this.settings.ga_blue_toggle_status,
-      this.KNXToggleEventHandler);
 
-    // RGB value evenlisteners
+    // On/off event listeners
+    this.knxInterface.addKNXEventListener(this.settings.ga_red_toggle_status,
+      this._KNXToggleEventHandler);
+    this.knxInterface.addKNXEventListener(this.settings.ga_green_toggle_status,
+      this._KNXToggleEventHandler);
+    this.knxInterface.addKNXEventListener(this.settings.ga_blue_toggle_status,
+      this._KNXToggleEventHandler);
+
+    // // RGB value event listeners
     this.knxInterface.addKNXEventListener(this.settings.ga_red_dim_status,
-      this.KNXRGBEventHandler);
+      this._KNXRGBEventHandler);
     this.knxInterface.addKNXEventListener(this.settings.ga_green_dim_status,
-      this.KNXRGBEventHandler);
+      this._KNXRGBEventHandler);
     this.knxInterface.addKNXEventListener(this.settings.ga_blue_dim_status,
-      this.KNXRGBEventHandler);
+      this._KNXRGBEventHandler);
 
     this.log('Using interface:', this.knxInterface.name, this.knxInterface.getConnectedIPAddress());
     this.setSettings({
@@ -54,165 +67,237 @@ class KNXRGB extends KNXGenericDevice {
     this.setAvailable();
   }
 
-  async onKNXToggleEvent(groupaddress, data) {
-    if (data && !this.ignoreEvent) {
-      const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
-        .catch(error => {
-          this.log('Error while reading RGB switch values', error);
-        });
-      if (onoffvalues) {
-        if (onoffvalues.map(buffer => buffer.readInt8()).includes(1)) {
-          this.setCapabilityValue('onoff', true);
-        } else {
-          this.setCapabilityValue('onoff', false);
-        }
-      }
-    }
-  }
-
-  async onKNXRGBEvent(groupaddress, data) {
-    this.log('received rgb event');
-    const curValues = await this.getCurrentHSVColor();
-    if (curValues && !this.ignoreEvent) {
-      if (curValues.h !== 0) this.setCapabilityValue('light_hue', curValues.h);
-      if (curValues.s !== 0) this.setCapabilityValue('light_saturation', curValues.s);
-      if (curValues.v !== 0) this.setCapabilityValue('dim', curValues.v);
-    }
-  }
-
-  async onKNXConnection(connectionStatus) {
+  /**
+   * On init of of the device, request the status from the KNX network
+   *
+   * @param connectionStatus
+   */
+  onKNXConnection(connectionStatus) {
     super.onKNXConnection(connectionStatus);
 
     if (connectionStatus === 'connected') {
-      // Reading the groupaddress will trigger a event on the bus.
-      // This will be catched by onKNXEvent, hence the return value is not used.
-      const onoffvalues = await this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
+      // Reading the group address will trigger a event on the bus.
+
+      // This will be catched by onKNXToggleEvent, hence the return value is not used.
+      this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
         .catch(readError => {
-          this.log(readError);
+          this.log('onKNXConnection error', readError);
         });
-      if (onoffvalues) {
-        if (onoffvalues.map(buf => buf.readInt8()).includes(1)) {
-          this.setCapabilityValue('onoff', true);
-        } else {
-          this.setCapabilityValue('onoff', false);
-        }
-        const curValues = await this.getCurrentHSVColor();
-        if (curValues) {
-          this.setCapabilityValue('light_hue', curValues.h);
-          this.setCapabilityValue('light_saturation', curValues.s);
-          this.setCapabilityValue('dim', curValues.v);
-        }
+      // This will be catched by onKNXDimEvent, hence the return value is not used.
+      this.readSettingAddress(['ga_red_dim_status', 'ga_green_dim_status', 'ga_blue_dim_status'])
+        .catch(readError => {
+          this.log('onKNXConnection error', readError);
+        });
+    }
+  }
+
+  /**
+   * Toggle event handler
+   *
+   * @param groupAddress
+   * @param data
+   * @returns {Promise<void>}
+   */
+  async onKNXToggleEvent(groupAddress, data) {
+    if (data) {
+      const value = DatapointTypeParser.onoff(data);
+
+      if (groupAddress === this.settings.ga_red_toggle_status) {
+        this._onOffEventHandlerObject.r = value;
+      }
+      if (groupAddress === this.settings.ga_green_toggle_status) {
+        this._onOffEventHandlerObject.g = value;
+      }
+      if (groupAddress === this.settings.ga_blue_toggle_status) {
+        this._onOffEventHandlerObject.b = value;
+      }
+      this._setOnOffCapability();
+    }
+  }
+
+  /**
+   * Set the on off to false only if r, g and b are off, else it is on
+   *
+   * @private
+   */
+  _setOnOffCapability() {
+    if (this._onOffEventHandlerObject) {
+      if (!this._onOffEventHandlerObject.r
+        && !this._onOffEventHandlerObject.g
+        && !this._onOffEventHandlerObject.b) {
+        this.setCapabilityValue('onoff', false);
+      }
+      else {
+        this.setCapabilityValue('onoff', true);
       }
     }
   }
 
-  // this method is called when the Device has requested a state change (turned on or off)
-  onCapabilityOnoff(value, opts) {
+  /**
+   * Writes the state value to the KNX network
+   *
+   * @param value
+   * @param opts
+   * @returns {null|Promise<void[] | void>}
+   */
+  onCapabilityOnOff(value, opts) {
+    const dim = value ? this.getCapabilityValue('dim') : 0;
+
+    // We are not setting the rgb toggles here because else the color will always be set to full white
+    this.onCapabilityHSV({ dim });
+
+    return null;
+  }
+
+  /**
+   * rgb event handler
+   *
+   * @param groupAddress
+   * @param data
+   */
+  onKNXRGBEvent(groupAddress, data) {
+    if (groupAddress === this.settings.ga_red_dim_status) {
+      this._setColorOnHSV({ r: DatapointTypeParser.colorChannel(data) });
+    }
+    if (groupAddress === this.settings.ga_green_dim_status) {
+      this._setColorOnHSV({ g: DatapointTypeParser.colorChannel(data) });
+    }
+    if (groupAddress === this.settings.ga_blue_dim_status) {
+      this._setColorOnHSV({ b: DatapointTypeParser.colorChannel(data) });
+    }
+
+    if (this._rgbTimeout) {
+      clearTimeout(this._rgbTimeout);
+    }
+
+    this._rgbTimeout = setTimeout(this._setHSVCapability.bind(this), this._rgbTimeoutInterval);
+  }
+
+  /**
+   * triggered by the this._rgbTimeout to debounce the rgb values received from the KNX bus
+   *
+   * @private
+   */
+  _setHSVCapability() {
+    if (this._hsvEventHandlerObject) {
+      if (this._hsvEventHandlerObject.h !== 0) this.setCapabilityValue('light_hue', this._hsvEventHandlerObject.h);
+      if (this._hsvEventHandlerObject.s !== 0) this.setCapabilityValue('light_saturation', this._hsvEventHandlerObject.s);
+      if (this._hsvEventHandlerObject.v !== 0) this.setCapabilityValue('dim', this._hsvEventHandlerObject.v);
+    }
+  }
+
+  /**
+   * multiple capability listener for the set color
+   *
+   * @param values
+   * @param opts
+   * @returns {null|Promise<void>}
+   */
+  onCapabilityHSV(values, opts) {
+    if (typeof (values['light_hue']) === 'undefined') {
+      this._hsvEventHandlerObject.h = this.getCapabilityValue('light_hue') || 0;
+    }
+    else {
+      this._hsvEventHandlerObject.h = values['light_hue'];
+    }
+
+    if (typeof (values['light_saturation']) === 'undefined') {
+      this._hsvEventHandlerObject.s = this.getCapabilityValue('light_saturation') || 0;
+    }
+    else {
+      this._hsvEventHandlerObject.s = values['light_saturation'];
+    }
+
+    if (typeof (values['dim']) === 'undefined') {
+      this._hsvEventHandlerObject.v = this.getCapabilityValue('dim') || 0;
+    }
+    else {
+      this._hsvEventHandlerObject.v = values['dim'];
+    }
+
+    const colors = this._hsvToRGB(this._hsvEventHandlerObject);
+
+    // Set the internal rgb toggle state because else the onoff capability is not triggered correctly
+    this._onOffEventHandlerObject.r = (colors.r !== 0);
+    this._onOffEventHandlerObject.g = (colors.g !== 0);
+    this._onOffEventHandlerObject.b = (colors.b !== 0);
+
     if (this.knxInterface) {
-      if (value === true) {
-        if (this.settings.ga_red_toggle
-          && this.settings.ga_green_toggle
-          && this.settings.ga_blue_toggle) {
-          return Promise.all([
-            this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_toggle, 1, 'DPT1'),
-            this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_toggle, 1, 'DPT1'),
-            this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_toggle, 1, 'DPT1'),
-          ])
-            .catch(knxerror => {
-              this.log(knxerror);
-              throw new Error(Homey.__('errors.switch_failed'));
-            });
-        }
-      } else if (this.settings.ga_red_toggle
-        && this.settings.ga_green_toggle
-        && this.settings.ga_blue_toggle) {
-        return Promise.all([
-          this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_toggle, 0, 'DPT1'),
-          this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_toggle, 0, 'DPT1'),
-          this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_toggle, 0, 'DPT1'),
-        ])
-          .catch(knxerror => {
-            this.log(knxerror);
-            throw new Error(Homey.__('errors.switch_failed'));
-          });
+      const promiseQue = [];
+      if (this.settings.ga_red_dim) {
+        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_dim, (colors.r), 'DPT5'));
       }
+      if (this.settings.ga_green_dim) {
+        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_dim, (colors.g), 'DPT5'));
+      }
+      if (this.settings.ga_blue_dim) {
+        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_dim, (colors.b), 'DPT5'));
+      }
+
+      return Promise.all(promiseQue)
+        .catch(knxerror => {
+          this.log(knxerror);
+          throw new Error(Homey.__('errors.switch_failed'));
+        });
     }
     return null;
   }
 
-  onCapabilityHSV(values, opts) {
-    if (typeof (values['dim']) === 'undefined') {
-      values.dim = this.getCapabilityValue('dim') || 0;
-    }
-
-    if (typeof (values['light_hue']) === 'undefined') {
-      values.light_hue = this.getCapabilityValue('light_hue') || 0;
-    }
-
-    if (typeof (values['light_saturation']) === 'undefined') {
-      values.light_saturation = this.getCapabilityValue('light_saturation') || 0;
-    }
-
+  /**
+   * Converts hsv to rgb object
+   *
+   * @param h
+   * @param s
+   * @param v
+   * @returns {{r: *, b: *, g: *}}
+   * @private
+   */
+  _hsvToRGB({ h, s, v }) {
     // convert hsv to rgb
     const conversion = ColorConverter.hsv.rgb(
-      (values.light_hue * 360),
-      (values.light_saturation * 100),
-      (values.dim * 100),
+      (h * 360),
+      (s * 100),
+      (v * 100),
     );
+
     const colors = {
       r: conversion[0],
       g: conversion[1],
       b: conversion[2],
     };
 
-    if (this.knxInterface
-      && this.settings.ga_red_dim
-      && this.settings.ga_green_dim
-      && this.settings.ga_blue_dim) {
-      // We can set the colors
-      this.ignoreEvent = true;
-      if (this.ignoreTimeOut) {
-        clearTimeout(this.ignoreTimeOut);
-      }
-
-      this.ignoreTimeOut = setTimeout(() => {
-        this.ignoreEvent = false;
-      }, this.ignoreEventTimeOut);
-
-      return Promise.all([
-        this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_dim, (colors.r), 'DPT5'),
-        this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_dim, (colors.g), 'DPT5'),
-        this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_dim, (colors.b), 'DPT5'),
-      ])
-        .then(() => {
-          this.setCapabilityValue('onoff', true);
-        })
-        .catch(error => {
-          this.log(error);
-          throw new Error(Homey.__('errors.rgb_failed'));
-        });
-    }
-
-    return null;
+    return colors;
   }
 
-  async getCurrentHSVColor() {
-    const dimValues = await this.readSettingAddress(['ga_red_dim_status', 'ga_green_dim_status', 'ga_blue_dim_status']);
+  /**
+   * Add a r g or b to the current hsv to the c
+   *
+   * @param r
+   * @param g
+   * @param b
+   * @private
+   */
+  _setColorOnHSV({ r, g, b }) {
+    // convert hsv to rgb
+    const colors = this._hsvToRGB(this._hsvEventHandlerObject);
 
-    if (dimValues) {
-      const hsvValues = ColorConverter.rgb.hsv(
-        DatapointTypeParser.colorChannel(dimValues[0], 255),
-        DatapointTypeParser.colorChannel(dimValues[1], 255),
-        DatapointTypeParser.colorChannel(dimValues[2], 255),
-      );
-      const hsvColor = {
-        h: (hsvValues[0] / 360),
-        s: (hsvValues[1] / 100),
-        v: (hsvValues[2] / 100),
-      };
-      return hsvColor;
-    }
-    return null;
+    // add the changed rgb color
+    if (r) colors.r = r;
+    if (g) colors.g = g;
+    if (b) colors.b = b;
+
+    // convert back to hsv
+    const hsvValues = ColorConverter.rgb.hsv(
+      colors.r,
+      colors.g,
+      colors.b,
+    );
+
+    this._hsvEventHandlerObject = {
+      h: (hsvValues[0] / 360),
+      s: (hsvValues[1] / 100),
+      v: (hsvValues[2] / 100),
+    };
   }
 
 }
