@@ -78,12 +78,12 @@ class KNXRGB extends KNXGenericDevice {
     if (connectionStatus === 'connected') {
       // Reading the group address will trigger a event on the bus.
 
-      // This will be catched by onKNXToggleEvent, hence the return value is not used.
+      // This will trigger onKNXToggleEvent, hence the return value is not used.
       this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
         .catch(readError => {
           this.log('onKNXConnection error', readError);
         });
-      // This will be catched by onKNXDimEvent, hence the return value is not used.
+      // This will trigger onKNXDimEvent, hence the return value is not used.
       this.readSettingAddress(['ga_red_dim_status', 'ga_green_dim_status', 'ga_blue_dim_status'])
         .catch(readError => {
           this.log('onKNXConnection error', readError);
@@ -126,8 +126,7 @@ class KNXRGB extends KNXGenericDevice {
         && !this._onOffEventHandlerObject.g
         && !this._onOffEventHandlerObject.b) {
         this.setCapabilityValue('onoff', false);
-      }
-      else {
+      } else {
         this.setCapabilityValue('onoff', true);
       }
     }
@@ -196,22 +195,19 @@ class KNXRGB extends KNXGenericDevice {
   onCapabilityHSV(values, opts) {
     if (typeof (values['light_hue']) === 'undefined') {
       this._hsvEventHandlerObject.h = this.getCapabilityValue('light_hue') || 0;
-    }
-    else {
+    } else {
       this._hsvEventHandlerObject.h = values['light_hue'];
     }
 
     if (typeof (values['light_saturation']) === 'undefined') {
       this._hsvEventHandlerObject.s = this.getCapabilityValue('light_saturation') || 0;
-    }
-    else {
+    } else {
       this._hsvEventHandlerObject.s = values['light_saturation'];
     }
 
     if (typeof (values['dim']) === 'undefined') {
       this._hsvEventHandlerObject.v = this.getCapabilityValue('dim') || 0;
-    }
-    else {
+    } else {
       this._hsvEventHandlerObject.v = values['dim'];
     }
 
