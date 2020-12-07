@@ -1,27 +1,27 @@
 {
-    "id": "org.knx",
-    "version": "1.1.2",
-    "compatibility": ">=3.0.0",
-    "sdk": 2,
-    "brandColor": "#006BB3",
-    "name": {
-      "en": "KNX",
-      "nl": "KNX"
-    },
-    "description": {
-      "en": "Adds support for devices using the KNX network.",
-      "nl": "Voegt ondersteuning toe voor apparaten op een KNX-netwerk"
-    },
-    "category": [
-      "appliances"
-    ],
-    "permissions": [],
-    "images": {
-      "large": "/assets/images/large.png",
-      "small": "/assets/images/small.png"
-    },
-    "author": {
-      "name": "Athom B.V.",
-      "email": "info@athom.nl"
-    }
+  "id": "org.knx",
+  "version": "1.1.4",
+  "compatibility": ">=3.0.0",
+  "sdk": 2,
+  "brandColor": "#006BB3",
+  "name": {
+    "en": "KNX",
+    "nl": "KNX"
+  },
+  "description": {
+    "en": "Adds support for devices using the KNX network.",
+    "nl": "Voegt ondersteuning toe voor apparaten op een KNX-netwerk"
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Athom B.V.",
+    "email": "info@athom.nl"
+  }
 }
