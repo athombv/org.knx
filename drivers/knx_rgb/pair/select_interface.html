@@ -2,7 +2,7 @@
 #interfaces-list {
 	margin-left: 0;
 	list-style: none;
-}	
+}
 </style>
 
 <ul id="interfaces-list"></ul>
@@ -35,6 +35,7 @@
 </script>
 <script>
     Homey.setTitle(Homey.__("settings.ip.title"));
+
     function renderKNXInterfaceList(interfaceList) {
         var interfaces_render = $('#interfaces-list-template').render(interfaceList, {
             stringify: JSON.stringify
@@ -67,7 +68,7 @@
             Homey.alert(error.message);
         }
     });
-    
+
     var $scanButton = $("#scan_button");
     $scanButton.on("click", function() {
         Homey.emit("search_interfaces", function(error, interfaceList) {

@@ -18,7 +18,7 @@
 	overflow: hidden;
 }
 .knx-wrap .knx-entry:not(:last-child) {
-	padding-bottom: 0.4em;	
+	padding-bottom: 0.4em;
 }
 </style>
 <div class="knx-wrap" id="ga_input">
@@ -212,51 +212,54 @@
     });
 
     Homey.getOptions(function(err, options) {
-       deviceType = options.devicetype;
+      deviceType = options.devicetype;
+      displayDeviceTypeFields();
     });
 
-    switch(deviceType) {
+    function displayDeviceTypeFields() {
+      switch(deviceType) {
         case 'light':
-            console.log('device is a light');
-            $("#knx-light-fieldset").css("display", "block");
-            break;
+          console.log('device is a light');
+          $("#knx-light-fieldset").css("display", "block");
+          break;
         case 'switch':
-            console.log('device is a switch');
-            $("#knx-switch-fieldset").css("display", "block");
-            $("#knx-learnmode-fieldset").css("display", "block");
-            break;
+          console.log('device is a switch');
+          $("#knx-switch-fieldset").css("display", "block");
+          $("#knx-learnmode-fieldset").css("display", "block");
+          break;
         case 'dimmer':
-            console.log('device is a dimmer');
-            $("#knx-light-fieldset").css("display", "block");
-            $("#knx-dimmer-fieldset").css("display", "block");
-            break;
+          console.log('device is a dimmer');
+          $("#knx-light-fieldset").css("display", "block");
+          $("#knx-dimmer-fieldset").css("display", "block");
+          break;
         case 'dimcontrol':
-            console.log('device is a dimcontrol');
-            $("#knx-light-fieldset").css("display", "block");
-            $("#knx-dimmer-fieldset").css("display", "block");
-            $("#knx-dimmer-status-entry").css("display", "none");
-            break;
+          console.log('device is a dimcontrol');
+          $("#knx-light-fieldset").css("display", "block");
+          $("#knx-dimmer-fieldset").css("display", "block");
+          $("#knx-dimmer-status-entry").css("display", "none");
+          break;
         case 'rgb':
-            console.log('device is a rgb');
-            $("#knx-rgb-fieldset").css("display", "block");
-            break;
+          console.log('device is a rgb');
+          $("#knx-rgb-fieldset").css("display", "block");
+          break;
         case 'thermostat':
-            console.log('device is a thermostat');
-            $("#knx-thermostat-fieldset").css("display", "block");
-            break;
+          console.log('device is a thermostat');
+          $("#knx-thermostat-fieldset").css("display", "block");
+          break;
         case 'windowcovering':
-            console.log('device is a windowcovering');
-            $("#knx-windowcovering-fieldset").css("display", "block");
-            break;
+          console.log('device is a windowcovering');
+          $("#knx-windowcovering-fieldset").css("display", "block");
+          break;
         case 'sensor':
-            console.log('device is a sensor');
-            $("#knx-sensor-fieldset").css("display", "block");
-            break;
+          console.log('device is a sensor');
+          $("#knx-sensor-fieldset").css("display", "block");
+          break;
         case 'scene':
-            console.log('device is a scene');
-            $("#knx-scene-fieldset").css("display", "block");
-            break;
-    }
+          console.log('device is a scene');
+          $("#knx-scene-fieldset").css("display", "block");
+          break;
+      }
+	}
 
     $learnmodeDropdown = $('#learnmode_dropdown');
     $learnmodeButton = $('#learnmode_button');
@@ -286,7 +289,7 @@
         $learnmodeDropdown.innerHTML = "";
         Homey.emit('learnmode', function(error, filteredList) {
 	        if(error) return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString(), 'error' );
-	        
+
 		    $learnmodeButton.removeAttr('disabled');
             if (filteredList && filteredList.length > 0) {
                 filteredList.forEach(function(event) {
@@ -323,7 +326,7 @@
     $("#save_button").on('click', function() {
         if(interfaceMAC) {
             console.log('Saving this device');
- 
+
             switch(deviceType) {
                 case 'light':
                     Homey.addDevice({
@@ -473,7 +476,7 @@
                     });
                     break;
             }
-            
+
         } else {
             Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
         }
@@ -485,17 +488,17 @@
             console.log('ets error', error.message, error.toString());
             return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString());
         }
-	    
+
         if(groupAddressList && groupAddressList.length > 0) {
             groupAddresses = groupAddressList;
             var $span = $('<span />').html(Homey.__('settings.projectfile.existingxml.title'))
             $xmlText.html($span);
-            
+
             $('.knx-dropdown').each(function() {
                 listGroupAddressesDropdown($(this));
             });
         }
-        
+
         var $a = $('<a href="#">' + Homey.__('settings.projectfile.upload') + '</a>');
         $a.click(function(e){
             e.preventDefault();

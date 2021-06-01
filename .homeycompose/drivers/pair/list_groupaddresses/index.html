@@ -11,6 +11,7 @@
 </script>
 <script>
     Homey.setTitle(Homey.__("settings.groupaddresses"));
+
     function renderKNXInterfaceList(groupAddressList) {
         var ga_render = $('#ga-list-template').render(groupAddressList, {
             stringify: JSON.stringify
