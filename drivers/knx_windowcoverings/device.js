@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -43,12 +41,12 @@ class KNXWindowCovering extends KNXGenericDevice {
           if (this.settings.invert_updown === true) {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1')
               .catch(knxerror => {
-                throw new Error(Homey.__('errors.windowcovering_failed'), knxerror);
+                throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
               });
           }
           return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1')
             .catch(knxerror => {
-              throw new Error(Homey.__('errors.windowcovering_failed'), knxerror);
+              throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
             });
         case 'down':
           if (this.settings.ga_stop) {
@@ -57,24 +55,24 @@ class KNXWindowCovering extends KNXGenericDevice {
           if (this.settings.invert_updown === true) {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1')
               .catch(knxerror => {
-                throw new Error(Homey.__('errors.windowcovering_failed'), knxerror);
+                throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
               });
           }
           return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1')
             .catch(knxerror => {
-              throw new Error(Homey.__('errors.windowcovering_failed'), knxerror);
+              throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
             });
         case 'idle':
           this.log('stop selected, stop address', this.settings.ga_stop);
           if (this.settings.ga_stop) {
             return this.knxInterface.writeKNXGroupAddress(this.settings.ga_stop, 1, 'DPT1')
               .catch(knxerror => {
-                throw new Error(Homey.__('errors.windowcovering_failed'), knxerror);
+                throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
               });
           }
           break;
         default:
-          throw new Error(Homey.__('errors.windowcovering_failed'));
+          throw new Error(this.homey.__('errors.windowcovering_failed'));
       }
     }
     return null;

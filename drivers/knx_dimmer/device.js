@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -49,7 +47,7 @@ class KNXDimmer extends KNXGenericDevice {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.switch_failed'));
+          throw new Error(this.homey.__('errors.switch_failed'));
         });
     }
     return null;
@@ -65,7 +63,7 @@ class KNXDimmer extends KNXGenericDevice {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5')
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.dim_failed'));
+          throw new Error(this.homey.__('errors.dim_failed'));
         });
     }
     return null;

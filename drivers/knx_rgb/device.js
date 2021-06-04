@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const ColorConverter = require('color-convert');
 
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
@@ -233,7 +231,7 @@ class KNXRGB extends KNXGenericDevice {
       return Promise.all(promiseQue)
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.switch_failed'));
+          throw new Error(this.homey.__('errors.switch_failed'));
         });
     }
     return null;

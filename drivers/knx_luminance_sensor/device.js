@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -39,7 +37,7 @@ class KNXLuminanceSensor extends KNXGenericDevice {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.sensor_get_failed'));
+          throw new Error(this.homey.__('errors.sensor_get_failed'));
         });
     }
   }

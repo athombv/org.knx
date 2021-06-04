@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -11,15 +9,13 @@ class KNXScene extends KNXGenericDevice {
     super.onInit();
     this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
 
-    const triggerSceneAction = new Homey.FlowCardAction('trigger_to_scene');
-    triggerSceneAction
-      .register()
-      .registerRunListener((args, state) => {
-        return this.triggerToScene();
+    this.homey.flow
+      .getActionCard('trigger_to_scene')
+      .registerRunListener(async (args, state) => {
+        await this.triggerToScene();
       });
 
-    this.triggerFlowFromScene = new Homey.FlowCardTrigger('trigger_from_scene')
-      .register();
+    this.triggerFlowFromScene = this.homey.flow.getDeviceTriggerCard('trigger_from_scene');
   }
 
   onKNXEvent(groupaddress, data) {
@@ -46,7 +42,7 @@ class KNXScene extends KNXGenericDevice {
     // The -1 is temporary until the knx.js lib fully supports scenes
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_scene, (this.settings.scene_number - 1), 'DPT17')
       .catch(knxerror => {
-        throw new Error(Homey.__('errors.switch_failed'), knxerror);
+        throw new Error(this.homey.__('errors.switch_failed'), knxerror);
       });
   }
 
