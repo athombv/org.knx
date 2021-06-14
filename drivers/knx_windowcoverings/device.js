@@ -16,14 +16,26 @@ class KNXWindowCovering extends KNXGenericDevice {
       const state = DatapointTypeParser.onoff(data);
       if (state) {
         if (this.settings.invert_updown === true) {
-          this.setCapabilityValue('windowcoverings_state', 'up');
+          this.setCapabilityValue('windowcoverings_state', 'up')
+            .catch(knxerror => {
+              this.log('Set windowcoverings_state error', knxerror);
+            });
         } else {
-          this.setCapabilityValue('windowcoverings_state', 'down');
+          this.setCapabilityValue('windowcoverings_state', 'down')
+            .catch(knxerror => {
+              this.log('Set windowcoverings_state error', knxerror);
+            });
         }
       } else if (this.settings.invert_updown === true) {
-        this.setCapabilityValue('windowcoverings_state', 'down');
+        this.setCapabilityValue('windowcoverings_state', 'down')
+          .catch(knxerror => {
+            this.log('Set windowcoverings_state error', knxerror);
+          });
       } else {
-        this.setCapabilityValue('windowcoverings_state', 'up');
+        this.setCapabilityValue('windowcoverings_state', 'up')
+          .catch(knxerror => {
+            this.log('Set windowcoverings_state error', knxerror);
+          });
       }
       this.log(state);
     }

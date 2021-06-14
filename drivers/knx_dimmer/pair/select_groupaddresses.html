@@ -62,6 +62,14 @@
 				<select id="switchga_dropdown" class="knx-dropdown right"></select>
 				<input id="switch_toggle_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
+			<div class="knx-entry">
+				<label for="switch_status_address" class="left"
+					   data-i18n="settings.groupaddresses.switch.status"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="switch_statusga_dropdown" class="knx-dropdown right"></select>
+				<input id="switch_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
 		</div>
 	</fieldset>
 	<fieldset id="knx-dimmer-fieldset" style="display: none">
@@ -447,6 +455,7 @@
           device.name = 'KNX Switch';
           device.settings = {
             'ga_switch': $('#switch_toggle_address').val(),
+            'ga_status': $('#switch_status_address').val(),
             'macAddress': interfaceMAC,
           };
           break;

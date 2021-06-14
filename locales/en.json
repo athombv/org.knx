@@ -14,7 +14,7 @@
             "title" : "Start learnmode",
             "explanation": "Pair a KNX button to a virtual button in Homey.",
             "testbutton": "Test groupaddress",
-            "no_result": "No devices have been found."        
+            "no_result": "No devices have been found."
         },
         "projectfile": {
             "title": "Upload an ETS project",
@@ -33,10 +33,11 @@
             "pairing_list": ", groupaddress: ",
             "body": "Select which groupaddresses to use with the new device",
             "generic_status": "Status",
-            "save" : "Save device",            
+            "save" : "Save device",
             "duplicate_groupaddress": " this groupaddress is already in use by ",
             "switch": {
-                "toggle": "Switch address"
+                "toggle": "Switch address",
+                "status": "Status address"
             },
             "dimmer": {
                 "value": "Dim address",

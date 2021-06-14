@@ -12,8 +12,18 @@ class KNXSwitch extends KNXGenericDevice {
 
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
-    if (groupaddress === this.settings.ga_switch) {
-      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
+
+    // A switch can optionally have a different status address then the switch address
+    let statusAddress = this.settings.ga_switch;
+    if (typeof this.settings.ga_status === 'string' && this.settings.ga_status !== '') {
+      statusAddress = this.settings.ga_status;
+    }
+
+    if (groupaddress === statusAddress) {
+      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+        .catch(knxerror => {
+          this.log('Set onoff error', knxerror);
+        });
     }
   }
 
@@ -23,9 +33,16 @@ class KNXSwitch extends KNXGenericDevice {
     if (connectionStatus === 'connected') {
       // Reading the groupaddress will trigger a event on the bus.
       // This will be catched by onKNXEvent, hence the return value is not used.
-      if (this.settings.ga_switch) {
+
+      // A switch can optionally have a different status address then the switch address
+      let statusAddress = this.settings.ga_switch;
+      if (typeof this.settings.ga_status === 'string' && this.settings.ga_status !== '') {
+        statusAddress = this.settings.ga_status;
+      }
+
+      if (statusAddress) {
         // switches don't have a seperate status address
-        this.knxInterface.readKNXGroupAddress(this.settings.ga_switch)
+        this.knxInterface.readKNXGroupAddress(statusAddress)
           .catch(knxerror => {
             this.log(knxerror);
           });
@@ -34,7 +51,6 @@ class KNXSwitch extends KNXGenericDevice {
   }
 
   onCapabilityOnoff(value, opts) {
-    this.log('switching device', value);
     if (this.knxInterface && this.settings.ga_switch) {
       if (this.settings.inverted === true) {
         return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1')

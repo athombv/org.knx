@@ -13,7 +13,10 @@ class KNXLuminanceSensor extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     this.log('event', data);
     if (groupaddress === this.settings.ga_sensor) {
-      this.setCapabilityValue('measure_luminance', DatapointTypeParser.dpt9(data));
+      this.setCapabilityValue('measure_luminance', DatapointTypeParser.dpt9(data))
+        .catch(knxerror => {
+          this.log('Set measure_luminance error', knxerror);
+        });
     }
   }
 

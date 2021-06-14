@@ -6,7 +6,7 @@
   "dependencies": {
     "color-convert": "^2.0.1",
     "ip": "^1.1.5",
-    "knx": "^2.3.7",
+    "knx": "^2.3.8",
     "promise-queue": "^2.2.5",
     "uuid": "^3.3.2"
   },

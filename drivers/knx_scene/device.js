@@ -22,7 +22,10 @@ class KNXScene extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
 
     if (groupaddress === this.settings.ga_scene) {
-      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
+      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+        .catch(knxerror => {
+          this.log('Set onoff error', knxerror);
+        });
       // Trigger any flow that is bound on this device.
       this.triggerFlowFromScene.trigger()
         .catch(err => this.log(err));

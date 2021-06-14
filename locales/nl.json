@@ -14,7 +14,7 @@
             "title" : "Inleermodus",
             "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey.",
             "testbutton": "Test groepadres",
-            "no_result": "Geen apparaten gevonden."  
+            "no_result": "Geen apparaten gevonden."
         },
         "projectfile": {
             "title": "ETS project uploaden",
@@ -36,8 +36,9 @@
             "save": "Apparaat opslaan",
             "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
             "switch": {
-                "toggle": "Schakel adres"
-            },            
+                "toggle": "Schakel adres",
+                "status": "Schakel status"
+            },
             "dimmer": {
                 "value": "Dimmer adres",
                 "status": "Dimwaarde adres"

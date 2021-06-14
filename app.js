@@ -12,38 +12,15 @@ class KNXApp extends Homey.App {
 
     this.log('Homey IP + Parsed IP', address, homeyIP);
     this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
-    this.knxInterfaceManager.on('interface_found', knxInterface => {
-      this.emit('interface_found', knxInterface);
-      this.emit(`interface_found ${knxInterface.macAddress}`, knxInterface);
-    });
-    this.knxInterfaceManager.on('no_interfaces', () => {
-      this.emit('no_interfaces');
-    });
   }
 
-  // Ask the interface manager if there's a known IP interface with the corresponding MAC address.
-  returnKNXInterface(macAddress) {
-    return this.knxInterfaceManager.getKNXInterface(macAddress);
-  }
-
-  // Returns the complete interface list from the interface manager.
-  returnKNXInterfacesList() {
-    return this.knxInterfaceManager.getKNXInterfaceList();
-  }
-
-  // Verify through the interface manager if the given IP address corresponds to an KNX IP interface.
-  discoverKNXInterfaceOnIP(ipAddress) {
-    return this.knxInterfaceManager.discoverKNXInterfaceOnIP(ipAddress);
-  }
-
-  // Let the interface manager search the ethernet network for KNX IP interfaces through multicast.
-  searchInterfaces() {
-    return this.knxInterfaceManager.searchInterfaces();
-  }
-
-  // Let the interface manager open the connection for the IP interface with the corresponding MAC address.
-  connectInterface(macAddress) {
-    this.knxInterfaceManager.connectInterface(macAddress);
+  /**
+   * Returns the instance of the knxInterfaceManager that handles the knx connection
+   *
+   * @returns {KNXInterfaceManager}
+   */
+  getKNXInterfaceManager() {
+    return this.knxInterfaceManager;
   }
 
   // Obtain the interface to use by MAC address, then start the learnmode on it.
