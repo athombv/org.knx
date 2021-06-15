@@ -1013,7 +1013,7 @@
       },
       "class": "other",
       "capabilities": [
-        "onoff"
+        "scene_capability"
       ],
       "settings": [
         {
@@ -1086,23 +1086,7 @@
             }
           ]
         }
-      ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon"
-          },
-          {
-            "id": "button",
-            "capabilities": [
-              "onoff"
-            ],
-            "options": {
-              "showTitle": []
-            }
-          }
-        ]
-      }
+      ]
     },
     {
       "images": {
@@ -1586,6 +1570,17 @@
       "type": "boolean",
       "getable": true,
       "setable": true
+    },
+    "scene_capability": {
+      "title": {
+        "en": "Scene",
+        "nl": "Scene"
+      },
+      "type": "boolean",
+      "getable": false,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": true
     }
   }
 }

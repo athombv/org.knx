@@ -6,7 +6,7 @@
         "nl": "Scene"
     },
     "class": "other",
-    "capabilities": ["onoff"],
+    "capabilities": ["scene_capability"],
     "pair" : [
         {
             "id": "select_interface",
@@ -105,19 +105,5 @@
                 }
             ]
         }
-    ],
-    "mobile": {
-        "components": [
-            {
-                "id": "icon"
-            },
-            {
-                "id": "button",
-                "capabilities": [ "onoff" ],
-                "options": {
-                    "showTitle": []
-                }
-            }
-        ]
-    }
+    ]
 }
