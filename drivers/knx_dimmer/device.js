@@ -61,17 +61,12 @@ class KNXDimmer extends KNXGenericDevice {
 
   onCapabilityDim(value, opts) {
     if (this.knxInterface && this.settings.ga_dim) {
-      if (value > 0) {
-        this.setCapabilityValue('onoff', true)
-          .catch(knxerror => {
-            this.log('Set onoff error', knxerror);
-          });
-      } else {
-        this.setCapabilityValue('onoff', false)
-          .catch(knxerror => {
-            this.log('Set onoff error', knxerror);
-          });
-      }
+      const sendValue = value > 0;
+      this.setCapabilityValue('onoff', sendValue)
+        .catch(knxerror => {
+          this.log('Set onoff error', knxerror);
+        });
+
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5')
         .catch(knxerror => {
           this.log(knxerror);
@@ -80,7 +75,6 @@ class KNXDimmer extends KNXGenericDevice {
     }
     return null;
   }
-
 }
 
 module.exports = KNXDimmer;
