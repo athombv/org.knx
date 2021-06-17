@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const ColorConverter = require('color-convert');
 
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
@@ -125,9 +123,16 @@ class KNXRGB extends KNXGenericDevice {
       if (!this._onOffEventHandlerObject.r
         && !this._onOffEventHandlerObject.g
         && !this._onOffEventHandlerObject.b) {
-        this.setCapabilityValue('onoff', false);
+        this.setCapabilityValue('onoff', false)
+          .catch(knxerror => {
+            this.log('Set onoff error', knxerror);
+          });
       } else {
-        this.setCapabilityValue('onoff', true);
+        this.setCapabilityValue('onoff', true)
+          .catch(knxerror => {
+            this.log('Set onoff error', knxerror);
+          });
+
       }
     }
   }
@@ -179,9 +184,24 @@ class KNXRGB extends KNXGenericDevice {
    */
   _setHSVCapability() {
     if (this._hsvEventHandlerObject) {
-      if (this._hsvEventHandlerObject.h !== 0) this.setCapabilityValue('light_hue', this._hsvEventHandlerObject.h);
-      if (this._hsvEventHandlerObject.s !== 0) this.setCapabilityValue('light_saturation', this._hsvEventHandlerObject.s);
-      if (this._hsvEventHandlerObject.v !== 0) this.setCapabilityValue('dim', this._hsvEventHandlerObject.v);
+      if (this._hsvEventHandlerObject.h !== 0) {
+        this.setCapabilityValue('light_hue', this._hsvEventHandlerObject.h)
+          .catch(knxerror => {
+            this.log('Set light_hue error', knxerror);
+          });
+      }
+      if (this._hsvEventHandlerObject.s !== 0) {
+        this.setCapabilityValue('light_saturation', this._hsvEventHandlerObject.s)
+          .catch(knxerror => {
+            this.log('Set light_saturation error', knxerror);
+          });
+      }
+      if (this._hsvEventHandlerObject.v !== 0) {
+        this.setCapabilityValue('dim', this._hsvEventHandlerObject.v)
+          .catch(knxerror => {
+            this.log('Set dim error', knxerror);
+          });
+      }
     }
   }
 
@@ -233,7 +253,7 @@ class KNXRGB extends KNXGenericDevice {
       return Promise.all(promiseQue)
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.switch_failed'));
+          throw new Error(this.homey.__('errors.switch_failed'));
         });
     }
     return null;

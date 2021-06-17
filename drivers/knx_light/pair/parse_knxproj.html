@@ -10,8 +10,7 @@
     </fieldset>
 </div>
 
-<script type="text/javascript" async=false defer=false src="parse_knxproj.assets/zip.js"></script>
-<script type="text/javascript" async=false defer=false src="parse_knxproj.assets/zip-ext.js"></script>
+<script type="text/javascript" async=false defer=false src="parse_knxproj.assets/zip-fs.min.js"></script>
 <script type="text/html" id="devices-list-template">
     <li class="device">
         <label for='device-{{:mac}}' class="name">
@@ -22,27 +21,38 @@
 </script>
 <script>
     Homey.setTitle(Homey.__("settings.projectfile.title"));
+
     var knxGroupAdresses = {};
     var uploaded = false;
+
 	function onerror(message) {
         console.error(message);
         Homey.alert(message);
         fileInput.disabled = false;
 	}
 
-	var model =  {
+	var model = {
         getEntries : function(file, callback) {
             console.log('getEntries');
-            zip.createReader(new zip.BlobReader(file), function(zipReader) {
-                zipReader.getEntries(callback);
-            }, onerror);
+            var reader = new zip.ZipReader(new zip.BlobReader(file));
+
+           reader.getEntries()
+		  	.then(function(entries) {
+              callback(entries);
+			})
+		  .catch(function(error) {
+            onerror(error);
+		  })
         },
         getEntryFile : function(entry, callback) {
             console.log('getEntryFile');
-            var writer = new zip.TextWriter();
-            entry.getData(writer, function(text) {
-                callback(text);
-            });
+		  	entry.getData(new zip.TextWriter())
+		  .then(function(text) {
+            callback(text);
+          })
+		  .catch(function(error) {
+            onerror(error);
+		  })
         }
     };
 
@@ -56,7 +66,7 @@
             groupAddress3Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupRange > GroupAddress');
             groupAddress2Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > GroupAddresses > GroupRanges > GroupRange > GroupAddress');
             if (!groupAddress3Level.length > 0 && !groupAddress2Level.length > 0) {
-                // There are alternative XML strcutres arround which are both valid. If the first doesn't work, try loading the alternative.
+                // There are alternative XML structures around which are both valid. If the first doesn't work, try loading the alternative.
                 // In the future more alternative may be found, they could be added here.
                 groupAddress3Level = parsedXMLData.querySelectorAll('KNX > Project > Installations > Installation > Topology > GroupAddresses > GroupRanges > GroupRange > GroupRange > GroupAddress');
             }

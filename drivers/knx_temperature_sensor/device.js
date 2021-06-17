@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -14,7 +12,10 @@ class KNXTemperatureSensor extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_sensor) {
-      this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data));
+      this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
+        .catch(knxerror => {
+          this.log('Set measure_temperature error', knxerror);
+        });
     }
   }
 
@@ -38,7 +39,7 @@ class KNXTemperatureSensor extends KNXGenericDevice {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.temperature_get_failed'));
+          throw new Error(this.homey.__('errors.temperature_get_failed'));
         });
     }
   }

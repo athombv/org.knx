@@ -5,7 +5,7 @@
         "en": "Switch",
         "nl": "Schakelaar"
     },
-    "class": "light",
+    "class": "remote",
     "capabilities": ["onoff"],
     "pair" : [
         {

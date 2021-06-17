@@ -1,0 +1,11 @@
+{
+  "title": {
+    "en": "Scene",
+    "nl": "Scene"
+  },
+  "type": "boolean",
+  "getable": false,
+  "setable": true,
+  "uiComponent": "button",
+  "uiQuickAction": true
+}

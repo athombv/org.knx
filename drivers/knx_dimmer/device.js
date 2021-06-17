@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -16,10 +14,16 @@ class KNXDimmer extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
-      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
+      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+        .catch(knxerror => {
+          this.log('Set onoff error', knxerror);
+        });
     }
     if (groupaddress === this.settings.ga_dim_status) {
-      this.setCapabilityValue('dim', DatapointTypeParser.dim(data));
+      this.setCapabilityValue('dim', DatapointTypeParser.dim(data))
+        .catch(knxerror => {
+          this.log('Set dim error', knxerror);
+        });
     }
   }
 
@@ -49,7 +53,7 @@ class KNXDimmer extends KNXGenericDevice {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.switch_failed'));
+          throw new Error(this.homey.__('errors.switch_failed'));
         });
     }
     return null;
@@ -57,20 +61,20 @@ class KNXDimmer extends KNXGenericDevice {
 
   onCapabilityDim(value, opts) {
     if (this.knxInterface && this.settings.ga_dim) {
-      if (value > 0) {
-        this.setCapabilityValue('onoff', true);
-      } else {
-        this.setCapabilityValue('onoff', false);
-      }
+      const sendValue = value > 0;
+      this.setCapabilityValue('onoff', sendValue)
+        .catch(knxerror => {
+          this.log('Set onoff error', knxerror);
+        });
+
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5')
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.dim_failed'));
+          throw new Error(this.homey.__('errors.dim_failed'));
         });
     }
     return null;
   }
-
 }
 
 module.exports = KNXDimmer;

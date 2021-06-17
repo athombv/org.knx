@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -15,7 +13,10 @@ class KNXLight extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
-      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data));
+      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+        .catch(knxerror => {
+          this.log('Set onoff error', knxerror);
+        });
     }
   }
 
@@ -39,7 +40,7 @@ class KNXLight extends KNXGenericDevice {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.switch_failed'));
+          throw new Error(this.homey.__('errors.switch_failed'));
         });
     }
     return null;

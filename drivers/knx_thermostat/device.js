@@ -1,7 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
-
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
@@ -15,10 +13,16 @@ class KNXThermostat extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_temperature_target) {
-      this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data));
+      this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data))
+        .catch(knxerror => {
+          this.log('Set target_temperature error', knxerror);
+        });
     }
     if (groupaddress === this.settings.ga_temperature_measure) {
-      this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data));
+      this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
+        .catch(knxerror => {
+          this.log('Set measure_temperature error', knxerror);
+        });
     }
   }
 
@@ -49,7 +53,7 @@ class KNXThermostat extends KNXGenericDevice {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.temperature_set_failed'));
+          throw new Error(this.homey.__('errors.temperature_set_failed'));
         });
     }
     return null;
@@ -60,7 +64,7 @@ class KNXThermostat extends KNXGenericDevice {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
         .catch(knxerror => {
           this.log(knxerror);
-          throw new Error(Homey.__('errors.temperature_get_failed'));
+          throw new Error(this.homey.__('errors.temperature_get_failed'));
         });
     }
   }
