@@ -1,4 +1,7 @@
 {
+  "1.2.0": {
+    "en": "Resolved the issue with selecting group addresses when adding new devices."
+  },
   "1.1.4": {
     "en": "Resolved stability issues.",
     "nl": "Stabiliteitsproblemen opgelost."
