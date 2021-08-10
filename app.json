@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.knx",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -10,8 +10,8 @@
     "nl": "KNX"
   },
   "description": {
-    "en": "Adds support for devices using the KNX network.",
-    "nl": "Voegt ondersteuning toe voor apparaten op een KNX-netwerk"
+    "en": "Living made smart",
+    "nl": "Living made smart"
   },
   "category": [
     "appliances"
@@ -23,8 +23,9 @@
   },
   "author": {
     "name": "Athom B.V.",
-    "email": "info@athom.nl"
+    "email": "support@homey.app"
   },
+  "support": "mailto:support@homey.app",
   "flow": {
     "triggers": [
       {
@@ -65,6 +66,12 @@
         "large": "/drivers/knx_dimcontrol/assets/images/large.png",
         "small": "/drivers/knx_dimcontrol/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -288,6 +295,12 @@
         "large": "/drivers/knx_dimmer/assets/images/large.png",
         "small": "/drivers/knx_dimmer/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -431,6 +444,12 @@
         "large": "/drivers/knx_electric_measuring/assets/images/large.png",
         "small": "/drivers/knx_electric_measuring/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -529,6 +548,12 @@
         "large": "/drivers/knx_light/assets/images/large.png",
         "small": "/drivers/knx_light/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -640,6 +665,12 @@
         "large": "/drivers/knx_luminance_sensor/assets/images/large.png",
         "small": "/drivers/knx_luminance_sensor/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -738,6 +769,12 @@
         "large": "/drivers/knx_rgb/assets/images/large.png",
         "small": "/drivers/knx_rgb/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -982,6 +1019,12 @@
         "large": "/drivers/knx_scene/assets/images/large.png",
         "small": "/drivers/knx_scene/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -1093,6 +1136,12 @@
         "large": "/drivers/knx_switch/assets/images/large.png",
         "small": "/drivers/knx_switch/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -1213,6 +1262,12 @@
         "large": "/drivers/knx_temperature_sensor/assets/images/large.png",
         "small": "/drivers/knx_temperature_sensor/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -1311,6 +1366,12 @@
         "large": "/drivers/knx_thermostat/assets/images/large.png",
         "small": "/drivers/knx_thermostat/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",
@@ -1423,6 +1484,12 @@
         "large": "/drivers/knx_windowcoverings/assets/images/large.png",
         "small": "/drivers/knx_windowcoverings/assets/images/small.png"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
       "pair": [
         {
           "id": "select_interface",

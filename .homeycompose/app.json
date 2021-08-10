@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -9,8 +9,8 @@
     "nl": "KNX"
   },
   "description": {
-    "en": "Adds support for devices using the KNX network.",
-    "nl": "Voegt ondersteuning toe voor apparaten op een KNX-netwerk"
+    "en": "Living made smart",
+    "nl":  "Living made smart"
   },
   "category": [
     "appliances"
@@ -22,6 +22,7 @@
   },
   "author": {
     "name": "Athom B.V.",
-    "email": "info@athom.nl"
-  }
+    "email": "support@homey.app"
+  },
+  "support": "mailto:support@homey.app"
 }

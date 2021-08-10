@@ -3,6 +3,10 @@
 	    "large": "{{driverAssetsPath}}/images/large.png",
 	    "small": "{{driverAssetsPath}}/images/small.png"
     },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [ "lan" ],
     "pair" : [
         {
             "id": "select_interface",
