@@ -43,7 +43,6 @@ class KNXScene extends KNXGenericDevice {
   // This function triggers a scene from Homey.
   // Either from the button in de device overview or from a flow card.
   async triggerToScene() {
-    // The -1 is temporary until the knx.js lib fully supports scenes
     if (!this.knxInterface) {
       throw new Error(this.homey.__('errors.ip.interface_not_found'));
     }
@@ -55,7 +54,7 @@ class KNXScene extends KNXGenericDevice {
     if (!this.settings.scene_number) {
       throw new Error(this.homey.__('errors.invalid_scene_number'));
     }
-
+    // The -1 is temporary until the knx.js lib fully supports scenes
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_scene, (this.settings.scene_number - 1), 'DPT17')
       .catch(knxerror => {
         throw new Error(this.homey.__('errors.switch_failed'), knxerror);
