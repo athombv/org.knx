@@ -34,16 +34,6 @@ class KNXElectricSensor extends KNXGenericDevice {
     }
   }
 
-  getMeasuredTemperature() {
-    if (this.settings.ga_sensor) {
-      this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
-        .catch(knxerror => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.temperature_get_failed'));
-        });
-    }
-  }
-
 }
 
 module.exports = KNXElectricSensor;
