@@ -83,6 +83,8 @@
         "temperature_get_failed": "Temperatuur ophalen mislukt!",
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
         "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
+        "invalid_group_address": "Ongeldig groepadres.",
+        "invalid_scene_number": "Ongeldig scene nummer.",
         "ip": {
             "invalid_ip": "Ongeldig IP adres of geen invoer.",
             "interface_not_found": "Geselecteerde IP interface niet gevonden.",

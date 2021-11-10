@@ -1,4 +1,7 @@
 {
+  "1.2.2": {
+    "en": "Fixed an issue with selecting a scene from the device quick-toggle."
+  },
   "1.2.1": {
     "en": "Resolved the issue with selecting group addresses when adding new devices."
   },

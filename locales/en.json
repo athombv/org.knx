@@ -83,6 +83,8 @@
         "temperature_get_failed": "Getting temperature failed!",
         "windowcovering_failed": "Changing state failed!",
         "windowcovering_stop_failed": "Stopping windowcovering failed!",
+        "invalid_group_address": "Invalid groupaddress.",
+        "invalid_scene_number": "Invalid scene number.",
         "ip": {
             "invalid_ip": "Invalid IP or empty input.",
             "interface_not_found": "Selected IP interface not found.",

@@ -18,7 +18,7 @@ class KNXScene extends KNXGenericDevice {
 
     super.onInit();
 
-    this.registerCapabilityListener('scene_capability', this.onCapabilityScene.bind(this));
+    this.registerCapabilityListener('scene_capability', this.triggerToScene.bind(this));
 
     this.homey.flow
       .getActionCard('trigger_to_scene')
@@ -32,24 +32,30 @@ class KNXScene extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
 
-    if (groupaddress === this.settings.ga_scene && DatapointTypeParser.dpt17(data) === this.settings.scene_number - 1) {
+    if (groupaddress === this.settings.ga_scene
+      && DatapointTypeParser.dpt17(data) === this.settings.scene_number - 1) {
       // Trigger any flow that is bound on this device.
       this.triggerFlowFromScene.trigger(this)
         .catch(err => this.log(err));
     }
   }
 
-  async onCapabilityScene(value, opts) {
-    if (this.knxInterface && this.settings.ga_scene && value === true) {
-      return this.triggerToScene();
-    }
-    return null;
-  }
-
   // This function triggers a scene from Homey.
   // Either from the button in de device overview or from a flow card.
   async triggerToScene() {
     // The -1 is temporary until the knx.js lib fully supports scenes
+    if (!this.knxInterface) {
+      throw new Error(this.homey.__('errors.ip.interface_not_found'));
+    }
+
+    if (!this.settings.ga_scene) {
+      throw new Error(this.homey.__('errors.invalid_group_address'));
+    }
+
+    if (!this.settings.scene_number) {
+      throw new Error(this.homey.__('errors.invalid_scene_number'));
+    }
+
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_scene, (this.settings.scene_number - 1), 'DPT17')
       .catch(knxerror => {
         throw new Error(this.homey.__('errors.switch_failed'), knxerror);
