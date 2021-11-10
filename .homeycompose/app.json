@@ -10,12 +10,13 @@
   },
   "description": {
     "en": "Living made smart",
-    "nl":  "Living made smart"
+    "nl": "Living made smart"
   },
   "category": [
     "appliances"
   ],
   "permissions": [],
+  "platforms": ["local"],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
