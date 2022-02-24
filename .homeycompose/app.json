@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -25,5 +25,5 @@
     "name": "Athom B.V.",
     "email": "support@homey.app"
   },
-  "support": "mailto:support@homey.app"
+  "support": "https://support.athom.com/hc/en-us/requests/new"
 }
