@@ -77,6 +77,13 @@ It's advised to run those ETS version inside a virtual machine and to create a s
 ## Maintenance
 The KNX library is updated aprox. every two months. It's advised as it's still being improved. In the past, these updates never broke our implementation so they are considered 'safe'.
 
+## Running KNX App with a slave Homey
+When running the KNX app during testing with a slave Homey, you need to comment the following line:
+
+*KNXInterface.js  line 47*
+
+`interface: 'wlan0'` -> `//interface: 'wlan0'`
+
 ## Future improvements
 - Instead of parsing the datapoints itself, use this library: https://github.com/Rafelder/knx-datapoints
 - Implement traffic through multicast if a KNX router is detected. This can improve (network) stability and has the advantage of not having to select an IP interface on pairing.
