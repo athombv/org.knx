@@ -2,6 +2,18 @@
 
 const KNXGenericDriver = require('../../lib/GenericKNXDriver');
 
-class KNXScene extends KNXGenericDriver {}
+class KNXScene extends KNXGenericDriver {
+
+  onInit() {
+    super.onInit();
+
+    this.homey.flow
+      .getActionCard('trigger_to_scene')
+      .registerRunListener(async args => {
+        await args['knx_scene'].triggerToScene();
+      });
+  }
+
+}
 
 module.exports = KNXScene;

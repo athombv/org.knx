@@ -19,14 +19,6 @@ class KNXScene extends KNXGenericDevice {
     super.onInit();
 
     this.registerCapabilityListener('scene_capability', this.triggerToScene.bind(this));
-
-    this.homey.flow
-      .getActionCard('trigger_to_scene')
-      .registerRunListener(async (args, state) => {
-        await this.triggerToScene();
-      });
-
-    this.triggerFlowFromScene = this.homey.flow.getDeviceTriggerCard('trigger_from_scene');
   }
 
   onKNXEvent(groupaddress, data) {
@@ -35,7 +27,8 @@ class KNXScene extends KNXGenericDevice {
     if (groupaddress === this.settings.ga_scene
       && DatapointTypeParser.dpt17(data) === this.settings.scene_number - 1) {
       // Trigger any flow that is bound on this device.
-      this.triggerFlowFromScene.trigger(this)
+      this.homey.flow.getDeviceTriggerCard('trigger_from_scene')
+        .trigger(this)
         .catch(err => this.log(err));
     }
   }
