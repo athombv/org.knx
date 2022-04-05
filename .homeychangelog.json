@@ -1,4 +1,7 @@
 {
+  "1.2.4": {
+    "en": "Fixed an issue with the 'Trigger scene' Flow card sending the correct Address and Scene data."
+  },
   "1.2.3": {
     "en": "Updated the support URL."
   },
