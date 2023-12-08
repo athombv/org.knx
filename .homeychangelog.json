@@ -26,5 +26,8 @@
   "1.1.0": {
     "en": "Connection to KNX network improvements and small protocol fixes.",
     "nl": "Betere verbinding naar het KNX netwerk en vele kleine verbeteringen."
+  },
+  "1.2.5": {
+    "en": "Add support for ethernet on Homey Pro 2023"
   }
 }
