@@ -1,6 +1,6 @@
 {
   "id": "org.knx",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -16,7 +16,9 @@
     "appliances"
   ],
   "permissions": [],
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
