@@ -32,37 +32,39 @@ class KNXRGB extends KNXGenericDevice {
 
   // Override because of non-shared capabilities
   setKNXInterface(knxInterface) {
-    this.knxInterface = knxInterface;
+    if (knxInterface !== undefined) {
+      this.knxInterface = knxInterface;
 
-    // Add the handlers.
-    this.knxInterface.onKNXConnectionListener(this.KNXConnectionHandler);
+      // Add the handlers.
+      this.knxInterface.onKNXConnectionListener(this.KNXConnectionHandler);
 
-    // On/off event listeners
-    this.knxInterface.addKNXEventListener(this.settings.ga_red_toggle_status,
-      this._KNXToggleEventHandler);
-    this.knxInterface.addKNXEventListener(this.settings.ga_green_toggle_status,
-      this._KNXToggleEventHandler);
-    this.knxInterface.addKNXEventListener(this.settings.ga_blue_toggle_status,
-      this._KNXToggleEventHandler);
+      // On/off event listeners
+      this.knxInterface.addKNXEventListener(this.settings.ga_red_toggle_status,
+        this._KNXToggleEventHandler);
+      this.knxInterface.addKNXEventListener(this.settings.ga_green_toggle_status,
+        this._KNXToggleEventHandler);
+      this.knxInterface.addKNXEventListener(this.settings.ga_blue_toggle_status,
+        this._KNXToggleEventHandler);
 
-    // // RGB value event listeners
-    this.knxInterface.addKNXEventListener(this.settings.ga_red_dim_status,
-      this._KNXRGBEventHandler);
-    this.knxInterface.addKNXEventListener(this.settings.ga_green_dim_status,
-      this._KNXRGBEventHandler);
-    this.knxInterface.addKNXEventListener(this.settings.ga_blue_dim_status,
-      this._KNXRGBEventHandler);
+      // // RGB value event listeners
+      this.knxInterface.addKNXEventListener(this.settings.ga_red_dim_status,
+        this._KNXRGBEventHandler);
+      this.knxInterface.addKNXEventListener(this.settings.ga_green_dim_status,
+        this._KNXRGBEventHandler);
+      this.knxInterface.addKNXEventListener(this.settings.ga_blue_dim_status,
+        this._KNXRGBEventHandler);
 
-    this.log('Using interface:', this.knxInterface.name, this.knxInterface.getConnectedIPAddress());
-    this.setSettings({
-      ipAddress: this.knxInterface.getConnectedIPAddress(),
-    });
+      this.log('Using interface:', this.knxInterface.name, this.knxInterface.getConnectedIPAddress());
+      this.setSettings({
+        ipAddress: this.knxInterface.getConnectedIPAddress(),
+      });
 
-    // Connect the interface. This is safe, because the object is already created and thus verified.
-    this.knxInterface._connectKNX();
+      // Connect the interface. This is safe, because the object is already created and thus verified.
+      this.knxInterface._connectKNX();
 
-    // Make the device available since we have a KNX interface
-    this.setAvailable();
+      // Make the device available since we have a KNX interface
+      this.setAvailable();
+    }
   }
 
   /**
