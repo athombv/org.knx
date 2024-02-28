@@ -29,5 +29,8 @@
   },
   "1.2.5": {
     "en": "Add support for ethernet on Homey Pro 2023"
+  },
+  "1.2.6": {
+    "en": "Improved error handling for missing interfaces"
   }
 }
