@@ -1,0 +1,64 @@
+{
+  "title": {
+    "en": "Send Telegram"
+  },
+  "hint": {
+    "en": "Sends a telegram to the KNX bus"
+  },
+  "args": [
+    {
+      "title": {
+        "en": "Interface"
+      },
+      "type": "autocomplete",
+      "name": "interface",
+      "placeholder": {
+        "en": "[any]"
+      }
+    },
+    {
+      "title": {
+        "en": "Group Address"
+      },
+      "type": "text",
+      "name": "group_address",
+      "placeholder": {
+        "en": "Group Address"
+      }
+    },
+    {
+      "title": {
+        "en": "Data Type"
+      },
+      "type": "dropdown",
+      "name": "data_type",
+      "values": [
+        {
+          "id": "none",
+          "label": {
+            "en": "None"
+          }
+        },
+        {
+          "id": "dpt9001",
+          "label": {
+            "en": "DPT9.001"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "Value"
+      },
+      "type": "number",
+      "name": "Value",
+      "placeholder": {
+        "en": "Value"
+      },
+      "min": -10000,
+      "max": 10000,
+      "step": 0.01
+    }
+  ]
+}

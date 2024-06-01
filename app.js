@@ -12,6 +12,52 @@ class KNXApp extends Homey.App {
 
     this.log('Homey IP + Parsed IP', address, homeyIP);
     this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
+
+    
+
+    const sendTelegramAction = this.homey.flow.getActionCard('knx_send');
+    sendTelegramAction.registerRunListener(async (args, state) => {
+
+      console.log(args);
+      console.log(state);
+
+      let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
+
+      if (args.interface.mac === 'any') {
+        const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
+        if (availableInterfaces.length > 0) {
+          knxInterfaceToUse = availableInterfaces[0];
+        }
+      }
+
+      if (!knxInterfaceToUse) 
+        return Promise.reject('Interface not found');
+
+      
+      if (!args.group_address) 
+        return Promise.reject('No group address selected');
+      
+      if (args.data_type == "none") {
+        knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
+      } else {
+        knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type);
+      }
+
+    });
+    
+    sendTelegramAction.registerArgumentAutocompleteListener(
+      "interface",
+      async (query, args) => {
+        const results = this.knxInterfaceManager.getSimpleInterfaceList();
+        results.push({name: '[any]', mac: 'any', ip: 'any'});
+
+        // filter based on the query
+        return results.filter((result) => {
+           return result.name.toLowerCase().includes(query.toLowerCase()) || result.mac.toLowerCase().includes(query.toLowerCase()) || result.ip.toLowerCase().includes(query.toLowerCase()); 
+        });
+      }
+    );
+
   }
 
   /**

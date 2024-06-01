@@ -1,0 +1,25 @@
+{
+  "triggers": [
+    {
+      "id": "changed",
+      "title": {
+        "en": "Changed"
+      },
+      "hint": {
+        "en": "When the switch is changed from on/off to off/on"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "status",
+          "title": {
+            "en": "Status"
+          },
+          "example": {
+            "en": "The current status of the switch"
+          }
+        }
+      ]
+    }
+  ]
+}
