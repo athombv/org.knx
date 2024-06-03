@@ -16,58 +16,71 @@ class KNXApp extends Homey.App {
 
 
     const sendTelegramAction = this.homey.flow.getActionCard('knx_send');
-    sendTelegramAction.registerRunListener(sendTelegramAction.bind(this));
+    sendTelegramAction.registerRunListener(this.sendKNXTelegram.bind(this));
 
 
-    this.recieveTelegramTrigger = this.homey.flow.getTriggerCard('knx_receive');
-    this.eventListernerGroupAddresses = [];
+    this.receiveTelegramTrigger = this.homey.flow.getTriggerCard('knx_receive');
+    this.eventListenerGroupAddresses = [];
 
-    recieveTelegramTrigger.registerRunListener(async (args, state) => {
+    this.receiveTelegramTrigger.registerRunListener(async (args, state) => {
       //TODO: allow globs for cool trigger types
-      return args.group_address === state.group_address && (args.interface === "[any]" || args.interface === state.interface);
+      return args.group_address === state.group_address && (args.interface.mac === "any" || args.interface.mac === state.interface.mac);
     });
 
-    recieveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
+    this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
 
-    recieveTelegramTrigger.on("update", () => {
+    this.receiveTelegramTrigger.on("update", () => {
       this.log("update knx flow arguments");
-      recieveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
+      this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
     });
 
     sendTelegramAction.registerArgumentAutocompleteListener("interface", this.interfaceAutocomplete.bind(this));
-    recieveTelegramTrigger.registerArgumentAutocompleteListener("interface", this.interfaceAutocomplete.bind(this));
+    this.receiveTelegramTrigger.registerArgumentAutocompleteListener("interface", this.interfaceAutocomplete.bind(this));
 
+    
+    this.KNXInterfaceFoundHandler = this.onKNXInterface.bind(this);
+    this.knxInterfaceManager.on('interface_found', this.KNXInterfaceFoundHandler);
   }
 
   // referenced via this.KNXEventHandler
-  onKNXEvent(interfaceMac, groupaddress, data) {
+  onKNXEvent(knxInterface, groupaddress, data) {
     const tokens = { value_number: data, value_bool: data > 0 };
-    const state = { group_address: groupaddress, interface: interfaceMac };
+    const state = { group_address: groupaddress, interface: knxInterface };
 
     // trigger the card
-    recieveTelegramTrigger.trigger(tokens, state)
+    this.recieveTelegramTrigger.trigger(tokens, state)
       .then(this.log)
       .catch(this.error);
+  }
+  
+  /**
+   * Handler for the interface found
+   */
+  onKNXInterface(knxInterface) {
+    this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
   }
 
   registerKNXEventHandlers(args) {
     this.log("args", args);
 
     args.forEach(event => {
-      if (!this.eventListernerGroupAddresses.includes(event.interface + "-" + event.group_address)) {
-        this.eventListernerGroupAddresses.push(event.interface + "-" + event.group_address);
+      this.log("event loop event", event)
+      if (!this.eventListenerGroupAddresses.includes(event.interface.mac + "-" + event.group_address)) {
+        this.log("adding event listener", event.interface.mac+ "-" + event.group_address)
 
-        let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(event.interface);
+        let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(event.interface.mac);
 
-        if (event.interface === "[any]") {
+        if (event.interface.mac == "any") {
           const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
+          console.log(availableInterfaces);
           knxInterfaceToUse = availableInterfaces.length > 0 ? availableInterfaces[0] : null;
         }
 
         if (!knxInterfaceToUse) {
-          this.error('Interface not found');
+          this.log('Interface not found');
         } else {
 
+          this.eventListenerGroupAddresses.push(event.interface.mac + "-" + event.group_address);
           // Store the event listener so we can remove it later
           knxInterfaceToUse.addKNXEventListener(event.group_address, this.onKNXEvent.bind(this, event.interface));
         }
@@ -75,7 +88,7 @@ class KNXApp extends Homey.App {
 
     });
 
-    this.eventListernerGroupAddresses.forEach(eventListernerId => {
+    this.eventListenerGroupAddresses.forEach(eventListernerId => {
       if (args.filter(event => event.interface + "-" + event.group_address === eventListernerId).length === 0) {
         //TODO: figuure out how to remove the event listener, because we need the correct event listener
         //knxInterfaceToUse.removeKNXEventListener(groupAddress, this.onKNXEvent.bind( this, event.interface));
@@ -93,7 +106,7 @@ class KNXApp extends Homey.App {
     });
   }
 
-  async sendTelegramAction(args, state) {
+  async sendKNXTelegram(args, state) {
 
     console.log(args);
     console.log(state);
