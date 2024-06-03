@@ -1,0 +1,46 @@
+{
+  "title": {
+    "en": "KNX Recieve"
+  },
+  "hint": {
+    "en": "Listen for an event from the KNX Bus on a specific group address"
+  },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "interface",
+      "placeholder": {
+        "en": "[any]"
+      }
+    },
+    {
+      "type": "text",
+      "name": "group_address",
+      "placeholder": {
+        "en": "1/0/0"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "number",
+      "name": "value_number",
+      "title": {
+        "en": "Value"
+      },
+      "example": {
+        "en": "the value recieved"
+      }
+    },
+    {
+      "type": "boolean",
+      "name": "value_bool",
+      "title": {
+        "en": "Value"
+      },
+      "example": {
+        "en": "the value recieved as a boolean"
+      }
+    }
+  ]
+}
