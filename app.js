@@ -23,6 +23,7 @@ class KNXApp extends Homey.App {
     this.eventListernerGroupAddresses = [];
 
     recieveTelegramTrigger.registerRunListener(async (args, state) => {
+      //TODO: allow globs for cool trigger types
       return args.group_address === state.group_address && (args.interface === "[any]" || args.interface === state.interface);
     });
 
@@ -53,10 +54,23 @@ class KNXApp extends Homey.App {
     this.log("args", args);
 
     args.forEach(event => {
-      if (!this.eventListernerGroupAddresses.includes(event.interface + "-" +event.group_address)) {
+      if (!this.eventListernerGroupAddresses.includes(event.interface + "-" + event.group_address)) {
         this.eventListernerGroupAddresses.push(event.interface + "-" + event.group_address);
-        // Store the event listener so we can remove it later
-        this.knxInterface.addKNXEventListener(settings.ga_status, this.onKNXEvent.bind( this, event.interface));
+
+        let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(event.interface);
+
+        if (event.interface === "[any]") {
+          const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
+          knxInterfaceToUse = availableInterfaces.length > 0 ? availableInterfaces[0] : null;
+        }
+
+        if (!knxInterfaceToUse) {
+          this.error('Interface not found');
+        } else {
+
+          // Store the event listener so we can remove it later
+          knxInterfaceToUse.addKNXEventListener(event.group_address, this.onKNXEvent.bind(this, event.interface));
+        }
       }
 
     });
@@ -64,7 +78,7 @@ class KNXApp extends Homey.App {
     this.eventListernerGroupAddresses.forEach(eventListernerId => {
       if (args.filter(event => event.interface + "-" + event.group_address === eventListernerId).length === 0) {
         //TODO: figuure out how to remove the event listener, because we need the correct event listener
-        //this.knxInterface.removeKNXEventListener(groupAddress, this.onKNXEvent.bind( this, event.interface));
+        //knxInterfaceToUse.removeKNXEventListener(groupAddress, this.onKNXEvent.bind( this, event.interface));
       }
     });
   }
