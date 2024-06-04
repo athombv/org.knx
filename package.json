@@ -20,7 +20,8 @@
     "publish": "homey app publish",
     "validate": "homey app validate -l publish",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --ignore-path .gitignore --ext .js ."
+    "lint": "eslint --ignore-path .gitignore --ext .js .",
+    "lint:fix": "eslint --fix --ignore-path .gitignore --ext .js ."
   },
   "repository": {
     "type": "git",
