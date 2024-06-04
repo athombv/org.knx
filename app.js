@@ -23,6 +23,7 @@ class KNXApp extends Homey.App {
     this.eventListenerGroupAddresses = [];
 
     this.receiveTelegramTrigger.registerRunListener(async (args, state) => {
+      console.log("registerRunListener", args, state);
       //TODO: allow globs for cool trigger types
       return args.group_address === state.group_address && (args.interface.mac === "any" || args.interface.mac === state.interface.mac);
     });
@@ -30,7 +31,6 @@ class KNXApp extends Homey.App {
     this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
 
     this.receiveTelegramTrigger.on("update", () => {
-      this.log("update knx flow arguments");
       this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
     });
 
@@ -47,10 +47,19 @@ class KNXApp extends Homey.App {
     const tokens = { value_number: data, value_bool: data > 0 };
     const state = { group_address: groupaddress, interface: knxInterface };
 
+    this.log("onKNXEvent", tokens, state);
     // trigger the card
-    this.recieveTelegramTrigger.trigger(tokens, state)
-      .then(this.log)
-      .catch(this.error);
+    let prom = this.recieveTelegramTrigger.trigger(tokens, state)
+    console.log(prom)
+    prom.then((e) => {
+      console.log("TESTER", e)
+    })
+      .catch((e) => {
+        console.log("ERROR", e)
+      
+      });
+
+    this.log("after the event");
   }
   
   /**
@@ -61,10 +70,7 @@ class KNXApp extends Homey.App {
   }
 
   registerKNXEventHandlers(args) {
-    this.log("args", args);
-
     args.forEach(event => {
-      this.log("event loop event", event)
       if (!this.eventListenerGroupAddresses.includes(event.interface.mac + "-" + event.group_address)) {
         this.log("adding event listener", event.interface.mac+ "-" + event.group_address)
 
@@ -72,12 +78,12 @@ class KNXApp extends Homey.App {
 
         if (event.interface.mac == "any") {
           const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
-          console.log(availableInterfaces);
-          knxInterfaceToUse = availableInterfaces.length > 0 ? availableInterfaces[0] : null;
+          let macs = Object.keys(availableInterfaces);
+          knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
         }
 
         if (!knxInterfaceToUse) {
-          this.log('Interface not found');
+          this.error('Interface not found');
         } else {
 
           this.eventListenerGroupAddresses.push(event.interface.mac + "-" + event.group_address);
