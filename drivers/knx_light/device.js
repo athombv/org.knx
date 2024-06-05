@@ -14,7 +14,7 @@ class KNXLight extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
       this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
     }
@@ -28,7 +28,7 @@ class KNXLight extends KNXGenericDevice {
       // This will be catched by onKNXEvent, hence the return value is not used.
       if (this.settings.ga_status) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_status)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
@@ -38,7 +38,7 @@ class KNXLight extends KNXGenericDevice {
   onCapabilityOnoff(value, opts) {
     if (this.knxInterface && this.settings.ga_switch) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
         });

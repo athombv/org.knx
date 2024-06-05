@@ -14,13 +14,13 @@ class KNXThermostat extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_temperature_target) {
       this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set target_temperature error', knxerror);
         });
     }
     if (groupaddress === this.settings.ga_temperature_measure) {
       this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set measure_temperature error', knxerror);
         });
     }
@@ -34,13 +34,13 @@ class KNXThermostat extends KNXGenericDevice {
       // This will be catched by onKNXEvent, hence the return value is not used.
       if (this.settings.ga_temperature_target) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_target)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
       if (this.settings.ga_temperature_measure) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
@@ -51,7 +51,7 @@ class KNXThermostat extends KNXGenericDevice {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.temperature_set_failed'));
         });
@@ -62,7 +62,7 @@ class KNXThermostat extends KNXGenericDevice {
   getMeasuredTemperature() {
     if (this.settings.ga_temperature_measure) {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.temperature_get_failed'));
         });
