@@ -1,3 +1,4 @@
 {
-  "extends": "athom"
+  "extends": "athom",
+  "ignorePatterns": ["**/*.min.js"]
 }

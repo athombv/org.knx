@@ -13,7 +13,7 @@ class KNXTemperatureSensor extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_sensor) {
       this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set measure_temperature error', knxerror);
         });
     }
@@ -27,7 +27,7 @@ class KNXTemperatureSensor extends KNXGenericDevice {
       // This will be catched by onKNXEvent, hence the return value is not used.
       if (this.settings.ga_sensor) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
@@ -37,7 +37,7 @@ class KNXTemperatureSensor extends KNXGenericDevice {
   getMeasuredTemperature() {
     if (this.settings.ga_sensor) {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.temperature_get_failed'));
         });

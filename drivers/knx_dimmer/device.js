@@ -15,13 +15,13 @@ class KNXDimmer extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
       this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
     }
     if (groupaddress === this.settings.ga_dim_status) {
       this.setCapabilityValue('dim', DatapointTypeParser.dim(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set dim error', knxerror);
         });
     }
@@ -35,13 +35,13 @@ class KNXDimmer extends KNXGenericDevice {
       // This will be catched by onKNXEvent, hence the return value is not used.
       if (this.settings.ga_status) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_status)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
       if (this.settings.ga_dim_status) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_dim_status)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
@@ -51,7 +51,7 @@ class KNXDimmer extends KNXGenericDevice {
   onCapabilityOnoff(value, opts) {
     if (this.knxInterface && this.settings.ga_switch) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
         });
@@ -63,18 +63,19 @@ class KNXDimmer extends KNXGenericDevice {
     if (this.knxInterface && this.settings.ga_dim) {
       const sendValue = value > 0;
       this.setCapabilityValue('onoff', sendValue)
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
 
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.dim_failed'));
         });
     }
     return null;
   }
+
 }
 
 module.exports = KNXDimmer;
