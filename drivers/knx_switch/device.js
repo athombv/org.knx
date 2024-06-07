@@ -24,10 +24,10 @@ class KNXSwitch extends KNXGenericDevice {
         .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
-        
+
       this.homey.flow.getDeviceTriggerCard('changed')
-        .trigger(this, { status: value } )
-        .catch(err => this.log(err));
+        .trigger(this, { status: data })
+        .catch((err) => this.log(err));
     }
   }
 
