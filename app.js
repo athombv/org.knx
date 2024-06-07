@@ -54,11 +54,11 @@ class KNXApp extends Homey.App {
   // referenced via this.KNXEventHandler
   onKNXEvent(args, groupaddress, data) {
     try {
-      console.log('onKNXEvent', args, groupaddress, data);
+
       const dpt = dptlib.resolve(args.data_type.name);
       const value = dptlib.fromBuffer(data, dpt);
       const tokens = { value_number: 0, value_bool: false, value_string: '' };
-      console.log(value, typeof (value));
+
       if (typeof (value) === 'number') {
         tokens.value_number = value;
         tokens.value_bool = value > 0;
@@ -75,7 +75,6 @@ class KNXApp extends Homey.App {
         tokens.value_bool = value !== '';
         tokens.value_number = value.length;
       }
-      console.log(tokens);
 
       console.log('onKNXEvent', groupaddress, data, tokens);
       const state = { group_address: groupaddress, interface: args.interface, data_type: args.data_type };
@@ -115,7 +114,6 @@ class KNXApp extends Homey.App {
         } else {
           this.eventListenerGroupAddresses.push(`${args.interface.mac}-${args.group_address}`);
           // Store the event listener so we can remove it later
-          console.log('binding onKNXEvent');
           knxInterfaceToUse.addKNXEventListener(args.group_address, this.onKNXEvent.bind(this, args));
         }
       }
