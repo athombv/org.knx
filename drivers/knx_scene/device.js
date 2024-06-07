@@ -29,7 +29,7 @@ class KNXScene extends KNXGenericDevice {
       // Trigger any flow that is bound on this device.
       this.homey.flow.getDeviceTriggerCard('trigger_from_scene')
         .trigger(this)
-        .catch(err => this.log(err));
+        .catch((err) => this.log(err));
     }
   }
 
@@ -49,7 +49,7 @@ class KNXScene extends KNXGenericDevice {
     }
     // The -1 is temporary until the knx.js lib fully supports scenes
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_scene, (this.settings.scene_number - 1), 'DPT17')
-      .catch(knxerror => {
+      .catch((knxerror) => {
         throw new Error(this.homey.__('errors.switch_failed'), knxerror);
       });
   }

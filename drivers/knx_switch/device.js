@@ -20,9 +20,8 @@ class KNXSwitch extends KNXGenericDevice {
     }
 
     if (groupaddress === statusAddress) {
-      var value = DatapointTypeParser.onoff(data);
-      this.setCapabilityValue('onoff', value)
-        .catch(knxerror => {
+      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+        .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
         
@@ -48,7 +47,7 @@ class KNXSwitch extends KNXGenericDevice {
       if (statusAddress) {
         // switches don't have a seperate status address
         this.knxInterface.readKNXGroupAddress(statusAddress)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
@@ -59,13 +58,13 @@ class KNXSwitch extends KNXGenericDevice {
     if (this.knxInterface && this.settings.ga_switch) {
       if (this.settings.inverted === true) {
         return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1')
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
             throw new Error(this.homey.__('errors.switch_failed'));
           });
       }
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
         });
