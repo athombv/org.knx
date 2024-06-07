@@ -1,7 +1,6 @@
 {
     "$extends": [
-        "knx_driver",
-        "knx.settings"
+        "knx_driver"
     ],
     "id": "knx_dimmer",
     "name": {

@@ -1,6 +1,9 @@
 {
   "title": {
-    "en": "KNX Recieve"
+    "en": "KNX Receive"
+  },
+  "titleFormatted": {
+    "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]"
   },
   "hint": {
     "en": "Listen for an event from the KNX Bus on a specific group address"
@@ -18,6 +21,16 @@
       "name": "group_address",
       "placeholder": {
         "en": "1/0/0"
+      }
+    },
+    {
+      "name": "data_type",
+      "title": {
+        "en": "Data Type"
+      },
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "5.001"
       }
     }
   ],

@@ -1,6 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
+const dptlib = require('knx/src/dptlib');
 const KNXInterfaceManager = require('./lib/KNXInterfaceManager');
 
 class KNXApp extends Homey.App {
@@ -9,6 +10,15 @@ class KNXApp extends Homey.App {
     this.log('KNXApp is running...');
     const address = await this.homey.cloud.getLocalAddress();
     const homeyIP = address.split(':', 1).toString();
+
+    const types = Object.keys(dptlib).filter((k) => k.startsWith('DPT'));
+    this.availableKnxDataTypes = [];
+    types.forEach((dpt) => {
+      this.availableKnxDataTypes.push({ name: dpt });
+      if (dptlib[dpt].subtypes) {
+        this.availableKnxDataTypes.push(...Object.keys(dptlib[dpt].subtypes).map((subtype) => ({ name: `${dpt}.${subtype}` })));
+      }
+    });
 
     this.log('Homey IP + Parsed IP', address, homeyIP);
     this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
@@ -34,27 +44,50 @@ class KNXApp extends Homey.App {
     sendTelegramAction.registerArgumentAutocompleteListener('interface', this.interfaceAutocomplete.bind(this));
     this.receiveTelegramTrigger.registerArgumentAutocompleteListener('interface', this.interfaceAutocomplete.bind(this));
 
+    sendTelegramAction.registerArgumentAutocompleteListener('data_type', this.datatypeAutocomplete.bind(this));
+    this.receiveTelegramTrigger.registerArgumentAutocompleteListener('data_type', this.datatypeAutocomplete.bind(this));
+
     this.KNXInterfaceFoundHandler = this.onKNXInterface.bind(this);
     this.knxInterfaceManager.on('interface_found', this.KNXInterfaceFoundHandler);
   }
 
   // referenced via this.KNXEventHandler
-  onKNXEvent(knxInterface, groupaddress, data) {
-    const tokens = { value_number: data, value_bool: data > 0 };
-    const state = { group_address: groupaddress, interface: knxInterface };
+  onKNXEvent(args, groupaddress, data) {
+    try {
+      console.log('onKNXEvent', args, groupaddress, data);
+      const dpt = dptlib.resolve(args.data_type.name);
+      const value = dptlib.fromBuffer(data, dpt);
+      const tokens = { value_number: 0, value_bool: false, value_string: '' };
+      console.log(value, typeof (value));
+      if (typeof (value) === 'number') {
+        tokens.value_number = value;
+        tokens.value_bool = value > 0;
+        tokens.value_string = value.toString();
+        if (dpt.subtype && dpt.subtype.unit) {
+          tokens.value_string += ` ${dpt.subtype.unit}`;
+        }
+      } else if (typeof (value) === 'boolean') {
+        tokens.value_bool = value;
+        tokens.value_number = value ? 1 : 0;
+        tokens.value_string = value.toString();
+      } else if (typeof (value) === 'string') {
+        tokens.value_string = value;
+        tokens.value_bool = value !== '';
+        tokens.value_number = value.length;
+      }
+      console.log(tokens);
 
-    this.log('onKNXEvent', tokens, state);
-    // trigger the card
-    const prom = this.recieveTelegramTrigger.trigger(tokens, state);
-    console.log(prom);
-    prom.then((e) => {
-      console.log('TESTER', e);
-    })
-      .catch((e) => {
-        console.log('ERROR', e);
-      });
-
-    this.log('after the event');
+      console.log('onKNXEvent', groupaddress, data, tokens);
+      const state = { group_address: groupaddress, interface: args.interface, data_type: args.data_type };
+      this.receiveTelegramTrigger.trigger(tokens, state).then((e) => {
+        console.log(e);
+      })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   /**
@@ -64,14 +97,14 @@ class KNXApp extends Homey.App {
     this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
   }
 
-  registerKNXEventHandlers(args) {
-    args.forEach((event) => {
-      if (!this.eventListenerGroupAddresses.includes(`${event.interface.mac}-${event.group_address}`)) {
-        this.log('adding event listener', `${event.interface.mac}-${event.group_address}`);
+  registerKNXEventHandlers(cards) {
+    cards.forEach((args) => {
+      if (!this.eventListenerGroupAddresses.includes(`${args.interface.mac}-${args.group_address}`)) {
+        this.log('adding event listener', `${args.interface.mac}-${args.group_address}`);
 
-        let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(event.interface.mac);
+        let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
 
-        if (event.interface.mac === 'any') {
+        if (args.interface.mac === 'any') {
           const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
           const macs = Object.keys(availableInterfaces);
           knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
@@ -80,17 +113,18 @@ class KNXApp extends Homey.App {
         if (!knxInterfaceToUse) {
           this.error('Interface not found');
         } else {
-          this.eventListenerGroupAddresses.push(`${event.interface.mac}-${event.group_address}`);
+          this.eventListenerGroupAddresses.push(`${args.interface.mac}-${args.group_address}`);
           // Store the event listener so we can remove it later
-          knxInterfaceToUse.addKNXEventListener(event.group_address, this.onKNXEvent.bind(this, event.interface));
+          console.log('binding onKNXEvent');
+          knxInterfaceToUse.addKNXEventListener(args.group_address, this.onKNXEvent.bind(this, args));
         }
       }
     });
 
     this.eventListenerGroupAddresses.forEach((eventListernerId) => {
-      if (args.filter((event) => `${event.interface}-${event.group_address}` === eventListernerId).length === 0) {
+      if (cards.filter((args) => `${args.interface}-${args.group_address}` === eventListernerId).length === 0) {
         // TODO: figuure out how to remove the event listener, because we need the correct event listener
-        // knxInterfaceToUse.removeKNXEventListener(groupAddress, this.onKNXEvent.bind( this, event.interface));
+        // knxInterfaceToUse.removeKNXEventListener(groupAddress, this.onKNXEvent.bind( this, args));
       }
     });
   }
@@ -100,9 +134,15 @@ class KNXApp extends Homey.App {
     results.push({ name: '[any]', mac: 'any', ip: 'any' });
 
     // filter based on the query
-    return results.filter((result) => {
-      return result.name.toLowerCase().includes(query.toLowerCase()) || result.mac.toLowerCase().includes(query.toLowerCase()) || result.ip.toLowerCase().includes(query.toLowerCase());
-    });
+    return results.filter((result) => (
+      result.name.toLowerCase().includes(query.toLowerCase())
+      || result.mac.toLowerCase().includes(query.toLowerCase())
+      || result.ip.toLowerCase().includes(query.toLowerCase())
+    ));
+  }
+
+  async datatypeAutocomplete(query, args) {
+    return this.availableKnxDataTypes.filter((r) => r.name.includes(query.toUpperCase()));
   }
 
   async sendKNXTelegram(args, state) {
@@ -130,7 +170,7 @@ class KNXApp extends Homey.App {
       return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
     }
 
-    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type);
+    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type.name);
   }
 
   /**

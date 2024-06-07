@@ -20,13 +20,14 @@ class KNXSwitch extends KNXGenericDevice {
     }
 
     if (groupaddress === statusAddress) {
-      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+      const value = DatapointTypeParser.onoff(data);
+      this.setCapabilityValue('onoff', value)
         .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
-
+      console.log(groupaddress, data, value);
       this.homey.flow.getDeviceTriggerCard('changed')
-        .trigger(this, { status: data })
+        .trigger(this, { status: value })
         .catch((err) => this.log(err));
     }
   }
