@@ -102,7 +102,6 @@ class KNXApp extends Homey.App {
         this.log('adding event listener', `${args.interface.mac}-${args.group_address}`);
 
         let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
-
         if (args.interface.mac === 'any') {
           const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
           const macs = Object.keys(availableInterfaces);
@@ -148,12 +147,10 @@ class KNXApp extends Homey.App {
     console.log(state);
 
     let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
-
     if (args.interface.mac === 'any') {
       const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
-      if (availableInterfaces.length > 0) {
-        knxInterfaceToUse = availableInterfaces[0];
-      }
+      const macs = Object.keys(availableInterfaces);
+      knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
     }
 
     if (!knxInterfaceToUse) {
