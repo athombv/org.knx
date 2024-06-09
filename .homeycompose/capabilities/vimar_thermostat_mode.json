@@ -1,0 +1,36 @@
+
+{
+    "type": "enum",
+    "title": {
+      "en": "Thermostat mode selector"
+    },
+    "values": [
+      {
+        "id": "0",
+        "title": {
+          "en": "Comfort"
+        }
+      },
+      {
+        "id": "1",
+        "title": {
+          "en": "Standby"
+        }
+      },
+      {
+        "id": "2",
+        "title": {
+          "en": "Economy"
+        }
+      },
+      {
+        "id": "3",
+        "title": {
+          "en": "Protect"
+        }
+      }
+    ],
+    "getable": true,
+    "setable": true,
+    "uiComponent": "picker"
+  }
