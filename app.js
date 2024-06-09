@@ -30,9 +30,10 @@ class KNXApp extends Homey.App {
     this.eventListenerGroupAddresses = [];
 
     this.receiveTelegramTrigger.registerRunListener(async (args, state) => {
-      console.log('registerRunListener', args, state);
+      const doRun = args.group_address === state.group_address && (args.interface.mac === 'any' || args.interface.mac === state.interface.mac);
+      console.log('registerRunListener', args, doRun, state);
       // TODO: allow globs for cool trigger types
-      return args.group_address === state.group_address && (args.interface.mac === 'any' || args.interface.mac === state.interface.mac);
+      return doRun;
     });
 
     this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
@@ -161,11 +162,24 @@ class KNXApp extends Homey.App {
       return Promise.reject(new Error('No group address selected'));
     }
 
-    if (args.data_type === 'none') {
-      return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
+    // Even if the datatype is bool the knx lib can convert from "true" to a boolean value, 
+    // so we can just pass the string, in general we let people have as much freedom as possible
+    // TODO: Add date and time support
+    let value = args.value_bool
+    if (args.value_number !== undefined)
+      value = args.value_number;
+    if (args.value_string !== undefined)
+      value = args.value_string;
+
+    if (value === undefined) {
+      return Promise.reject(new Error('No value selected'));
     }
 
-    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type.name);
+    if (args.data_type === 'none') {
+      return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, value);
+    }
+
+    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, value, args.data_type.name);
   }
 
   /**

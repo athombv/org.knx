@@ -3,7 +3,7 @@
     "en": "Send Telegram"
   },
   "titleFormatted": {
-    "en": "Send a [[data_type]] [[value]] on group address [[group_address]] on interface [[interface]]"
+    "en": "Send a [[data_type]] [[value_number]],[[value_text]],[[value_bool]] on group address [[group_address]] via [[interface]] interface"
   },
   "hint": {
     "en": "Sends a telegram to the KNX bus, be smart and make sure you expect the right value type, they will default to sensible values"
@@ -41,16 +41,33 @@
     },
     {
       "title": {
-        "en": "Value"
+        "en": "Value Number"
       },
       "type": "number",
-      "name": "value",
+      "name": "value_number",
+      "required" : false,
       "placeholder": {
-        "en": "Value"
+        "en": "42"
       },
       "min": -2147483648,
       "max": 2147483647,
       "step": 0.01
+    },
+    {
+      "title": {
+        "en": "Value Bool"
+      },
+      "type": "checkbox",
+      "name": "value_bool",
+      "required" : false
+    },
+    {
+      "title": {
+        "en": "Value Text"
+      },
+      "type": "text",
+      "name": "value_text",
+      "required" : false
     }
   ]
 }
