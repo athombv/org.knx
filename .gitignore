@@ -12,7 +12,3 @@ build
 /drivers/*/pair/parse_knxproj.html
 /drivers/*/pair/select_interface.html
 /drivers/*/pair/select_groupaddresses.html
-
-# Remove built app.json
-
-app.json
