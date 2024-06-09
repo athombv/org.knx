@@ -104,6 +104,17 @@
                     }
                 },
                 {
+                    "id": "ga_window_switch",
+                    "type": "text",
+                    "label": {
+                        "en": "Window Switch address"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress"
+                    }
+                },
+                {
                     "id": "ga_valve_heating_state",
                     "type": "text",
                     "label": {
@@ -119,17 +130,6 @@
                     "type": "text",
                     "label": {
                         "en": "Cooling Valve state address"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress"
-                    }
-                },
-                {
-                    "id": "ga_window_switch",
-                    "type": "text",
-                    "label": {
-                        "en": "Window Switch address"
                     },
                     "value": "",
                     "hint": {
