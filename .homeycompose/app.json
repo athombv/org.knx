@@ -27,5 +27,6 @@
     "name": "Athom B.V.",
     "email": "support@homey.app"
   },
-  "support": "https://support.athom.com/hc/en-us/requests/new"
+  "support": "https://github.com/athombv/org.knx/issues",
+  "source": "https://github.com/athombv/org.knx"
 }
