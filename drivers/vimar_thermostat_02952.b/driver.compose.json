@@ -1,9 +1,9 @@
 {
     "$extends" :["knx_driver"],
-    "id": "knx_thermostat",
+    "id": "vimar_thermostat_02952.b",
     "name": {
-        "en": "Thermostat",
-        "nl": "Thermostaat"
+        "en": "Vimar Thermostat",
+        "nl": "Vimar Thermostaat"
     },
     "class": "thermostat",
     "capabilities": [
