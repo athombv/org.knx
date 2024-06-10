@@ -21,7 +21,7 @@ class KNXApp extends Homey.App {
     });
 
     this.log('Homey IP + Parsed IP', address, homeyIP);
-    this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
+    this.knxInterfaceManager = new KNXInterfaceManager(homeyIP, this.homey);
 
     const sendTelegramAction = this.homey.flow.getActionCard('knx_send');
     sendTelegramAction.registerRunListener(this.sendKNXTelegram.bind(this));
@@ -30,10 +30,9 @@ class KNXApp extends Homey.App {
     this.eventListenerGroupAddresses = [];
 
     this.receiveTelegramTrigger.registerRunListener(async (args, state) => {
-      const doRun = args.group_address === state.group_address && (args.interface.mac === 'any' || args.interface.mac === state.interface.mac);
-      console.log('registerRunListener', args, doRun, state);
       // TODO: allow globs for cool trigger types
-      return doRun;
+      // like a flow card that listens for 1/*/10
+      return args.group_address === state.group_address && (args.interface.mac === 'any' || args.interface.mac === state.interface.mac);
     });
 
     this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
