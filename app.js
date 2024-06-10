@@ -11,7 +11,7 @@ class KNXApp extends Homey.App {
     const homeyIP = address.split(':', 1).toString();
 
     this.log('Homey IP + Parsed IP', address, homeyIP);
-    this.knxInterfaceManager = new KNXInterfaceManager(homeyIP);
+    this.knxInterfaceManager = new KNXInterfaceManager(homeyIP, this.homey);
   }
 
   /**
