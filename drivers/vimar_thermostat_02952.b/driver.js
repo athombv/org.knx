@@ -2,7 +2,7 @@
 
 const KNXGenericDriver = require('../../lib/GenericKNXDriver');
 
-class KNXThermostat extends KNXGenericDriver {
+class VimarThermostat02952BDriver extends KNXGenericDriver {
 }
 
-module.exports = KNXThermostat;
+module.exports = VimarThermostat02952BDriver;

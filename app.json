@@ -939,7 +939,7 @@
         },
         "titleFormatted": {
           "en": "Change mode to [[mode]]",
-          "fr": "Changer le mode à [[mode]]"
+          "fr": "Changer le mode à [[mode]]"        
         },
         "args": [
           {
@@ -1000,6 +1000,26 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "set-window-switch",
+        "title": {
+          "en": "Set Window Switch"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vimar_thermostat_02952.b"
+          },
+          {
+            "type": "checkbox",
+            "name": "open",
+            "title": {
+              "en": "Window open"
+            }
           }
         ]
       }
@@ -5176,16 +5196,17 @@
       ],
       "id": "vimar_thermostat_02952.b",
       "name": {
-        "en": "Thermostat",
-        "nl": "Thermostaat"
+        "en": "Vimar Thermostat",
+        "nl": "Vimar Thermostaat"
       },
       "class": "thermostat",
       "capabilities": [
         "target_temperature",
         "measure_temperature",
-        "thermostat_mode",
-        "valve.cooling",
-        "valve.heating"
+        "vimar_thermostat_mode",
+        "valve_heating",
+        "valve_cooling",
+        "summer_winter"
       ],
       "settings": [
         {
@@ -5211,6 +5232,17 @@
               "type": "text",
               "label": {
                 "en": "Actual Temperature address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress"
+              }
+            },
+            {
+              "id": "ga_temperature_target_actual",
+              "type": "text",
+              "label": {
+                "en": "Actual setpoint address"
               },
               "value": "",
               "hint": {
@@ -5251,6 +5283,17 @@
               }
             },
             {
+              "id": "ga_window_switch",
+              "type": "text",
+              "label": {
+                "en": "Window Switch address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress"
+              }
+            },
+            {
               "id": "ga_valve_heating_state",
               "type": "text",
               "label": {
@@ -5266,17 +5309,6 @@
               "type": "text",
               "label": {
                 "en": "Cooling Valve state address"
-              },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress"
-              }
-            },
-            {
-              "id": "ga_window_switch",
-              "type": "text",
-              "label": {
-                "en": "Window Switch address"
               },
               "value": "",
               "hint": {
@@ -5495,9 +5527,19 @@
       "setable": false,
       "uiComponent": "sensor"
     },
-    "valve": {
+    "valve_cooling": {
       "title": {
-        "en": "Valve"
+        "en": "Cooling"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false
+    },
+    "valve_heating": {
+      "title": {
+        "en": "Heating"
       },
       "type": "boolean",
       "getable": true,
@@ -5508,29 +5550,29 @@
     "vimar_thermostat_mode": {
       "type": "enum",
       "title": {
-        "en": "Thermostat mode selector"
+        "en": "Mode"
       },
       "values": [
         {
-          "id": "0",
+          "id": "1",
           "title": {
             "en": "Comfort"
           }
         },
         {
-          "id": "1",
+          "id": "2",
           "title": {
             "en": "Standby"
           }
         },
         {
-          "id": "2",
+          "id": "3",
           "title": {
             "en": "Economy"
           }
         },
         {
-          "id": "3",
+          "id": "4",
           "title": {
             "en": "Protect"
           }

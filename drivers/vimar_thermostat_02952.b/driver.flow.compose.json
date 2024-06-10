@@ -1,0 +1,19 @@
+{
+  "actions": [
+    {
+      "id": "set-window-switch",
+      "title": {
+        "en": "Set Window Switch"
+      },
+      "args": [
+        {
+          "type": "checkbox",
+          "name": "open",
+          "title": {
+            "en": "Window open"
+          }
+        }
+      ]
+    }
+  ]
+}

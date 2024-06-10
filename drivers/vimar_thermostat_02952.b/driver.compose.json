@@ -9,9 +9,10 @@
     "capabilities": [
         "target_temperature",
         "measure_temperature",
-        "thermostat_mode",
-        "valve.cooling",
-        "valve.heating"
+        "vimar_thermostat_mode",
+        "valve_heating",
+        "valve_cooling",
+        "summer_winter"
     ],
     "pair" : [
         {
@@ -64,6 +65,17 @@
                     "type": "text",
                     "label": {
                         "en": "Actual Temperature address"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress"
+                    }
+                },
+                {
+                    "id": "ga_temperature_target_actual",
+                    "type": "text",
+                    "label": {
+                        "en": "Actual setpoint address"
                     },
                     "value": "",
                     "hint": {

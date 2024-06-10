@@ -618,13 +618,14 @@ $('#save_button').on('click', function () {
         device.name = 'Vimar Thermostat';
         device.settings = {
           'ga_temperature_target': $('#temperature_target_address').val(),
+          'ga_temperature_target_actual': $('#thermostat_actualtarget_address').val(),
           'ga_temperature_measure': $('#temperature_measure_address').val(),
-          'ga_thermostat_mode': $('#temperature_target_address').val(),
-          'ga_thermostat_mode_state': $('#temperature_measure_address').val(),
-          'ga_summerwinter_state': $('#temperature_target_address').val(),
-          'ga_window_switch': $('#temperature_measure_address').val(),
-          'ga_valve_heating_state': $('#temperature_target_address').val(),
-          'ga_valve_cooling_state': $('#temperature_measure_address').val(),
+          'ga_thermostat_mode': $('#thermostat_mode_address').val(),
+          'ga_thermostat_mode_state': $('#thermostat_mode_state_address').val(),
+          'ga_summerwinter_state': $('#thermostat_summerwinter_address').val(),
+          'ga_window_switch': $('#thermostat_windowswitch_address').val(),
+          'ga_valve_heating_state': $('#thermostat_valveheating_address').val(),
+          'ga_valve_cooling_state': $('#thermostat_valvecooling_address').val(),
           'macAddress': interfaceMAC,
         };
         break;
