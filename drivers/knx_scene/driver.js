@@ -9,7 +9,7 @@ class KNXScene extends KNXGenericDriver {
 
     this.homey.flow
       .getActionCard('trigger_to_scene')
-      .registerRunListener(async args => {
+      .registerRunListener(async (args) => {
         return args['knx_scene'].triggerToScene();
       });
   }

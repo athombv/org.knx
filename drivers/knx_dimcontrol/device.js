@@ -16,7 +16,7 @@ class KNXDimControl extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
       this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
     }
@@ -30,7 +30,7 @@ class KNXDimControl extends KNXGenericDevice {
       // This will be catched by onKNXEvent, hence the return value is not used.
       if (this.settings.ga_status) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_status)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log(knxerror);
           });
       }
@@ -41,7 +41,7 @@ class KNXDimControl extends KNXGenericDevice {
     this.log('onoff');
     if (this.knxInterface && this.settings.ga_switch) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
         });
@@ -57,7 +57,7 @@ class KNXDimControl extends KNXGenericDevice {
       };
 
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, dpt3Data, 'DPT3')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.dim_failed'));
         });
@@ -73,7 +73,7 @@ class KNXDimControl extends KNXGenericDevice {
       };
 
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, dpt3Data, 'DPT3')
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.dim_failed'));
         });

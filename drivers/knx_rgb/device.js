@@ -80,12 +80,12 @@ class KNXRGB extends KNXGenericDevice {
 
       // This will trigger onKNXToggleEvent, hence the return value is not used.
       this.readSettingAddress(['ga_red_toggle_status', 'ga_green_toggle_status', 'ga_blue_toggle_status'])
-        .catch(readError => {
+        .catch((readError) => {
           this.log('onKNXConnection error', readError);
         });
       // This will trigger onKNXDimEvent, hence the return value is not used.
       this.readSettingAddress(['ga_red_dim_status', 'ga_green_dim_status', 'ga_blue_dim_status'])
-        .catch(readError => {
+        .catch((readError) => {
           this.log('onKNXConnection error', readError);
         });
     }
@@ -126,15 +126,14 @@ class KNXRGB extends KNXGenericDevice {
         && !this._onOffEventHandlerObject.g
         && !this._onOffEventHandlerObject.b) {
         this.setCapabilityValue('onoff', false)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log('Set onoff error', knxerror);
           });
       } else {
         this.setCapabilityValue('onoff', true)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log('Set onoff error', knxerror);
           });
-
       }
     }
   }
@@ -188,19 +187,19 @@ class KNXRGB extends KNXGenericDevice {
     if (this._hsvEventHandlerObject) {
       if (this._hsvEventHandlerObject.h !== 0) {
         this.setCapabilityValue('light_hue', this._hsvEventHandlerObject.h)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log('Set light_hue error', knxerror);
           });
       }
       if (this._hsvEventHandlerObject.s !== 0) {
         this.setCapabilityValue('light_saturation', this._hsvEventHandlerObject.s)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log('Set light_saturation error', knxerror);
           });
       }
       if (this._hsvEventHandlerObject.v !== 0) {
         this.setCapabilityValue('dim', this._hsvEventHandlerObject.v)
-          .catch(knxerror => {
+          .catch((knxerror) => {
             this.log('Set dim error', knxerror);
           });
       }
@@ -253,7 +252,7 @@ class KNXRGB extends KNXGenericDevice {
       }
 
       return Promise.all(promiseQue)
-        .catch(knxerror => {
+        .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
         });
