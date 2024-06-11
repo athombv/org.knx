@@ -26,6 +26,9 @@ class KNXApp extends Homey.App {
     const sendTelegramAction = this.homey.flow.getActionCard('knx_send');
     sendTelegramAction.registerRunListener(this.sendKNXTelegram.bind(this));
 
+    const readTelegramAction = this.homey.flow.getActionCard('knx_read');
+    readTelegramAction.registerRunListener(this.readKNXTelegram.bind(this));
+
     this.receiveTelegramTrigger = this.homey.flow.getTriggerCard('knx_receive');
     this.eventListenerGroupAddresses = [];
 
@@ -35,10 +38,10 @@ class KNXApp extends Homey.App {
       return args.group_address === state.group_address && (args.interface.mac === 'any' || args.interface.mac === state.interface.mac);
     });
 
-    this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
+    this.registerKNXEventHandlers(await this.receiveTelegramTrigger.getArgumentValues());
 
-    this.receiveTelegramTrigger.on('update', () => {
-      this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
+    this.receiveTelegramTrigger.on('update', async () => {
+      this.registerKNXEventHandlers(await this.receiveTelegramTrigger.getArgumentValues());
     });
 
     sendTelegramAction.registerArgumentAutocompleteListener('interface', this.interfaceAutocomplete.bind(this));
@@ -52,7 +55,7 @@ class KNXApp extends Homey.App {
   }
 
   // referenced via this.KNXEventHandler
-  onKNXEvent(args, groupaddress, data) {
+  async onKNXEvent(args, groupaddress, data) {
     try {
       const dpt = dptlib.resolve(args.data_type.name);
       const value = dptlib.fromBuffer(data, dpt);
@@ -87,12 +90,7 @@ class KNXApp extends Homey.App {
       }
 
       const state = { group_address: groupaddress, interface: args.interface, data_type: args.data_type };
-      this.receiveTelegramTrigger.trigger(tokens, state).then((e) => {
-        this.log(e);
-      })
-        .catch((e) => {
-          this.log(e);
-        });
+      await this.receiveTelegramTrigger.trigger(tokens, state);
     } catch (e) {
       this.log(e);
     }
@@ -101,8 +99,9 @@ class KNXApp extends Homey.App {
   /**
    * Handler for the interface found
    */
-  onKNXInterface(knxInterface) {
-    this.receiveTelegramTrigger.getArgumentValues().then(this.registerKNXEventHandlers.bind(this));
+  async onKNXInterface(knxInterface) {
+    const cards = await this.receiveTelegramTrigger.getArgumentValues()
+    this.registerKNXEventHandlers(cards);
   }
 
   registerKNXEventHandlers(cards) {
@@ -151,6 +150,26 @@ class KNXApp extends Homey.App {
     return this.availableKnxDataTypes.filter((r) => r.name.includes(query.toUpperCase()));
   }
 
+  async readKNXTelegram(args, state) {
+    try {
+      let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
+      if (args.interface.mac === 'any') {
+        const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
+        const macs = Object.keys(availableInterfaces);
+        knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
+      }
+
+      // Allow the action to initate read for multiple group addresses, separated by comma
+      // comma is not used in group addresses, so it should be safe to use it as a separator
+      var gas = args.group_address.split(',');
+      for (const ga of gas) {
+        await knxInterfaceToUse.readKNXGroupAddress(ga)
+      }
+    } catch (e) {
+      this.log(e)
+    }
+  }
+
   async sendKNXTelegram(args, state) {
     let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
     if (args.interface.mac === 'any') {
@@ -160,24 +179,26 @@ class KNXApp extends Homey.App {
     }
 
     if (!knxInterfaceToUse) {
-      return Promise.reject(new Error('Interface not found'));
+      this.error('Interface not found');
+      return;
     }
 
     if (!args.group_address) {
-      return Promise.reject(new Error('No group address selected'));
+      this.error('No group address selected');
+      return;
     }
 
     if (args.value === undefined) {
-      return Promise.reject(new Error('No value selected'));
+      this.error('No value selected');
+      return;
     }
 
     // The following functions work with a string value simply because the knx lib does a lot of the conversion for us
-
     if (args.data_type === 'none') {
-      return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
+      await knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
     }
 
-    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type.name);
+    await knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type.name);
   }
 
   /**
