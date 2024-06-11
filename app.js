@@ -152,9 +152,6 @@ class KNXApp extends Homey.App {
   }
 
   async sendKNXTelegram(args, state) {
-    console.log(args);
-    console.log(state);
-
     let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
     if (args.interface.mac === 'any') {
       const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
