@@ -19,10 +19,9 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
 
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     this.registerCapabilityListener('vimar_thermostat_mode', this.onCapabilityMode.bind(this));
-    
+
     const setWindowSwitchAction = this.homey.flow.getActionCard('set-window-switch');
     setWindowSwitchAction.registerRunListener(async (args, state) => {
-      console.log('Set window switch', args, state);
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_window_switch, args.open, 'DPT1')
         .catch((knxerror) => {
           this.log(knxerror);
@@ -56,11 +55,10 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
         .catch((knxerror) => this.log('Set valve_cooling error', knxerror));
     }
     if (groupaddress === this.settings.ga_summerwinter_state) {
-      this.setCapabilityValue('summer_winter', DatapointTypeParser.onoff(data) ? "Winter" : "Summer")
+      this.setCapabilityValue('summer_winter', DatapointTypeParser.onoff(data) ? 'Winter' : 'Summer')
         .catch((knxerror) => this.log('Set summer_winter error', knxerror));
     }
     if (groupaddress === this.settings.ga_thermostat_mode_state) {
-
       if (this.settings.ga_temperature_measure) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
           .catch((knxerror) => this.log(knxerror));
@@ -70,9 +68,8 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
           .catch((knxerror) => this.log(knxerror));
       }
 
-      this.setCapabilityValue('vimar_thermostat_mode', DatapointTypeParser.dpt17(data) + "")
+      this.setCapabilityValue('vimar_thermostat_mode', `${DatapointTypeParser.dpt17(data)}`)
         .catch((knxerror) => this.log('Set vimar_thermostat_mode error', knxerror));
-
     }
   }
 
@@ -123,15 +120,14 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
       }
     }
   }
-  
+
   onCapabilityMode(value, opts) {
-    console.log('Mode', value, opts);
     if (this.knxInterface && this.settings.ga_thermostat_mode) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_thermostat_mode, value, 'DPT17')
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.mode_set_failed'));
-        }).then(() => new Promise(resolve => setTimeout(resolve, 400))).then(() => {
+        }).then(() => new Promise((resolve) => setTimeout(resolve, 400))).then(() => {
           if (this.settings.ga_temperature_measure) {
             this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
               .catch((knxerror) => this.log(knxerror));
