@@ -45,6 +45,7 @@ class KNXApp extends Homey.App {
     });
 
     sendTelegramAction.registerArgumentAutocompleteListener('interface', this.interfaceAutocomplete.bind(this));
+    readTelegramAction.registerArgumentAutocompleteListener('interface', this.interfaceAutocomplete.bind(this));
     this.receiveTelegramTrigger.registerArgumentAutocompleteListener('interface', this.interfaceAutocomplete.bind(this));
 
     sendTelegramAction.registerArgumentAutocompleteListener('data_type', this.datatypeAutocomplete.bind(this));
