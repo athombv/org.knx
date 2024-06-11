@@ -54,6 +54,16 @@
       "example": {
         "en": "the value recieved as a boolean"
       }
+    },
+    {
+      "type": "string",
+      "name": "value_string",
+      "title": {
+        "en": "Value"
+      },
+      "example": {
+        "en": "the value recieved as a string"
+      }
     }
   ]
 }

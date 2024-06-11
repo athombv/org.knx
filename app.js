@@ -54,38 +54,47 @@ class KNXApp extends Homey.App {
   // referenced via this.KNXEventHandler
   onKNXEvent(args, groupaddress, data) {
     try {
-
       const dpt = dptlib.resolve(args.data_type.name);
       const value = dptlib.fromBuffer(data, dpt);
       const tokens = { value_number: 0, value_bool: false, value_string: '' };
 
-      if (typeof (value) === 'number') {
-        tokens.value_number = value;
-        tokens.value_bool = value > 0;
-        tokens.value_string = value.toString();
-        if (dpt.subtype && dpt.subtype.unit) {
-          tokens.value_string += ` ${dpt.subtype.unit}`;
-        }
-      } else if (typeof (value) === 'boolean') {
-        tokens.value_bool = value;
-        tokens.value_number = value ? 1 : 0;
-        tokens.value_string = value.toString();
-      } else if (typeof (value) === 'string') {
-        tokens.value_string = value;
-        tokens.value_bool = value !== '';
-        tokens.value_number = value.length;
+      switch (typeof value) {
+        case 'number':
+          tokens.value_number = value;
+          tokens.value_bool = value > 0;
+          tokens.value_string = value.toString();
+          if (dpt.subtype && dpt.subtype.unit) {
+            tokens.value_string += ` ${dpt.subtype.unit}`;
+          }
+          break;
+        case 'boolean':
+          tokens.value_bool = value;
+          tokens.value_number = value ? 1 : 0;
+          tokens.value_string = value.toString();
+          break;
+        default:
+        case 'string':
+          tokens.value_string = value;
+          tokens.value_bool = value !== '';
+          tokens.value_number = value.length;
+          break;
+        case 'object':
+          if (value instanceof Date) {
+            tokens.value_string = value.toISOString();
+            tokens.value_number = value.getTime();
+            tokens.value_bool = true;
+          }
       }
 
-      console.log('onKNXEvent', groupaddress, data, tokens);
       const state = { group_address: groupaddress, interface: args.interface, data_type: args.data_type };
       this.receiveTelegramTrigger.trigger(tokens, state).then((e) => {
-        console.log(e);
+        this.log(e);
       })
         .catch((e) => {
-          console.log(e);
+          this.log(e);
         });
     } catch (e) {
-      console.log(e);
+      this.log(e);
     }
   }
 
@@ -161,24 +170,17 @@ class KNXApp extends Homey.App {
       return Promise.reject(new Error('No group address selected'));
     }
 
-    // Even if the datatype is bool the knx lib can convert from "true" to a boolean value, 
-    // so we can just pass the string, in general we let people have as much freedom as possible
-    // TODO: Add date and time support
-    let value = args.value_bool
-    if (args.value_number !== undefined)
-      value = args.value_number;
-    if (args.value_string !== undefined)
-      value = args.value_string;
-
-    if (value === undefined) {
+    if (args.value === undefined) {
       return Promise.reject(new Error('No value selected'));
     }
 
+    // The following functions work with a string value simply because the knx lib does a lot of the conversion for us
+
     if (args.data_type === 'none') {
-      return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, value);
+      return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
     }
 
-    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, value, args.data_type.name);
+    return knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type.name);
   }
 
   /**
