@@ -16,24 +16,21 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     // Initialize variables
     this.currentSetpoint = undefined;
     this.currentSetpointShift = undefined;
+    this.currentSetpointBase = undefined;
 
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     this.registerCapabilityListener('vimar_thermostat_mode', this.onCapabilityMode.bind(this));
 
-    const setWindowSwitchAction = this.homey.flow.getActionCard('set-window-switch');
-    setWindowSwitchAction.registerRunListener(async (args, state) => {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_window_switch, args.open, 'DPT1')
-        .catch((knxerror) => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.window_switch_failed'));
-        });
-    });
   }
 
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
+
     if (groupaddress === this.settings.ga_temperature_target) {
       this.currentSetpointShift = DatapointTypeParser.dpt9(data);
+      setTimeout(() => {
+        this.currentSetpointShift = undefined;
+      }, 500);
     }
     if (groupaddress === this.settings.ga_temperature_target_actual) {
       this.currentSetpoint = DatapointTypeParser.dpt9(data);
@@ -41,7 +38,15 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
         .catch((knxerror) => {
           this.log('Set target_temperature error', knxerror);
         });
+      setTimeout(() => {
+        this.currentSetpoint = undefined;
+      }, 500);
     }
+
+    if (this.currentSetpoint !== undefined && this.currentSetpointShift !== undefined) {
+      this.currentSetpointBase = this.currentSetpoint - this.currentSetpointShift;
+    }
+
     if (groupaddress === this.settings.ga_temperature_measure) {
       this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => this.log('Set measure_temperature error', knxerror));
@@ -144,9 +149,9 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
   onCapabilityTargetTemperature(value, opts) {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
-      // TODO: Some error handling here if on or the other is undefined
-      const baseSetpoint = this.currentSetpoint - this.currentSetpointShift;
-      const newShift = value - baseSetpoint;
+
+      // TODO: Some error handling here if currentSetpointBase is undefined
+      const newShift = value - this.currentSetpointBase;
       console.log('New shift', value, newShift, this.currentSetpoint, this.currentSetpointShift);
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, newShift, 'DPT9.1')
         .catch((knxerror) => {
