@@ -101,7 +101,7 @@ class KNXApp extends Homey.App {
    * Handler for the interface found
    */
   async onKNXInterface(knxInterface) {
-    const cards = await this.receiveTelegramTrigger.getArgumentValues()
+    const cards = await this.receiveTelegramTrigger.getArgumentValues();
     this.registerKNXEventHandlers(cards);
   }
 
@@ -169,9 +169,9 @@ class KNXApp extends Homey.App {
 
     // Allow the action to initate read for multiple group addresses, separated by comma
     // comma is not used in group addresses, so it should be safe to use it as a separator
-    var groupAddresses = args.group_address.split(',');
+    const groupAddresses = args.group_address.split(',');
     for (const groupAddress of groupAddresses) {
-      await knxInterfaceToUse.readKNXGroupAddress(groupAddress)
+      await knxInterfaceToUse.readKNXGroupAddress(groupAddress);
     }
   }
 
