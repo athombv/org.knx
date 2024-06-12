@@ -152,30 +152,26 @@ class KNXApp extends Homey.App {
   }
 
   async readKNXTelegram(args, state) {
-    try {
-      let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
-      if (args.interface.mac === 'any') {
-        const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
-        const macs = Object.keys(availableInterfaces);
-        knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
-      }
+    let knxInterfaceToUse = this.knxInterfaceManager.getKNXInterface(args.interface.mac);
+    if (args.interface.mac === 'any') {
+      const availableInterfaces = this.knxInterfaceManager.getKNXInterfaceList();
+      const macs = Object.keys(availableInterfaces);
+      knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
+    }
 
-      if (!knxInterfaceToUse) {
-        throw new Error('No interface selected');
-      }
-  
-      if (!args.group_address) {
-        throw new Error('No group address selected');
-      }
-      
-      // Allow the action to initate read for multiple group addresses, separated by comma
-      // comma is not used in group addresses, so it should be safe to use it as a separator
-      var groupAddresses = args.group_address.split(',');
-      for (const groupAddress of groupAddresses) {
-        await knxInterfaceToUse.readKNXGroupAddress(groupAddress)
-      }
-    } catch (e) {
-      this.log(e)
+    if (!knxInterfaceToUse) {
+      throw new Error('No interface selected');
+    }
+
+    if (!args.group_address) {
+      throw new Error('No group address selected');
+    }
+
+    // Allow the action to initate read for multiple group addresses, separated by comma
+    // comma is not used in group addresses, so it should be safe to use it as a separator
+    var groupAddresses = args.group_address.split(',');
+    for (const groupAddress of groupAddresses) {
+      await knxInterfaceToUse.readKNXGroupAddress(groupAddress)
     }
   }
 
