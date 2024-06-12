@@ -1022,6 +1022,19 @@
             }
           }
         ]
+      },
+      {
+        "id": "reset_to_basesetpoint",
+        "title": {
+          "en": "Reset to Base Setpoint"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vimar_thermostat_02952.b"
+          }
+        ]
       }
     ]
   },
