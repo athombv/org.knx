@@ -160,11 +160,19 @@ class KNXApp extends Homey.App {
         knxInterfaceToUse = macs.length > 0 ? availableInterfaces[macs[0]] : null;
       }
 
+      if (!knxInterfaceToUse) {
+        throw new Error('No interface selected');
+      }
+  
+      if (!args.group_address) {
+        throw new Error('No group address selected');
+      }
+      
       // Allow the action to initate read for multiple group addresses, separated by comma
       // comma is not used in group addresses, so it should be safe to use it as a separator
-      var gas = args.group_address.split(',');
-      for (const ga of gas) {
-        await knxInterfaceToUse.readKNXGroupAddress(ga)
+      var groupAddresses = args.group_address.split(',');
+      for (const groupAddress of groupAddresses) {
+        await knxInterfaceToUse.readKNXGroupAddress(groupAddress)
       }
     } catch (e) {
       this.log(e)
@@ -180,18 +188,15 @@ class KNXApp extends Homey.App {
     }
 
     if (!knxInterfaceToUse) {
-      this.error('Interface not found');
-      return;
+      throw new Error('No interface selected');
     }
 
     if (!args.group_address) {
-      this.error('No group address selected');
-      return;
+      throw new Error('No group address selected');
     }
 
     if (args.value === undefined) {
-      this.error('No value selected');
-      return;
+      throw new Error('No value selected');
     }
 
     // The following functions work with a string value simply because the knx lib does a lot of the conversion for us
