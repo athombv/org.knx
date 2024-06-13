@@ -34,37 +34,52 @@
     "triggers": [
       {
         "title": {
-          "en": "KNX Receive"
+          "en": "KNX Receive",
+          "nl": "KNX Ontvangen"
         },
         "titleFormatted": {
-          "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]"
+          "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
+          "nl": "Word getriggerd wanneer een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
         },
         "hint": {
-          "en": "Listen for an event from the KNX Bus on a specific group address"
+          "en": "Listen for an event from the KNX Bus on a specific group address",
+          "nl": "Luister naar een gebeurtenis van de KNX Bus op een specifiek groepsadres"
         },
         "args": [
           {
             "type": "autocomplete",
             "name": "interface",
+            "title": {
+              "en": "Interface",
+              "nl": "Interface"
+            },
             "placeholder": {
-              "en": "[any]"
+              "en": "[any]",
+              "nl": "[elke]"
             }
           },
           {
             "type": "text",
             "name": "group_address",
+            "title": {
+              "en": "Group Address",
+              "nl": "Groepsadres"
+            },
             "placeholder": {
-              "en": "1/0/0"
+              "en": "1/0/0",
+              "nl": "1/0/0"
             }
           },
           {
             "name": "data_type",
             "title": {
-              "en": "Data Type"
+              "en": "Data Type",
+              "nl": "Gegevenstype"
             },
             "type": "autocomplete",
             "placeholder": {
-              "en": "5.001"
+              "en": "5.001",
+              "nl": "5.001"
             }
           }
         ],
@@ -73,30 +88,36 @@
             "type": "number",
             "name": "value_number",
             "title": {
-              "en": "Value"
+              "en": "Value",
+              "nl": "Waarde"
             },
             "example": {
-              "en": "the value recieved"
+              "en": "The value received",
+              "nl": "De ontvangen waarde"
             }
           },
           {
             "type": "boolean",
             "name": "value_bool",
             "title": {
-              "en": "Value"
+              "en": "Value",
+              "nl": "Waarde"
             },
             "example": {
-              "en": "the value recieved as a boolean"
+              "en": "The value received as a boolean",
+              "nl": "De ontvangen waarde als een boolean"
             }
           },
           {
             "type": "string",
             "name": "value_string",
             "title": {
-              "en": "Value"
+              "en": "Value",
+              "nl": "Waarde"
             },
             "example": {
-              "en": "the value recieved as a string"
+              "en": "The value received as a string",
+              "nl": "De ontvangen waarde als een string"
             }
           }
         ],
@@ -148,33 +169,40 @@
     "actions": [
       {
         "title": {
-          "en": "Send a Read Telegram"
+          "en": "Send a Read Telegram",
+          "nl": "Verstuur een Lees Telegram"
         },
         "titleFormatted": {
-          "en": "Send a read request on group address [[group_address]] via [[interface]] interface"
+          "en": "Send a read request on group address [[group_address]] via [[interface]] interface",
+          "nl": "Verstuur een leesverzoek op groepsadres [[group_address]] via [[interface]] interface"
         },
         "hint": {
-          "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address."
+          "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address.",
+          "nl": "Vraagt de KNX-bus om een verzending te activeren. Dit is handig om de huidige waarde van een groepsadres op te halen."
         },
         "args": [
           {
             "title": {
-              "en": "Interface"
+              "en": "Interface",
+              "nl": "Interface"
             },
             "type": "autocomplete",
             "name": "interface",
             "placeholder": {
-              "en": "[any]"
+              "en": "[any]",
+              "nl": "[elke]"
             }
           },
           {
             "title": {
-              "en": "Group Address"
+              "en": "Group Address",
+              "nl": "Groepsadres"
             },
             "type": "text",
             "name": "group_address",
             "placeholder": {
-              "en": "Group Address"
+              "en": "Group Address",
+              "nl": "Groepsadres"
             }
           }
         ],
@@ -182,48 +210,58 @@
       },
       {
         "title": {
-          "en": "Send Telegram"
+          "en": "Send Telegram",
+          "nl": "Telegram verzenden"
         },
         "titleFormatted": {
-          "en": "Send a [[data_type]] [[value]] on group address [[group_address]] via [[interface]] interface"
+          "en": "Send a [[data_type]] [[value]] on group address [[group_address]] via [[interface]] interface",
+          "nl": "Verstuur een [[data_type]] [[value]] naar groepsadres [[group_address]] via de [[interface]] interface"
         },
         "hint": {
-          "en": "Sends a telegram to the KNX bus, be smart and make sure you expect the right value type, they will default to sensible values"
+          "en": "Sends a telegram to the KNX bus, be smart and make sure you expect the right value type, they will default to sensible values",
+          "nl": "Verstuurt een telegram naar de KNX-bus, wees slim en zorg ervoor dat je de juiste waarde type verwacht, ze worden standaard ingesteld op zinvolle waarden"
         },
         "args": [
           {
             "title": {
-              "en": "Interface"
+              "en": "Interface",
+              "nl": "Interface"
             },
             "type": "autocomplete",
             "name": "interface",
             "placeholder": {
-              "en": "[any]"
+              "en": "[any]",
+              "nl": "[elke]"
             }
           },
           {
             "title": {
-              "en": "Group Address"
+              "en": "Group Address",
+              "nl": "Groepsadres"
             },
             "type": "text",
             "name": "group_address",
             "placeholder": {
-              "en": "Group Address"
+              "en": "Group Address",
+              "nl": "Groepsadres"
             }
           },
           {
             "name": "data_type",
             "title": {
-              "en": "Data Type"
+              "en": "Data Type",
+              "nl": "Gegevenstype"
             },
             "type": "autocomplete",
             "placeholder": {
-              "en": "5.001"
+              "en": "5.001",
+              "nl": "5.001"
             }
           },
           {
             "title": {
-              "en": "Value"
+              "en": "Value",
+              "nl": "Waarde"
             },
             "type": "text",
             "name": "value",

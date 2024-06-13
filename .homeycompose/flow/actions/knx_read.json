@@ -1,32 +1,39 @@
 {
   "title": {
-    "en": "Send a Read Telegram"
+    "en": "Send a Read Telegram",
+    "nl": "Verstuur een Lees Telegram"
   },
   "titleFormatted": {
-    "en": "Send a read request on group address [[group_address]] via [[interface]] interface"
+    "en": "Send a read request on group address [[group_address]] via [[interface]] interface",
+    "nl": "Verstuur een leesverzoek op groepsadres [[group_address]] via [[interface]] interface"
   },
   "hint": {
-    "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address."
+    "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address.",
+    "nl": "Vraagt de KNX-bus om een verzending te activeren. Dit is handig om de huidige waarde van een groepsadres op te halen."
   },
   "args": [
     {
       "title": {
-        "en": "Interface"
+        "en": "Interface",
+        "nl": "Interface"
       },
       "type": "autocomplete",
       "name": "interface",
       "placeholder": {
-        "en": "[any]"
+        "en": "[any]",
+        "nl": "[elke]"
       }
     },
     {
       "title": {
-        "en": "Group Address"
+        "en": "Group Address",
+        "nl": "Groepsadres"
       },
       "type": "text",
       "name": "group_address",
       "placeholder": {
-        "en": "Group Address"
+        "en": "Group Address",
+        "nl": "Groepsadres"
       }
     }
   ]
