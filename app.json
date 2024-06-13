@@ -34,12 +34,12 @@
     "triggers": [
       {
         "title": {
-          "en": "KNX Receive",
-          "nl": "KNX Ontvangen"
+          "en": "Received new value on group address",
+          "nl": "Een nieuwe waarde ontvangen op groepsadres"
         },
         "titleFormatted": {
-          "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
-          "nl": "Word getriggerd wanneer een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
+          "en": "A [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
+          "nl": "Een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
         },
         "hint": {
           "en": "Listen for an event from the KNX Bus on a specific group address",
@@ -140,20 +140,28 @@
       {
         "id": "changed",
         "title": {
-          "en": "Changed"
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet"
+        },
+        "titleFormatted": {
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet"
         },
         "hint": {
-          "en": "When the switch is changed from on/off to off/on"
+          "en": "When the switch is changed from on/off to off/on",
+          "nl": "Wanneer de schakelaar van aan/uit naar uit/aan wordt gezet"
         },
         "tokens": [
           {
             "type": "boolean",
             "name": "status",
             "title": {
-              "en": "Status"
+              "en": "Status",
+              "nl": "Status"
             },
             "example": {
-              "en": "The current status of the switch"
+              "en": "The current status of the switch",
+              "nl": "De huidige status van de schakelaar"
             }
           }
         ],

@@ -3,20 +3,28 @@
     {
       "id": "changed",
       "title": {
-        "en": "Changed"
+        "en": "Turned on or off",
+        "nl": "Aan of uit gezet"
+      },
+      "titleFormatted": {
+        "en": "Turned on or off",
+        "nl": "Aan of uit gezet"
       },
       "hint": {
-        "en": "When the switch is changed from on/off to off/on"
+        "en": "When the switch is changed from on/off to off/on",
+        "nl": "Wanneer de schakelaar van aan/uit naar uit/aan wordt gezet"
       },
       "tokens": [
         {
           "type": "boolean",
           "name": "status",
           "title": {
-            "en": "Status"
+            "en": "Status",
+            "nl": "Status"
           },
           "example": {
-            "en": "The current status of the switch"
+            "en": "The current status of the switch",
+            "nl": "De huidige status van de schakelaar"
           }
         }
       ]
