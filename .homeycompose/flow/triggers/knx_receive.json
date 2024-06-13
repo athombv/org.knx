@@ -1,0 +1,69 @@
+{
+  "title": {
+    "en": "KNX Receive"
+  },
+  "titleFormatted": {
+    "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]"
+  },
+  "hint": {
+    "en": "Listen for an event from the KNX Bus on a specific group address"
+  },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "interface",
+      "placeholder": {
+        "en": "[any]"
+      }
+    },
+    {
+      "type": "text",
+      "name": "group_address",
+      "placeholder": {
+        "en": "1/0/0"
+      }
+    },
+    {
+      "name": "data_type",
+      "title": {
+        "en": "Data Type"
+      },
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "5.001"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "number",
+      "name": "value_number",
+      "title": {
+        "en": "Value"
+      },
+      "example": {
+        "en": "the value recieved"
+      }
+    },
+    {
+      "type": "boolean",
+      "name": "value_bool",
+      "title": {
+        "en": "Value"
+      },
+      "example": {
+        "en": "the value recieved as a boolean"
+      }
+    },
+    {
+      "type": "string",
+      "name": "value_string",
+      "title": {
+        "en": "Value"
+      },
+      "example": {
+        "en": "the value recieved as a string"
+      }
+    }
+  ]
+}

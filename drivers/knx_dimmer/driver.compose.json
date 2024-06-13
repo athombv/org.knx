@@ -1,18 +1,23 @@
 {
-    "$extends" :["knx_driver", "knx.settings"],
+    "$extends": [
+        "knx_driver"
+    ],
     "id": "knx_dimmer",
     "name": {
         "en": "Dimmer",
         "nl": "Dimmer"
     },
     "class": "light",
-    "capabilities": ["onoff", "dim"],
+    "capabilities": [
+        "onoff",
+        "dim"
+    ],
     "capabilitiesOptions": {
-		"onoff": {
-			"setOnDim": false
-}
+        "onoff": {
+            "setOnDim": false
+        }
     },
-    "pair" : [
+    "pair": [
         {
             "id": "select_interface",
             "$template": "select_interface",
@@ -115,7 +120,7 @@
                         "en": "Interface MAC address",
                         "nl": "Interface MAC adres"
                     },
-                    "value" : "",
+                    "value": "",
                     "hint": {
                         "en": "MAC address of the required KNX IP interface",
                         "nl": "MAC adres van de KNX IP interface"
@@ -128,7 +133,7 @@
                         "en": "Interface IP address",
                         "nl": "Interface IP adres"
                     },
-                    "value" : "",
+                    "value": "",
                     "hint": {
                         "en": "IP address of the required KNX IP interface",
                         "nl": "IP adres van de KNX IP interface"

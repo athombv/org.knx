@@ -2,20 +2,6 @@
 
 Add your KNX devices to Homey. This app requires a KNX IP Router or Interface connected to the same Wi-Fi network as Homey. Please make sure that either Homey is the only KNX/IP device in your network or that your IP interface can handle multiple simultaneous connections.
 
-## Changelog
-
-### v1.0.15
-Bugfixes and crash preventions.
-
-### v1.0.13
-Added automatic re-detection of KNX interfaces. This should re-find the used KNX interface if it's IP has changed over time.
-
-### v1.0.12
-Small bugfixes and error handling.
-
-### v1.0.11
-KNX Connection improvements.
-
 ## Supported KNX devices
 
 ### Switch 

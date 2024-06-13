@@ -1,0 +1,33 @@
+{
+  "title": {
+    "en": "Send a Read Telegram"
+  },
+  "titleFormatted": {
+    "en": "Send a read request on group address [[group_address]] via [[interface]] interface"
+  },
+  "hint": {
+    "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address."
+  },
+  "args": [
+    {
+      "title": {
+        "en": "Interface"
+      },
+      "type": "autocomplete",
+      "name": "interface",
+      "placeholder": {
+        "en": "[any]"
+      }
+    },
+    {
+      "title": {
+        "en": "Group Address"
+      },
+      "type": "text",
+      "name": "group_address",
+      "placeholder": {
+        "en": "Group Address"
+      }
+    }
+  ]
+}
