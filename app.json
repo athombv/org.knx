@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.knx",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -34,12 +34,12 @@
     "triggers": [
       {
         "title": {
-          "en": "KNX Receive",
-          "nl": "KNX Ontvangen"
+          "en": "Received new value on group address",
+          "nl": "Een nieuwe waarde ontvangen op groepsadres"
         },
         "titleFormatted": {
-          "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
-          "nl": "Word getriggerd wanneer een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
+          "en": "A [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
+          "nl": "Een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
         },
         "hint": {
           "en": "Listen for an event from the KNX Bus on a specific group address",
@@ -140,20 +140,28 @@
       {
         "id": "changed",
         "title": {
-          "en": "Changed"
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet"
+        },
+        "titleFormatted": {
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet"
         },
         "hint": {
-          "en": "When the switch is changed from on/off to off/on"
+          "en": "When the switch is changed from on/off to off/on",
+          "nl": "Wanneer de schakelaar van aan/uit naar uit/aan wordt gezet"
         },
         "tokens": [
           {
             "type": "boolean",
             "name": "status",
             "title": {
-              "en": "Status"
+              "en": "Status",
+              "nl": "Status"
             },
             "example": {
-              "en": "The current status of the switch"
+              "en": "The current status of the switch",
+              "nl": "De huidige status van de schakelaar"
             }
           }
         ],
@@ -215,7 +223,7 @@
         },
         "titleFormatted": {
           "en": "Send a [[data_type]] [[value]] on group address [[group_address]] via [[interface]] interface",
-          "nl": "Verstuur een [[data_type]] [[value]] naar groepsadres [[group_address]] via de [[interface]] interface"
+          "nl": "Verstuur een [[data_type]] [[value]] naar groepsadres [[group_address]] via [[interface]] interface"
         },
         "hint": {
           "en": "Sends a telegram to the KNX bus, be smart and make sure you expect the right value type, they will default to sensible values",

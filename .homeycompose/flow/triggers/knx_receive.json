@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "KNX Receive",
-    "nl": "KNX Ontvangen"
+    "en": "Received new value on group address",
+    "nl": "Een nieuwe waarde ontvangen op groepsadres"
   },
   "titleFormatted": {
-    "en": "Trigger when a [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
-    "nl": "Word getriggerd wanneer een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
+    "en": "A [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
+    "nl": "Een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]"
   },
   "hint": {
     "en": "Listen for an event from the KNX Bus on a specific group address",
