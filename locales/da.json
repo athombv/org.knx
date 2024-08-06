@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "KNX IP indstillinger - Vælg eller tilføj en KNX IP interface",
+      "body": "Indtast IP-adressen fra KNX IP interfacet, der skal bruges. Tryk på søgeknappen for at søge efter IP-interface.",
+      "singleip": "Konfigurer IP Interface",
+      "interfaceaddress": "Indtast en IPv4 adresse",
+      "searchbutton": "Søg interface",
+      "scanbutton": "(Gen)Scan netværket for IP interfaces",
+      "manual_interface": "Manuel konfiguration",
+      "manual_interface_input": "indtast adresse manuelt"
+    },
+    "learnmode": {
+      "title": "Start læringstilstand",
+      "explanation": "Par en KNX-knap med en virtuel knap i Homey.",
+      "testbutton": "Test gruppeadresse",
+      "no_result": "Ingen enheder fundet."
+    },
+    "projectfile": {
+      "title": "Upload en ETS-projekt",
+      "body": "Upload en ETS-konfigurationsfil (*.knxproj) for at udtrække KNX gruppeadresser.",
+      "newxml": {
+        "title": "Ny ETS-konfiguration",
+        "explanation": "Hvis tilgængelig, kan du "
+      },
+      "existingxml": {
+        "title": "En ETS eksport er allerede tilgængelig, men du kan "
+      },
+      "upload": "upload et ETS-projekt"
+    },
+    "groupaddresses": {
+      "generic": "Gruppeadresse",
+      "pairing_list": ", gruppeadresse: ",
+      "body": "Vælg hvilke gruppeadresser, der skal bruges med den nye enhed",
+      "generic_status": "Status",
+      "save": "Gem enhed",
+      "duplicate_groupaddress": " denne gruppeadresse er allerede i brug af ",
+      "switch": {
+        "toggle": "Skift adresse",
+        "status": "Status adresse"
+      },
+      "dimmer": {
+        "value": "Dæmp adresse",
+        "status": "Status adresse"
+      },
+      "thermostat": {
+        "target": "Mål temperatur adresse",
+        "measure": "Temperatur målings adresse"
+      },
+      "rgb": {
+        "red_toggle_action": "Skift adresse rød kanal",
+        "red_toggle_status": "Status adresse rød kanal",
+        "red_dim_value": "Dæmp adresse rød kanal",
+        "red_dim_status": "Dæmp status adresse rød kanal",
+        "green_toggle_action": "Skift adresse grøn kanal",
+        "green_toggle_status": "Status adresse grøn kanal",
+        "green_dim_value": "Dæmp adresse grøn kanal",
+        "green_dim_status": "Dæmp status adresse grøn kanal",
+        "blue_toggle_action": "Skift adresse blå kanal",
+        "blue_toggle_status": "Status adresse blå kanal",
+        "blue_dim_value": "Dæmp adresse blå kanal",
+        "blue_dim_status": "Dæmp status adresse blå kanal"
+      },
+      "windowcovering": {
+        "updown": "Op/ned adresse",
+        "stop": "Stop adresse",
+        "tilt": "Tilt adresse",
+        "tilt_status": "Tilt status adresse"
+      },
+      "sensor": "Sensor adresse",
+      "scene": "Scene adresse"
+    },
+    "scene_number": "Scene nummer"
+  },
+  "errors": {
+    "generic_error": "Der opstod en fejl: ",
+    "save_error": "Kan ikke gemme enhed.",
+    "settings_save": "Indstillingerne kunne ikke gemmes, ",
+    "switch_failed": "Omkobling af enheden mislykkedes!",
+    "dim_failed": "Dæmpning af enheden mislykkedes!",
+    "rgb_failed": "Indstilling af farve mislykkedes!",
+    "temperature_set_failed": "Indstilling af temperatur mislykkedes!",
+    "temperature_get_failed": "Hentning af temperatur mislykkedes!",
+    "windowcovering_failed": "Ændring af tilstand mislykkedes!",
+    "windowcovering_stop_failed": "Stop af vinduesafdækning mislykkedes!",
+    "invalid_group_address": "Ugyldig gruppeadresse.",
+    "invalid_scene_number": "Ugyldigt scenenummer.",
+    "ip": {
+      "invalid_ip": "Ugyldig IP eller tomt input.",
+      "interface_not_found": "Det valgte IP-interface ikke fundet.",
+      "interface_not_available": "Det valgte IP-interface er ikke tilgængeligt.",
+      "interface_not_selected": "Intet IP-interface valgt.",
+      "search_already_running": "Søgning efter IP-interface(s) kører allerede.",
+      "no_valid_mac": "MAC-adressen er ugyldig.",
+      "no_matching_interface": "Intet IP-interface med denne MAC-adresse tilgængelig."
+    },
+    "projectfile": {
+      "no_valid_xml": "Ingen gyldig gruppeadresse XML fundet i projektfilen. Upload venligst et andet projekt.",
+      "invalid_ga_structure": "Ugyldig gruppeadresse struktur i projektfil",
+      "no_ga_found": "Ingen gruppeadresse fundet, du kunne have uploadet et tomt projekt."
+    }
+  }
+}

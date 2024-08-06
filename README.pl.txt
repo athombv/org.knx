@@ -1,0 +1,1 @@
+Rozszerz możliwości swojej istniejącej sieci KNX o wszystkie urządzenia, które dodałeś do Homey. Teraz możesz sterować bezprzewodowymi światłami przez KNX lub kontrolować urządzenia KNX za pomocą bezprzewodowego czujnika.

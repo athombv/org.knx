@@ -1,0 +1,1 @@
+Espandi le capacità della tua rete KNX esistente con tutti i dispositivi che hai aggiunto a Homey. Ora puoi controllare le luci wireless tramite KNX o controllare i dispositivi KNX tramite un sensore wireless.

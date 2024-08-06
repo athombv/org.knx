@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Scene",
-    "nl": "Scene"
+    "nl": "Scene",
+    "da": "Scene",
+    "de": "Szene",
+    "es": "Escena",
+    "fr": "Scène",
+    "it": "Scena",
+    "no": "Scene",
+    "sv": "Scen",
+    "pl": "Scena",
+    "ru": "Сцена",
+    "ko": "장면"
   },
   "type": "boolean",
   "getable": false,

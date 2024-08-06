@@ -1,0 +1,1 @@
+Étendez les capacités de votre réseau KNX existant avec tous les appareils que vous avez ajoutés à Homey. Vous pouvez désormais contrôler des lumières sans fil via KNX, ou contrôler des appareils KNX grâce à un capteur sans fil.

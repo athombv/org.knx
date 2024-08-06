@@ -1,13 +1,23 @@
 {
-    "title": {
-        "en": "Trigger by a KNX scene",
-        "nl": "Wordt getriggerd door een KNX scene"
-    },
-    "args": [
-        {
-            "name": "knx_scene",
-            "type": "device",
-            "filter": "driver_id=knx_scene"
-        }
-    ]
+  "title": {
+    "en": "Trigger by a KNX scene",
+    "nl": "Wordt getriggerd door een KNX scene",
+    "da": "Udløst af en KNX-scene",
+    "de": "Durch eine KNX-Szene ausgelöst",
+    "es": "Activado por una escena KNX",
+    "fr": "Déclenché par une scène KNX",
+    "it": "Attivato da una scena KNX",
+    "no": "Utløst av en KNX-scene",
+    "sv": "Utlöst av en KNX-scen",
+    "pl": "Wyzwolone przez scenę KNX",
+    "ru": "Сцена KNX активирована",
+    "ko": "KNX 장면으로 트리거"
+  },
+  "args": [
+    {
+      "name": "knx_scene",
+      "type": "device",
+      "filter": "driver_id=knx_scene"
+    }
+  ]
 }

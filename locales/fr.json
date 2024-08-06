@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "Paramètres IP KNX - Sélectionnez ou ajoutez une interface IP KNX",
+      "body": "Entrez l'adresse IP de l'interface KNX IP à utiliser. Appuyez sur le bouton de recherche d'interface IP pour rechercher.",
+      "singleip": "Configurer l'interface IP",
+      "interfaceaddress": "Entrez une adresse IPv4",
+      "searchbutton": "Rechercher une interface",
+      "scanbutton": "(Re)Scanner le réseau pour les interfaces IP",
+      "manual_interface": "Configuration manuelle",
+      "manual_interface_input": "saisir l'adresse manuellement"
+    },
+    "learnmode": {
+      "title": "Démarrer le mode d'apprentissage",
+      "explanation": "Appairez un bouton KNX à un bouton virtuel dans Homey.",
+      "testbutton": "Tester l'adresse de groupe",
+      "no_result": "Aucun appareil trouvé."
+    },
+    "projectfile": {
+      "title": "Téléchargez un projet ETS",
+      "body": "Téléchargez un fichier de configuration ETS (*.knxproj) pour extraire les adresses de groupe KNX.",
+      "newxml": {
+        "title": "Nouvelle configuration ETS",
+        "explanation": "Si disponible, vous pouvez "
+      },
+      "existingxml": {
+        "title": "Une exportation ETS est déjà disponible, mais vous pouvez "
+      },
+      "upload": "télécharger un projet ETS"
+    },
+    "groupaddresses": {
+      "generic": "Adresse de groupe",
+      "pairing_list": ", adresse de groupe : ",
+      "body": "Sélectionnez les adresses de groupe à utiliser avec le nouvel appareil",
+      "generic_status": "Statut",
+      "save": "Enregistrer l'appareil",
+      "duplicate_groupaddress": " cette adresse de groupe est déjà utilisée par ",
+      "switch": {
+        "toggle": "Adresse de commutation",
+        "status": "Adresse de statut"
+      },
+      "dimmer": {
+        "value": "Adresse de gradation",
+        "status": "Adresse de statut"
+      },
+      "thermostat": {
+        "target": "Adresse de température cible",
+        "measure": "Adresse de mesure de température"
+      },
+      "rgb": {
+        "red_toggle_action": "Adresse de basculement du canal rouge",
+        "red_toggle_status": "Adresse de statut du canal rouge",
+        "red_dim_value": "Adresse de gradation du canal rouge",
+        "red_dim_status": "Adresse de statut du canal rouge",
+        "green_toggle_action": "Adresse de basculement du canal vert",
+        "green_toggle_status": "Adresse de statut du canal vert",
+        "green_dim_value": "Adresse de gradation du canal vert",
+        "green_dim_status": "Adresse de statut du canal vert",
+        "blue_toggle_action": "Adresse de basculement du canal bleu",
+        "blue_toggle_status": "Adresse de statut du canal bleu",
+        "blue_dim_value": "Adresse de gradation du canal bleu",
+        "blue_dim_status": "Adresse de statut du canal bleu"
+      },
+      "windowcovering": {
+        "updown": "Adresse montée/descente",
+        "stop": "Adresse d'arrêt",
+        "tilt": "Adresse d'inclinaison",
+        "tilt_status": "Adresse de statut d'inclinaison"
+      },
+      "sensor": "Adresse de capteur",
+      "scene": "Adresse de scène"
+    },
+    "scene_number": "Numéro de scène"
+  },
+  "errors": {
+    "generic_error": "Il y a eu une erreur : ",
+    "save_error": "Impossible d'enregistrer l'appareil.",
+    "settings_save": "Les paramètres n'ont pas pu être enregistrés, ",
+    "switch_failed": "Échec de la commutation de l'appareil !",
+    "dim_failed": "Échec de la gradation de l'appareil !",
+    "rgb_failed": "Échec du réglage de la couleur !",
+    "temperature_set_failed": "Échec du réglage de la température !",
+    "temperature_get_failed": "Échec de la récupération de la température !",
+    "windowcovering_failed": "Échec du changement d'état !",
+    "windowcovering_stop_failed": "Échec de l'arrêt de la couverture de fenêtre !",
+    "invalid_group_address": "Adresse de groupe invalide.",
+    "invalid_scene_number": "Numéro de scène invalide.",
+    "ip": {
+      "invalid_ip": "IP invalide ou entrée vide.",
+      "interface_not_found": "Interface IP sélectionnée non trouvée.",
+      "interface_not_available": "Interface IP sélectionnée non disponible.",
+      "interface_not_selected": "Aucune interface IP sélectionnée.",
+      "search_already_running": "Recherche déjà en cours pour les interfaces IP.",
+      "no_valid_mac": "L'adresse MAC est invalide.",
+      "no_matching_interface": "Pas d'interface IP avec cette adresse MAC disponible."
+    },
+    "projectfile": {
+      "no_valid_xml": "Aucun groupaddress XML valide trouvé dans le fichier de projet. Veuillez télécharger un autre projet.",
+      "invalid_ga_structure": "Structure d'adresse de groupe invalide dans le fichier de projet",
+      "no_ga_found": "Aucune adresse de groupe trouvée, vous avez peut-être téléchargé un projet vide."
+    }
+  }
+}

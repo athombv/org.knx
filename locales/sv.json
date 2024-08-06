@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "KNX IP-inställningar - Välj eller lägg till ett KNX IP-interface",
+      "body": "Ange IP-adressen för det KNX IP-interface som ska användas. Tryck på sök IP-interface-knappen för att söka.",
+      "singleip": "Konfigurera IP-interface",
+      "interfaceaddress": "Ange en IPv4-adress",
+      "searchbutton": "Sök interface",
+      "scanbutton": "(Om)skanna nätverket efter IP-interface",
+      "manual_interface": "Manuell konfiguration",
+      "manual_interface_input": "ange adress manuellt"
+    },
+    "learnmode": {
+      "title": "Starta inlärningsläge",
+      "explanation": "Para ihop en KNX-knapp med en virtuell knapp i Homey.",
+      "testbutton": "Testa gruppadress",
+      "no_result": "Inga enheter har hittats."
+    },
+    "projectfile": {
+      "title": "Ladda upp en ETS-projekt",
+      "body": "Ladda upp en ETS-konfigurationsfil (*.knxproj) för att extrahera KNX-gruppadresser.",
+      "newxml": {
+        "title": "Ny ETS-konfiguration",
+        "explanation": "Om tillgängligt kan du "
+      },
+      "existingxml": {
+        "title": "En ETS-export finns redan tillgänglig, men du kan "
+      },
+      "upload": "ladda upp en ETS-projekt"
+    },
+    "groupaddresses": {
+      "generic": "Gruppadress",
+      "pairing_list": ", gruppadress: ",
+      "body": "Välj vilka gruppadresser som ska användas med den nya enheten",
+      "generic_status": "Status",
+      "save": "Spara enhet",
+      "duplicate_groupaddress": " denna gruppadress används redan av ",
+      "switch": {
+        "toggle": "Växeladress",
+        "status": "Statusadress"
+      },
+      "dimmer": {
+        "value": "Dimmeradress",
+        "status": "Statusadress"
+      },
+      "thermostat": {
+        "target": "Måladress för temperatur",
+        "measure": "Mätadress för temperatur"
+      },
+      "rgb": {
+        "red_toggle_action": "Växeladress röd kanal",
+        "red_toggle_status": "Statusadress röd kanal",
+        "red_dim_value": "Dimmeradress röd kanal",
+        "red_dim_status": "Dimmer statusadress röd kanal",
+        "green_toggle_action": "Växeladress grön kanal",
+        "green_toggle_status": "Statusadress grön kanal",
+        "green_dim_value": "Dimmeradress grön kanal",
+        "green_dim_status": "Dimmer statusadress grön kanal",
+        "blue_toggle_action": "Växeladress blå kanal",
+        "blue_toggle_status": "Statusadress blå kanal",
+        "blue_dim_value": "Dimmeradress blå kanal",
+        "blue_dim_status": "Dimmer statusadress blå kanal"
+      },
+      "windowcovering": {
+        "updown": "Upp/ner-adress",
+        "stop": "Stoppadress",
+        "tilt": "Lutningsadress",
+        "tilt_status": "Lutnings statusadress"
+      },
+      "sensor": "Sensoradress",
+      "scene": "Scenadress"
+    },
+    "scene_number": "Scennummer"
+  },
+  "errors": {
+    "generic_error": "Ett fel uppstod: ",
+    "save_error": "Kan inte spara enhet.",
+    "settings_save": "Inställningarna kunde inte sparas, ",
+    "switch_failed": "Omställning av enheten misslyckades!",
+    "dim_failed": "Dimmning av enheten misslyckades!",
+    "rgb_failed": "Inställning av färg misslyckades!",
+    "temperature_set_failed": "Inställning av temperatur misslyckades!",
+    "temperature_get_failed": "Hämtning av temperatur misslyckades!",
+    "windowcovering_failed": "Ändring av tillstånd misslyckades!",
+    "windowcovering_stop_failed": "Stopp av fönsterbeklädnad misslyckades!",
+    "invalid_group_address": "Ogiltig gruppadress.",
+    "invalid_scene_number": "Ogiltigt scennummer.",
+    "ip": {
+      "invalid_ip": "Ogiltig IP eller tomt inmatningsfält.",
+      "interface_not_found": "Valt IP-interface hittades inte.",
+      "interface_not_available": "Valt IP-interface är inte tillgängligt.",
+      "interface_not_selected": "Inget IP-interface valt.",
+      "search_already_running": "Sökning efter IP-interface pågår redan.",
+      "no_valid_mac": "MAC-adressen är ogiltig.",
+      "no_matching_interface": "Inget IP-interface med denna MAC-adress tillgängligt."
+    },
+    "projectfile": {
+      "no_valid_xml": "Ingen giltig gruppadress-XML hittades i projektfilen. Vänligen ladda upp ett annat projekt.",
+      "invalid_ga_structure": "Ogiltig gruppadress-struktur i projektfilen",
+      "no_ga_found": "Ingen gruppadress hittades, du kanske har laddat upp ett tomt projekt."
+    }
+  }
+}

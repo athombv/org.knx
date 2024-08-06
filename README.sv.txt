@@ -1,0 +1,1 @@
+Utöka funktionaliteten hos ditt befintliga KNX-nätverk med alla enheter du har lagt till i Homey. Nu kan du styra trådlösa lampor genom KNX, eller styra KNX-enheter genom en trådlös sensor.

@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "KNX IP Einstellungen - Wählen oder fügen Sie eine KNX IP-Schnittstelle hinzu",
+      "body": "Geben Sie die IP-Adresse der zu verwendenden KNX IP-Schnittstelle ein. Drücken Sie die Schaltfläche IP-Schnittstelle suchen, um zu suchen.",
+      "singleip": "IP-Schnittstelle konfigurieren",
+      "interfaceaddress": "Geben Sie eine IPv4-Adresse ein",
+      "searchbutton": "Schnittstelle suchen",
+      "scanbutton": "(Erneut) das Netzwerk nach IP-Schnittstellen scannen",
+      "manual_interface": "Manuelle Konfiguration",
+      "manual_interface_input": "Adresse manuell eingeben"
+    },
+    "learnmode": {
+      "title": "Lernmodus starten",
+      "explanation": "Koppeln Sie eine KNX-Taste mit einer virtuellen Taste in Homey.",
+      "testbutton": "Gruppenadresse testen",
+      "no_result": "Keine Geräte gefunden."
+    },
+    "projectfile": {
+      "title": "ETS-Projekt hochladen",
+      "body": "Laden Sie eine ETS-Konfigurationsdatei (*.knxproj) hoch, um die KNX-Gruppenadressen zu extrahieren.",
+      "newxml": {
+        "title": "Neue ETS-Konfiguration",
+        "explanation": "Falls verfügbar, können Sie "
+      },
+      "existingxml": {
+        "title": "Ein ETS-Export ist bereits verfügbar, aber Sie können "
+      },
+      "upload": "ein ETS-Projekt hochladen"
+    },
+    "groupaddresses": {
+      "generic": "Gruppenadresse",
+      "pairing_list": ", Gruppenadresse: ",
+      "body": "Wählen Sie, welche Gruppenadressen mit dem neuen Gerät verwendet werden sollen",
+      "generic_status": "Status",
+      "save": "Gerät speichern",
+      "duplicate_groupaddress": " diese Gruppenadresse wird bereits verwendet von ",
+      "switch": {
+        "toggle": "Schaltadresse",
+        "status": "Statusadresse"
+      },
+      "dimmer": {
+        "value": "Dimmadresse",
+        "status": "Statusadresse"
+      },
+      "thermostat": {
+        "target": "Zieltemperaturadresse",
+        "measure": "Temperaturmessadresse"
+      },
+      "rgb": {
+        "red_toggle_action": "Schaltadresse roter Kanal",
+        "red_toggle_status": "Statusadresse roter Kanal",
+        "red_dim_value": "Dimmadresse roter Kanal",
+        "red_dim_status": "Dimm-Statusadresse roter Kanal",
+        "green_toggle_action": "Schaltadresse grüner Kanal",
+        "green_toggle_status": "Statusadresse grüner Kanal",
+        "green_dim_value": "Dimmadresse grüner Kanal",
+        "green_dim_status": "Dimm-Statusadresse grüner Kanal",
+        "blue_toggle_action": "Schaltadresse blauer Kanal",
+        "blue_toggle_status": "Statusadresse blauer Kanal",
+        "blue_dim_value": "Dimmadresse blauer Kanal",
+        "blue_dim_status": "Dimm-Statusadresse blauer Kanal"
+      },
+      "windowcovering": {
+        "updown": "Auf/Ab-Adresse",
+        "stop": "Stoppadresse",
+        "tilt": "Kippadresse",
+        "tilt_status": "Kipp-Statusadresse"
+      },
+      "sensor": "Sensoradresse",
+      "scene": "Szenenadresse"
+    },
+    "scene_number": "Szenennummer"
+  },
+  "errors": {
+    "generic_error": "Es ist ein Fehler aufgetreten: ",
+    "save_error": "Gerät kann nicht gespeichert werden.",
+    "settings_save": "Einstellungen konnten nicht gespeichert werden, ",
+    "switch_failed": "Schalten des Geräts fehlgeschlagen!",
+    "dim_failed": "Dimmen des Geräts fehlgeschlagen!",
+    "rgb_failed": "Farbeinstellung fehlgeschlagen!",
+    "temperature_set_failed": "Temperatureinstellung fehlgeschlagen!",
+    "temperature_get_failed": "Temperaturabfrage fehlgeschlagen!",
+    "windowcovering_failed": "Zustandsänderung fehlgeschlagen!",
+    "windowcovering_stop_failed": "Anhalten der Fensterabdeckung fehlgeschlagen!",
+    "invalid_group_address": "Ungültige Gruppenadresse.",
+    "invalid_scene_number": "Ungültige Szenennummer.",
+    "ip": {
+      "invalid_ip": "Ungültige IP oder leere Eingabe.",
+      "interface_not_found": "Ausgewählte IP-Schnittstelle nicht gefunden.",
+      "interface_not_available": "Ausgewählte IP-Schnittstelle nicht verfügbar.",
+      "interface_not_selected": "Keine IP-Schnittstelle ausgewählt.",
+      "search_already_running": "Suche nach IP-Schnittstelle(n) läuft bereits.",
+      "no_valid_mac": "Die MAC-Adresse ist ungültig.",
+      "no_matching_interface": "Keine IP-Schnittstelle mit dieser MAC-Adresse verfügbar."
+    },
+    "projectfile": {
+      "no_valid_xml": "Keine gültige Gruppenadress-XML in der Projektdatei gefunden. Bitte laden Sie ein anderes Projekt hoch.",
+      "invalid_ga_structure": "Ungültige Gruppenadressstruktur in der Projektdatei",
+      "no_ga_found": "Keine Gruppenadresse gefunden, möglicherweise haben Sie ein leeres Projekt hochgeladen."
+    }
+  }
+}

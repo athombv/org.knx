@@ -1,39 +1,89 @@
 {
-    "settings": [
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Network settings",
+        "nl": "Netwerk instellingen",
+        "da": "Netværksindstillinger",
+        "de": "Netzwerkeinstellungen",
+        "es": "Configuración de red",
+        "fr": "Paramètres réseau",
+        "it": "Impostazioni di rete",
+        "no": "Nettverksinnstillinger",
+        "sv": "Nätverksinställningar",
+        "pl": "Ustawienia sieciowe",
+        "ru": "Настройки сети",
+        "ko": "네트워크 설정"
+      },
+      "children": [
         {
-            "type": "group",
-            "label": {
-                "en": "Network settings",
-                "nl": "Netwerk instellingen"
-            },
-            "children": [
-                {
-                    "id": "macAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface MAC address",
-                        "nl": "Interface MAC adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "MAC address of the required KNX IP interface",
-                        "nl": "MAC adres van de KNX IP interface"
-                    }
-                },
-                {
-                    "id": "ipAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface IP address",
-                        "nl": "Interface IP adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "IP address of the required KNX IP interface",
-                        "nl": "IP adres van de KNX IP interface"
-                    }
-                }
-            ]
+          "id": "macAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface MAC address",
+            "nl": "Interface MAC adres",
+            "da": "Interfaces MAC-adresse",
+            "de": "MAC-Adresse der Schnittstelle",
+            "es": "Dirección MAC de la interfaz",
+            "fr": "Adresse MAC de l’interface",
+            "it": "Indirizzo MAC della interfaccia",
+            "no": "Grensesnittets MAC-adresse",
+            "sv": "Gränssnittets MAC-adress",
+            "pl": "Adres MAC interfejsu",
+            "ru": "MAC-адрес интерфейса",
+            "ko": "인터페이스 MAC 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "MAC address of the required KNX IP interface",
+            "nl": "MAC adres van de KNX IP interface",
+            "da": "MAC-adresse for den krævede KNX IP-grænseflade",
+            "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+            "es": "Dirección MAC de la interfaz IP KNX requerida",
+            "fr": "Adresse MAC de l’interface IP KNX requise",
+            "it": "Indirizzo MAC dell'interfaccia KNX IP richiesta",
+            "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+            "pl": "Adres MAC wymagany dla interfejsu KNX IP",
+            "ru": "MAC-адрес требуемого KNX IP интерфейса",
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+          }
+        },
+        {
+          "id": "ipAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface IP address",
+            "nl": "Interface IP adres",
+            "da": "Interfaces IP-adresse",
+            "de": "IP-Adresse der Schnittstelle",
+            "es": "Dirección IP de la interfaz",
+            "fr": "Adresse IP de l’interface",
+            "it": "Indirizzo IP della interfaccia",
+            "no": "Grensesnittets IP-adresse",
+            "sv": "Gränssnittets IP-adress",
+            "pl": "Adres IP interfejsu",
+            "ru": "IP-адрес интерфейса",
+            "ko": "인터페이스 IP 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "IP address of the required KNX IP interface",
+            "nl": "IP adres van de KNX IP interface",
+            "da": "IP-adresse for den krævede KNX IP-grænseflade",
+            "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+            "es": "Dirección IP de la interfaz IP KNX requerida",
+            "fr": "Adresse IP de l’interface IP KNX requise",
+            "it": "Indirizzo IP dell'interfaccia KNX IP richiesta",
+            "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+            "pl": "Adres IP wymagany dla interfejsu KNX IP",
+            "ru": "IP-адрес требуемого KNX IP интерфейса",
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

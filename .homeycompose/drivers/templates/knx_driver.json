@@ -1,34 +1,36 @@
 {
-    "images": {
-	    "large": "{{driverAssetsPath}}/images/large.png",
-	    "small": "{{driverAssetsPath}}/images/small.png"
-    },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
   "platforms": [
     "local"
   ],
-  "connectivity": [ "lan" ],
-    "pair" : [
-        {
-            "id": "select_interface",
-            "$template": "select_interface",
-            "navigation": {
-                "next": "select_groupaddresses"
-            }
-        },
-        {
-            "id": "parse_knxproj",
-            "$template": "parse_knxproj",
-            "navigation": {
-                "next": "select_groupaddresses",
-                "prev": "select_groupaddresses"
-            }
-        },
-        {
-            "id": "select_groupaddresses",
-            "$template": "select_groupaddresses",
-            "navigation": {
-                "prev": "select_interface"
-            }
-        }
-    ]
+  "connectivity": [
+    "lan"
+  ],
+  "pair": [
+    {
+      "id": "select_interface",
+      "$template": "select_interface",
+      "navigation": {
+        "next": "select_groupaddresses"
+      }
+    },
+    {
+      "id": "parse_knxproj",
+      "$template": "parse_knxproj",
+      "navigation": {
+        "next": "select_groupaddresses",
+        "prev": "select_groupaddresses"
+      }
+    },
+    {
+      "id": "select_groupaddresses",
+      "$template": "select_groupaddresses",
+      "navigation": {
+        "prev": "select_interface"
+      }
+    }
+  ]
 }
