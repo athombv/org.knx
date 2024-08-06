@@ -5,7 +5,17 @@
   "id": "knx_scene",
   "name": {
     "en": "Scene",
-    "nl": "Scene"
+    "nl": "Scene",
+    "da": "Scene",
+    "de": "Szene",
+    "es": "Escena",
+    "fr": "Scène",
+    "it": "Scena",
+    "no": "Scene",
+    "sv": "Scen",
+    "pl": "Scena",
+    "ru": "Сцена",
+    "ko": "장면"
   },
   "class": "other",
   "capabilities": [
@@ -43,7 +53,17 @@
       "type": "group",
       "label": {
         "en": "KNX settings",
-        "nl": "KNX groepadressen"
+        "nl": "KNX groepadressen",
+        "da": "KNX indstillinger",
+        "de": "KNX-Einstellungen",
+        "es": "Configuraciones KNX",
+        "fr": "Paramètres KNX",
+        "it": "Impostazioni KNX",
+        "no": "KNX-innstillinger",
+        "sv": "KNX-inställningar",
+        "pl": "Ustawienia KNX",
+        "ru": "Настройки KNX",
+        "ko": "KNX 설정"
       },
       "children": [
         {
@@ -51,12 +71,32 @@
           "type": "text",
           "label": {
             "en": "Scene address",
-            "nl": "Scene adres"
+            "nl": "Scene adres",
+            "da": "Sceneadresse",
+            "de": "Szenenadresse",
+            "es": "Dirección de escena",
+            "fr": "Adresse de scène",
+            "it": "Indirizzo di scena",
+            "no": "Sceneadresse",
+            "sv": "Scenadress",
+            "pl": "Adres sceny",
+            "ru": "Адрес сцены",
+            "ko": "장면 주소"
           },
           "value": "",
           "hint": {
             "en": "Enter groupaddress",
-            "nl": "Vul groepadres in"
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección del grupo",
+            "fr": "Entrez l'adresse du groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wprowadź adres grupy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요."
           }
         },
         {
@@ -64,12 +104,32 @@
           "type": "text",
           "label": {
             "en": "Scene number",
-            "nl": "Scene nummer"
+            "nl": "Scene nummer",
+            "da": "Scenenummer",
+            "de": "Szenennummer",
+            "es": "Número de escena",
+            "fr": "Numéro de scène",
+            "it": "Numero di scena",
+            "no": "Scenenummer",
+            "sv": "Scennummer",
+            "pl": "Numer sceny",
+            "ru": "Номер сцены",
+            "ko": "장면 번호"
           },
           "value": "",
           "hint": {
             "en": "Enter scene number",
-            "nl": "Vul scene nummer in"
+            "nl": "Vul scene nummer in",
+            "da": "Indtast scenenummer",
+            "de": "Szenennummer eingeben",
+            "es": "Ingrese el número de escena",
+            "fr": "Entrez le numéro de scène",
+            "it": "Inserisci il numero di scena",
+            "no": "Skriv inn scenenummer",
+            "sv": "Ange scen nummer",
+            "pl": "Wprowadź numer sceny",
+            "ru": "Введите номер сцены",
+            "ko": "장면 번호를 입력하세요."
           }
         }
       ]
@@ -78,7 +138,17 @@
       "type": "group",
       "label": {
         "en": "Network settings",
-        "nl": "Netwerk instellingen"
+        "nl": "Netwerk instellingen",
+        "da": "Netværksindstillinger",
+        "de": "Netzwerkeinstellungen",
+        "es": "Configuraciones de red",
+        "fr": "Paramètres réseau",
+        "it": "Impostazioni di rete",
+        "no": "Nettverksinnstillinger",
+        "sv": "Nätverksinställningar",
+        "pl": "Ustawienia sieciowe",
+        "ru": "Настройки сети",
+        "ko": "네트워크 설정"
       },
       "children": [
         {
@@ -86,12 +156,32 @@
           "type": "text",
           "label": {
             "en": "Interface MAC address",
-            "nl": "Interface MAC adres"
+            "nl": "Interface MAC adres",
+            "da": "Grænseflade MAC-adresse",
+            "de": "MAC-Adresse der Schnittstelle",
+            "es": "Dirección MAC de la interfaz",
+            "fr": "Adresse MAC de l'interface",
+            "it": "Indirizzo MAC dell'interfaccia",
+            "no": "Grensesnitt MAC-adresse",
+            "sv": "Gränssnitt MAC-adress",
+            "pl": "Adres MAC interfejsu",
+            "ru": "MAC-адрес интерфейса",
+            "ko": "인터페이스 MAC 주소"
           },
           "value": "",
           "hint": {
             "en": "MAC address of the required KNX IP interface",
-            "nl": "MAC adres van de KNX IP interface"
+            "nl": "MAC adres van de KNX IP interface",
+            "da": "MAC-adresse for den krævede KNX IP-grænseflade",
+            "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+            "es": "Dirección MAC de la interfaz KNX IP requerida",
+            "fr": "Adresse MAC de l'interface IP KNX requise",
+            "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+            "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+            "pl": "Adres MAC wymagany przez interfejs KNX IP",
+            "ru": "MAC-адрес требуемого KNX IP-интерфейса",
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
           }
         },
         {
@@ -99,12 +189,32 @@
           "type": "text",
           "label": {
             "en": "Interface IP address",
-            "nl": "Interface IP adres"
+            "nl": "Interface IP adres",
+            "da": "Grænseflade IP-adresse",
+            "de": "IP-Adresse der Schnittstelle",
+            "es": "Dirección IP de la interfaz",
+            "fr": "Adresse IP de l'interface",
+            "it": "Indirizzo IP dell'interfaccia",
+            "no": "Grensesnitt IP-adresse",
+            "sv": "Gränssnitt IP-adress",
+            "pl": "Adres IP interfejsu",
+            "ru": "IP-адрес интерфейса",
+            "ko": "인터페이스 IP 주소"
           },
           "value": "",
           "hint": {
             "en": "IP address of the required KNX IP interface",
-            "nl": "IP adres van de KNX IP interface"
+            "nl": "IP adres van de KNX IP interface",
+            "da": "IP-adresse for den krævede KNX IP-grænseflade",
+            "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+            "es": "Dirección IP de la interfaz KNX IP requerida",
+            "fr": "Adresse IP de l'interface IP KNX requise",
+            "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+            "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+            "pl": "IP-adres wymagany przez interfejs KNX IP",
+            "ru": "IP-адрес требуемого KNX IP-интерфейса",
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
           }
         }
       ]

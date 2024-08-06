@@ -1,0 +1,1 @@
+Expande las capacidades de tu red KNX existente con todos los dispositivos que hayas agregado a Homey. Ahora puedes controlar luces inalámbricas a través de KNX, o controlar dispositivos KNX a través de un sensor inalámbrico.

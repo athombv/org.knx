@@ -1,214 +1,445 @@
 {
-    "$extends" :["knx_driver"],
-    "id": "knx_dimcontrol",
-    "name": {
-        "en": "Dimmer relative",
-        "nl": "Dimmer relatief"
+  "$extends": [
+    "knx_driver"
+  ],
+  "id": "knx_dimcontrol",
+  "name": {
+    "en": "Dimmer relative",
+    "nl": "Dimmer relatief",
+    "da": "Dæmper relativ",
+    "de": "Dimmer relativ",
+    "es": "Regulador relativo",
+    "fr": "Variateur relatif",
+    "it": "Dimmer relativo",
+    "no": "Demper relativ",
+    "sv": "Dimmer relativ",
+    "pl": "Ściemniacz względny",
+    "ru": "Относительный диммер",
+    "ko": "상대 디머"
+  },
+  "class": "light",
+  "capabilities": [
+    "onoff",
+    "dimcontrol_up",
+    "dimcontrol_down"
+  ],
+  "pair": [
+    {
+      "id": "select_interface",
+      "$template": "select_interface",
+      "navigation": {
+        "next": "select_groupaddresses"
+      }
     },
-    "class": "light",
-    "capabilities": ["onoff", "dimcontrol_up", "dimcontrol_down"],
-    "pair" : [
-        {
-            "id": "select_interface",
-            "$template": "select_interface",
-            "navigation": {
-                "next": "select_groupaddresses"
-            }
-        },
-        {
-            "id": "parse_knxproj",
-            "$template": "parse_knxproj",
-            "navigation": {
-                "next": "select_groupaddresses",
-                "prev": "select_groupaddresses"
-            }
-        },
-        {
-            "id": "select_groupaddresses",
-            "$template": "select_groupaddresses",
-            "options": {
-                "devicetype": "dimcontrol"
-            },
-            "navigation": {
-                "prev": "select_interface"
-            }
-        }
-    ],
-    "settings": [
-        {
-            "type": "group",
-            "label": {
-                "en": "KNX groupaddress",
-                "nl": "KNX groepadressen"
-            },
-            "children": [
-                {
-                    "id": "ga_switch",
-                    "type": "text",
-                    "label": {
-                        "en": "Switch address",
-                        "nl": "Schakel adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Status address",
-                        "nl": "Status adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_dim",
-                    "type": "text",
-                    "label": {
-                        "en": "Dim address",
-                        "nl": "Dim adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "label": {
-                "en": "Dimmer settings",
-                "nl": "Dimmer instellingen"
-            },
-            "children": [
-                {
-                    "id": "dim_step",
-                    "type": "dropdown",
-                    "value": "3",
-                    "label": {
-                        "en": "Dimmer stepsize",
-                        "nl": "Dimmer stapgrote"
-                    },
-                    "values": [
-                        {
-                            "id": "7",
-                            "label": {
-                                "en": "1 percent",
-                                "nl": "1 procent"
-                            }
-
-                        },
-                        {
-                            "id": "6",
-                            "label": {
-                                "en": "3 percent",
-                                "nl": "3 procent"
-                            }
-                        },
-                        {
-                            "id": "5",
-                            "label": {
-                                "en": "6 percent",
-                                "nl": "6 procent"
-                            }
-                        },
-                        {
-                            "id": "4",
-                            "label": {
-                                "en": "12 percent",
-                                "nl": "12 procent"
-                            }
-                        },
-                        {
-                            "id": "3",
-                            "label": {
-                                "en": "25 percent",
-                                "nl": "25 procent"
-                            }
-                        },
-                        {
-                            "id": "2",
-                            "label": {
-                                "en": "50 percent",
-                                "nl": "50 procent"
-                            }
-                        },
-                        {
-                            "id": "1",
-                            "label": {
-                                "en": "100 percent / On-Off",
-                                "nl": "100 procent / Aan-Uit"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "label": {
-                "en": "Network settings",
-                "nl": "Netwerk instellingen"
-            },
-            "children": [
-                {
-                    "id": "macAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface MAC address",
-                        "nl": "Interface MAC adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "MAC address of the required KNX IP interface",
-                        "nl": "MAC adres van de KNX IP interface"
-                    }
-                },
-                {
-                    "id": "ipAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface IP address",
-                        "nl": "Interface IP adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "IP address of the required KNX IP interface",
-                        "nl": "IP adres van de KNX IP interface"
-                    }
-                }
-            ]
-        }
-    ],
-    "mobile": {
-        "components": [
-            {
-                "id": "icon",
-                "capabilities": [ "onoff" ]
-            },
-            {
-                "id": "button",
-                "capabilities": [ "dimcontrol_up" ],
-                "options": {
-                    "showTitle": true
-                }
-            },
-            {
-                "id": "button",
-                "capabilities": [ "dimcontrol_down" ],
-                "options": {
-                    "showTitle": true
-                }
-            }
-        ]
+    {
+      "id": "parse_knxproj",
+      "$template": "parse_knxproj",
+      "navigation": {
+        "next": "select_groupaddresses",
+        "prev": "select_groupaddresses"
+      }
+    },
+    {
+      "id": "select_groupaddresses",
+      "$template": "select_groupaddresses",
+      "options": {
+        "devicetype": "dimcontrol"
+      },
+      "navigation": {
+        "prev": "select_interface"
+      }
     }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "KNX groupaddress",
+        "nl": "KNX groepadressen",
+        "da": "KNX gruppeadresse",
+        "de": "KNX Gruppenadresse",
+        "es": "Dirección de grupo KNX",
+        "fr": "Adresse de groupe KNX",
+        "it": "Indirizzo di gruppo KNX",
+        "no": "KNX gruppeadresse",
+        "sv": "KNX gruppadress",
+        "pl": "Adres grupowy KNX",
+        "ru": "Групповой адрес KNX",
+        "ko": "KNX 그룹 주소"
+      },
+      "children": [
+        {
+          "id": "ga_switch",
+          "type": "text",
+          "label": {
+            "en": "Switch address",
+            "nl": "Schakel adres",
+            "da": "Skifte adresse",
+            "de": "Schalteradresse",
+            "es": "Dirección de interruptor",
+            "fr": "Adresse de l'interrupteur",
+            "it": "Indirizzo dell'interruttore",
+            "no": "Bytte adresse",
+            "sv": "Byt adress",
+            "pl": "Adres przełącznika",
+            "ru": "Адрес выключателя",
+            "ko": "스위치 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Angi gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wprowadź adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
+          }
+        },
+        {
+          "id": "ga_status",
+          "type": "text",
+          "label": {
+            "en": "Status address",
+            "nl": "Status adres",
+            "da": "Statusadresse",
+            "de": "Statusadresse",
+            "es": "Dirección de estado",
+            "fr": "Adresse d'état",
+            "it": "Indirizzo di stato",
+            "no": "Status adresse",
+            "sv": "Statusadress",
+            "pl": "Adres statusu",
+            "ru": "Адрес состояния",
+            "ko": "상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Angi gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wprowadź adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
+          }
+        },
+        {
+          "id": "ga_dim",
+          "type": "text",
+          "label": {
+            "en": "Dim address",
+            "nl": "Dim adres",
+            "da": "Dæmpningsadresse",
+            "de": "Dimmadresse",
+            "es": "Dirección de dimmer",
+            "fr": "Adresse de gradation",
+            "it": "Indirizzo del dimmer",
+            "no": "Dimme adresse",
+            "sv": "Dimmeradress",
+            "pl": "Adres ściemniacza",
+            "ru": "Адрес затемнения",
+            "ko": "디밍 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Angi gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wprowadź adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Dimmer settings",
+        "nl": "Dimmer instellingen",
+        "da": "Dæmperindstillinger",
+        "de": "Dimmer Einstellungen",
+        "es": "Configuración de dimmer",
+        "fr": "Paramètres du variateur",
+        "it": "Impostazioni del dimmer",
+        "no": "Dimmerinnstillinger",
+        "sv": "Dimmerinställningar",
+        "pl": "Ustawienia ściemniacza",
+        "ru": "Настройки диммера",
+        "ko": "디머 설정"
+      },
+      "children": [
+        {
+          "id": "dim_step",
+          "type": "dropdown",
+          "value": "3",
+          "label": {
+            "en": "Dimmer stepsize",
+            "nl": "Dimmer stapgrote",
+            "da": "Dæmpningsstørrelse",
+            "de": "Dimmer Schrittgröße",
+            "es": "Tamaño de paso de dimmer",
+            "fr": "Taille de pas du variateur",
+            "it": "Dimensione del passo del dimmer",
+            "no": "Dimmer trinnstørrelse",
+            "sv": "Dimmer steglängd",
+            "pl": "Rozmiar kroku ściemniacza",
+            "ru": "Размер шага диммера",
+            "ko": "디머 스텝 크기"
+          },
+          "values": [
+            {
+              "id": "7",
+              "label": {
+                "en": "1 percent",
+                "nl": "1 procent",
+                "da": "1 procent",
+                "de": "1 Prozent",
+                "es": "1 por ciento",
+                "fr": "1 pour cent",
+                "it": "1 percento",
+                "no": "1 prosent",
+                "sv": "1 procent",
+                "pl": "1 procent",
+                "ru": "1 процент",
+                "ko": "1 퍼센트"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "3 percent",
+                "nl": "3 procent",
+                "da": "3 procent",
+                "de": "3 Prozent",
+                "es": "3 por ciento",
+                "fr": "3 pour cent",
+                "it": "3 percento",
+                "no": "3 prosent",
+                "sv": "3 procent",
+                "pl": "3 procent",
+                "ru": "3 процента",
+                "ko": "3 퍼센트"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "6 percent",
+                "nl": "6 procent",
+                "da": "6 procent",
+                "de": "6 Prozent",
+                "es": "6 por ciento",
+                "fr": "6 pour cent",
+                "it": "6 percento",
+                "no": "6 prosent",
+                "sv": "6 procent",
+                "pl": "6 procent",
+                "ru": "6 процентов",
+                "ko": "6 퍼센트"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "12 percent",
+                "nl": "12 procent",
+                "da": "12 procent",
+                "de": "12 Prozent",
+                "es": "12 por ciento",
+                "fr": "12 pour cent",
+                "it": "12 percento",
+                "no": "12 prosent",
+                "sv": "12 procent",
+                "pl": "12 procent",
+                "ru": "12 процентов",
+                "ko": "12 퍼센트"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "25 percent",
+                "nl": "25 procent",
+                "da": "25 procent",
+                "de": "25 Prozent",
+                "es": "25 por ciento",
+                "fr": "25 pour cent",
+                "it": "25 percento",
+                "no": "25 prosent",
+                "sv": "25 procent",
+                "pl": "25 procent",
+                "ru": "25 процентов",
+                "ko": "25 퍼센트"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "50 percent",
+                "nl": "50 procent",
+                "da": "50 procent",
+                "de": "50 Prozent",
+                "es": "50 por ciento",
+                "fr": "50 pour cent",
+                "it": "50 percento",
+                "no": "50 prosent",
+                "sv": "50 procent",
+                "pl": "50 procent",
+                "ru": "50 процентов",
+                "ko": "50 퍼센트"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "100 percent / On-Off",
+                "nl": "100 procent / Aan-Uit",
+                "da": "100 procent / Tænd-Sluk",
+                "de": "100 Prozent / An-Aus",
+                "es": "100 por ciento / Encendido-Apagado",
+                "fr": "100 pour cent / Marche-Arrêt",
+                "it": "100 percento / Acceso-Spento",
+                "no": "100 prosent / På-Av",
+                "sv": "100 procent / På-Av",
+                "pl": "100 procent / Włącz-Wyłącz",
+                "ru": "100 процентов / Вкл-Выкл",
+                "ko": "100 퍼센트 / 켜짐-꺼짐"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Network settings",
+        "nl": "Netwerk instellingen",
+        "da": "Netværksindstillinger",
+        "de": "Netzwerkeinstellungen",
+        "es": "Configuración de red",
+        "fr": "Paramètres réseau",
+        "it": "Impostazioni di rete",
+        "no": "Nettverksinnstillinger",
+        "sv": "Nätverksinställningar",
+        "pl": "Ustawienia sieci",
+        "ru": "Настройки сети",
+        "ko": "네트워크 설정"
+      },
+      "children": [
+        {
+          "id": "macAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface MAC address",
+            "nl": "Interface MAC adres",
+            "da": "Interface MAC-adresse",
+            "de": "Schnittstellen-MAC-Adresse",
+            "es": "Dirección MAC de la interfaz",
+            "fr": "Adresse MAC de l'interface",
+            "it": "Indirizzo MAC dell'interfaccia",
+            "no": "Grensesnitt MAC-adresse",
+            "sv": "Gränssnitt MAC-adress",
+            "pl": "Adres MAC interfejsu",
+            "ru": "MAC-адрес интерфейса",
+            "ko": "인터페이스 MAC 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "MAC address of the required KNX IP interface",
+            "nl": "MAC adres van de KNX IP interface",
+            "da": "MAC-adresse på den krævede KNX IP-grænseflade",
+            "de": "MAC-Adresse der benötigten KNX-IP-Schnittstelle",
+            "es": "Dirección MAC de la interfaz IP KNX requerida",
+            "fr": "Adresse MAC de l'interface IP KNX requise",
+            "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+            "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+            "pl": "Adres MAC wymaganego interfejsu IP KNX",
+            "ru": "MAC-адрес необходимого KNX IP-интерфейса",
+            "ko": "요구된 KNX IP 인터페이스의 MAC 주소"
+          }
+        },
+        {
+          "id": "ipAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface IP address",
+            "nl": "Interface IP adres",
+            "da": "Interface IP-adresse",
+            "de": "Schnittstellen-IP-Adresse",
+            "es": "Dirección IP de la interfaz",
+            "fr": "Adresse IP de l'interface",
+            "it": "Indirizzo IP dell'interfaccia",
+            "no": "Grensesnitt IP-adresse",
+            "sv": "Gränssnitt IP-adress",
+            "pl": "Adres IP interfejsu",
+            "ru": "IP-адрес интерфейса",
+            "ko": "인터페이스 IP 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "IP address of the required KNX IP interface",
+            "nl": "IP adres van de KNX IP interface",
+            "da": "IP-adresse på den krævede KNX IP-grænseflade",
+            "de": "IP-Adresse der benötigten KNX-IP-Schnittstelle",
+            "es": "Dirección IP de la interfaz IP KNX requerida",
+            "fr": "Adresse IP de l'interface IP KNX requise",
+            "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+            "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+            "pl": "Adres IP wymaganego interfejsu IP KNX",
+            "ru": "IP-адрес необходимого KNX IP-интерфейса",
+            "ko": "요구된 KNX IP 인터페이스의 IP 주소"
+          }
+        }
+      ]
+    }
+  ],
+  "mobile": {
+    "components": [
+      {
+        "id": "icon",
+        "capabilities": [
+          "onoff"
+        ]
+      },
+      {
+        "id": "button",
+        "capabilities": [
+          "dimcontrol_up"
+        ],
+        "options": {
+          "showTitle": true
+        }
+      },
+      {
+        "id": "button",
+        "capabilities": [
+          "dimcontrol_down"
+        ],
+        "options": {
+          "showTitle": true
+        }
+      }
+    ]
+  }
 }

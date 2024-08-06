@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "Impostazioni IP KNX - Seleziona o aggiungi un'interfaccia IP KNX",
+      "body": "Inserisci l'indirizzo IP dell'interfaccia IP KNX da utilizzare. Premi il pulsante di ricerca dell'interfaccia IP per cercare.",
+      "singleip": "Configura interfaccia IP",
+      "interfaceaddress": "Inserisci un indirizzo IPv4",
+      "searchbutton": "Cerca interfaccia",
+      "scanbutton": "(Ri)Scansiona la rete per interfacce IP",
+      "manual_interface": "Configurazione manuale",
+      "manual_interface_input": "inserisci l'indirizzo manualmente"
+    },
+    "learnmode": {
+      "title": "Avvia modalità apprendimento",
+      "explanation": "Abbina un pulsante KNX a un pulsante virtuale in Homey.",
+      "testbutton": "Testa indirizzo di gruppo",
+      "no_result": "Nessun dispositivo trovato."
+    },
+    "projectfile": {
+      "title": "Carica un progetto ETS",
+      "body": "Carica un file di configurazione ETS (*.knxproj) per estrarre gli indirizzi di gruppo KNX.",
+      "newxml": {
+        "title": "Nuova configurazione ETS",
+        "explanation": "Se disponibile, puoi "
+      },
+      "existingxml": {
+        "title": "Un'esportazione ETS è già disponibile, ma puoi "
+      },
+      "upload": "caricare un progetto ETS"
+    },
+    "groupaddresses": {
+      "generic": "Indirizzo di gruppo",
+      "pairing_list": ", indirizzo di gruppo: ",
+      "body": "Seleziona quali indirizzi di gruppo utilizzare con il nuovo dispositivo",
+      "generic_status": "Stato",
+      "save": "Salva dispositivo",
+      "duplicate_groupaddress": " questo indirizzo di gruppo è già utilizzato da ",
+      "switch": {
+        "toggle": "Indirizzo interruttore",
+        "status": "Indirizzo stato"
+      },
+      "dimmer": {
+        "value": "Indirizzo dimmer",
+        "status": "Indirizzo stato"
+      },
+      "thermostat": {
+        "target": "Indirizzo temperatura obiettivo",
+        "measure": "Indirizzo misurazione temperatura"
+      },
+      "rgb": {
+        "red_toggle_action": "Indirizzo interruttore canale rosso",
+        "red_toggle_status": "Indirizzo stato canale rosso",
+        "red_dim_value": "Indirizzo dimmer canale rosso",
+        "red_dim_status": "Indirizzo stato dimmer canale rosso",
+        "green_toggle_action": "Indirizzo interruttore canale verde",
+        "green_toggle_status": "Indirizzo stato canale verde",
+        "green_dim_value": "Indirizzo dimmer canale verde",
+        "green_dim_status": "Indirizzo stato dimmer canale verde",
+        "blue_toggle_action": "Indirizzo interruttore canale blu",
+        "blue_toggle_status": "Indirizzo stato canale blu",
+        "blue_dim_value": "Indirizzo dimmer canale blu",
+        "blue_dim_status": "Indirizzo stato dimmer canale blu"
+      },
+      "windowcovering": {
+        "updown": "Indirizzo su/giù",
+        "stop": "Indirizzo stop",
+        "tilt": "Indirizzo inclinazione",
+        "tilt_status": "Indirizzo stato inclinazione"
+      },
+      "sensor": "Indirizzo sensore",
+      "scene": "Indirizzo scena"
+    },
+    "scene_number": "Numero di scena"
+  },
+  "errors": {
+    "generic_error": "Si è verificato un errore: ",
+    "save_error": "Impossibile salvare il dispositivo.",
+    "settings_save": "Impostazioni non salvate, ",
+    "switch_failed": "Cambio del dispositivo fallito!",
+    "dim_failed": "Regolazione del dispositivo fallita!",
+    "rgb_failed": "Impostazione del colore fallita!",
+    "temperature_set_failed": "Impostazione della temperatura fallita!",
+    "temperature_get_failed": "Recupero della temperatura fallito!",
+    "windowcovering_failed": "Modifica dello stato fallita!",
+    "windowcovering_stop_failed": "Arresto della copertura finestra fallito!",
+    "invalid_group_address": "Indirizzo di gruppo non valido.",
+    "invalid_scene_number": "Numero di scena non valido.",
+    "ip": {
+      "invalid_ip": "IP non valido o input vuoto.",
+      "interface_not_found": "Interfaccia IP selezionata non trovata.",
+      "interface_not_available": "Interfaccia IP selezionata non disponibile.",
+      "interface_not_selected": "Nessuna interfaccia IP selezionata.",
+      "search_already_running": "Ricerca dell'interfaccia IP già in corso.",
+      "no_valid_mac": "Indirizzo MAC non valido.",
+      "no_matching_interface": "Nessuna interfaccia IP disponibile con questo indirizzo MAC."
+    },
+    "projectfile": {
+      "no_valid_xml": "Nessun indirizzo di gruppo valido trovato nel file del progetto. Si prega di caricare un altro progetto.",
+      "invalid_ga_structure": "Struttura dell'indirizzo di gruppo non valida nel file del progetto",
+      "no_ga_found": "Nessun indirizzo di gruppo trovato, potresti aver caricato un progetto vuoto."
+    }
+  }
+}

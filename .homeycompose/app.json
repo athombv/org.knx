@@ -6,11 +6,31 @@
   "brandColor": "#006BB3",
   "name": {
     "en": "KNX",
-    "nl": "KNX"
+    "nl": "KNX",
+    "da": "KNX",
+    "de": "KNX",
+    "es": "KNX",
+    "fr": "KNX",
+    "it": "KNX",
+    "no": "KNX",
+    "sv": "KNX",
+    "pl": "KNX",
+    "ru": "KNX",
+    "ko": "KNX"
   },
   "description": {
     "en": "Living made smart",
-    "nl": "Living made smart"
+    "nl": "Living made smart",
+    "da": "Livet gjort smart",
+    "de": "Leben clever gemacht",
+    "es": "La vida hecha inteligente",
+    "fr": "La vie rendue intelligente",
+    "it": "Vivere in modo intelligente",
+    "no": "Livet gjort smart",
+    "sv": "Livet gjort smart",
+    "pl": "Życie uczynione inteligentnym",
+    "ru": "Умная жизнь",
+    "ko": "생활을 스마트하게"
   },
   "category": [
     "appliances"

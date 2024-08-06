@@ -1,9 +1,19 @@
 {
-    "title": {
-        "en": "Dim up",
-        "nl": "Dim omhoog"
-    },
-    "type": "boolean",
-    "getable": true,
-    "setable": true
+  "title": {
+    "en": "Dim up",
+    "nl": "Dim omhoog",
+    "da": "Dæmp op",
+    "de": "Helligkeit erhöhen",
+    "es": "Atenuar",
+    "fr": "Augmenter l'éclairage",
+    "it": "Diminuire la luce",
+    "no": "Demp opp",
+    "sv": "Dimma upp",
+    "pl": "Ściemnij",
+    "ru": "Увеличить яркость",
+    "ko": "올리기"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": true
 }

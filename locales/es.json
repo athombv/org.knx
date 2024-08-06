@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "Configuración IP de KNX - Selecciona o añade una interfaz IP de KNX",
+      "body": "Introduce la dirección IP de la interfaz IP de KNX a usar. Pulsa el botón de buscar interfaz IP para buscar.",
+      "singleip": "Configurar interfaz IP",
+      "interfaceaddress": "Introduce una dirección IPv4",
+      "searchbutton": "Buscar interfaz",
+      "scanbutton": "(Re)Escanear la red para buscar interfaces IP",
+      "manual_interface": "Configuración manual",
+      "manual_interface_input": "ingresa la dirección manualmente"
+    },
+    "learnmode": {
+      "title": "Iniciar modo de aprendizaje",
+      "explanation": "Empareja un botón KNX con un botón virtual en Homey.",
+      "testbutton": "Probar dirección de grupo",
+      "no_result": "No se han encontrado dispositivos."
+    },
+    "projectfile": {
+      "title": "Subir un proyecto ETS",
+      "body": "Sube un archivo de configuración ETS (*.knxproj) para extraer las direcciones de grupo KNX.",
+      "newxml": {
+        "title": "Nueva configuración ETS",
+        "explanation": "Si está disponible, puedes "
+      },
+      "existingxml": {
+        "title": "Ya hay una exportación ETS disponible, pero puedes "
+      },
+      "upload": "subir un proyecto ETS"
+    },
+    "groupaddresses": {
+      "generic": "Dirección de grupo",
+      "pairing_list": ", dirección de grupo: ",
+      "body": "Selecciona qué direcciones de grupo usar con el nuevo dispositivo",
+      "generic_status": "Estado",
+      "save": "Guardar dispositivo",
+      "duplicate_groupaddress": " esta dirección de grupo ya está siendo usada por ",
+      "switch": {
+        "toggle": "Dirección de interruptor",
+        "status": "Dirección de estado"
+      },
+      "dimmer": {
+        "value": "Dirección de dimmer",
+        "status": "Dirección de estado"
+      },
+      "thermostat": {
+        "target": "Dirección de temperatura objetivo",
+        "measure": "Dirección de medida de temperatura"
+      },
+      "rgb": {
+        "red_toggle_action": "Dirección de interruptor canal rojo",
+        "red_toggle_status": "Dirección de estado canal rojo",
+        "red_dim_value": "Dirección de dimmer canal rojo",
+        "red_dim_status": "Dirección de estado dimmer canal rojo",
+        "green_toggle_action": "Dirección de interruptor canal verde",
+        "green_toggle_status": "Dirección de estado canal verde",
+        "green_dim_value": "Dirección de dimmer canal verde",
+        "green_dim_status": "Dirección de estado dimmer canal verde",
+        "blue_toggle_action": "Dirección de interruptor canal azul",
+        "blue_toggle_status": "Dirección de estado canal azul",
+        "blue_dim_value": "Dirección de dimmer canal azul",
+        "blue_dim_status": "Dirección de estado dimmer canal azul"
+      },
+      "windowcovering": {
+        "updown": "Dirección de subir/bajar",
+        "stop": "Dirección de parar",
+        "tilt": "Dirección de inclinación",
+        "tilt_status": "Dirección de estado de inclinación"
+      },
+      "sensor": "Dirección de sensor",
+      "scene": "Dirección de escena"
+    },
+    "scene_number": "Número de escena"
+  },
+  "errors": {
+    "generic_error": "Hubo un error: ",
+    "save_error": "No se puede guardar el dispositivo.",
+    "settings_save": "No se pudieron guardar los ajustes, ",
+    "switch_failed": "¡Error al cambiar el dispositivo!",
+    "dim_failed": "¡Error al atenuar el dispositivo!",
+    "rgb_failed": "¡Error al configurar el color!",
+    "temperature_set_failed": "¡Error al ajustar la temperatura!",
+    "temperature_get_failed": "¡Error al obtener la temperatura!",
+    "windowcovering_failed": "¡Error al cambiar el estado!",
+    "windowcovering_stop_failed": "¡Error al detener la cubierta de la ventana!",
+    "invalid_group_address": "Dirección de grupo no válida.",
+    "invalid_scene_number": "Número de escena no válido.",
+    "ip": {
+      "invalid_ip": "IP no válida o entrada vacía.",
+      "interface_not_found": "Interfaz IP seleccionada no encontrada.",
+      "interface_not_available": "Interfaz IP seleccionada no disponible.",
+      "interface_not_selected": "Ninguna interfaz IP seleccionada.",
+      "search_already_running": "Ya se está buscando la(s) interfaz(es) IP.",
+      "no_valid_mac": "La dirección MAC no es válida.",
+      "no_matching_interface": "No hay ninguna interfaz IP disponible con esta dirección MAC."
+    },
+    "projectfile": {
+      "no_valid_xml": "No se encontró una dirección de grupo válida en el archivo del proyecto. Por favor, sube otro proyecto.",
+      "invalid_ga_structure": "Estructura de dirección de grupo no válida en el archivo del proyecto",
+      "no_ga_found": "No se encontró una dirección de grupo, es posible que hayas subido un proyecto vacío."
+    }
+  }
+}
