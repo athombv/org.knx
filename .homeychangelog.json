@@ -47,5 +47,8 @@
   },
   "1.0.11": {
     "en": "KNX Connection improvements."
+  },
+  "1.3.0": {
+    "en": "Added translations."
   }
 }
