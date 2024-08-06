@@ -45,7 +45,14 @@
             },
             "thermostat": {
                 "target": "Doel temperatuur adres",
-                "measure": "Ruimtetemperatuur adres"
+                "actualtarget": "Doel temperatuur status adres",
+                "measure": "Ruimtetemperatuur adres",
+                "mode": "Thermostaat modus adres",
+                "mode_state": "Thermostaat modus status adres",
+                "summer_winter": "Zomer/Winter adres",
+                "window_switch": "Raamschakelaar adres",
+                "valve_heating": "Verwarmingsklep status adres",
+                "valve_cooling": "Koelklep status adres"
             },
             "rgb": {
                 "red_toggle_action": "Schakel adres rood kanaal",

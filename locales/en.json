@@ -45,7 +45,14 @@
             },
             "thermostat": {
                 "target": "Target temperature address",
-                "measure": "Temperature measurement address"
+                "actualtarget": "Target temperature status address",
+                "measure": "Temperature measurement address",
+                "mode": "Thermostat mode address",
+                "mode_state": "Thermostat mode status address",
+                "summer_winter": "Summer/Winter address",
+                "window_switch": "Window switch address",
+                "valve_heating": "Heating valve status address",
+                "valve_cooling": "Cooling valve status address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
