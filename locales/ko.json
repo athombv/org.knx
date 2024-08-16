@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "KNX IP 설정 - KNX IP 인터페이스 선택 또는 추가",
+      "body": "사용할 KNX IP 인터페이스의 IP 주소를 입력하세요. IP 인터페이스 검색 버튼을 눌러 검색하세요.",
+      "singleip": "IP 인터페이스 설정",
+      "interfaceaddress": "IPv4 주소 입력",
+      "searchbutton": "인터페이스 검색",
+      "scanbutton": "네트워크에서 IP 인터페이스 재검색",
+      "manual_interface": "수동 설정",
+      "manual_interface_input": "주소 수동 입력"
+    },
+    "learnmode": {
+      "title": "학습 모드 시작",
+      "explanation": "KNX 버튼을 Homey의 가상 버튼에 페어링하세요.",
+      "testbutton": "그룹 주소 테스트",
+      "no_result": "검색된 장치가 없습니다."
+    },
+    "projectfile": {
+      "title": "ETS 프로젝트 업로드",
+      "body": "KNX 그룹 주소를 추출하려면 ETS 구성 파일 (*.knxproj)을 업로드하세요.",
+      "newxml": {
+        "title": "새 ETS 구성",
+        "explanation": "가능하다면, 당신은 "
+      },
+      "existingxml": {
+        "title": "ETS 내보내기가 이미 존재합니다. 그러나 당신은 "
+      },
+      "upload": "ETS 프로젝트 업로드"
+    },
+    "groupaddresses": {
+      "generic": "그룹 주소",
+      "pairing_list": ", 그룹 주소: ",
+      "body": "새 장치에 사용할 그룹 주소를 선택하세요",
+      "generic_status": "상태",
+      "save": "장치 저장",
+      "duplicate_groupaddress": " 이 그룹 주소는 이미 사용 중입니다 ",
+      "switch": {
+        "toggle": "스위치 주소",
+        "status": "상태 주소"
+      },
+      "dimmer": {
+        "value": "조광 주소",
+        "status": "상태 주소"
+      },
+      "thermostat": {
+        "target": "목표 온도 주소",
+        "measure": "온도 측정 주소"
+      },
+      "rgb": {
+        "red_toggle_action": "빨간색 채널 토글 주소",
+        "red_toggle_status": "빨간색 채널 상태 주소",
+        "red_dim_value": "빨간색 채널 조광 주소",
+        "red_dim_status": "빨간색 채널 상태 주소 조광",
+        "green_toggle_action": "녹색 채널 토글 주소",
+        "green_toggle_status": "녹색 채널 상태 주소",
+        "green_dim_value": "녹색 채널 조광 주소",
+        "green_dim_status": "녹색 채널 상태 주소 조광",
+        "blue_toggle_action": "파란색 채널 토글 주소",
+        "blue_toggle_status": "파란색 채널 상태 주소",
+        "blue_dim_value": "파란색 채널 조광 주소",
+        "blue_dim_status": "파란색 채널 상태 주소 조광"
+      },
+      "windowcovering": {
+        "updown": "올리기/내리기 주소",
+        "stop": "정지 주소",
+        "tilt": "기울기 주소",
+        "tilt_status": "기울기 상태 주소"
+      },
+      "sensor": "센서 주소",
+      "scene": "장면 주소"
+    },
+    "scene_number": "장면 번호"
+  },
+  "errors": {
+    "generic_error": "오류가 발생했습니다: ",
+    "save_error": "장치를 저장할 수 없습니다.",
+    "settings_save": "설정을 저장할 수 없습니다, ",
+    "switch_failed": "장치 전환 실패!",
+    "dim_failed": "장치 조광 실패!",
+    "rgb_failed": "색상 설정 실패!",
+    "temperature_set_failed": "온도 설정 실패!",
+    "temperature_get_failed": "온도 가져오기 실패!",
+    "windowcovering_failed": "상태 변경 실패!",
+    "windowcovering_stop_failed": "창문 덮기 중지 실패!",
+    "invalid_group_address": "잘못된 그룹 주소.",
+    "invalid_scene_number": "잘못된 장면 번호.",
+    "ip": {
+      "invalid_ip": "잘못된 IP 또는 빈 입력.",
+      "interface_not_found": "선택한 IP 인터페이스를 찾을 수 없습니다.",
+      "interface_not_available": "선택한 IP 인터페이스를 사용할 수 없습니다.",
+      "interface_not_selected": "선택한 IP 인터페이스가 없습니다.",
+      "search_already_running": "이미 IP 인터페이스를 검색 중입니다.",
+      "no_valid_mac": "잘못된 MAC 주소입니다.",
+      "no_matching_interface": "이 MAC 주소와 일치하는 IP 인터페이스가 없습니다."
+    },
+    "projectfile": {
+      "no_valid_xml": "프로젝트 파일에서 유효한 그룹 주소 XML을 찾을 수 없습니다. 다른 프로젝트를 업로드하세요.",
+      "invalid_ga_structure": "프로젝트 파일의 잘못된 그룹 주소 구조",
+      "no_ga_found": "그룹 주소가 발견되지 않았습니다. 빈 프로젝트를 업로드했을 수 있습니다."
+    }
+  }
+}

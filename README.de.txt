@@ -1,0 +1,1 @@
+Erweitere die Möglichkeiten deines bestehenden KNX-Netzwerks mit allen Geräten, die du zu Homey hinzugefügt hast. Jetzt kannst du drahtlose Lichter über KNX steuern oder KNX-Geräte über einen drahtlosen Sensor bedienen.

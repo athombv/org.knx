@@ -1,17 +1,37 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.knx",
-  "version": "1.2.6",
+  "version": "1.3.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
   "name": {
     "en": "KNX",
-    "nl": "KNX"
+    "nl": "KNX",
+    "da": "KNX",
+    "de": "KNX",
+    "es": "KNX",
+    "fr": "KNX",
+    "it": "KNX",
+    "no": "KNX",
+    "sv": "KNX",
+    "pl": "KNX",
+    "ru": "KNX",
+    "ko": "KNX"
   },
   "description": {
     "en": "Living made smart",
-    "nl": "Living made smart"
+    "nl": "Living made smart",
+    "da": "Livet gjort smart",
+    "de": "Leben clever gemacht",
+    "es": "La vida hecha inteligente",
+    "fr": "La vie rendue intelligente",
+    "it": "Vivere in modo intelligente",
+    "no": "Livet gjort smart",
+    "sv": "Livet gjort smart",
+    "pl": "Życie uczynione inteligentnym",
+    "ru": "Умная жизнь",
+    "ko": "생활을 스마트하게"
   },
   "category": [
     "appliances"
@@ -28,13 +48,265 @@
     "name": "Athom B.V.",
     "email": "support@homey.app"
   },
-  "support": "https://support.athom.com/hc/en-us/requests/new",
+  "support": "https://github.com/athombv/org.knx/issues",
+  "source": "https://github.com/athombv/org.knx",
   "flow": {
     "triggers": [
       {
         "title": {
+          "en": "Received new value on group address",
+          "nl": "Een nieuwe waarde ontvangen op groepsadres",
+          "da": "Modtaget ny værdi på gruppeadresse",
+          "de": "Neuen Wert auf Gruppenadresse empfangen",
+          "es": "Recibido nuevo valor en dirección de grupo",
+          "fr": "Nouvelle valeur reçue sur l'adresse de groupe",
+          "it": "Valore ricevuto sul gruppo di indirizzi",
+          "no": "Mottatt ny verdi på gruppeadresse",
+          "sv": "Mottagit nytt värde på gruppadress",
+          "pl": "Otrzymano nową wartość na adresie grupowym",
+          "ru": "Получено новое значение по групповому адресу",
+          "ko": "그룹 주소에서 새 값 수신"
+        },
+        "titleFormatted": {
+          "en": "A [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
+          "nl": "Een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]",
+          "da": "En [[data_type]] værdi er offentliggjort på gruppeadresse [[group_address]] på interface [[interface]]",
+          "de": "Ein [[data_type]] Wert wird bei Gruppenadresse [[group_address]] auf Schnittstelle [[interface]] veröffentlicht",
+          "es": "Un valor [[data_type]] se publica en la dirección de grupo [[group_address]] en la interfaz [[interface]]",
+          "fr": "Une valeur [[data_type]] est publiée sur l'adresse de groupe [[group_address]] sur l'interface [[interface]]",
+          "it": "Un valore [[data_type]] viene pubblicato sull'indirizzo di gruppo [[group_address]] sull'interfaccia [[interface]]",
+          "no": "En [[data_type]] verdi publiseres på gruppeadresse [[group_address]] på grensesnitt [[interface]]",
+          "sv": "Ett [[data_type]] värde publiceras på gruppadressen [[group_address]] på gränssnittet [[interface]]",
+          "pl": "Wartość [[data_type]] jest publikowana na adresie grupowym [[group_address]] na interfejsie [[interface]]",
+          "ru": "Значение [[data_type]] публикуется на групповом адресе [[group_address]] на интерфейсе [[interface]]",
+          "ko": "[[data_type]] 값이 인터페이스 [[interface]]의 그룹 주소 [[group_address]]에 게시되었습니다"
+        },
+        "hint": {
+          "en": "Listen for an event from the KNX Bus on a specific group address",
+          "nl": "Luister naar een gebeurtenis van de KNX Bus op een specifiek groepsadres",
+          "da": "Lyt efter en hændelse fra KNX-bussen på en specifik gruppeadresse",
+          "de": "Hören Sie auf ein Ereignis des KNX-Busses an einer bestimmten Gruppenadresse",
+          "es": "Escucha un evento del Bus KNX en una dirección de grupo específica",
+          "fr": "Écoutez un événement du Bus KNX sur une adresse de groupe spécifique",
+          "it": "Ascolta un evento dal Bus KNX su un indirizzo di gruppo specifico",
+          "no": "Lytt etter en hendelse fra KNX-bussen på en spesifikk gruppeadresse",
+          "sv": "Lyssna efter en händelse från KNX-bussen på en specifik gruppadress",
+          "pl": "Nasłuchuj zdarzenia z magistrali KNX na określonym adresie grupowym",
+          "ru": "Слушайте событие с шины KNX на определенном групповом адресе",
+          "ko": "특정 그룹 주소에서 KNX 버스의 이벤트 수신"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "interface",
+            "title": {
+              "en": "Interface",
+              "nl": "Interface",
+              "da": "Grænseflade",
+              "de": "Schnittstelle",
+              "es": "Interfaz",
+              "fr": "Interface",
+              "it": "Interfaccia",
+              "no": "Grensesnitt",
+              "sv": "Gränssnitt",
+              "pl": "Interfejs",
+              "ru": "Интерфейс",
+              "ko": "인터페이스"
+            },
+            "placeholder": {
+              "en": "[any]",
+              "nl": "[elke]",
+              "da": "[enhver]",
+              "de": "[jede]",
+              "es": "[cualquiera]",
+              "fr": "[tous]",
+              "it": "[qualsiasi]",
+              "no": "[enhver]",
+              "sv": "[alla]",
+              "pl": "[dowolny]",
+              "ru": "[любой]",
+              "ko": "[어느 것이든]"
+            }
+          },
+          {
+            "type": "text",
+            "name": "group_address",
+            "title": {
+              "en": "Group Address",
+              "nl": "Groepsadres",
+              "da": "Gruppeadresse",
+              "de": "Gruppenadresse",
+              "es": "Dirección de grupo",
+              "fr": "Adresse de groupe",
+              "it": "Indirizzo di gruppo",
+              "no": "Gruppeadresse",
+              "sv": "Gruppadress",
+              "pl": "Adres grupowy",
+              "ru": "Групповой адрес",
+              "ko": "그룹 주소"
+            },
+            "placeholder": {
+              "en": "1/0/0",
+              "nl": "1/0/0",
+              "da": "1/0/0",
+              "de": "1/0/0",
+              "es": "1/0/0",
+              "fr": "1/0/0",
+              "it": "1/0/0",
+              "no": "1/0/0",
+              "sv": "1/0/0",
+              "pl": "1/0/0",
+              "ru": "1/0/0",
+              "ko": "1/0/0"
+            }
+          },
+          {
+            "name": "data_type",
+            "title": {
+              "en": "Data Type",
+              "nl": "Gegevenstype",
+              "da": "Datatype",
+              "de": "Datentyp",
+              "es": "Tipo de datos",
+              "fr": "Type de données",
+              "it": "Tipo di dato",
+              "no": "Datatype",
+              "sv": "Datatyp",
+              "pl": "Typ danych",
+              "ru": "Тип данных",
+              "ko": "데이터 유형"
+            },
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "5.001",
+              "nl": "5.001",
+              "da": "5.001",
+              "de": "5.001",
+              "es": "5.001",
+              "fr": "5.001",
+              "it": "5.001",
+              "no": "5.001",
+              "sv": "5.001",
+              "pl": "5.001",
+              "ru": "5.001",
+              "ko": "5.001"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "type": "number",
+            "name": "value_number",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "da": "Værdi",
+              "de": "Wert",
+              "es": "Valor",
+              "fr": "Valeur",
+              "it": "Valore",
+              "no": "Verdi",
+              "sv": "Värde",
+              "pl": "Wartość",
+              "ru": "Значение",
+              "ko": "값"
+            },
+            "example": {
+              "en": "The value received",
+              "nl": "De ontvangen waarde",
+              "da": "Den modtagne værdi",
+              "de": "Der erhaltene Wert",
+              "es": "El valor recibido",
+              "fr": "La valeur reçue",
+              "it": "Il valore ricevuto",
+              "no": "Verdien mottatt",
+              "sv": "Värdet mottaget",
+              "pl": "Otrzymana wartość",
+              "ru": "Полученное значение",
+              "ko": "수신된 값"
+            }
+          },
+          {
+            "type": "boolean",
+            "name": "value_bool",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "da": "Værdi",
+              "de": "Wert",
+              "es": "Valor",
+              "fr": "Valeur",
+              "it": "Valore",
+              "no": "Verdi",
+              "sv": "Värde",
+              "pl": "Wartość",
+              "ru": "Значение",
+              "ko": "값"
+            },
+            "example": {
+              "en": "The value received as a boolean",
+              "nl": "De ontvangen waarde als een boolean",
+              "da": "Den modtagne værdi som en boolesk",
+              "de": "Der empfangene Wert als ein boolean",
+              "es": "El valor recibido como booleano",
+              "fr": "La valeur reçue en tant que booléen",
+              "it": "Il valore ricevuto come booleano",
+              "no": "Verdien mottatt som en boolean",
+              "sv": "Värdet mottaget som en boolesk",
+              "pl": "Otrzymana wartość jako boolean",
+              "ru": "Полученное значение как boolean",
+              "ko": "부울로 수신된 값"
+            }
+          },
+          {
+            "type": "string",
+            "name": "value_string",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "da": "Værdi",
+              "de": "Wert",
+              "es": "Valor",
+              "fr": "Valeur",
+              "it": "Valore",
+              "no": "Verdi",
+              "sv": "Värde",
+              "pl": "Wartość",
+              "ru": "Значение",
+              "ko": "값"
+            },
+            "example": {
+              "en": "The value received as a string",
+              "nl": "De ontvangen waarde als een string",
+              "da": "Den modtagne værdi som en streng",
+              "de": "Der empfangene Wert als ein String",
+              "es": "El valor recibido como cadena",
+              "fr": "La valeur reçue en tant que chaîne",
+              "it": "Il valore ricevuto come stringa",
+              "no": "Verdien mottatt som en streng",
+              "sv": "Värdet mottaget som en sträng",
+              "pl": "Otrzymana wartość jako ciąg",
+              "ru": "Полученное значение как строка",
+              "ko": "문자열로 수신된 값"
+            }
+          }
+        ],
+        "id": "knx_receive"
+      },
+      {
+        "title": {
           "en": "Trigger by a KNX scene",
-          "nl": "Wordt getriggerd door een KNX scene"
+          "nl": "Wordt getriggerd door een KNX scene",
+          "da": "Udløst af en KNX-scene",
+          "de": "Durch eine KNX-Szene ausgelöst",
+          "es": "Activado por una escena KNX",
+          "fr": "Déclenché par une scène KNX",
+          "it": "Attivato da una scena KNX",
+          "no": "Utløst av en KNX-scene",
+          "sv": "Utlöst av en KNX-scen",
+          "pl": "Wyzwolone przez scenę KNX",
+          "ru": "Сцена KNX активирована",
+          "ko": "KNX 장면으로 트리거"
         },
         "args": [
           {
@@ -44,13 +316,382 @@
           }
         ],
         "id": "trigger_from_scene"
+      },
+      {
+        "id": "changed",
+        "title": {
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet",
+          "da": "Tændt eller slukket",
+          "de": "Ein- oder ausgeschaltet",
+          "es": "Encendido o apagado",
+          "fr": "Allumé ou éteint",
+          "it": "Acceso o spento",
+          "no": "Slått på eller av",
+          "sv": "Slås på eller av",
+          "pl": "Włączone lub wyłączone",
+          "ru": "Включено или выключено",
+          "ko": "켜짐 또는 꺼짐"
+        },
+        "titleFormatted": {
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet",
+          "da": "Tændt eller slukket",
+          "de": "Ein- oder ausgeschaltet",
+          "es": "Encendido o apagado",
+          "fr": "Allumé ou éteint",
+          "it": "Acceso o spento",
+          "no": "Slått på eller av",
+          "sv": "Slås på eller av",
+          "pl": "Włączone lub wyłączone",
+          "ru": "Включено или выключено",
+          "ko": "켜짐 또는 꺼짐"
+        },
+        "hint": {
+          "en": "When the switch is changed from on/off to off/on",
+          "nl": "Wanneer de schakelaar van aan/uit naar uit/aan wordt gezet",
+          "da": "Når kontakten ændres fra tændt/slukket til slukket/tændt",
+          "de": "Wenn der Schalter von Ein/Aus auf Aus/Ein umgestellt wird",
+          "es": "Cuando el interruptor se cambia de encendido/apagado a apagado/encendido",
+          "fr": "Lorsque l'interrupteur passe de allumé/éteint à éteint/allumé",
+          "it": "Quando l'interruttore passa da acceso/spento a spento/acceso",
+          "no": "Når bryteren endres fra på/av til av/på",
+          "sv": "När brytaren ändras från på/av till av/på",
+          "pl": "Gdy przełącznik zmieni się z włączone/wyłączone na wyłączone/włączone",
+          "ru": "Когда переключатель изменяется с включено/выключено на выключено/включено",
+          "ko": "스위치가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태"
+            },
+            "example": {
+              "en": "The current status of the switch",
+              "nl": "De huidige status van de schakelaar",
+              "da": "Afbryderens aktuelle status",
+              "de": "Der aktuelle Status des Schalters",
+              "es": "El estado actual del interruptor",
+              "fr": "L'état actuel de l'interrupteur",
+              "it": "Lo stato attuale dell'interruttore",
+              "no": "Gjeldende status for bryteren",
+              "sv": "Aktuell status för brytaren",
+              "pl": "Aktualny stan przełącznika",
+              "ru": "Текущий статус переключателя",
+              "ko": "현재 스위치 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_switch"
+          }
+        ]
       }
     ],
     "actions": [
       {
         "title": {
+          "en": "Send a Read Telegram",
+          "nl": "Verstuur een Lees Telegram",
+          "da": "Send en Læs Telegram",
+          "de": "Sende eine Lese-Telegramm",
+          "es": "Enviar un Telegrama de Lectura",
+          "fr": "Envoyer une Télécopie de Lecture",
+          "it": "Invia un Telegramma di Lettura",
+          "no": "Send en Les Telegram",
+          "sv": "Skicka en Läs Telegram",
+          "pl": "Wyślij Telegram Czytania",
+          "ru": "Отправить Читаемое Telegram",
+          "ko": "읽기 전보 보내기"
+        },
+        "titleFormatted": {
+          "en": "Send a read request on group address [[group_address]] via [[interface]] interface",
+          "nl": "Verstuur een leesverzoek op groepsadres [[group_address]] via [[interface]] interface",
+          "da": "Send en læseanmodning på gruppens adresse [[group_address]] via [[interface]] interface",
+          "de": "Sende eine Leseanfrage an Gruppenadresse [[group_address]] über [[interface]] Schnittstelle",
+          "es": "Enviar una solicitud de lectura en dirección de grupo [[group_address]] a través de la interfaz [[interface]]",
+          "fr": "Envoyer une demande de lecture sur l'adresse de groupe [[group_address]] via l'interface [[interface]]",
+          "it": "Invia una richiesta di lettura su indirizzo di gruppo [[group_address]] tramite l'interfaccia [[interface]]",
+          "no": "Send en leseforespørsel på gruppeadresse [[group_address]] via [[interface]] grensesnitt",
+          "sv": "Skicka en läsförfrågan på gruppadress [[group_address]] via [[interface]] gränssnitt",
+          "pl": "Wyślij żądanie odczytu na adres grupowy [[group_address]] za pośrednictwem interfejsu [[interface]]",
+          "ru": "Отправить запрос на чтение по групповому адресу [[group_address]] через интерфейс [[interface]]",
+          "ko": "[[interface]] 인터페이스를 통해 그룹 주소 [[group_address]]에서 읽기 요청 보내기"
+        },
+        "hint": {
+          "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address.",
+          "nl": "Vraagt de KNX-bus om een verzending te activeren. Dit is handig om de huidige waarde van een groepsadres op te halen.",
+          "da": "Beder KNX-bussen om at udløse en sending. Dette er nyttigt for at få den aktuelle værdi af en gruppeadresse.",
+          "de": "Fordert den KNX-Bus auf, einen Versand auszulösen. Dies ist nützlich, um den aktuellen Wert einer Gruppenadresse zu erhalten.",
+          "es": "Pide al bus KNX que active un envío. Esto es útil para obtener el valor actual de una dirección de grupo.",
+          "fr": "Demande au bus KNX de déclencher un envoi. Ceci est utile pour obtenir la valeur actuelle d'une adresse de groupe.",
+          "it": "Chiede al bus KNX di attivare un'invio. Questo è utile per ottenere il valore corrente di un indirizzo di gruppo.",
+          "no": "Ber KNX-bussen om å utløse en sending. Dette er nyttig for å få den nåværende verdien av en gruppeadresse.",
+          "sv": "Ber KNX-bussen att utlösa en skickning. Detta är användbart för att få det aktuella värdet på en gruppadress.",
+          "pl": "Prosi magistralę KNX o wyzwolenie wysyłki. Jest to przydatne do uzyskania aktualnej wartości adresu grupowego.",
+          "ru": "Просит шину KNX инициировать отправку. Это полезно для получения текущего значения группового адреса.",
+          "ko": "KNX 버스에 전송 트리거를 요청합니다. 이는 그룹 주소의 현재 값을 얻는 데 유용합니다."
+        },
+        "args": [
+          {
+            "title": {
+              "en": "Interface",
+              "nl": "Interface",
+              "da": "Interface",
+              "de": "Schnittstelle",
+              "es": "Interfaz",
+              "fr": "Interface",
+              "it": "Interfaccia",
+              "no": "Grensesnitt",
+              "sv": "Gränssnitt",
+              "pl": "Interfejs",
+              "ru": "Интерфейс",
+              "ko": "인터페이스"
+            },
+            "type": "autocomplete",
+            "name": "interface",
+            "placeholder": {
+              "en": "[any]",
+              "nl": "[elke]",
+              "da": "[alle]",
+              "de": "[beliebig]",
+              "es": "[cualquiera]",
+              "fr": "[n'importe lequel]",
+              "it": "[qualsiasi]",
+              "no": "[noen]",
+              "sv": "[någon]",
+              "pl": "[dowolny]",
+              "ru": "[любой]",
+              "ko": "[어떤]"
+            }
+          },
+          {
+            "title": {
+              "en": "Group Address",
+              "nl": "Groepsadres",
+              "da": "Gruppeadresse",
+              "de": "Gruppenadresse",
+              "es": "Dirección de Grupo",
+              "fr": "Adresse de Groupe",
+              "it": "Indirizzo di Gruppo",
+              "no": "Gruppeadresse",
+              "sv": "Gruppadress",
+              "pl": "Adres Grupy",
+              "ru": "Групповой Адрес",
+              "ko": "그룹 주소"
+            },
+            "type": "text",
+            "name": "group_address",
+            "placeholder": {
+              "en": "Group Address",
+              "nl": "Groepsadres",
+              "da": "Gruppeadresse",
+              "de": "Gruppenadresse",
+              "es": "Dirección de Grupo",
+              "fr": "Adresse de Groupe",
+              "it": "Indirizzo di Gruppo",
+              "no": "Gruppeadresse",
+              "sv": "Gruppadress",
+              "pl": "Adres Grupy",
+              "ru": "Групповой Адрес",
+              "ko": "그룹 주소"
+            }
+          }
+        ],
+        "id": "knx_read"
+      },
+      {
+        "title": {
+          "en": "Send Telegram",
+          "nl": "Telegram verzenden",
+          "da": "Send Telegram",
+          "de": "Telegram senden",
+          "es": "Enviar Telegrama",
+          "fr": "Envoyer un télégramme",
+          "it": "Invia Telegramma",
+          "no": "Send Telegram",
+          "sv": "Skicka Telegram",
+          "pl": "Wyślij Telegram",
+          "ru": "Отправить телеграмму",
+          "ko": "텔레그램 보내기"
+        },
+        "titleFormatted": {
+          "en": "Send a [[data_type]] [[value]] on group address [[group_address]] via [[interface]] interface",
+          "nl": "Verstuur een [[data_type]] [[value]] naar groepsadres [[group_address]] via [[interface]] interface",
+          "da": "Send en [[data_type]] [[value]] på gruppeadresse [[group_address]] via [[interface]] interface",
+          "de": "Sende ein [[data_type]] [[value]] an Gruppenadresse [[group_address]] über [[interface]] Schnittstelle",
+          "es": "Enviar un [[data_type]] [[value]] a la dirección de grupo [[group_address]] a través de la interfaz [[interface]]",
+          "fr": "Envoyer un [[data_type]] [[value]] à l'adresse de groupe [[group_address]] via l'interface [[interface]]",
+          "it": "Inviare un [[data_type]] [[value]] all'indirizzo di gruppo [[group_address]] tramite l'interfaccia [[interface]]",
+          "no": "Send en [[data_type]] [[value]] på gruppeadresse [[group_address]] via [[interface]] grensesnitt",
+          "sv": "Skicka en [[data_type]] [[value]] på gruppadressen [[group_address]] via [[interface]] gränssnitt",
+          "pl": "Wyślij [[data_type]] [[value]] na adres grupowy [[group_address]] przez interfejs [[interface]]",
+          "ru": "Отправить [[data_type]] [[value]] на групповой адрес [[group_address]] через интерфейс [[interface]]",
+          "ko": "[[interface]] 인터페이스를 통해 그룹 주소 [[group_address]]에 [[data_type]] [[value]]를 보내기"
+        },
+        "hint": {
+          "en": "Sends a telegram to the KNX bus, be smart and make sure you expect the right value type, they will default to sensible values",
+          "nl": "Verstuurt een telegram naar de KNX-bus, wees slim en zorg ervoor dat je de juiste waarde type verwacht, ze worden standaard ingesteld op zinvolle waarden",
+          "da": "Sender en telegram til KNX-bussen, vær smart og sørg for at du forventer den rette værdi type, de bliver sat til fornuftige værdier som standard",
+          "de": "Sendet ein Telegramm an den KNX-Bus, sei schlau und stelle sicher, dass du den richtigen Wertetyp erwartest, sie werden standardmäßig auf sinnvolle Werte gesetzt",
+          "es": "Envía un telegrama al bus KNX, sea inteligente y asegúrese de esperar el tipo de valor correcto, se configurarán por defecto a valores sensatos",
+          "fr": "Envoie un télégramme au bus KNX, soyez intelligent et assurez-vous d'attendre le bon type de valeur, ils seront par défaut les valeurs sensées",
+          "it": "Invia un telegramma al bus KNX, sii intelligente e assicurati di aspettarti il tipo di valore corretto, verranno impostati di default su valori sensati",
+          "no": "Sender et telegram til KNX-bussen, vær smart og sørg for at du forventer riktig verdi type, de blir satt til fornuftige verdier som standard",
+          "sv": "Skickar ett telegram till KNX-bussen, var smart och se till att du förväntar dig rätt värdetyp, de kommer som standard att ställas in på rimliga värden",
+          "pl": "Wysyła telegram na szynę KNX, bądź mądry i upewnij się, że oczekujesz odpowiedniego typu wartości, domyślnie będą ustawione na rozsądne wartości",
+          "ru": "Отправляет телеграмму в шину KNX, будьте умны и убедитесь, что вы ожидаете правильный тип значения, по умолчанию они будут установлены на разумные значения",
+          "ko": "KNX 버스에 텔레그램을 보내며, 올바른 값 유형을 기대할 수 있도록 현명하게 설정하세요. 기본적으로 합리적인 값으로 설정됩니다."
+        },
+        "args": [
+          {
+            "title": {
+              "en": "Interface",
+              "nl": "Interface",
+              "da": "Interface",
+              "de": "Schnittstelle",
+              "es": "Interfaz",
+              "fr": "Interface",
+              "it": "Interfaccia",
+              "no": "Grensesnitt",
+              "sv": "Gränssnitt",
+              "pl": "Interfejs",
+              "ru": "Интерфейс",
+              "ko": "인터페이스"
+            },
+            "type": "autocomplete",
+            "name": "interface",
+            "placeholder": {
+              "en": "[any]",
+              "nl": "[elke]",
+              "da": "[enhver]",
+              "de": "[jeder]",
+              "es": "[cualquiera]",
+              "fr": "[n'importe quel]",
+              "it": "[qualsiasi]",
+              "no": "[hvilken som helst]",
+              "sv": "[vilken som helst]",
+              "pl": "[każdy]",
+              "ru": "[любой]",
+              "ko": "[어느 것이나]"
+            }
+          },
+          {
+            "title": {
+              "en": "Group Address",
+              "nl": "Groepsadres",
+              "da": "Gruppe Adresse",
+              "de": "Gruppenadresse",
+              "es": "Dirección de Grupo",
+              "fr": "Adresse de Groupe",
+              "it": "Indirizzo di Gruppo",
+              "no": "Gruppeadresse",
+              "sv": "Gruppadress",
+              "pl": "Adres Grupy",
+              "ru": "Групповой адрес",
+              "ko": "그룹 주소"
+            },
+            "type": "text",
+            "name": "group_address",
+            "placeholder": {
+              "en": "Group Address",
+              "nl": "Groepsadres",
+              "da": "Gruppe Adresse",
+              "de": "Gruppenadresse",
+              "es": "Dirección de Grupo",
+              "fr": "Adresse de Groupe",
+              "it": "Indirizzo di Gruppo",
+              "no": "Gruppeadresse",
+              "sv": "Gruppadress",
+              "pl": "Adres Grupy",
+              "ru": "Групповой адрес",
+              "ko": "그룹 주소"
+            }
+          },
+          {
+            "name": "data_type",
+            "title": {
+              "en": "Data Type",
+              "nl": "Gegevenstype",
+              "da": "Datatype",
+              "de": "Datentyp",
+              "es": "Tipo de Dato",
+              "fr": "Type de Donnée",
+              "it": "Tipo di Dato",
+              "no": "Datatype",
+              "sv": "Datatyp",
+              "pl": "Typ Danych",
+              "ru": "Тип данных",
+              "ko": "데이터 유형"
+            },
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "5.001",
+              "nl": "5.001",
+              "da": "5.001",
+              "de": "5.001",
+              "es": "5.001",
+              "fr": "5.001",
+              "it": "5.001",
+              "no": "5.001",
+              "sv": "5.001",
+              "pl": "5.001",
+              "ru": "5.001",
+              "ko": "5.001"
+            }
+          },
+          {
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "da": "Værdi",
+              "de": "Wert",
+              "es": "Valor",
+              "fr": "Valeur",
+              "it": "Valore",
+              "no": "Verdi",
+              "sv": "Värde",
+              "pl": "Wartość",
+              "ru": "Значение",
+              "ko": "값"
+            },
+            "type": "text",
+            "name": "value",
+            "required": true
+          }
+        ],
+        "id": "knx_send"
+      },
+      {
+        "title": {
           "en": "Trigger scene",
-          "nl": "Start scene"
+          "nl": "Start scene",
+          "da": "Udløs scene",
+          "de": "Szene auslösen",
+          "es": "Activar escena",
+          "fr": "Déclencher scène",
+          "it": "Attivare scena",
+          "no": "Utløse scene",
+          "sv": "Utlös scen",
+          "pl": "Uruchom scenę",
+          "ru": "Запуск сцены",
+          "ko": "장면 트리거"
         },
         "args": [
           {
@@ -102,7 +743,17 @@
       "id": "knx_dimcontrol",
       "name": {
         "en": "Dimmer relative",
-        "nl": "Dimmer relatief"
+        "nl": "Dimmer relatief",
+        "da": "Dæmper relativ",
+        "de": "Dimmer relativ",
+        "es": "Regulador relativo",
+        "fr": "Variateur relatif",
+        "it": "Dimmer relativo",
+        "no": "Demper relativ",
+        "sv": "Dimmer relativ",
+        "pl": "Ściemniacz względny",
+        "ru": "Относительный диммер",
+        "ko": "상대 디머"
       },
       "class": "light",
       "capabilities": [
@@ -115,7 +766,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppeadresse",
+            "sv": "KNX gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -123,12 +784,32 @@
               "type": "text",
               "label": {
                 "en": "Switch address",
-                "nl": "Schakel adres"
+                "nl": "Schakel adres",
+                "da": "Skifte adresse",
+                "de": "Schalteradresse",
+                "es": "Dirección de interruptor",
+                "fr": "Adresse de l'interrupteur",
+                "it": "Indirizzo dell'interruttore",
+                "no": "Bytte adresse",
+                "sv": "Byt adress",
+                "pl": "Adres przełącznika",
+                "ru": "Адрес выключателя",
+                "ko": "스위치 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             },
             {
@@ -136,12 +817,32 @@
               "type": "text",
               "label": {
                 "en": "Status address",
-                "nl": "Status adres"
+                "nl": "Status adres",
+                "da": "Statusadresse",
+                "de": "Statusadresse",
+                "es": "Dirección de estado",
+                "fr": "Adresse d'état",
+                "it": "Indirizzo di stato",
+                "no": "Status adresse",
+                "sv": "Statusadress",
+                "pl": "Adres statusu",
+                "ru": "Адрес состояния",
+                "ko": "상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             },
             {
@@ -149,12 +850,32 @@
               "type": "text",
               "label": {
                 "en": "Dim address",
-                "nl": "Dim adres"
+                "nl": "Dim adres",
+                "da": "Dæmpningsadresse",
+                "de": "Dimmadresse",
+                "es": "Dirección de dimmer",
+                "fr": "Adresse de gradation",
+                "it": "Indirizzo del dimmer",
+                "no": "Dimme adresse",
+                "sv": "Dimmeradress",
+                "pl": "Adres ściemniacza",
+                "ru": "Адрес затемнения",
+                "ko": "디밍 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             }
           ]
@@ -163,7 +884,17 @@
           "type": "group",
           "label": {
             "en": "Dimmer settings",
-            "nl": "Dimmer instellingen"
+            "nl": "Dimmer instellingen",
+            "da": "Dæmperindstillinger",
+            "de": "Dimmer Einstellungen",
+            "es": "Configuración de dimmer",
+            "fr": "Paramètres du variateur",
+            "it": "Impostazioni del dimmer",
+            "no": "Dimmerinnstillinger",
+            "sv": "Dimmerinställningar",
+            "pl": "Ustawienia ściemniacza",
+            "ru": "Настройки диммера",
+            "ko": "디머 설정"
           },
           "children": [
             {
@@ -172,56 +903,136 @@
               "value": "3",
               "label": {
                 "en": "Dimmer stepsize",
-                "nl": "Dimmer stapgrote"
+                "nl": "Dimmer stapgrote",
+                "da": "Dæmpningsstørrelse",
+                "de": "Dimmer Schrittgröße",
+                "es": "Tamaño de paso de dimmer",
+                "fr": "Taille de pas du variateur",
+                "it": "Dimensione del passo del dimmer",
+                "no": "Dimmer trinnstørrelse",
+                "sv": "Dimmer steglängd",
+                "pl": "Rozmiar kroku ściemniacza",
+                "ru": "Размер шага диммера",
+                "ko": "디머 스텝 크기"
               },
               "values": [
                 {
                   "id": "7",
                   "label": {
                     "en": "1 percent",
-                    "nl": "1 procent"
+                    "nl": "1 procent",
+                    "da": "1 procent",
+                    "de": "1 Prozent",
+                    "es": "1 por ciento",
+                    "fr": "1 pour cent",
+                    "it": "1 percento",
+                    "no": "1 prosent",
+                    "sv": "1 procent",
+                    "pl": "1 procent",
+                    "ru": "1 процент",
+                    "ko": "1 퍼센트"
                   }
                 },
                 {
                   "id": "6",
                   "label": {
                     "en": "3 percent",
-                    "nl": "3 procent"
+                    "nl": "3 procent",
+                    "da": "3 procent",
+                    "de": "3 Prozent",
+                    "es": "3 por ciento",
+                    "fr": "3 pour cent",
+                    "it": "3 percento",
+                    "no": "3 prosent",
+                    "sv": "3 procent",
+                    "pl": "3 procent",
+                    "ru": "3 процента",
+                    "ko": "3 퍼센트"
                   }
                 },
                 {
                   "id": "5",
                   "label": {
                     "en": "6 percent",
-                    "nl": "6 procent"
+                    "nl": "6 procent",
+                    "da": "6 procent",
+                    "de": "6 Prozent",
+                    "es": "6 por ciento",
+                    "fr": "6 pour cent",
+                    "it": "6 percento",
+                    "no": "6 prosent",
+                    "sv": "6 procent",
+                    "pl": "6 procent",
+                    "ru": "6 процентов",
+                    "ko": "6 퍼센트"
                   }
                 },
                 {
                   "id": "4",
                   "label": {
                     "en": "12 percent",
-                    "nl": "12 procent"
+                    "nl": "12 procent",
+                    "da": "12 procent",
+                    "de": "12 Prozent",
+                    "es": "12 por ciento",
+                    "fr": "12 pour cent",
+                    "it": "12 percento",
+                    "no": "12 prosent",
+                    "sv": "12 procent",
+                    "pl": "12 procent",
+                    "ru": "12 процентов",
+                    "ko": "12 퍼센트"
                   }
                 },
                 {
                   "id": "3",
                   "label": {
                     "en": "25 percent",
-                    "nl": "25 procent"
+                    "nl": "25 procent",
+                    "da": "25 procent",
+                    "de": "25 Prozent",
+                    "es": "25 por ciento",
+                    "fr": "25 pour cent",
+                    "it": "25 percento",
+                    "no": "25 prosent",
+                    "sv": "25 procent",
+                    "pl": "25 procent",
+                    "ru": "25 процентов",
+                    "ko": "25 퍼센트"
                   }
                 },
                 {
                   "id": "2",
                   "label": {
                     "en": "50 percent",
-                    "nl": "50 procent"
+                    "nl": "50 procent",
+                    "da": "50 procent",
+                    "de": "50 Prozent",
+                    "es": "50 por ciento",
+                    "fr": "50 pour cent",
+                    "it": "50 percento",
+                    "no": "50 prosent",
+                    "sv": "50 procent",
+                    "pl": "50 procent",
+                    "ru": "50 процентов",
+                    "ko": "50 퍼센트"
                   }
                 },
                 {
                   "id": "1",
                   "label": {
                     "en": "100 percent / On-Off",
-                    "nl": "100 procent / Aan-Uit"
+                    "nl": "100 procent / Aan-Uit",
+                    "da": "100 procent / Tænd-Sluk",
+                    "de": "100 Prozent / An-Aus",
+                    "es": "100 por ciento / Encendido-Apagado",
+                    "fr": "100 pour cent / Marche-Arrêt",
+                    "it": "100 percento / Acceso-Spento",
+                    "no": "100 prosent / På-Av",
+                    "sv": "100 procent / På-Av",
+                    "pl": "100 procent / Włącz-Wyłącz",
+                    "ru": "100 процентов / Вкл-Выкл",
+                    "ko": "100 퍼센트 / 켜짐-꺼짐"
                   }
                 }
               ]
@@ -232,7 +1043,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -240,12 +1061,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC-adresse",
+                "de": "Schnittstellen-MAC-Adresse",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på den krævede KNX IP-grænseflade",
+                "de": "MAC-Adresse der benötigten KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu IP KNX",
+                "ru": "MAC-адрес необходимого KNX IP-интерфейса",
+                "ko": "요구된 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -253,12 +1094,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "Schnittstellen-IP-Adresse",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnitt IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på den krævede KNX IP-grænseflade",
+                "de": "IP-Adresse der benötigten KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu IP KNX",
+                "ru": "IP-адрес необходимого KNX IP-интерфейса",
+                "ko": "요구된 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -328,108 +1189,20 @@
           }
         }
       ],
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
-          },
-          "children": [
-            {
-              "id": "ga_switch",
-              "type": "text",
-              "label": {
-                "en": "Switch address",
-                "nl": "Schakel adres"
-              },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
-              }
-            },
-            {
-              "id": "ga_status",
-              "type": "text",
-              "label": {
-                "en": "Status address",
-                "nl": "Status adres"
-              },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
-              }
-            },
-            {
-              "id": "ga_dim",
-              "type": "text",
-              "label": {
-                "en": "Dim address",
-                "nl": "Dim adres"
-              },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
-              }
-            },
-            {
-              "id": "ga_dim_status",
-              "type": "text",
-              "label": {
-                "en": "Dim status address",
-                "nl": "Dim status adres"
-              },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Network settings",
-            "nl": "Netwerk instellingen"
-          },
-          "children": [
-            {
-              "id": "macAddress",
-              "type": "text",
-              "label": {
-                "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
-              },
-              "value": "",
-              "hint": {
-                "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
-              }
-            },
-            {
-              "id": "ipAddress",
-              "type": "text",
-              "label": {
-                "en": "Interface IP address",
-                "nl": "Interface IP adres"
-              },
-              "value": "",
-              "hint": {
-                "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
-              }
-            }
-          ]
-        }
-      ],
       "id": "knx_dimmer",
       "name": {
         "en": "Dimmer",
-        "nl": "Dimmer"
+        "nl": "Dimmer",
+        "da": "Dæmper",
+        "de": "Dimmer",
+        "es": "Regulador",
+        "fr": "Variateur",
+        "it": "Dimmer",
+        "no": "Dimmer",
+        "sv": "Dimmer",
+        "pl": "Ściemniacz",
+        "ru": "Диммер",
+        "ko": "디머"
       },
       "class": "light",
       "capabilities": [
@@ -440,7 +1213,245 @@
         "onoff": {
           "setOnDim": false
         }
-      }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "KNX groupaddress",
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX-gruppeadresse",
+            "sv": "KNX-gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
+          },
+          "children": [
+            {
+              "id": "ga_switch",
+              "type": "text",
+              "label": {
+                "en": "Switch address",
+                "nl": "Schakel adres",
+                "da": "Kontaktadresse",
+                "de": "Schalteradresse",
+                "es": "Dirección del interruptor",
+                "fr": "Adresse de l'interrupteur",
+                "it": "Indirizzo del commutatore",
+                "no": "Bryteradresse",
+                "sv": "Strömbrytaradress",
+                "pl": "Adres przełącznika",
+                "ru": "Адрес переключателя",
+                "ko": "스위치 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduzca la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_status",
+              "type": "text",
+              "label": {
+                "en": "Status address",
+                "nl": "Status adres",
+                "da": "Statusadresse",
+                "de": "Statusadresse",
+                "es": "Dirección de estado",
+                "fr": "Adresse de statut",
+                "it": "Indirizzo di stato",
+                "no": "Statusadresse",
+                "sv": "Statusadress",
+                "pl": "Adres statusu",
+                "ru": "Адрес статуса",
+                "ko": "상태 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduzca la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_dim",
+              "type": "text",
+              "label": {
+                "en": "Dim address",
+                "nl": "Dim adres",
+                "da": "Dæmpningsadresse",
+                "de": "Dimmenadresse",
+                "es": "Dirección del regulador",
+                "fr": "Adresse de variation",
+                "it": "Indirizzo di regolazione",
+                "no": "Dimmingsadresse",
+                "sv": "Dimmadress",
+                "pl": "Adres ściemniacza",
+                "ru": "Адрес регулятора света",
+                "ko": "디밍 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduzca la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_dim_status",
+              "type": "text",
+              "label": {
+                "en": "Dim status address",
+                "nl": "Dim status adres",
+                "da": "Dæmpningsstatusadresse",
+                "de": "Dimmen-Statusadresse",
+                "es": "Dirección de estado del regulador",
+                "fr": "Adresse de statut de variation",
+                "it": "Indirizzo di stato della regolazione",
+                "no": "Adresse for dimmingsstatus",
+                "sv": "Dimmningsstatusadress",
+                "pl": "Adres statusu ściemniacza",
+                "ru": "Адрес состояния регулятора света",
+                "ko": "디밍 상태 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduzca la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network settings",
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres",
+                "da": "Grænseflade-MAC-adresse",
+                "de": "Schnittstellen-MAC-Adresse",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnittets MAC-adresse",
+                "sv": "Gränssnittets MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse for den krævede KNX-IP-grænseflade",
+                "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adressen til den nødvendige KNX-IP-grensesnittet",
+                "sv": "MAC-adress för den nödvändiga KNX-IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres",
+                "da": "Grænseflade-IP-adresse",
+                "de": "Schnittstellen-IP-Adresse",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitets IP-adresse",
+                "sv": "Gränssnittets IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse for den krævede KNX-IP-grænseflade",
+                "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adressen til den nødvendige KNX-IP-grensesnittet",
+                "sv": "IP-adress för den nödvändiga KNX-IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "images": {
@@ -479,7 +1490,17 @@
       ],
       "name": {
         "en": "Electric Power Measuring Sensor",
-        "nl": "Elektrische vermogen sensor"
+        "nl": "Elektrische vermogen sensor",
+        "da": "Elektrisk strømmålesensor",
+        "de": "Elektrischer Leistungssensor",
+        "es": "Sensor de medición de potencia eléctrica",
+        "fr": "Capteur de mesure de puissance électrique",
+        "it": "Sensore di misurazione della potenza elettrica",
+        "no": "Elektrisk strømmålingssensor",
+        "sv": "Elektrisk effektmätningssensor",
+        "pl": "Czujnik pomiaru mocy elektrycznej",
+        "ru": "Датчик измерения электрической мощности",
+        "ko": "전력 측정 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -490,7 +1511,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppeadresse",
+            "sv": "KNX gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -498,12 +1529,32 @@
               "type": "text",
               "label": {
                 "en": "Measurement address",
-                "nl": "Meting adres"
+                "nl": "Meting adres",
+                "da": "Måleadresse",
+                "de": "Messadresse",
+                "es": "Dirección de medición",
+                "fr": "Adresse de mesure",
+                "it": "Indirizzo di misurazione",
+                "no": "Måleadresse",
+                "sv": "Mätadress",
+                "pl": "Adres pomiarowy",
+                "ru": "Адрес измерения",
+                "ko": "측정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie Gruppenadresse ein",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             }
           ]
@@ -512,7 +1563,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Сетевые настройки",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -520,12 +1581,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Grænseflade MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnittets MAC-adresse",
+                "sv": "Gränssnittets MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på den krævede KNX IP-grænseflade",
+                "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse til den påkrevde KNX IP-grensesnitt",
+                "sv": "MAC-adress för det krävs KNX IP-gränssnitt",
+                "pl": "Adres MAC wymagany dla interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -533,12 +1614,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Grænseflade IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnittets IP-adresse",
+                "sv": "Gränssnittets IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på den krævede KNX IP-grænseflade",
+                "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adressen til det påkrevde KNX IP-grensesnitt",
+                "sv": "IP-adress för det krävs KNX IP-gränssnitt",
+                "pl": "Adres IP wymagany dla interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -584,7 +1685,17 @@
       "id": "knx_light",
       "name": {
         "en": "Light",
-        "nl": "Lamp"
+        "nl": "Lamp",
+        "da": "Lys",
+        "de": "Licht",
+        "es": "Luz",
+        "fr": "Lumière",
+        "it": "Luce",
+        "no": "Lys",
+        "sv": "Ljus",
+        "pl": "Światło",
+        "ru": "Свет",
+        "ko": "조명"
       },
       "class": "light",
       "capabilities": [
@@ -595,7 +1706,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX-gruppeadresse",
+            "sv": "KNX-gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -603,12 +1724,32 @@
               "type": "text",
               "label": {
                 "en": "Switch address",
-                "nl": "Schakel adres"
+                "nl": "Schakel adres",
+                "da": "Skifte adresse",
+                "de": "Schaltadresse",
+                "es": "Dirección del interruptor",
+                "fr": "Adresse de l'interrupteur",
+                "it": "Indirizzo interruttore",
+                "no": "Bytt adresse",
+                "sv": "Växeladress",
+                "pl": "Adres przełącznika",
+                "ru": "Адрес переключателя",
+                "ko": "스위치 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Ingrese dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeatresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             },
             {
@@ -616,12 +1757,32 @@
               "type": "text",
               "label": {
                 "en": "Status address",
-                "nl": "Status adres"
+                "nl": "Status adres",
+                "da": "Statusadresse",
+                "de": "Statusadresse",
+                "es": "Dirección de estado",
+                "fr": "Adresse de statut",
+                "it": "Indirizzo di stato",
+                "no": "Statusadresse",
+                "sv": "Statusadress",
+                "pl": "Adres stanu",
+                "ru": "Адрес состояния",
+                "ko": "상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Ingrese dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeatresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             }
           ]
@@ -630,7 +1791,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieciowe",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -638,12 +1809,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "MAC-adresse for grensesnitt",
+                "sv": "Gränssnittets MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse for den nødvendige KNX IP-interface",
+                "de": "MAC-Adresse der benötigten KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz KNX IP requerida",
+                "fr": "Adresse MAC de l'interface KNX IP requise",
+                "it": "Indirizzo MAC dell'interfaccia KNX IP richiesta",
+                "no": "MAC-adresse for den nødvendige KNX IP-grensesnitt",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -651,12 +1842,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "IP-adresse for grensesnitt",
+                "sv": "Gränssnittets IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adressen på det nødvendige KNX IP-interface",
+                "de": "IP-Adresse der benötigten KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz KNX IP requerida",
+                "fr": "Adresse IP de l'interface KNX IP requise",
+                "it": "Indirizzo IP dell'interfaccia KNX IP richiesta",
+                "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -701,7 +1912,17 @@
       "id": "knx_luminance_sensor",
       "name": {
         "en": "Luminance Sensor",
-        "nl": "Licht intensiteit sensor"
+        "nl": "Licht intensiteit sensor",
+        "da": "Luminansesensor",
+        "de": "Helligkeitssensor",
+        "es": "Sensor de luminancia",
+        "fr": "Capteur de luminance",
+        "it": "Sensore di luminanza",
+        "no": "Lysnivåsensor",
+        "sv": "Ljussensor",
+        "pl": "Czujnik luminancji",
+        "ru": "Датчик освещенности",
+        "ko": "조도 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -712,7 +1933,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX-gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX-gruppeadresse",
+            "sv": "KNX-gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -720,12 +1951,32 @@
               "type": "text",
               "label": {
                 "en": "Luminance measurement address",
-                "nl": "Licht meting adres"
+                "nl": "Licht meting adres",
+                "da": "Adresse for luminansmåling",
+                "de": "Adresse für Helligkeitsmessung",
+                "es": "Dirección de medición de luminancia",
+                "fr": "Adresse de mesure de luminance",
+                "it": "Indirizzo di misura della luminanza",
+                "no": "Måleluftadresse",
+                "sv": "Mätadress för ljusvärde",
+                "pl": "Adres pomiaru luminancji",
+                "ru": "Адрес измерения освещенности",
+                "ko": "조도 측정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduzca la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Angi gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             }
           ]
@@ -734,7 +1985,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -742,12 +2003,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Grænseflade MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnittets MAC-adresse",
+                "sv": "MAC-adress för gränssnitt",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse for den nødvendige KNX IP-grænseflade",
+                "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse for den nødvendige KNX IP-grensesnitt",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymagany dla interfejsu KNX IP",
+                "ru": "MAC-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -755,12 +2036,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Grænseflade IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnittets IP-adresse",
+                "sv": "IP-adress för gränssnitt",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse for den nødvendige KNX IP-grænseflade",
+                "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse for den nødvendige KNX IP-grensesnitt",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymagany dla interfejsu KNX IP",
+                "ru": "IP-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -1055,7 +2356,17 @@
       "id": "knx_scene",
       "name": {
         "en": "Scene",
-        "nl": "Scene"
+        "nl": "Scene",
+        "da": "Scene",
+        "de": "Szene",
+        "es": "Escena",
+        "fr": "Scène",
+        "it": "Scena",
+        "no": "Scene",
+        "sv": "Scen",
+        "pl": "Scena",
+        "ru": "Сцена",
+        "ko": "장면"
       },
       "class": "other",
       "capabilities": [
@@ -1066,7 +2377,17 @@
           "type": "group",
           "label": {
             "en": "KNX settings",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX indstillinger",
+            "de": "KNX-Einstellungen",
+            "es": "Configuraciones KNX",
+            "fr": "Paramètres KNX",
+            "it": "Impostazioni KNX",
+            "no": "KNX-innstillinger",
+            "sv": "KNX-inställningar",
+            "pl": "Ustawienia KNX",
+            "ru": "Настройки KNX",
+            "ko": "KNX 설정"
           },
           "children": [
             {
@@ -1074,12 +2395,32 @@
               "type": "text",
               "label": {
                 "en": "Scene address",
-                "nl": "Scene adres"
+                "nl": "Scene adres",
+                "da": "Sceneadresse",
+                "de": "Szenenadresse",
+                "es": "Dirección de escena",
+                "fr": "Adresse de scène",
+                "it": "Indirizzo di scena",
+                "no": "Sceneadresse",
+                "sv": "Scenadress",
+                "pl": "Adres sceny",
+                "ru": "Адрес сцены",
+                "ko": "장면 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección del grupo",
+                "fr": "Entrez l'adresse du groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요."
               }
             },
             {
@@ -1087,12 +2428,32 @@
               "type": "text",
               "label": {
                 "en": "Scene number",
-                "nl": "Scene nummer"
+                "nl": "Scene nummer",
+                "da": "Scenenummer",
+                "de": "Szenennummer",
+                "es": "Número de escena",
+                "fr": "Numéro de scène",
+                "it": "Numero di scena",
+                "no": "Scenenummer",
+                "sv": "Scennummer",
+                "pl": "Numer sceny",
+                "ru": "Номер сцены",
+                "ko": "장면 번호"
               },
               "value": "",
               "hint": {
                 "en": "Enter scene number",
-                "nl": "Vul scene nummer in"
+                "nl": "Vul scene nummer in",
+                "da": "Indtast scenenummer",
+                "de": "Szenennummer eingeben",
+                "es": "Ingrese el número de escena",
+                "fr": "Entrez le numéro de scène",
+                "it": "Inserisci il numero di scena",
+                "no": "Skriv inn scenenummer",
+                "sv": "Ange scen nummer",
+                "pl": "Wprowadź numer sceny",
+                "ru": "Введите номер сцены",
+                "ko": "장면 번호를 입력하세요."
               }
             }
           ]
@@ -1101,7 +2462,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuraciones de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieciowe",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -1109,12 +2480,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Grænseflade MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse for den krævede KNX IP-grænseflade",
+                "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz KNX IP requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymagany przez interfejs KNX IP",
+                "ru": "MAC-адрес требуемого KNX IP-интерфейса",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -1122,12 +2513,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Grænseflade IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnitt IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse for den krævede KNX IP-grænseflade",
+                "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz KNX IP requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "IP-adres wymagany przez interfejs KNX IP",
+                "ru": "IP-адрес требуемого KNX IP-интерфейса",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -1172,7 +2583,17 @@
       "id": "knx_switch",
       "name": {
         "en": "Switch",
-        "nl": "Schakelaar"
+        "nl": "Schakelaar",
+        "da": "Kontakt",
+        "de": "Schalter",
+        "es": "Interruptor",
+        "fr": "Interrupteur",
+        "it": "Interruttore",
+        "no": "Bryter",
+        "sv": "Strömbrytare",
+        "pl": "Przełącznik",
+        "ru": "Переключатель",
+        "ko": "스위치"
       },
       "class": "remote",
       "capabilities": [
@@ -1183,7 +2604,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX-gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppadresse",
+            "sv": "KNX-gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -1191,12 +2622,32 @@
               "type": "text",
               "label": {
                 "en": "Switch address",
-                "nl": "Schakel adres"
+                "nl": "Schakel adres",
+                "da": "Kontaktadresse",
+                "de": "Schalteradresse",
+                "es": "Dirección del interruptor",
+                "fr": "Adresse de l'interrupteur",
+                "it": "Indirizzo dell'interruttore",
+                "no": "Bryteradresse",
+                "sv": "Strömbrytaradress",
+                "pl": "Adres przełącznika",
+                "ru": "Адрес переключателя",
+                "ko": "스위치 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -1204,12 +2655,32 @@
               "type": "text",
               "label": {
                 "en": "Status address",
-                "nl": "Status adres"
+                "nl": "Status adres",
+                "da": "Statusadresse",
+                "de": "Statusadresse",
+                "es": "Dirección de estado",
+                "fr": "Adresse de statut",
+                "it": "Indirizzo di stato",
+                "no": "Statusadresse",
+                "sv": "Statusadress",
+                "pl": "Adres statusu",
+                "ru": "Адрес статуса",
+                "ko": "상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             }
           ]
@@ -1220,14 +2691,34 @@
           "value": false,
           "label": {
             "en": "Invert on/off",
-            "nl": "Wissel aan/uit"
+            "nl": "Wissel aan/uit",
+            "da": "Invertér til/fra",
+            "de": "Ein/Aus invertieren",
+            "es": "Invertir encendido/apagado",
+            "fr": "Inverser activé/désactivé",
+            "it": "Inverti acceso/spento",
+            "no": "Inverter på/av",
+            "sv": "Invertera på/av",
+            "pl": "Odwróć włącz/wyłącz",
+            "ru": "Инвертировать вкл/выкл",
+            "ko": "켜짐/꺼짐 반전"
           }
         },
         {
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerk-Einstellungen",
+            "es": "Configuraciones de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieciowe",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -1235,12 +2726,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnittets MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på det nødvendige KNX IP-interface",
+                "de": "MAC-Adresse der benötigten KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse til den nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -1248,12 +2759,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnittets IP-adresse",
+                "sv": "Gränssnittets IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på det nødvendige KNX IP-interface",
+                "de": "IP-Adresse der benötigten KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse til den nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -1298,7 +2829,17 @@
       "id": "knx_temperature_sensor",
       "name": {
         "en": "Temperature Sensor",
-        "nl": "Temperatuur sensor"
+        "nl": "Temperatuur sensor",
+        "da": "Temperatursensor",
+        "de": "Temperatursensor",
+        "es": "Sensor de temperatura",
+        "fr": "Capteur de température",
+        "it": "Sensore di temperatura",
+        "no": "Temperatursensor",
+        "sv": "Temperatursensor",
+        "pl": "Czujnik temperatury",
+        "ru": "Датчик температуры",
+        "ko": "온도 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -1309,7 +2850,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppeadresse",
+            "sv": "KNX gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -1317,12 +2868,32 @@
               "type": "text",
               "label": {
                 "en": "Temperature measurement address",
-                "nl": "Temperatuur meting adres"
+                "nl": "Temperatuur meting adres",
+                "da": "Temperaturmåling adresse",
+                "de": "Adresse der Temperaturmessung",
+                "es": "Dirección de medición de temperatura",
+                "fr": "Adresse de mesure de la température",
+                "it": "Indirizzo di misurazione della temperatura",
+                "no": "Temperaturmålingsadresse",
+                "sv": "Temperaturmätningsadress",
+                "pl": "Adres pomiaru temperatury",
+                "ru": "Адрес измерения температуры",
+                "ko": "온도 측정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             }
           ]
@@ -1331,7 +2902,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -1339,12 +2920,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på den krævede KNX IP interface",
+                "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP necesaria para KNX",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -1352,12 +2953,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnitt IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på den krævede KNX IP interface",
+                "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP necesaria para KNX",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -1402,7 +3023,17 @@
       "id": "knx_thermostat",
       "name": {
         "en": "Thermostat",
-        "nl": "Thermostaat"
+        "nl": "Thermostaat",
+        "da": "Termostat",
+        "de": "Thermostat",
+        "es": "Termostato",
+        "fr": "Thermostat",
+        "it": "Termostato",
+        "no": "Termostat",
+        "sv": "Termostat",
+        "pl": "Termostat",
+        "ru": "Термостат",
+        "ko": "온도 조절기"
       },
       "class": "thermostat",
       "capabilities": [
@@ -1414,7 +3045,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppadresse",
+            "sv": "KNX gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -1422,12 +3063,32 @@
               "type": "text",
               "label": {
                 "en": "Target temperature address",
-                "nl": "Doel temperatuur adres"
+                "nl": "Doel temperatuur adres",
+                "da": "Måltemperaturadresse",
+                "de": "Zieltemperaturadresse",
+                "es": "Dirección de temperatura objetivo",
+                "fr": "Adresse de température cible",
+                "it": "Indirizzo temperatura desiderata",
+                "no": "Måltemperaturadresse",
+                "sv": "Måladress för temperatur",
+                "pl": "Adres docelowej temperatury",
+                "ru": "Адрес целевой температуры",
+                "ko": "목표 온도 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             },
             {
@@ -1435,12 +3096,32 @@
               "type": "text",
               "label": {
                 "en": "Temperature measurement address",
-                "nl": "Temperatuur meting adres"
+                "nl": "Temperatuur meting adres",
+                "da": "Temperaturmålingsadresse",
+                "de": "Adresse zur Temperaturmessung",
+                "es": "Dirección de medición de temperatura",
+                "fr": "Adresse de mesure de la température",
+                "it": "Indirizzo di misurazione della temperatura",
+                "no": "Adresse for temperaturmåling",
+                "sv": "Temperaturmätningsadress",
+                "pl": "Adres pomiaru temperatury",
+                "ru": "Адрес измерения температуры",
+                "ko": "온도 측정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
               }
             }
           ]
@@ -1449,7 +3130,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieciowe",
+            "ru": "Сетевые настройки",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -1457,12 +3148,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Grænseflade MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "MAC-adresse til grensesnittet",
+                "sv": "MA-adress för gränssnitt",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse for det krævede KNX IP-interface",
+                "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX necesaria",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse til den nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес необходимого KNX IP-интерфейса",
+                "ko": "필수 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -1470,12 +3181,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Grænseflade IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "IP-adresse til grensesnittet",
+                "sv": "IP-adress för gränssnitt",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse for det krævede KNX IP-interface",
+                "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX necesaria",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse til den nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес необходимого KNX IP-интерфейса",
+                "ko": "필수 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -1520,7 +3251,17 @@
       "id": "knx_windowcoverings",
       "name": {
         "en": "Windowcoverings",
-        "nl": "Raambedekkingen"
+        "nl": "Raambedekkingen",
+        "da": "Vinduesafdækninger",
+        "de": "Fensterabdeckungen",
+        "es": "Cubiertas de ventana",
+        "fr": "Couvre-fenêtres",
+        "it": "Coperture delle finestre",
+        "no": "Vindusdeksler",
+        "sv": "Fönsterbeklädnader",
+        "pl": "Osłony okienne",
+        "ru": "Оконные покрытия",
+        "ko": "창문 덮개"
       },
       "class": "windowcoverings",
       "capabilities": [
@@ -1531,7 +3272,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddress",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppeadresse",
+            "sv": "KNX-gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -1539,12 +3290,32 @@
               "type": "text",
               "label": {
                 "en": "Up/Down address",
-                "nl": "Op/Neer adres"
+                "nl": "Op/Neer adres",
+                "da": "Op/Ned-adresse",
+                "de": "Auf/Ab Adresse",
+                "es": "Dirección arriba/abajo",
+                "fr": "Adresse haut/bas",
+                "it": "Indirizzo su/giù",
+                "no": "Opp/Ned adresse",
+                "sv": "Upp/Ned adress",
+                "pl": "Adres góra/dół",
+                "ru": "Адрес вверх/вниз",
+                "ko": "상/하 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección del grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -1552,12 +3323,32 @@
               "type": "text",
               "label": {
                 "en": "Stop address",
-                "nl": "Stop adres"
+                "nl": "Stop adres",
+                "da": "Stopadresse",
+                "de": "Stopp Adresse",
+                "es": "Dirección de parada",
+                "fr": "Adresse d'arrêt",
+                "it": "Indirizzo di arresto",
+                "no": "Stopp adresse",
+                "sv": "Stoppadress",
+                "pl": "Adres zatrzymania",
+                "ru": "Адрес остановки",
+                "ko": "정지 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección del grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -1565,12 +3356,32 @@
               "type": "text",
               "label": {
                 "en": "Status address",
-                "nl": "Status adres"
+                "nl": "Status adres",
+                "da": "Statusadresse",
+                "de": "Statusadresse",
+                "es": "Dirección de estado",
+                "fr": "Adresse de statut",
+                "it": "Indirizzo di stato",
+                "no": "Statusadresse",
+                "sv": "Statusadress",
+                "pl": "Adres statusu",
+                "ru": "Адрес статуса",
+                "ko": "상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección del grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             }
           ]
@@ -1581,14 +3392,34 @@
           "value": false,
           "label": {
             "en": "Invert up/down",
-            "nl": "Wissel omhoog/omlaag"
+            "nl": "Wissel omhoog/omlaag",
+            "da": "Omvend op/ned",
+            "de": "Umkehren auf/ab",
+            "es": "Invertir arriba/abajo",
+            "fr": "Inverser haut/bas",
+            "it": "Inverti su/giù",
+            "no": "Inverter opp/ned",
+            "sv": "Invertera upp/ner",
+            "pl": "Odwróć góra/dół",
+            "ru": "Перевернуть вверх/вниз",
+            "ko": "상/하 반전"
           }
         },
         {
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieciowe",
+            "ru": "Сетевые настройки",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -1596,12 +3427,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "MAC-adress för gränssnitt",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adressen for den krævede KNX IP-interface",
+                "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse for nødvendige KNX IP-grensesnitt",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -1609,12 +3460,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "IP-adress för gränssnitt",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adressen for den krævede KNX IP-interface",
+                "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse for nødvendige KNX IP-grensesnitt",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -1626,7 +3497,17 @@
     "dimcontrol_down": {
       "title": {
         "en": "Dim down",
-        "nl": "Dim omlaag"
+        "nl": "Dim omlaag",
+        "da": "Dæmp ned",
+        "de": "Dimmen",
+        "es": "Atenuar",
+        "fr": "Baisser",
+        "it": "Abbassa",
+        "no": "Demp ned",
+        "sv": "Dimma ner",
+        "pl": "Przyciemnić",
+        "ru": "Уменьшить",
+        "ko": "어둡게"
       },
       "type": "boolean",
       "getable": true,
@@ -1635,7 +3516,17 @@
     "dimcontrol_up": {
       "title": {
         "en": "Dim up",
-        "nl": "Dim omhoog"
+        "nl": "Dim omhoog",
+        "da": "Dæmp op",
+        "de": "Helligkeit erhöhen",
+        "es": "Atenuar",
+        "fr": "Augmenter l'éclairage",
+        "it": "Diminuire la luce",
+        "no": "Demp opp",
+        "sv": "Dimma upp",
+        "pl": "Ściemnij",
+        "ru": "Увеличить яркость",
+        "ko": "올리기"
       },
       "type": "boolean",
       "getable": true,
@@ -1644,7 +3535,17 @@
     "scene_capability": {
       "title": {
         "en": "Scene",
-        "nl": "Scene"
+        "nl": "Scene",
+        "da": "Scene",
+        "de": "Szene",
+        "es": "Escena",
+        "fr": "Scène",
+        "it": "Scena",
+        "no": "Scene",
+        "sv": "Scen",
+        "pl": "Scena",
+        "ru": "Сцена",
+        "ko": "장면"
       },
       "type": "boolean",
       "getable": false,

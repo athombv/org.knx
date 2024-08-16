@@ -1,13 +1,23 @@
 {
-    "title": {
-        "en": "Trigger scene",
-        "nl": "Start scene"
-    },
-    "args": [
-        {
-            "name": "knx_scene",
-            "type": "device",
-            "filter": "driver_id=knx_scene"
-        }
-    ]
+  "title": {
+    "en": "Trigger scene",
+    "nl": "Start scene",
+    "da": "Udløs scene",
+    "de": "Szene auslösen",
+    "es": "Activar escena",
+    "fr": "Déclencher scène",
+    "it": "Attivare scena",
+    "no": "Utløse scene",
+    "sv": "Utlös scen",
+    "pl": "Uruchom scenę",
+    "ru": "Запуск сцены",
+    "ko": "장면 트리거"
+  },
+  "args": [
+    {
+      "name": "knx_scene",
+      "type": "device",
+      "filter": "driver_id=knx_scene"
+    }
+  ]
 }

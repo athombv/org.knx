@@ -1,0 +1,161 @@
+{
+  "title": {
+    "en": "Send Telegram",
+    "nl": "Telegram verzenden",
+    "da": "Send Telegram",
+    "de": "Telegram senden",
+    "es": "Enviar Telegrama",
+    "fr": "Envoyer un télégramme",
+    "it": "Invia Telegramma",
+    "no": "Send Telegram",
+    "sv": "Skicka Telegram",
+    "pl": "Wyślij Telegram",
+    "ru": "Отправить телеграмму",
+    "ko": "텔레그램 보내기"
+  },
+  "titleFormatted": {
+    "en": "Send a [[data_type]] [[value]] on group address [[group_address]] via [[interface]] interface",
+    "nl": "Verstuur een [[data_type]] [[value]] naar groepsadres [[group_address]] via [[interface]] interface",
+    "da": "Send en [[data_type]] [[value]] på gruppeadresse [[group_address]] via [[interface]] interface",
+    "de": "Sende ein [[data_type]] [[value]] an Gruppenadresse [[group_address]] über [[interface]] Schnittstelle",
+    "es": "Enviar un [[data_type]] [[value]] a la dirección de grupo [[group_address]] a través de la interfaz [[interface]]",
+    "fr": "Envoyer un [[data_type]] [[value]] à l'adresse de groupe [[group_address]] via l'interface [[interface]]",
+    "it": "Inviare un [[data_type]] [[value]] all'indirizzo di gruppo [[group_address]] tramite l'interfaccia [[interface]]",
+    "no": "Send en [[data_type]] [[value]] på gruppeadresse [[group_address]] via [[interface]] grensesnitt",
+    "sv": "Skicka en [[data_type]] [[value]] på gruppadressen [[group_address]] via [[interface]] gränssnitt",
+    "pl": "Wyślij [[data_type]] [[value]] na adres grupowy [[group_address]] przez interfejs [[interface]]",
+    "ru": "Отправить [[data_type]] [[value]] на групповой адрес [[group_address]] через интерфейс [[interface]]",
+    "ko": "[[interface]] 인터페이스를 통해 그룹 주소 [[group_address]]에 [[data_type]] [[value]]를 보내기"
+  },
+  "hint": {
+    "en": "Sends a telegram to the KNX bus, be smart and make sure you expect the right value type, they will default to sensible values",
+    "nl": "Verstuurt een telegram naar de KNX-bus, wees slim en zorg ervoor dat je de juiste waarde type verwacht, ze worden standaard ingesteld op zinvolle waarden",
+    "da": "Sender en telegram til KNX-bussen, vær smart og sørg for at du forventer den rette værdi type, de bliver sat til fornuftige værdier som standard",
+    "de": "Sendet ein Telegramm an den KNX-Bus, sei schlau und stelle sicher, dass du den richtigen Wertetyp erwartest, sie werden standardmäßig auf sinnvolle Werte gesetzt",
+    "es": "Envía un telegrama al bus KNX, sea inteligente y asegúrese de esperar el tipo de valor correcto, se configurarán por defecto a valores sensatos",
+    "fr": "Envoie un télégramme au bus KNX, soyez intelligent et assurez-vous d'attendre le bon type de valeur, ils seront par défaut les valeurs sensées",
+    "it": "Invia un telegramma al bus KNX, sii intelligente e assicurati di aspettarti il tipo di valore corretto, verranno impostati di default su valori sensati",
+    "no": "Sender et telegram til KNX-bussen, vær smart og sørg for at du forventer riktig verdi type, de blir satt til fornuftige verdier som standard",
+    "sv": "Skickar ett telegram till KNX-bussen, var smart och se till att du förväntar dig rätt värdetyp, de kommer som standard att ställas in på rimliga värden",
+    "pl": "Wysyła telegram na szynę KNX, bądź mądry i upewnij się, że oczekujesz odpowiedniego typu wartości, domyślnie będą ustawione na rozsądne wartości",
+    "ru": "Отправляет телеграмму в шину KNX, будьте умны и убедитесь, что вы ожидаете правильный тип значения, по умолчанию они будут установлены на разумные значения",
+    "ko": "KNX 버스에 텔레그램을 보내며, 올바른 값 유형을 기대할 수 있도록 현명하게 설정하세요. 기본적으로 합리적인 값으로 설정됩니다."
+  },
+  "args": [
+    {
+      "title": {
+        "en": "Interface",
+        "nl": "Interface",
+        "da": "Interface",
+        "de": "Schnittstelle",
+        "es": "Interfaz",
+        "fr": "Interface",
+        "it": "Interfaccia",
+        "no": "Grensesnitt",
+        "sv": "Gränssnitt",
+        "pl": "Interfejs",
+        "ru": "Интерфейс",
+        "ko": "인터페이스"
+      },
+      "type": "autocomplete",
+      "name": "interface",
+      "placeholder": {
+        "en": "[any]",
+        "nl": "[elke]",
+        "da": "[enhver]",
+        "de": "[jeder]",
+        "es": "[cualquiera]",
+        "fr": "[n'importe quel]",
+        "it": "[qualsiasi]",
+        "no": "[hvilken som helst]",
+        "sv": "[vilken som helst]",
+        "pl": "[każdy]",
+        "ru": "[любой]",
+        "ko": "[어느 것이나]"
+      }
+    },
+    {
+      "title": {
+        "en": "Group Address",
+        "nl": "Groepsadres",
+        "da": "Gruppe Adresse",
+        "de": "Gruppenadresse",
+        "es": "Dirección de Grupo",
+        "fr": "Adresse de Groupe",
+        "it": "Indirizzo di Gruppo",
+        "no": "Gruppeadresse",
+        "sv": "Gruppadress",
+        "pl": "Adres Grupy",
+        "ru": "Групповой адрес",
+        "ko": "그룹 주소"
+      },
+      "type": "text",
+      "name": "group_address",
+      "placeholder": {
+        "en": "Group Address",
+        "nl": "Groepsadres",
+        "da": "Gruppe Adresse",
+        "de": "Gruppenadresse",
+        "es": "Dirección de Grupo",
+        "fr": "Adresse de Groupe",
+        "it": "Indirizzo di Gruppo",
+        "no": "Gruppeadresse",
+        "sv": "Gruppadress",
+        "pl": "Adres Grupy",
+        "ru": "Групповой адрес",
+        "ko": "그룹 주소"
+      }
+    },
+    {
+      "name": "data_type",
+      "title": {
+        "en": "Data Type",
+        "nl": "Gegevenstype",
+        "da": "Datatype",
+        "de": "Datentyp",
+        "es": "Tipo de Dato",
+        "fr": "Type de Donnée",
+        "it": "Tipo di Dato",
+        "no": "Datatype",
+        "sv": "Datatyp",
+        "pl": "Typ Danych",
+        "ru": "Тип данных",
+        "ko": "데이터 유형"
+      },
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "5.001",
+        "nl": "5.001",
+        "da": "5.001",
+        "de": "5.001",
+        "es": "5.001",
+        "fr": "5.001",
+        "it": "5.001",
+        "no": "5.001",
+        "sv": "5.001",
+        "pl": "5.001",
+        "ru": "5.001",
+        "ko": "5.001"
+      }
+    },
+    {
+      "title": {
+        "en": "Value",
+        "nl": "Waarde",
+        "da": "Værdi",
+        "de": "Wert",
+        "es": "Valor",
+        "fr": "Valeur",
+        "it": "Valore",
+        "no": "Verdi",
+        "sv": "Värde",
+        "pl": "Wartość",
+        "ru": "Значение",
+        "ko": "값"
+      },
+      "type": "text",
+      "name": "value",
+      "required": true
+    }
+  ]
+}

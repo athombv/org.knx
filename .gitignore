@@ -6,3 +6,9 @@ build
 
 # Added by Homey CLI
 /.homeybuild/
+
+# Remove templated files from the pair folders
+/drivers/*/pair/parse_knxproj.assets/
+/drivers/*/pair/parse_knxproj.html
+/drivers/*/pair/select_interface.html
+/drivers/*/pair/select_groupaddresses.html

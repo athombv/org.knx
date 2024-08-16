@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "Настройки KNX IP - Выбрать или добавить интерфейс KNX IP",
+      "body": "Введите IP-адрес интерфейса KNX IP. Нажмите кнопку поиска IP-интерфейса, чтобы начать поиск.",
+      "singleip": "Настроить IP Интерфейс",
+      "interfaceaddress": "Введите IPv4 адрес",
+      "searchbutton": "Поиск интерфейса",
+      "scanbutton": "(Повторно) Сканировать сеть на наличие IP-интерфейсов",
+      "manual_interface": "Ручная конфигурация",
+      "manual_interface_input": "введите адрес вручную"
+    },
+    "learnmode": {
+      "title": "Запустить режим обучения",
+      "explanation": "Свяжите кнопку KNX с виртуальной кнопкой в Homey.",
+      "testbutton": "Тестировать groupaddress",
+      "no_result": "Устройства не найдены."
+    },
+    "projectfile": {
+      "title": "Загрузить проект ETS",
+      "body": "Загрузите файл конфигурации ETS (*.knxproj) для извлечения groupaddresses KNX.",
+      "newxml": {
+        "title": "Новая конфигурация ETS",
+        "explanation": "Если доступно, вы можете "
+      },
+      "existingxml": {
+        "title": "Экспорт ETS уже доступен, но вы можете "
+      },
+      "upload": "загрузить проект ETS"
+    },
+    "groupaddresses": {
+      "generic": "Groupaddress",
+      "pairing_list": ", groupaddress: ",
+      "body": "Выберите groupaddresses для использования с новым устройством",
+      "generic_status": "Статус",
+      "save": "Сохранить устройство",
+      "duplicate_groupaddress": " этот groupaddress уже используется ",
+      "switch": {
+        "toggle": "Адрес переключения",
+        "status": "Адрес статуса"
+      },
+      "dimmer": {
+        "value": "Адрес диммера",
+        "status": "Адрес статуса"
+      },
+      "thermostat": {
+        "target": "Адрес целевой температуры",
+        "measure": "Адрес измерения температуры"
+      },
+      "rgb": {
+        "red_toggle_action": "Адрес переключения красного канала",
+        "red_toggle_status": "Адрес статуса красного канала",
+        "red_dim_value": "Адрес диммирования красного канала",
+        "red_dim_status": "Статус диммирования красного канала",
+        "green_toggle_action": "Адрес переключения зеленого канала",
+        "green_toggle_status": "Адрес статуса зеленого канала",
+        "green_dim_value": "Адрес диммирования зеленого канала",
+        "green_dim_status": "Статус диммирования зеленого канала",
+        "blue_toggle_action": "Адрес переключения синего канала",
+        "blue_toggle_status": "Адрес статуса синего канала",
+        "blue_dim_value": "Адрес диммирования синего канала",
+        "blue_dim_status": "Статус диммирования синего канала"
+      },
+      "windowcovering": {
+        "updown": "Адрес вверх/вниз",
+        "stop": "Адрес остановки",
+        "tilt": "Адрес наклона",
+        "tilt_status": "Статус адреса наклона"
+      },
+      "sensor": "Адрес датчика",
+      "scene": "Адрес сценария"
+    },
+    "scene_number": "Номер сцены"
+  },
+  "errors": {
+    "generic_error": "Произошла ошибка: ",
+    "save_error": "Не удается сохранить устройство.",
+    "settings_save": "Настройки не могут быть сохранены, ",
+    "switch_failed": "Не удалось переключить устройство!",
+    "dim_failed": "Не удалось затемнить устройство!",
+    "rgb_failed": "Не удалось установить цвет!",
+    "temperature_set_failed": "Не удалось установить температуру!",
+    "temperature_get_failed": "Не удалось получить температуру!",
+    "windowcovering_failed": "Не удалось изменить состояние!",
+    "windowcovering_stop_failed": "Не удалось остановить оконное покрытие!",
+    "invalid_group_address": "Недействительный groupaddress.",
+    "invalid_scene_number": "Недействительный номер сцены.",
+    "ip": {
+      "invalid_ip": "Недействительный IP или пустое поле.",
+      "interface_not_found": "Выбранный IP-интерфейс не найден.",
+      "interface_not_available": "Выбранный IP-интерфейс недоступен.",
+      "interface_not_selected": "IP-интерфейс не выбран.",
+      "search_already_running": "Поиск IP-интерфейса(ов) уже выполняется.",
+      "no_valid_mac": "Недействительный MAC-адрес.",
+      "no_matching_interface": "IP-интерфейс с этим MAC-адресом недоступен."
+    },
+    "projectfile": {
+      "no_valid_xml": "В файле проекта не найдено допустимого XML groupaddress. Пожалуйста, загрузите другой проект.",
+      "invalid_ga_structure": "Недействительная структура groupaddress в файле проекта",
+      "no_ga_found": "groupaddress не найден, возможно, вы загрузили пустой проект."
+    }
+  }
+}

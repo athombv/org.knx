@@ -1,0 +1,1 @@
+Utvid mulighetene til ditt eksisterende KNX-nettverk med alle enhetene du har lagt til i Homey. Nå kan du kontrollere trådløse lys gjennom KNX, eller styre KNX-enheter gjennom en trådløs sensor.

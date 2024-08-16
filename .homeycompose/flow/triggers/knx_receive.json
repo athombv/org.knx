@@ -1,0 +1,240 @@
+{
+  "title": {
+    "en": "Received new value on group address",
+    "nl": "Een nieuwe waarde ontvangen op groepsadres",
+    "da": "Modtaget ny værdi på gruppeadresse",
+    "de": "Neuen Wert auf Gruppenadresse empfangen",
+    "es": "Recibido nuevo valor en dirección de grupo",
+    "fr": "Nouvelle valeur reçue sur l'adresse de groupe",
+    "it": "Valore ricevuto sul gruppo di indirizzi",
+    "no": "Mottatt ny verdi på gruppeadresse",
+    "sv": "Mottagit nytt värde på gruppadress",
+    "pl": "Otrzymano nową wartość na adresie grupowym",
+    "ru": "Получено новое значение по групповому адресу",
+    "ko": "그룹 주소에서 새 값 수신"
+  },
+  "titleFormatted": {
+    "en": "A [[data_type]] value is published on group address [[group_address]] on interface [[interface]]",
+    "nl": "Een [[data_type]] waarde wordt gepubliceerd op groepsadres [[group_address]] op interface [[interface]]",
+    "da": "En [[data_type]] værdi er offentliggjort på gruppeadresse [[group_address]] på interface [[interface]]",
+    "de": "Ein [[data_type]] Wert wird bei Gruppenadresse [[group_address]] auf Schnittstelle [[interface]] veröffentlicht",
+    "es": "Un valor [[data_type]] se publica en la dirección de grupo [[group_address]] en la interfaz [[interface]]",
+    "fr": "Une valeur [[data_type]] est publiée sur l'adresse de groupe [[group_address]] sur l'interface [[interface]]",
+    "it": "Un valore [[data_type]] viene pubblicato sull'indirizzo di gruppo [[group_address]] sull'interfaccia [[interface]]",
+    "no": "En [[data_type]] verdi publiseres på gruppeadresse [[group_address]] på grensesnitt [[interface]]",
+    "sv": "Ett [[data_type]] värde publiceras på gruppadressen [[group_address]] på gränssnittet [[interface]]",
+    "pl": "Wartość [[data_type]] jest publikowana na adresie grupowym [[group_address]] na interfejsie [[interface]]",
+    "ru": "Значение [[data_type]] публикуется на групповом адресе [[group_address]] на интерфейсе [[interface]]",
+    "ko": "[[data_type]] 값이 인터페이스 [[interface]]의 그룹 주소 [[group_address]]에 게시되었습니다"
+  },
+  "hint": {
+    "en": "Listen for an event from the KNX Bus on a specific group address",
+    "nl": "Luister naar een gebeurtenis van de KNX Bus op een specifiek groepsadres",
+    "da": "Lyt efter en hændelse fra KNX-bussen på en specifik gruppeadresse",
+    "de": "Hören Sie auf ein Ereignis des KNX-Busses an einer bestimmten Gruppenadresse",
+    "es": "Escucha un evento del Bus KNX en una dirección de grupo específica",
+    "fr": "Écoutez un événement du Bus KNX sur une adresse de groupe spécifique",
+    "it": "Ascolta un evento dal Bus KNX su un indirizzo di gruppo specifico",
+    "no": "Lytt etter en hendelse fra KNX-bussen på en spesifikk gruppeadresse",
+    "sv": "Lyssna efter en händelse från KNX-bussen på en specifik gruppadress",
+    "pl": "Nasłuchuj zdarzenia z magistrali KNX na określonym adresie grupowym",
+    "ru": "Слушайте событие с шины KNX на определенном групповом адресе",
+    "ko": "특정 그룹 주소에서 KNX 버스의 이벤트 수신"
+  },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "interface",
+      "title": {
+        "en": "Interface",
+        "nl": "Interface",
+        "da": "Grænseflade",
+        "de": "Schnittstelle",
+        "es": "Interfaz",
+        "fr": "Interface",
+        "it": "Interfaccia",
+        "no": "Grensesnitt",
+        "sv": "Gränssnitt",
+        "pl": "Interfejs",
+        "ru": "Интерфейс",
+        "ko": "인터페이스"
+      },
+      "placeholder": {
+        "en": "[any]",
+        "nl": "[elke]",
+        "da": "[enhver]",
+        "de": "[jede]",
+        "es": "[cualquiera]",
+        "fr": "[tous]",
+        "it": "[qualsiasi]",
+        "no": "[enhver]",
+        "sv": "[alla]",
+        "pl": "[dowolny]",
+        "ru": "[любой]",
+        "ko": "[어느 것이든]"
+      }
+    },
+    {
+      "type": "text",
+      "name": "group_address",
+      "title": {
+        "en": "Group Address",
+        "nl": "Groepsadres",
+        "da": "Gruppeadresse",
+        "de": "Gruppenadresse",
+        "es": "Dirección de grupo",
+        "fr": "Adresse de groupe",
+        "it": "Indirizzo di gruppo",
+        "no": "Gruppeadresse",
+        "sv": "Gruppadress",
+        "pl": "Adres grupowy",
+        "ru": "Групповой адрес",
+        "ko": "그룹 주소"
+      },
+      "placeholder": {
+        "en": "1/0/0",
+        "nl": "1/0/0",
+        "da": "1/0/0",
+        "de": "1/0/0",
+        "es": "1/0/0",
+        "fr": "1/0/0",
+        "it": "1/0/0",
+        "no": "1/0/0",
+        "sv": "1/0/0",
+        "pl": "1/0/0",
+        "ru": "1/0/0",
+        "ko": "1/0/0"
+      }
+    },
+    {
+      "name": "data_type",
+      "title": {
+        "en": "Data Type",
+        "nl": "Gegevenstype",
+        "da": "Datatype",
+        "de": "Datentyp",
+        "es": "Tipo de datos",
+        "fr": "Type de données",
+        "it": "Tipo di dato",
+        "no": "Datatype",
+        "sv": "Datatyp",
+        "pl": "Typ danych",
+        "ru": "Тип данных",
+        "ko": "데이터 유형"
+      },
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "5.001",
+        "nl": "5.001",
+        "da": "5.001",
+        "de": "5.001",
+        "es": "5.001",
+        "fr": "5.001",
+        "it": "5.001",
+        "no": "5.001",
+        "sv": "5.001",
+        "pl": "5.001",
+        "ru": "5.001",
+        "ko": "5.001"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "number",
+      "name": "value_number",
+      "title": {
+        "en": "Value",
+        "nl": "Waarde",
+        "da": "Værdi",
+        "de": "Wert",
+        "es": "Valor",
+        "fr": "Valeur",
+        "it": "Valore",
+        "no": "Verdi",
+        "sv": "Värde",
+        "pl": "Wartość",
+        "ru": "Значение",
+        "ko": "값"
+      },
+      "example": {
+        "en": "The value received",
+        "nl": "De ontvangen waarde",
+        "da": "Den modtagne værdi",
+        "de": "Der erhaltene Wert",
+        "es": "El valor recibido",
+        "fr": "La valeur reçue",
+        "it": "Il valore ricevuto",
+        "no": "Verdien mottatt",
+        "sv": "Värdet mottaget",
+        "pl": "Otrzymana wartość",
+        "ru": "Полученное значение",
+        "ko": "수신된 값"
+      }
+    },
+    {
+      "type": "boolean",
+      "name": "value_bool",
+      "title": {
+        "en": "Value",
+        "nl": "Waarde",
+        "da": "Værdi",
+        "de": "Wert",
+        "es": "Valor",
+        "fr": "Valeur",
+        "it": "Valore",
+        "no": "Verdi",
+        "sv": "Värde",
+        "pl": "Wartość",
+        "ru": "Значение",
+        "ko": "값"
+      },
+      "example": {
+        "en": "The value received as a boolean",
+        "nl": "De ontvangen waarde als een boolean",
+        "da": "Den modtagne værdi som en boolesk",
+        "de": "Der empfangene Wert als ein boolean",
+        "es": "El valor recibido como booleano",
+        "fr": "La valeur reçue en tant que booléen",
+        "it": "Il valore ricevuto come booleano",
+        "no": "Verdien mottatt som en boolean",
+        "sv": "Värdet mottaget som en boolesk",
+        "pl": "Otrzymana wartość jako boolean",
+        "ru": "Полученное значение как boolean",
+        "ko": "부울로 수신된 값"
+      }
+    },
+    {
+      "type": "string",
+      "name": "value_string",
+      "title": {
+        "en": "Value",
+        "nl": "Waarde",
+        "da": "Værdi",
+        "de": "Wert",
+        "es": "Valor",
+        "fr": "Valeur",
+        "it": "Valore",
+        "no": "Verdi",
+        "sv": "Värde",
+        "pl": "Wartość",
+        "ru": "Значение",
+        "ko": "값"
+      },
+      "example": {
+        "en": "The value received as a string",
+        "nl": "De ontvangen waarde als een string",
+        "da": "Den modtagne værdi som en streng",
+        "de": "Der empfangene Wert als ein String",
+        "es": "El valor recibido como cadena",
+        "fr": "La valeur reçue en tant que chaîne",
+        "it": "Il valore ricevuto come stringa",
+        "no": "Verdien mottatt som en streng",
+        "sv": "Värdet mottaget som en sträng",
+        "pl": "Otrzymana wartość jako ciąg",
+        "ru": "Полученное значение как строка",
+        "ko": "문자열로 수신된 값"
+      }
+    }
+  ]
+}

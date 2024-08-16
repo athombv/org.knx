@@ -1,4 +1,13 @@
 {
+  "1.2.7": {
+    "en": "Fix connection to non-broadcast interfaces after restart. Added support for sending and receiving telegrams directly from flows."
+  },
+  "1.2.6": {
+    "en": "Improved error handling for missing interfaces"
+  },
+  "1.2.5": {
+    "en": "Add support for ethernet on Homey Pro 2023"
+  },
   "1.2.4": {
     "en": "Fixed an issue with the 'Trigger scene' Flow card not sending the correct address and scene data."
   },
@@ -27,10 +36,19 @@
     "en": "Connection to KNX network improvements and small protocol fixes.",
     "nl": "Betere verbinding naar het KNX netwerk en vele kleine verbeteringen."
   },
-  "1.2.5": {
-    "en": "Add support for ethernet on Homey Pro 2023"
+  "1.0.15": {
+    "en": "Bugfixes and crash preventions."
   },
-  "1.2.6": {
-    "en": "Improved error handling for missing interfaces"
+  "1.0.13": {
+    "en": "Added automatic re-detection of KNX interfaces. This should re-find the used KNX interface if it's IP has changed over time."
+  },
+  "1.0.12": {
+    "en": "Small bugfixes and error handling."
+  },
+  "1.0.11": {
+    "en": "KNX Connection improvements."
+  },
+  "1.3.0": {
+    "en": "Added translations"
   }
 }

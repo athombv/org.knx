@@ -1,0 +1,110 @@
+{
+  "title": {
+    "en": "Send a Read Telegram",
+    "nl": "Verstuur een Lees Telegram",
+    "da": "Send en Læs Telegram",
+    "de": "Sende eine Lese-Telegramm",
+    "es": "Enviar un Telegrama de Lectura",
+    "fr": "Envoyer une Télécopie de Lecture",
+    "it": "Invia un Telegramma di Lettura",
+    "no": "Send en Les Telegram",
+    "sv": "Skicka en Läs Telegram",
+    "pl": "Wyślij Telegram Czytania",
+    "ru": "Отправить Читаемое Telegram",
+    "ko": "읽기 전보 보내기"
+  },
+  "titleFormatted": {
+    "en": "Send a read request on group address [[group_address]] via [[interface]] interface",
+    "nl": "Verstuur een leesverzoek op groepsadres [[group_address]] via [[interface]] interface",
+    "da": "Send en læseanmodning på gruppens adresse [[group_address]] via [[interface]] interface",
+    "de": "Sende eine Leseanfrage an Gruppenadresse [[group_address]] über [[interface]] Schnittstelle",
+    "es": "Enviar una solicitud de lectura en dirección de grupo [[group_address]] a través de la interfaz [[interface]]",
+    "fr": "Envoyer une demande de lecture sur l'adresse de groupe [[group_address]] via l'interface [[interface]]",
+    "it": "Invia una richiesta di lettura su indirizzo di gruppo [[group_address]] tramite l'interfaccia [[interface]]",
+    "no": "Send en leseforespørsel på gruppeadresse [[group_address]] via [[interface]] grensesnitt",
+    "sv": "Skicka en läsförfrågan på gruppadress [[group_address]] via [[interface]] gränssnitt",
+    "pl": "Wyślij żądanie odczytu na adres grupowy [[group_address]] za pośrednictwem interfejsu [[interface]]",
+    "ru": "Отправить запрос на чтение по групповому адресу [[group_address]] через интерфейс [[interface]]",
+    "ko": "[[interface]] 인터페이스를 통해 그룹 주소 [[group_address]]에서 읽기 요청 보내기"
+  },
+  "hint": {
+    "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address.",
+    "nl": "Vraagt de KNX-bus om een verzending te activeren. Dit is handig om de huidige waarde van een groepsadres op te halen.",
+    "da": "Beder KNX-bussen om at udløse en sending. Dette er nyttigt for at få den aktuelle værdi af en gruppeadresse.",
+    "de": "Fordert den KNX-Bus auf, einen Versand auszulösen. Dies ist nützlich, um den aktuellen Wert einer Gruppenadresse zu erhalten.",
+    "es": "Pide al bus KNX que active un envío. Esto es útil para obtener el valor actual de una dirección de grupo.",
+    "fr": "Demande au bus KNX de déclencher un envoi. Ceci est utile pour obtenir la valeur actuelle d'une adresse de groupe.",
+    "it": "Chiede al bus KNX di attivare un'invio. Questo è utile per ottenere il valore corrente di un indirizzo di gruppo.",
+    "no": "Ber KNX-bussen om å utløse en sending. Dette er nyttig for å få den nåværende verdien av en gruppeadresse.",
+    "sv": "Ber KNX-bussen att utlösa en skickning. Detta är användbart för att få det aktuella värdet på en gruppadress.",
+    "pl": "Prosi magistralę KNX o wyzwolenie wysyłki. Jest to przydatne do uzyskania aktualnej wartości adresu grupowego.",
+    "ru": "Просит шину KNX инициировать отправку. Это полезно для получения текущего значения группового адреса.",
+    "ko": "KNX 버스에 전송 트리거를 요청합니다. 이는 그룹 주소의 현재 값을 얻는 데 유용합니다."
+  },
+  "args": [
+    {
+      "title": {
+        "en": "Interface",
+        "nl": "Interface",
+        "da": "Interface",
+        "de": "Schnittstelle",
+        "es": "Interfaz",
+        "fr": "Interface",
+        "it": "Interfaccia",
+        "no": "Grensesnitt",
+        "sv": "Gränssnitt",
+        "pl": "Interfejs",
+        "ru": "Интерфейс",
+        "ko": "인터페이스"
+      },
+      "type": "autocomplete",
+      "name": "interface",
+      "placeholder": {
+        "en": "[any]",
+        "nl": "[elke]",
+        "da": "[alle]",
+        "de": "[beliebig]",
+        "es": "[cualquiera]",
+        "fr": "[n'importe lequel]",
+        "it": "[qualsiasi]",
+        "no": "[noen]",
+        "sv": "[någon]",
+        "pl": "[dowolny]",
+        "ru": "[любой]",
+        "ko": "[어떤]"
+      }
+    },
+    {
+      "title": {
+        "en": "Group Address",
+        "nl": "Groepsadres",
+        "da": "Gruppeadresse",
+        "de": "Gruppenadresse",
+        "es": "Dirección de Grupo",
+        "fr": "Adresse de Groupe",
+        "it": "Indirizzo di Gruppo",
+        "no": "Gruppeadresse",
+        "sv": "Gruppadress",
+        "pl": "Adres Grupy",
+        "ru": "Групповой Адрес",
+        "ko": "그룹 주소"
+      },
+      "type": "text",
+      "name": "group_address",
+      "placeholder": {
+        "en": "Group Address",
+        "nl": "Groepsadres",
+        "da": "Gruppeadresse",
+        "de": "Gruppenadresse",
+        "es": "Dirección de Grupo",
+        "fr": "Adresse de Groupe",
+        "it": "Indirizzo di Gruppo",
+        "no": "Gruppeadresse",
+        "sv": "Gruppadress",
+        "pl": "Adres Grupy",
+        "ru": "Групповой Адрес",
+        "ko": "그룹 주소"
+      }
+    }
+  ]
+}

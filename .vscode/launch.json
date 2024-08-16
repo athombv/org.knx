@@ -1,37 +1,43 @@
-{"version": "0.2.0",
-     "configurations": [{
-             "name": "Launch app",
-             "type": "node",
-             "request": "launch",
-             "cwd": "${workspaceFolder}",
-             "runtimeExecutable": "homey",
-             "args": ["app", "run", "--remote"],
-             "outputCapture": "std",
-             "serverReadyAction": {
-                 "pattern": "Debugger listening on",
-                 "action": "startDebugging",
-                 "name": "Attach to Homey"
-             }
-         },
-         {
-             "type": "node",
-             "request": "attach",
-             "restart": true,
-             "name": "Attach to Homey",
-             "address": "${env:HOMEY_DEBUG_IP}",
-             "port": 9225,
-             "localRoot": "${workspaceFolder}",
-             "remoteRoot": "/app/"
-         },
-         {
-             "type": "node",
-             "request": "attach",
-             "restart": true,
-             "name": "Attach HA to Homey23 Docker",
-             "address": "${env:HOMEY_DEBUG_IP}",
-             "port": 9229,
-             "localRoot": "${workspaceFolder}",
-             "remoteRoot": "/app/"
-         }
-     ]
- }
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch app",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "homey",
+      "args": [
+        "app",
+        "run",
+        "--remote"
+      ],
+      "outputCapture": "std",
+      "serverReadyAction": {
+        "pattern": "Debugger listening on",
+        "action": "startDebugging",
+        "name": "Attach to Homey"
+      }
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "restart": true,
+      "name": "Attach to Homey",
+      "address": "${env:HOMEY_DEBUG_IP}",
+      "port": 9225,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/app/"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "restart": true,
+      "name": "Attach HA to Homey23 Docker",
+      "address": "${env:HOMEY_DEBUG_IP}",
+      "port": 9229,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/app/"
+    }
+  ]
+}

@@ -1,69 +1,163 @@
 {
-    "$extends" :["knx_sensor"],
-    "id": "knx_temperature_sensor",
-    "name": {
-        "en": "Temperature Sensor",
-        "nl": "Temperatuur sensor"
-    },
-    "class": "sensor",
-    "capabilities": ["measure_temperature"],
-    "settings": [
+  "$extends": [
+    "knx_sensor"
+  ],
+  "id": "knx_temperature_sensor",
+  "name": {
+    "en": "Temperature Sensor",
+    "nl": "Temperatuur sensor",
+    "da": "Temperatursensor",
+    "de": "Temperatursensor",
+    "es": "Sensor de temperatura",
+    "fr": "Capteur de température",
+    "it": "Sensore di temperatura",
+    "no": "Temperatursensor",
+    "sv": "Temperatursensor",
+    "pl": "Czujnik temperatury",
+    "ru": "Датчик температуры",
+    "ko": "온도 센서"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_temperature"
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "KNX groupaddress",
+        "nl": "KNX groepadressen",
+        "da": "KNX gruppeadresse",
+        "de": "KNX Gruppenadresse",
+        "es": "Dirección de grupo KNX",
+        "fr": "Adresse de groupe KNX",
+        "it": "Indirizzo di gruppo KNX",
+        "no": "KNX gruppeadresse",
+        "sv": "KNX gruppadress",
+        "pl": "Adres grupowy KNX",
+        "ru": "Групповой адрес KNX",
+        "ko": "KNX 그룹 주소"
+      },
+      "children": [
         {
-            "type": "group",
-            "label": {
-                "en": "KNX groupaddress",
-                "nl": "KNX groepadressen"
-            },
-            "children": [
-                {
-                    "id": "ga_sensor",
-                    "type": "text",
-                    "label": {
-                        "en": "Temperature measurement address",
-                        "nl": "Temperatuur meting adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                }
-            ]
+          "id": "ga_sensor",
+          "type": "text",
+          "label": {
+            "en": "Temperature measurement address",
+            "nl": "Temperatuur meting adres",
+            "da": "Temperaturmåling adresse",
+            "de": "Adresse der Temperaturmessung",
+            "es": "Dirección de medición de temperatura",
+            "fr": "Adresse de mesure de la température",
+            "it": "Indirizzo di misurazione della temperatura",
+            "no": "Temperaturmålingsadresse",
+            "sv": "Temperaturmätningsadress",
+            "pl": "Adres pomiaru temperatury",
+            "ru": "Адрес измерения температуры",
+            "ko": "온도 측정 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wprowadź adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Network settings",
+        "nl": "Netwerk instellingen",
+        "da": "Netværksindstillinger",
+        "de": "Netzwerkeinstellungen",
+        "es": "Configuración de red",
+        "fr": "Paramètres réseau",
+        "it": "Impostazioni di rete",
+        "no": "Nettverksinnstillinger",
+        "sv": "Nätverksinställningar",
+        "pl": "Ustawienia sieci",
+        "ru": "Настройки сети",
+        "ko": "네트워크 설정"
+      },
+      "children": [
+        {
+          "id": "macAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface MAC address",
+            "nl": "Interface MAC adres",
+            "da": "Interface MAC adresse",
+            "de": "MAC-Adresse der Schnittstelle",
+            "es": "Dirección MAC de la interfaz",
+            "fr": "Adresse MAC de l'interface",
+            "it": "Indirizzo MAC dell'interfaccia",
+            "no": "Grensesnitt MAC-adresse",
+            "sv": "Gränssnitt MAC-adress",
+            "pl": "Adres MAC interfejsu",
+            "ru": "MAC-адрес интерфейса",
+            "ko": "인터페이스 MAC 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "MAC address of the required KNX IP interface",
+            "nl": "MAC adres van de KNX IP interface",
+            "da": "MAC-adresse på den krævede KNX IP interface",
+            "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+            "es": "Dirección MAC de la interfaz IP necesaria para KNX",
+            "fr": "Adresse MAC de l'interface IP KNX requise",
+            "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+            "no": "MAC-adressen til det nødvendige KNX IP-grensesnittet",
+            "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+            "pl": "Adres MAC wymaganego interfejsu KNX IP",
+            "ru": "MAC-адрес требуемого интерфейса KNX IP",
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+          }
         },
         {
-            "type": "group",
-            "label": {
-                "en": "Network settings",
-                "nl": "Netwerk instellingen"
-            },
-            "children": [
-                {
-                    "id": "macAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface MAC address",
-                        "nl": "Interface MAC adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "MAC address of the required KNX IP interface",
-                        "nl": "MAC adres van de KNX IP interface"
-                    }
-                },
-                {
-                    "id": "ipAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface IP address",
-                        "nl": "Interface IP adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "IP address of the required KNX IP interface",
-                        "nl": "IP adres van de KNX IP interface"
-                    }
-                }
-            ]
+          "id": "ipAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface IP address",
+            "nl": "Interface IP adres",
+            "da": "Interface IP-adresse",
+            "de": "IP-Adresse der Schnittstelle",
+            "es": "Dirección IP de la interfaz",
+            "fr": "Adresse IP de l'interface",
+            "it": "Indirizzo IP dell'interfaccia",
+            "no": "Grensesnitt IP-adresse",
+            "sv": "Gränssnitt IP-adress",
+            "pl": "Adres IP interfejsu",
+            "ru": "IP-адрес интерфейса",
+            "ko": "인터페이스 IP 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "IP address of the required KNX IP interface",
+            "nl": "IP adres van de KNX IP interface",
+            "da": "IP-adresse på den krævede KNX IP interface",
+            "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+            "es": "Dirección IP de la interfaz IP necesaria para KNX",
+            "fr": "Adresse IP de l'interface IP KNX requise",
+            "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+            "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+            "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+            "pl": "Adres IP wymaganego interfejsu KNX IP",
+            "ru": "IP-адрес требуемого интерфейса KNX IP",
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

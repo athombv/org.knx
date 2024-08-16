@@ -1,0 +1,83 @@
+{
+  "triggers": [
+    {
+      "id": "changed",
+      "title": {
+        "en": "Turned on or off",
+        "nl": "Aan of uit gezet",
+        "da": "Tændt eller slukket",
+        "de": "Ein- oder ausgeschaltet",
+        "es": "Encendido o apagado",
+        "fr": "Allumé ou éteint",
+        "it": "Acceso o spento",
+        "no": "Slått på eller av",
+        "sv": "Slås på eller av",
+        "pl": "Włączone lub wyłączone",
+        "ru": "Включено или выключено",
+        "ko": "켜짐 또는 꺼짐"
+      },
+      "titleFormatted": {
+        "en": "Turned on or off",
+        "nl": "Aan of uit gezet",
+        "da": "Tændt eller slukket",
+        "de": "Ein- oder ausgeschaltet",
+        "es": "Encendido o apagado",
+        "fr": "Allumé ou éteint",
+        "it": "Acceso o spento",
+        "no": "Slått på eller av",
+        "sv": "Slås på eller av",
+        "pl": "Włączone lub wyłączone",
+        "ru": "Включено или выключено",
+        "ko": "켜짐 또는 꺼짐"
+      },
+      "hint": {
+        "en": "When the switch is changed from on/off to off/on",
+        "nl": "Wanneer de schakelaar van aan/uit naar uit/aan wordt gezet",
+        "da": "Når kontakten ændres fra tændt/slukket til slukket/tændt",
+        "de": "Wenn der Schalter von Ein/Aus auf Aus/Ein umgestellt wird",
+        "es": "Cuando el interruptor se cambia de encendido/apagado a apagado/encendido",
+        "fr": "Lorsque l'interrupteur passe de allumé/éteint à éteint/allumé",
+        "it": "Quando l'interruttore passa da acceso/spento a spento/acceso",
+        "no": "Når bryteren endres fra på/av til av/på",
+        "sv": "När brytaren ändras från på/av till av/på",
+        "pl": "Gdy przełącznik zmieni się z włączone/wyłączone na wyłączone/włączone",
+        "ru": "Когда переключатель изменяется с включено/выключено на выключено/включено",
+        "ko": "스위치가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "status",
+          "title": {
+            "en": "Status",
+            "nl": "Status",
+            "da": "Status",
+            "de": "Status",
+            "es": "Estado",
+            "fr": "État",
+            "it": "Stato",
+            "no": "Status",
+            "sv": "Status",
+            "pl": "Status",
+            "ru": "Статус",
+            "ko": "상태"
+          },
+          "example": {
+            "en": "The current status of the switch",
+            "nl": "De huidige status van de schakelaar",
+            "da": "Afbryderens aktuelle status",
+            "de": "Der aktuelle Status des Schalters",
+            "es": "El estado actual del interruptor",
+            "fr": "L'état actuel de l'interrupteur",
+            "it": "Lo stato attuale dell'interruttore",
+            "no": "Gjeldende status for bryteren",
+            "sv": "Aktuell status för brytaren",
+            "pl": "Aktualny stan przełącznika",
+            "ru": "Текущий статус переключателя",
+            "ko": "현재 스위치 상태"
+          }
+        }
+      ]
+    }
+  ]
+}

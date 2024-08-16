@@ -1,9 +1,19 @@
 {
-    "title": {
-        "en": "Dim down",
-        "nl": "Dim omlaag"
-    },
-    "type": "boolean",
-    "getable": true,
-    "setable": true
+  "title": {
+    "en": "Dim down",
+    "nl": "Dim omlaag",
+    "da": "Dæmp ned",
+    "de": "Dimmen",
+    "es": "Atenuar",
+    "fr": "Baisser",
+    "it": "Abbassa",
+    "no": "Demp ned",
+    "sv": "Dimma ner",
+    "pl": "Przyciemnić",
+    "ru": "Уменьшить",
+    "ko": "어둡게"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": true
 }

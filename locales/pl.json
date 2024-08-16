@@ -1,0 +1,103 @@
+{
+  "settings": {
+    "ip": {
+      "title": "Ustawienia KNX IP - Wybierz lub dodaj interfejs KNX IP",
+      "body": "Wprowadź adres IP z interfejsu KNX IP do użycia. Naciśnij przycisk wyszukiwania interfejsu IP, aby wyszukać.",
+      "singleip": "Konfiguruj interfejs IP",
+      "interfaceaddress": "Wprowadź adres IPv4",
+      "searchbutton": "Szukaj interfejsu",
+      "scanbutton": "Skanuj ponownie sieć w poszukiwaniu interfejsów IP",
+      "manual_interface": "Ręczna konfiguracja",
+      "manual_interface_input": "wprowadź adres ręcznie"
+    },
+    "learnmode": {
+      "title": "Rozpocznij tryb nauki",
+      "explanation": "Sparuj przycisk KNX z wirtualnym przyciskiem w Homey.",
+      "testbutton": "Testuj adres grupy",
+      "no_result": "Nie znaleziono żadnych urządzeń."
+    },
+    "projectfile": {
+      "title": "Prześlij projekt ETS",
+      "body": "Prześlij plik konfiguracyjny ETS (*.knxproj) aby wyodrębnić adresy grup KNX.",
+      "newxml": {
+        "title": "Nowa konfiguracja ETS",
+        "explanation": "Jeśli dostępne, możesz "
+      },
+      "existingxml": {
+        "title": "Eksport ETS jest już dostępny, ale możesz "
+      },
+      "upload": "prześlij projekt ETS"
+    },
+    "groupaddresses": {
+      "generic": "Adres grupy",
+      "pairing_list": ", adres grupy: ",
+      "body": "Wybierz, które adresy grup będą używane z nowym urządzeniem",
+      "generic_status": "Status",
+      "save": "Zapisz urządzenie",
+      "duplicate_groupaddress": " ten adres grupy jest już używany przez ",
+      "switch": {
+        "toggle": "Przełącz adres",
+        "status": "Status adresu"
+      },
+      "dimmer": {
+        "value": "Adres ściemniacza",
+        "status": "Status adresu"
+      },
+      "thermostat": {
+        "target": "Adres docelowej temperatury",
+        "measure": "Adres pomiaru temperatury"
+      },
+      "rgb": {
+        "red_toggle_action": "Przełącz adres kanału czerwonego",
+        "red_toggle_status": "Status adresu kanału czerwonego",
+        "red_dim_value": "Adres ściemniacza kanału czerwonego",
+        "red_dim_status": "Status adresu ściemniacza kanału czerwonego",
+        "green_toggle_action": "Przełącz adres kanału zielonego",
+        "green_toggle_status": "Status adresu kanału zielonego",
+        "green_dim_value": "Adres ściemniacza kanału zielonego",
+        "green_dim_status": "Status adresu ściemniacza kanału zielonego",
+        "blue_toggle_action": "Przełącz adres kanału niebieskiego",
+        "blue_toggle_status": "Status adresu kanału niebieskiego",
+        "blue_dim_value": "Adres ściemniacza kanału niebieskiego",
+        "blue_dim_status": "Status adresu ściemniacza kanału niebieskiego"
+      },
+      "windowcovering": {
+        "updown": "Adres poruszania góra/dół",
+        "stop": "Adres zatrzymania",
+        "tilt": "Adres przechyłu",
+        "tilt_status": "Status adresu przechyłu"
+      },
+      "sensor": "Adres czujnika",
+      "scene": "Adres sceny"
+    },
+    "scene_number": "Numer sceny"
+  },
+  "errors": {
+    "generic_error": "Wystąpił błąd: ",
+    "save_error": "Nie można zapisać urządzenia.",
+    "settings_save": "Nie można zapisać ustawień, ",
+    "switch_failed": "Przełączanie urządzenia nie powiodło się!",
+    "dim_failed": "Ściemnianie urządzenia nie powiodło się!",
+    "rgb_failed": "Ustawianie koloru nie powiodło się!",
+    "temperature_set_failed": "Ustawienie temperatury nie powiodło się!",
+    "temperature_get_failed": "Pobieranie temperatury nie powiodło się!",
+    "windowcovering_failed": "Zmiana stanu nie powiodła się!",
+    "windowcovering_stop_failed": "Zatrzymanie osłony okiennej nie powiodło się!",
+    "invalid_group_address": "Nieprawidłowy adres grupy.",
+    "invalid_scene_number": "Nieprawidłowy numer sceny.",
+    "ip": {
+      "invalid_ip": "Nieprawidłowy adres IP lub puste pole.",
+      "interface_not_found": "Wybrany interfejs IP nie znaleziony.",
+      "interface_not_available": "Wybrany interfejs IP niedostępny.",
+      "interface_not_selected": "Nie wybrano interfejsu IP.",
+      "search_already_running": "Wyszukiwanie interfejsu IP jest już w toku.",
+      "no_valid_mac": "Nieprawidłowy adres MAC.",
+      "no_matching_interface": "Brak interfejsu IP z tym adresem MAC."
+    },
+    "projectfile": {
+      "no_valid_xml": "Nie znaleziono prawidłowego XML adresu grupy w pliku projektu. Proszę prześlij inny projekt.",
+      "invalid_ga_structure": "Nieprawidłowa struktura adresu grupy w pliku projektu",
+      "no_ga_found": "Nie znaleziono adresu grupy, mogłeś przesłać pusty projekt."
+    }
+  }
+}
