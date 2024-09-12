@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.knx",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -2544,6 +2544,123 @@
           ]
         }
       ]
+    },
+    {
+      "images": {
+        "small": "/drivers/knx_sunblind/assets/images/small.png",
+        "large": "/drivers/knx_sunblind/assets/images/large.png",
+        "xlarge": "/drivers/knx_sunblind/assets/images/xlarge.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [],
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "select_groupaddresses",
+            "prev": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "select_groupaddresses",
+          "options": {
+            "devicetype": "dimmer"
+          },
+          "navigation": {
+            "prev": "select_interface"
+          }
+        }
+      ],
+      "name": {
+        "en": "knx_sunblind",
+        "fr": "knx_bso"
+      },
+      "class": "sunshade",
+      "capabilities": [
+        "windowcoverings_set",
+        "windowcoverings_tilt_set"
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "KNX groupaddress",
+            "fr": "Adresse de groupe KNX"
+          },
+          "children": [
+            {
+              "id": "ga_store_position",
+              "type": "text",
+              "label": {
+                "en": "Position address",
+                "fr": "Adresse position store"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "fr": "Entrez l'adresse de groupe"
+              }
+            },
+            {
+              "id": "ga_slat_position",
+              "type": "text",
+              "label": {
+                "en": "Slat position address",
+                "fr": "Adresse position lamelle"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "fr": "Entrez l'adresse de groupe"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network settings",
+            "fr": "Paramètres réseau"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "fr": "Adresse MAC de l'interface"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "fr": "Adresse MAC de l'interface IP KNX requise"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "fr": "Adresse IP de l'interface"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "fr": "Adresse IP de l'interface IP KNX requise"
+              }
+            }
+          ]
+        }
+      ],
+      "id": "knx_sunblind"
     },
     {
       "images": {

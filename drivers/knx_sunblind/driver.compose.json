@@ -1,0 +1,122 @@
+{
+  "$extends": [
+    "knx_driver"
+  ],
+  "name": {
+    "en": "knx_sunblind",
+    "fr": "knx_bso"
+  },
+  "class": "sunshade",
+  "capabilities": [
+    "windowcoverings_set",
+    "windowcoverings_tilt_set"
+  ],
+  "pair": [
+    {
+      "id": "select_interface",
+      "$template": "select_interface",
+      "navigation": {
+        "next": "select_groupaddresses"
+      }
+    },
+    {
+      "id": "parse_knxproj",
+      "$template": "parse_knxproj",
+      "navigation": {
+        "next": "select_groupaddresses",
+        "prev": "select_groupaddresses"
+      }
+    },
+    {
+      "id": "select_groupaddresses",
+      "$template": "select_groupaddresses",
+      "options": {
+        "devicetype": "dimmer"
+      },
+      "navigation": {
+        "prev": "select_interface"
+      }
+    }
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "KNX groupaddress",
+        "fr": "Adresse de groupe KNX"
+      },
+      "children": [
+        {
+          "id": "ga_store_position",
+          "type": "text",
+          "label": {
+            "en": "Position address",
+            "fr": "Adresse position store"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "fr": "Entrez l'adresse de groupe"
+          }
+        },
+        {
+          "id": "ga_slat_position",
+          "type": "text",
+          "label": {
+            "en": "Slat position address",
+            "fr": "Adresse position lamelle"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "fr": "Entrez l'adresse de groupe"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Network settings",
+        "fr": "Paramètres réseau"
+      },
+      "children": [
+        {
+          "id": "macAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface MAC address",
+            "fr": "Adresse MAC de l'interface"
+          },
+          "value": "",
+          "hint": {
+            "en": "MAC address of the required KNX IP interface",
+            "fr": "Adresse MAC de l'interface IP KNX requise"
+          }
+        },
+        {
+          "id": "ipAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface IP address",
+            "fr": "Adresse IP de l'interface"
+          },
+          "value": "",
+          "hint": {
+            "en": "IP address of the required KNX IP interface",
+            "fr": "Adresse IP de l'interface IP KNX requise"
+          }
+        }
+      ]
+    }
+  ]
+}
