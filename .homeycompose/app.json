@@ -1,5 +1,5 @@
 {
-  "id": "org.knx",
+  "id": "org.knx.smo",
   "version": "1.3.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
