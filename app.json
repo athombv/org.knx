@@ -11,7 +11,7 @@
     "da": "KNX",
     "de": "KNX",
     "es": "KNX",
-    "fr": "KNX",
+    "fr": "KNX-SMO",
     "it": "KNX",
     "no": "KNX",
     "sv": "KNX",
@@ -731,14 +731,17 @@
         },
         {
           "id": "select_groupaddresses",
+          "options": {
+            "devicetype": "windowcovering"
+          },
           "navigation": {
             "prev": "select_interface"
           }
         }
       ],
       "name": {
-        "en": "knx_sunblind",
-        "fr": "knx_bso"
+        "en": "Sun Blind",
+        "fr": "BSO"
       },
       "class": "windowcoverings",
       "capabilities": [
