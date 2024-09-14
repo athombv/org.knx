@@ -2,7 +2,7 @@
 
 const InterfaceManager = require('../lib/KNXInterfaceManager');
 
-const KNXManager = new InterfaceManager('192.168.87.250'); // localhost works as well as an normal IP
+const KNXManager = new InterfaceManager('192.168.21.191'); // localhost works as well as an normal IP
 this.KNXInterfaces = KNXManager.getKNXInterfaceList();
 
 KNXManager.on('interface_found', (foundInterface) => {

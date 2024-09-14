@@ -1,5 +1,5 @@
 {
-  "id": "org.knx.smo",
+  "id": "org.knx",
   "version": "1.3.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
@@ -10,7 +10,7 @@
     "da": "KNX",
     "de": "KNX",
     "es": "KNX",
-    "fr": "KNX-SMO",
+    "fr": "KNX",
     "it": "KNX",
     "no": "KNX",
     "sv": "KNX",

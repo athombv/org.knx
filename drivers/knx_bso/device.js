@@ -14,13 +14,13 @@ class KNXSunBlind extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_store_position) {
-      this.setCapabilityValue('windowcoverings_set', DatapointTypeParser.dim(data))
+      this.setCapabilityValue('windowcoverings_set', DatapointTypeParser.dim_inverted(data))
         .catch((knxerror) => {
           this.log('Set store position error', knxerror);
         });
     }
     if (groupaddress === this.settings.ga_slat_position) {
-      this.setCapabilityValue('windowcoverings_tilt_set', DatapointTypeParser.dim(data))
+      this.setCapabilityValue('windowcoverings_tilt_set', DatapointTypeParser.dim_inverted(data))
         .catch((knxerror) => {
           this.log('Set slat position error', knxerror);
         });
@@ -29,7 +29,7 @@ class KNXSunBlind extends KNXGenericDevice {
 
   onCapabilitySunBlindPosition(value, opts) {
     if (this.knxInterface && this.settings.ga_store_position) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_store_position, 255 - value * 255, 'DPT5')
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_store_position, value * 255, 'DPT5')
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.windowcoverings_set_failed'));
@@ -40,7 +40,7 @@ class KNXSunBlind extends KNXGenericDevice {
 
   onCapabilitySlatSunBlindPosition(value, opts) {
     if (this.knxInterface && this.settings.ga_slat_position) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_slat_position, 255 - value * 255, 'DPT5')
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_slat_position, value * 255, 'DPT5')
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.windowcoverings_tilt_set_failed'));
