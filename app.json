@@ -3265,7 +3265,9 @@
       },
       "class": "windowcoverings",
       "capabilities": [
-        "windowcoverings_state"
+        "windowcoverings_state",
+        "windowcoverings_set",
+        "windowcoverings_tilt_set"
       ],
       "settings": [
         {
@@ -3382,6 +3384,32 @@
                 "pl": "Wpisz adres grupowy",
                 "ru": "Введите групповой адрес",
                 "ko": "그룹 주소를 입력하세요"
+              }
+            },
+            {
+              "id": "ga_store_position",
+              "type": "text",
+              "label": {
+                "en": "Position address",
+                "fr": "Adresse position store"
+              },
+              "value": "4/3/x",
+              "hint": {
+                "en": "Enter groupaddress",
+                "fr": "Entrez l'adresse de groupe"
+              }
+            },
+            {
+              "id": "ga_slat_position",
+              "type": "text",
+              "label": {
+                "en": "Slat position address",
+                "fr": "Adresse position lamelle"
+              },
+              "value": "4/3/x",
+              "hint": {
+                "en": "Enter groupaddress",
+                "fr": "Entrez l'adresse de groupe"
               }
             }
           ]
