@@ -3393,7 +3393,7 @@
                 "en": "Position address",
                 "fr": "Adresse position store"
               },
-              "value": "4/3/x",
+              "value": "x/x/x",
               "hint": {
                 "en": "Enter groupaddress",
                 "fr": "Entrez l'adresse de groupe"
@@ -3406,7 +3406,7 @@
                 "en": "Slat position address",
                 "fr": "Adresse position lamelle"
               },
-              "value": "4/3/x",
+              "value": "x/x/x",
               "hint": {
                 "en": "Enter groupaddress",
                 "fr": "Entrez l'adresse de groupe"
