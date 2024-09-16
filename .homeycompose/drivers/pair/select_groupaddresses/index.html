@@ -239,6 +239,22 @@
 				<select id="windowcover_statusga_dropdown" class="knx-dropdown right"></select>
 				<input id="windowcover_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
+			<div class="knx-entry">
+				<label for="windowcover_position_address" class="left"
+					   data-i18n="settings.groupaddresses.windowcovering.store_position"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="windowcover_position_dropdown" class="knx-dropdown right"></select>
+				<input id="windowcover_position_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="windowcover_slat_address" class="left"
+					   data-i18n="settings.groupaddresses.windowcovering.slat_position"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="windowcover_slat_dropdown" class="knx-dropdown right"></select>
+				<input id="windowcover_slat_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
 		</div>
 	</fieldset>
 	<fieldset id="knx-sensor-fieldset" style="display: none">
@@ -510,6 +526,8 @@
             'ga_up_down': $('#windowcover_updown_address').val(),
             'ga_stop': $('#windowcover_stop_address').val(),
             'ga_status': $('#windowcover_status_address').val(),
+		    'ga_store_position': $('#windowcover_position_address').val(),
+			'ga_slat_position': $('#windowcover_slat_address').val(),
             'macAddress': interfaceMAC,
           };
           break;

@@ -65,7 +65,9 @@
                 "updown": "Up/down address",
                 "stop": "Stop address",
                 "tilt": "Tilt address",
-                "tilt_status": "Tilt status address"
+                "tilt_status": "Tilt status address",
+                "store_position": "Blind position address",
+                "slat_position": "Slat position address"
             },
             "sensor": "Sensor address",
             "scene": "Scene address"

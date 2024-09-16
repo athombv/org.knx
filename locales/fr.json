@@ -65,7 +65,9 @@
         "updown": "Adresse montée/descente",
         "stop": "Adresse d'arrêt",
         "tilt": "Adresse d'inclinaison",
-        "tilt_status": "Adresse de statut d'inclinaison"
+        "tilt_status": "Adresse de statut d'inclinaison",
+        "store_position": "Adresse position du store",
+        "slat_position": "Adresse position des lamelles"
       },
       "sensor": "Adresse de capteur",
       "scene": "Adresse de scène"
