@@ -7,9 +7,15 @@ class KNXWindowCovering extends KNXGenericDevice {
 
     onInit() {
         super.onInit();
-        this.registerCapabilityListener('windowcoverings_state', this.onCapabilityWindowCovering.bind(this));
-        this.registerCapabilityListener('windowcoverings_set', this.onCapabilityWindowCoveringSet.bind(this));
-        this.registerCapabilityListener('windowcoverings_tilt_set', this.onCapabilityWindowCoveringTiltSet.bind(this));
+        if (this.settings.ga_status) {
+            this.registerCapabilityListener('windowcoverings_state', this.onCapabilityWindowCovering.bind(this));
+        }
+        if (this.settings.ga_store_position) {
+            this.registerCapabilityListener('windowcoverings_set', this.onCapabilityWindowCoveringSet.bind(this));
+        }
+        if (this.settings.ga_slat_position) {
+            this.registerCapabilityListener('windowcoverings_tilt_set', this.onCapabilityWindowCoveringTiltSet.bind(this));
+        }
     }
 
     onKNXEvent(groupaddress, data) {
