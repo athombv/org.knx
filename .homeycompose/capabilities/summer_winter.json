@@ -1,0 +1,9 @@
+{
+  "title": {
+    "en": "Season"
+  },
+  "type": "string",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}
