@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Heating"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "uiQuickAction": false
+}
