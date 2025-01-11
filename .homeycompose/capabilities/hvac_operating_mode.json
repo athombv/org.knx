@@ -1,0 +1,89 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "Operating mode for heating, ventilation and air-conditioning",
+        "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation"
+    },
+    "getable": true,
+    "setable": true,
+    "uiComponent": "picker",
+    "uiQuickAction": true,
+
+    "values": [
+        {
+            "id": "auto",
+            "title": {
+                "en": "Automatic",
+                "nl": "Automatisch",
+                "de": "Automatisch",
+                "fr": "Automatique",
+                "it": "Automatica",
+                "sv": "Automatiskt",
+                "no": "Automatisk",
+                "es": "Automático",
+                "da": "Automatisk",
+                "ru": "Автоматически",
+                "pl": "Automatyczny",
+                "ko": "자동"
+            }
+        },
+        {
+            "id": "comfort",
+            "title": {
+                "en": "Comfort",
+                "nl": "",
+                "de": "",
+                "fr": "Confort",
+                "it": "",
+                "sv": "",
+                "no": "",
+                "es": "",
+                "da": "",
+                "ru": "",
+                "pl": "",
+                "ko": ""
+            }
+        },
+        {
+            "id": "standby",
+            "title": {
+                "en": "Standby / Absence",
+                "nl": "",
+                "de": "",
+                "fr": "Veille / Absence",
+                "it": "",
+                "sv": "",
+                "no": "",
+                "es": "",
+                "da": "",
+                "ru": "",
+                "pl": "",
+                "ko": ""
+            }
+        },
+        {
+            "id": "economy",
+            "title": {
+                "en": "Economy / Night",
+                "nl": "",
+                "de": "",
+                "fr": "Economie / Nuit",
+                "it": "",
+                "sv": "",
+                "no": "",
+                "es": "",
+                "da": "",
+                "ru": "",
+                "pl": "",
+                "ko": ""
+            }
+        },
+        {
+            "id": "building_protection",
+            "title": {
+                "en": "Building protection",
+                "fr": "Protection du bâtiment / Hors gel"
+            }
+        }
+    ]
+}
