@@ -4508,7 +4508,7 @@
       "uiQuickAction": true,
       "values": [
         {
-          "id": "auto",
+          "id": "0",
           "title": {
             "en": "Automatic",
             "nl": "Automatisch",
@@ -4525,58 +4525,30 @@
           }
         },
         {
-          "id": "comfort",
+          "id": "1",
           "title": {
             "en": "Comfort",
-            "nl": "",
-            "de": "",
-            "fr": "Confort",
-            "it": "",
-            "sv": "",
-            "no": "",
-            "es": "",
-            "da": "",
-            "ru": "",
-            "pl": "",
-            "ko": ""
+            "fr": "Confort"
           }
         },
         {
-          "id": "standby",
+          "id": "2",
           "title": {
             "en": "Standby / Absence",
             "nl": "",
             "de": "",
-            "fr": "Veille / Absence",
-            "it": "",
-            "sv": "",
-            "no": "",
-            "es": "",
-            "da": "",
-            "ru": "",
-            "pl": "",
-            "ko": ""
+            "fr": "Veille / Absence"
           }
         },
         {
-          "id": "economy",
+          "id": "3",
           "title": {
             "en": "Economy / Night",
-            "nl": "",
-            "de": "",
-            "fr": "Economie / Nuit",
-            "it": "",
-            "sv": "",
-            "no": "",
-            "es": "",
-            "da": "",
-            "ru": "",
-            "pl": "",
-            "ko": ""
+            "fr": "Economie / Nuit"
           }
         },
         {
-          "id": "building_protection",
+          "id": "4",
           "title": {
             "en": "Building protection",
             "fr": "Protection du bâtiment / Hors gel"
