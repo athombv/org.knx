@@ -80,7 +80,7 @@
     "dim_failed": "Dæmpning af enheden mislykkedes!",
     "rgb_failed": "Indstilling af farve mislykkedes!",
     "temperature_set_failed": "Indstilling af temperatur mislykkedes!",
-    "temperature_get_failed": "Hentning af temperatur mislykkedes!",
+    "measure_temperature_get_failed": "Hentning af temperatur mislykkedes!",
     "windowcovering_failed": "Ændring af tilstand mislykkedes!",
     "windowcovering_stop_failed": "Stop af vinduesafdækning mislykkedes!",
     "invalid_group_address": "Ugyldig gruppeadresse.",

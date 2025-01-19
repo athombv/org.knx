@@ -64,7 +64,7 @@ class KNXThermostat extends KNXGenericDevice {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
         .catch((knxerror) => {
           this.log(knxerror);
-          throw new Error(this.homey.__('errors.temperature_get_failed'));
+          throw new Error(this.homey.__('errors.measure_temperature_get_failed'));
         });
     }
   }

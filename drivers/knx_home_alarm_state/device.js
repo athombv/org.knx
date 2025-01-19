@@ -2,6 +2,6 @@
 
 const KNXGenericSensor = require('../../lib/GenericKNXSensor');
 
-module.exports = class KNXContactSensor extends KNXGenericSensor {
+module.exports = class KNXAlarmHomeState extends KNXGenericSensor {
 
 };
