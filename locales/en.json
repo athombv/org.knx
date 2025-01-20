@@ -31,6 +31,7 @@
         "groupaddresses" : {
             "generic": "Groupaddress",
             "pairing_list": ", groupaddress: ",
+            "select": "Select groupaddress from ETS project",
             "body": "Select which groupaddresses to use with the new device",
             "generic_status": "Status",
             "save" : "Save device",

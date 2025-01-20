@@ -30,6 +30,7 @@
         margin-top: 10px;
     }
 </style>
+<!-- WARNING: class knx-text needs to be below the class knx-dropdown otherwise the dropdown does not work -->
 <div class="knx-wrap" id="ga_input">
 	<p data-i18n="settings.groupaddresses.body">
 	</p>
@@ -199,17 +200,16 @@
 				   data-i18n="settings.groupaddresses.thermostat.target"></label>
 			</div>
 			<div class="knx-entry">
-				<input id="temperature_target_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 				<select id="temperature_target_ga_dropdown" class="knx-dropdown right"></select>
-
+				<input id="temperature_target_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
 			<div class="knx-entry">
 			<label for="temperature_measure_address" class="left"
 				   data-i18n="settings.groupaddresses.thermostat.measure"></label>
 			</div>
 			<div class="knx-entry">
-				<input id="temperature_measure_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 				<select id="temperature_measure_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="temperature_measure_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
 		</div>
 	</fieldset>
@@ -369,6 +369,7 @@
   // Helper functions
 
   function listGroupAddressesDropdown(selectItem, filter) {
+    selectItem.append('<option value="">' + Homey.__('settings.groupaddresses.select') + '</option>');
     groupAddresses.forEach(function (etsEntry) {
       var optionEl = document.createElement('option');
       optionEl.value = etsEntry.address;
