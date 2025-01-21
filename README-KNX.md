@@ -36,7 +36,7 @@ The same goes for the dimming functionality. Bind the dimming actor output and t
 Usually group addresses are grouped by function or location. For example, all switching goes into 1/x/y, dimming into 2/a/b etc.
 You can then divide the main groups into the location, eg. 1/1/y are the switching the living room, 1/2/z is switching for the hallway etc.
 
-More information on how to bind functionality on group addresses can be found in this video: https://www.youtube.com/watch?v=2TGaroLM_HE
+More information on how to bind functionality on group addresses can be found in this video: https://www.youtube.com/watch?v=2TGaroLM_HE 
 
 ## Datapoints
 Just like types in programming languages there are different datapoints within the KNX standard to implement the data embedded in the KNX packets.
@@ -69,7 +69,7 @@ When programming physical KNX devices for the first time it's advised to use the
 ## ETS
 ETS (Engineering Tool Software) is the software that is provided by the KNX organization to setup and maintain a KNX installation. It's the only way to do so.
 It's used to assign addresses to the physical devices, configure them and enable there functionality by attaching groupaddresses to their functions.
-This software runs only under Windows. It's only obtainable with a KNX license, but you might have some luck over here: https://www.roelbroersma.nl/forums/topic/ets-5-7-4/.
+This software runs only under Windows. It's only obtainable with a KNX license, but you might have some luck over here: https://www.roelbroersma.nl/forums/topic/ets-5-7-4/. 
 Whenever using an ETS version that is not obtained officialy from knx.org, make sure to never ever send a project back to a customer.
 The original version checks for a fingerprint in the project file which disables opening files altered with non-original versions.
 It's advised to run those ETS version inside a virtual machine and to create a snapshot before upgrading to a new version since it might crash/become corrupted.
