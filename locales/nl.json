@@ -31,6 +31,7 @@
         "groupaddresses" : {
             "generic": "Groepadres",
             "pairing_list": ", groepadres: ",
+            "select": "Selecteer groepsadres uit het ETS project",
             "body": "Selecteer de groepadressen voor het nieuwe apparaat",
             "generic_status": "Status adres",
             "save": "Apparaat opslaan",
