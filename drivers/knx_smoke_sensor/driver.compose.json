@@ -2,6 +2,7 @@
   "$extends": [
     "knx_sensor"
   ],
+  "id": "knx_smoke_sensor",
   "name": {
     "en": "Smoke Sensor",
     "fr": "Détecteur de fumée"

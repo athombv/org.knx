@@ -740,6 +740,7 @@
           }
         }
       ],
+      "id": "knx_contact_sensor",
       "name": {
         "en": "Contact Sensor",
         "fr": "Capteur de contact"
@@ -886,8 +887,7 @@
             }
           ]
         }
-      ],
-      "id": "knx_contact_sensor"
+      ]
     },
     {
       "images": {
@@ -1866,6 +1866,7 @@
           }
         }
       ],
+      "id": "knx_home_alarm_state",
       "name": {
         "en": "Home alarm state",
         "fr": "Etat de l'alarme domestique"
@@ -2012,8 +2013,7 @@
             }
           ]
         }
-      ],
-      "id": "knx_home_alarm_state"
+      ]
     },
     {
       "images": {
@@ -2471,6 +2471,7 @@
           }
         }
       ],
+      "id": "knx_motion_sensor",
       "name": {
         "en": "Motion Sensor",
         "fr": "Capteur de mouvement"
@@ -2617,8 +2618,7 @@
             }
           ]
         }
-      ],
-      "id": "knx_motion_sensor"
+      ]
     },
     {
       "images": {
@@ -3132,6 +3132,7 @@
           }
         }
       ],
+      "id": "knx_smoke_sensor",
       "name": {
         "en": "Smoke Sensor",
         "fr": "Détecteur de fumée"
@@ -3278,8 +3279,7 @@
             }
           ]
         }
-      ],
-      "id": "knx_smoke_sensor"
+      ]
     },
     {
       "images": {
@@ -3562,6 +3562,7 @@
           }
         }
       ],
+      "id": "knx_tamper_sensor",
       "name": {
         "en": "Tamper Sensor",
         "fr": "Capteur de sabotage"
@@ -3708,8 +3709,7 @@
             }
           ]
         }
-      ],
-      "id": "knx_tamper_sensor"
+      ]
     },
     {
       "images": {

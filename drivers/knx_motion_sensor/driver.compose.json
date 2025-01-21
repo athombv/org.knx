@@ -2,6 +2,7 @@
   "$extends": [
     "knx_sensor"
   ],
+  "id": "knx_motion_sensor",
   "name": {
     "en": "Motion Sensor",
     "fr": "Capteur de mouvement"

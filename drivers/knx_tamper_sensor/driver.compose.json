@@ -2,6 +2,7 @@
   "$extends": [
     "knx_sensor"
   ],
+  "id": "knx_tamper_sensor",
   "name": {
     "en": "Tamper Sensor",
     "fr": "Capteur de sabotage"

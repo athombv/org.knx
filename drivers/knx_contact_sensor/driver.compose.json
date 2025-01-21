@@ -2,6 +2,7 @@
   "$extends": [
     "knx_sensor"
   ],
+  "id": "knx_contact_sensor",
   "name": {
     "en": "Contact Sensor",
     "fr": "Capteur de contact"

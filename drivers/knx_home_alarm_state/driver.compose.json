@@ -2,6 +2,7 @@
   "$extends": [
     "knx_sensor"
   ],
+  "id": "knx_home_alarm_state",
   "name": {
     "en": "Home alarm state",
     "fr": "Etat de l'alarme domestique"
