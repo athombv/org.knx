@@ -32,9 +32,6 @@ A temperature measurement device.
 ### Contact sensor
 Alarm contact sensor.
 
-### Home alarm state
-A Security home alarm state. It can be used as binary value for states arm, partial arm, disarm.
-
 ### Motion sensor
 KNX motion sensor. Can be used as binary value (true/false).
 
