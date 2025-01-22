@@ -81,7 +81,7 @@
         "dim_failed": "Dimming the device failed!",
         "rgb_failed": "Setting color failed!",
         "temperature_set_failed": "Setting temperature failed!",
-        "temperature_get_failed": "Getting temperature failed!",
+        "measure_temperature_get_failed": "Getting temperature failed!",
         "windowcovering_failed": "Changing state failed!",
         "windowcovering_stop_failed": "Stopping windowcovering failed!",
         "invalid_group_address": "Invalid groupaddress.",

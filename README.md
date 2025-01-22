@@ -4,7 +4,7 @@ Add your KNX devices to Homey. This app requires a KNX IP Router or Interface co
 
 ## Supported KNX devices
 
-### Switch 
+### Switch
 For example a wall-mounted switch that can be toggled.
 
 ### Light
@@ -29,6 +29,16 @@ Windowcoverings like sunblinds or curtains. Currently only Up/Down is supported.
 ### Temperature sensor
 A temperature measurement device.
 
+### Contact sensor
+Alarm contact sensor.
+
+### Motion sensor
+KNX motion sensor. Can be used as binary value (true/false).
+
+### Smoke sensor
+KNX smoke sensor. Return true when smoke is detected
+
+### Tamper sensor
 ### Scene
 Device within Homey which triggers a KNX scene to become active.
 

@@ -78,11 +78,11 @@ It's advised to run those ETS version inside a virtual machine and to create a s
 The KNX library is updated aprox. every two months. It's advised as it's still being improved. In the past, these updates never broke our implementation so they are considered 'safe'.
 
 ## Running KNX App with a slave Homey
-When running the KNX app during testing with a slave Homey, you need to comment the following line:
+When running the KNX app during testing with a slave Homey, you need to run the app with `--remote` arg
 
-*KNXInterface.js  line 47*
-
-`interface: 'wlan0'` -> `//interface: 'wlan0'`
+```
+homey app run --remote
+```
 
 ## Future improvements
 - Instead of parsing the datapoints itself, use this library: https://github.com/Rafelder/knx-datapoints

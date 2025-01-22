@@ -81,7 +81,7 @@
         "dim_failed": "Dimmen van apparaat mislukt!",
         "rgb_failed": "Kleur veranderen mislukt!",
         "temperature_set_failed": "Temperatuur instellen mislukt!",
-        "temperature_get_failed": "Temperatuur ophalen mislukt!",
+        "measure_temperature_get_failed": "Temperatuur ophalen mislukt!",
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
         "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
         "invalid_group_address": "Ongeldig groepadres.",
