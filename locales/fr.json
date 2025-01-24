@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Adresse de température cible",
-        "measure": "Adresse de mesure de température"
+        "measure": "Adresse de mesure de température",
+        "mode": "Adresse de mode HVAC"
       },
       "rgb": {
         "red_toggle_action": "Adresse de basculement du canal rouge",

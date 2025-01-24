@@ -46,7 +46,8 @@
             },
             "thermostat": {
                 "target": "Target temperature address",
-                "measure": "Temperature measurement address"
+                "measure": "Temperature measurement address",
+                "mode": "HVAC mode address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
