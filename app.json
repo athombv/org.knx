@@ -701,6 +701,77 @@
           }
         ],
         "id": "trigger_to_scene"
+      },
+      {
+        "id": "change_hvac_mode",
+        "title": {
+          "en": "Change HVAC mode",
+          "fr": "Chnage le mode de fonctionnement HVAC"
+        },
+        "titleFormatted": {
+          "en": "Change mode to [[mode]]",
+          "fr": "Changer le mode à [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_thermostat"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Automatic",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatica",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk",
+                  "ru": "Автоматически",
+                  "pl": "Automatyczny",
+                  "ko": "자동"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Comfort",
+                  "fr": "Confort"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Standby / Absence",
+                  "nl": "",
+                  "de": "",
+                  "fr": "Veille / Absence"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Economy / Night",
+                  "fr": "Economie / Nuit"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Building protection",
+                  "fr": "Protection du bâtiment / Hors gel"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -4491,6 +4562,15 @@
         "pl": "Ściemnij",
         "ru": "Увеличить яркость",
         "ko": "올리기"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": true
+    },
+    "heat_frost_protection": {
+      "title": {
+        "en": "Heat / frost protection",
+        "fr": "Protection contre la chaleur / le gel"
       },
       "type": "boolean",
       "getable": true,
