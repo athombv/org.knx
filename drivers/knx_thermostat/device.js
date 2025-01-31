@@ -70,7 +70,7 @@ class KNXThermostat extends KNXGenericDevice {
   }
 
   onCapabilityTargetTemperature(value) {
-    // this.getMeasuredTemperature();
+    this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
         .catch((knxerror) => {
@@ -107,8 +107,7 @@ class KNXThermostat extends KNXGenericDevice {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_hvac_operating_mode)
         .catch((knxerror) => {
           this.log(knxerror);
-          throw new Error(this.homey.__('errors.hvac_mode_get_failed')); // TODO add Message translation
-        });
+          throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
     }
   }
 
