@@ -81,7 +81,7 @@
     "rgb_failed": "Ustawianie koloru nie powiodło się!",
     "temperature_set_failed": "Ustawienie temperatury nie powiodło się!",
     "temperature_get_failed": "Pobieranie temperatury nie powiodło się!",
-    "hvac_operating_mode_set_failed": "",
+
     "windowcovering_failed": "Zmiana stanu nie powiodła się!",
     "windowcovering_stop_failed": "Zatrzymanie osłony okiennej nie powiodło się!",
     "invalid_group_address": "Nieprawidłowy adres grupy.",

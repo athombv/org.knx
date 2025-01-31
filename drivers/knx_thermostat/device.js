@@ -8,11 +8,15 @@ class KNXThermostat extends KNXGenericDevice {
   onInit() {
     super.onInit();
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
-    if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
-      this.addCapability('hvac_operating_mode');
+    if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '' ) {
+      if (!this.hasCapability('hvac_operating_mode')) {
+        this.addCapability('hvac_operating_mode');
+      }
       this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
     } else {
-      this.removeCapability('hvac_operating_mode');
+      if (this.hasCapability('hvac_operating_mode')) {
+        this.removeCapability('hvac_operating_mode');
+      }
     }
   }
 
