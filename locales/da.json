@@ -81,7 +81,6 @@
     "rgb_failed": "Indstilling af farve mislykkedes!",
     "temperature_set_failed": "Indstilling af temperatur mislykkedes!",
     "temperature_get_failed": "Hentning af temperatur mislykkedes!",
-    "hvac_operating_mode_set_failed": "",
     "windowcovering_failed": "Ændring af tilstand mislykkedes!",
     "windowcovering_stop_failed": "Stop af vinduesafdækning mislykkedes!",
     "invalid_group_address": "Ugyldig gruppeadresse.",
