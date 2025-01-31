@@ -82,7 +82,7 @@
         "rgb_failed": "Kleur veranderen mislukt!",
         "temperature_set_failed": "Temperatuur instellen mislukt!",
         "temperature_get_failed": "Temperatuur ophalen mislukt!",
-        "hvac_operating_mode_set_failed": "",
+    
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
         "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
         "invalid_group_address": "Ongeldig groepadres.",

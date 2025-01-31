@@ -81,7 +81,7 @@
     "rgb_failed": "Impostazione del colore fallita!",
     "temperature_set_failed": "Impostazione della temperatura fallita!",
     "temperature_get_failed": "Recupero della temperatura fallito!",
-    "hvac_operating_mode_set_failed": "",
+
     "windowcovering_failed": "Modifica dello stato fallita!",
     "windowcovering_stop_failed": "Arresto della copertura finestra fallito!",
     "invalid_group_address": "Indirizzo di gruppo non valido.",
