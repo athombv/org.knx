@@ -83,6 +83,7 @@
         "rgb_failed": "Setting color failed!",
         "temperature_set_failed": "Setting temperature failed!",
         "temperature_get_failed": "Getting temperature failed!",
+        "hvac_operating_mode_get_failed": "Getting operating mode failed!",
         "hvac_operating_mode_set_failed": "Setting operating mode failed!",
         "windowcovering_failed": "Changing state failed!",
         "windowcovering_stop_failed": "Stopping windowcovering failed!",
