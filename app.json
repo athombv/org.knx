@@ -4038,7 +4038,8 @@
       "capabilities": [
         "target_temperature",
         "measure_temperature",
-        "hvac_operating_mode"
+        "hvac_operating_mode",
+        "heating_variable_correction"
       ],
       "settings": [
         {
@@ -4130,6 +4131,29 @@
               "label": {
                 "en": "HVAC operating mode address",
                 "fr": "Adresse de mode de fonctionnement HVAC"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_heating_variable_correction",
+              "type": "text",
+              "label": {
+                "en": "Correcting variable heating",
+                "fr": "Correction des variations de chauffage"
               },
               "value": "",
               "hint": {
@@ -4555,14 +4579,38 @@
       "getable": true,
       "setable": true
     },
-    "heat_frost_protection": {
+    "heating_variable_correction": {
+      "type": "number",
       "title": {
-        "en": "Heat / frost protection",
-        "fr": "Protection contre la chaleur / le gel"
+        "en": "Heating variability correction",
+        "fr": "Correction de la variable de chauffage"
       },
-      "type": "boolean",
+      "units": {
+        "en": "%",
+        "nl": "%",
+        "da": "%",
+        "it": "%",
+        "ko": "%",
+        "pl": "%",
+        "ru": "%",
+        "sv": "%",
+        "es": "%",
+        "fr": " %",
+        "no": "%"
+      },
+      "desc": {
+        "en": "The current heating variability correction in percent.",
+        "fr": "La variable de correction actuelle du chauffage en pourcentage."
+      },
+      "insights": false,
+      "chartType": "stepLine",
+      "decimals": 2,
+      "min": 0,
+      "max": 1,
       "getable": true,
-      "setable": true
+      "setable": false,
+      "uiComponent": "sensor",
+      "minCompatibility": "5.0.0"
     },
     "hvac_operating_mode": {
       "type": "enum",
@@ -4603,8 +4651,6 @@
           "id": "2",
           "title": {
             "en": "Standby / Absence",
-            "nl": "",
-            "de": "",
             "fr": "Veille / Absence"
           }
         },
