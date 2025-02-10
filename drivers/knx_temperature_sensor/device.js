@@ -1,6 +1,6 @@
 'use strict';
 
-const KNXGenericSensor= require('../../lib/GenericKNXSensor');
+const KNXGenericSensor = require('../../lib/GenericKNXSensor');
 
 class KNXTemperatureSensor extends KNXGenericSensor {}
 
