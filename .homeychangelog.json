@@ -1,4 +1,4 @@
-{
+  {
   "1.2.7": {
     "en": "Fix connection to non-broadcast interfaces after restart. Added support for sending and receiving telegrams directly from flows."
   },
@@ -56,5 +56,8 @@
   },
   "1.3.2": {
     "en": "Add support for contact, motion, smoke and tamper sensor"
+  },
+  "1.3.3": {
+    "en": "Add humidity sensor"
   }
 }
