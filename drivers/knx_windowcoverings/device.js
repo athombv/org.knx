@@ -13,7 +13,7 @@ class KNXWindowCovering extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
-      const state = DatapointTypeParser.onoff(data);
+      const state = DatapointTypeParser.bitFormat(data);
       if (state) {
         if (this.settings.invert_updown === true) {
           this.setCapabilityValue('windowcoverings_state', 'up')

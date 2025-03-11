@@ -20,7 +20,7 @@ class KNXSwitch extends KNXGenericDevice {
     }
 
     if (groupaddress === statusAddress) {
-      const value = DatapointTypeParser.onoff(data);
+      const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff', value)
         .catch((knxerror) => {
           this.log('Set onoff error', knxerror);

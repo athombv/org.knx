@@ -100,7 +100,7 @@ class KNXRGB extends KNXGenericDevice {
    */
   async onKNXToggleEvent(groupAddress, data) {
     if (data) {
-      const value = DatapointTypeParser.onoff(data);
+      const value = DatapointTypeParser.bitFormat(data);
 
       if (groupAddress === this.settings.ga_red_toggle_status) {
         this._onOffEventHandlerObject.r = value;
