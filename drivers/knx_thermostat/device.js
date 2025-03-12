@@ -44,7 +44,8 @@ class KNXThermostat extends KNXGenericDevice {
         });
     }
     if (groupaddress === this.settings.ga_heating_variable_correction) {
-      this.setCapabilityValue('heating_variable_correction', DatapointTypeParser.byteUnsigned(data))
+      const rawValue = data.readUInt8(0);
+      this.setCapabilityValue('heating_variable_correction', rawValue)
         .catch((knxerror) => {
           this.log('Set heating_variable_correction error', knxerror);
         });
@@ -139,6 +140,7 @@ class KNXThermostat extends KNXGenericDevice {
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
+        });
     }
   }
 
