@@ -91,7 +91,7 @@ class KNXThermostat extends KNXGenericDevice {
     }
   }
 
-  onCapabilityTargetTemperature(value) {
+  onCapabilityTargetTemperature(value, opts) {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
