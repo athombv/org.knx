@@ -716,7 +716,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=knx_thermostat"
+            "filter": "driver_id=knx_thermostat&capabilities=hvac_operating_mode"
           },
           {
             "name": "mode",
@@ -4125,27 +4125,36 @@
               }
             },
             {
-              "id": "ga_hvac_operating_mode",
-              "type": "text",
+              "type": "group",
               "label": {
-                "en": "HVAC operating mode address",
-                "fr": "Adresse de mode de fonctionnement HVAC"
+                "en": "Optional (Removing these groupadresses will break flows)",
+                "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)"
               },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in",
-                "da": "Indtast gruppeadresse",
-                "de": "Gruppenadresse eingeben",
-                "es": "Ingrese la dirección de grupo",
-                "fr": "Entrez l'adresse de groupe",
-                "it": "Inserisci l'indirizzo di gruppo",
-                "no": "Angi gruppadresse",
-                "sv": "Ange gruppadress",
-                "pl": "Wpisz adres grupowy",
-                "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
-              }
+              "children": [
+                {
+                  "id": "ga_hvac_operating_mode",
+                  "type": "text",
+                  "label": {
+                    "en": "HVAC operating mode address",
+                    "fr": "Adresse de mode de fonctionnement HVAC"
+                  },
+                  "value": "",
+                  "hint": {
+                    "en": "Enter groupaddress",
+                    "nl": "Vul groepadres in",
+                    "da": "Indtast gruppeadresse",
+                    "de": "Gruppenadresse eingeben",
+                    "es": "Ingrese la dirección de grupo",
+                    "fr": "Entrez l'adresse de groupe",
+                    "it": "Inserisci l'indirizzo di gruppo",
+                    "no": "Angi gruppadresse",
+                    "sv": "Ange gruppadress",
+                    "pl": "Wpisz adres grupowy",
+                    "ru": "Введите групповой адрес",
+                    "ko": "그룹 주소 입력"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -4555,15 +4564,6 @@
       "getable": true,
       "setable": true
     },
-    "heat_frost_protection": {
-      "title": {
-        "en": "Heat / frost protection",
-        "fr": "Protection contre la chaleur / le gel"
-      },
-      "type": "boolean",
-      "getable": true,
-      "setable": true
-    },
     "hvac_operating_mode": {
       "type": "enum",
       "title": {
@@ -4603,8 +4603,6 @@
           "id": "2",
           "title": {
             "en": "Standby / Absence",
-            "nl": "",
-            "de": "",
             "fr": "Veille / Absence"
           }
         },

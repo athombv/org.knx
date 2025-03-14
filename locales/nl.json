@@ -36,6 +36,7 @@
             "generic_status": "Status adres",
             "save": "Apparaat opslaan",
             "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
+            "optional": "Optionele groepadressen, Laat leeg als je apparaat deze functies niet ondersteunt.",
             "switch": {
                 "toggle": "Schakel adres",
                 "status": "Schakel status"

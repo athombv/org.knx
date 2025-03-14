@@ -32,15 +32,6 @@ class KNXApp extends Homey.App {
     this.receiveTelegramTrigger = this.homey.flow.getTriggerCard('knx_receive');
     this.eventListenerGroupAddresses = [];
 
-    // Register actions for flows
-    this.homey.flow.getActionCard('change_hvac_mode')
-      .registerRunListener((args, state) => {
-        return args.device.setCapabilityValue('hvac_operating_mode', args.mode)
-          .then(() => {
-            return args.device.triggerCapabilityListener('hvac_operating_mode', args.mode, {});
-          });
-      });
-
     this.receiveTelegramTrigger.registerRunListener(async (args, state) => {
       // TODO: allow globs for cool trigger types
       // like a flow card that listens for 1/*/10
