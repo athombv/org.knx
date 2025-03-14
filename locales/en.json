@@ -36,6 +36,7 @@
             "generic_status": "Status",
             "save" : "Save device",
             "duplicate_groupaddress": " this groupaddress is already in use by ",
+            "optional": "Optional groupaddresses, Leave empty if your device does not support these features.",
             "switch": {
                 "toggle": "Switch address",
                 "status": "Status address"

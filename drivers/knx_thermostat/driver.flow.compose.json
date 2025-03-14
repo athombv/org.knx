@@ -10,6 +10,7 @@
         "en": "Change mode to [[mode]]",
         "fr": "Changer le mode à [[mode]]"
       },
+      "$filter": "capabilities=hvac_operating_mode",
       "args": [
         {
           "name": "mode",
