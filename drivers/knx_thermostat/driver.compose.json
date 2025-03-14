@@ -20,7 +20,8 @@
   "class": "thermostat",
   "capabilities": [
     "target_temperature",
-    "measure_temperature"
+    "measure_temperature",
+    "hvac_operating_mode"
   ],
   "pair": [
     {
@@ -132,7 +133,31 @@
             "ru": "Введите групповой адрес",
             "ko": "그룹 주소 입력"
           }
+        },
+        {
+          "id": "ga_hvac_operating_mode",
+          "type": "text",
+          "label": {
+            "en": "HVAC operating mode address",
+            "fr": "Adresse de mode de fonctionnement HVAC"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Angi gruppadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
+          }
         }
+
       ]
     },
     {

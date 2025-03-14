@@ -46,7 +46,8 @@
             },
             "thermostat": {
                 "target": "Target temperature address",
-                "measure": "Temperature measurement address"
+                "measure": "Temperature measurement address",
+                "mode": "HVAC mode address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
@@ -81,7 +82,9 @@
         "dim_failed": "Dimming the device failed!",
         "rgb_failed": "Setting color failed!",
         "temperature_set_failed": "Setting temperature failed!",
-        "measure_temperature_get_failed": "Getting temperature failed!",
+        "temperature_get_failed": "Getting temperature failed!",
+        "hvac_operating_mode_get_failed": "Getting operating mode failed!",
+        "hvac_operating_mode_set_failed": "Setting operating mode failed!",
         "windowcovering_failed": "Changing state failed!",
         "windowcovering_stop_failed": "Stopping windowcovering failed!",
         "invalid_group_address": "Invalid groupaddress.",

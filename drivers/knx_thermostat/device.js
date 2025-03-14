@@ -8,6 +8,14 @@ class KNXThermostat extends KNXGenericDevice {
   onInit() {
     super.onInit();
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
+    if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
+      if (!this.hasCapability('hvac_operating_mode')) {
+        this.addCapability('hvac_operating_mode');
+      }
+      this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
+    } else if (this.hasCapability('hvac_operating_mode')) {
+      this.removeCapability('hvac_operating_mode');
+    }
   }
 
   onKNXEvent(groupaddress, data) {
@@ -22,6 +30,12 @@ class KNXThermostat extends KNXGenericDevice {
       this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => {
           this.log('Set measure_temperature error', knxerror);
+        });
+    }
+    if (groupaddress === this.settings.ga_hvac_operating_mode) {
+      this.setCapabilityValue('hvac_operating_mode', DatapointTypeParser.dpt20(data).toString())
+        .catch((knxerror) => {
+          this.log('Set HVAC operating mode error', knxerror);
         });
     }
   }
@@ -44,10 +58,16 @@ class KNXThermostat extends KNXGenericDevice {
             this.log(knxerror);
           });
       }
+      if (this.settings.ga_hvac_operating_mode) {
+        this.knxInterface.readKNXGroupAddress(this.settings.ga_hvac_operating_mode)
+          .catch((knxerror) => {
+            this.log(knxerror);
+          });
+      }
     }
   }
 
-  onCapabilityTargetTemperature(value, opts) {
+  onCapabilityTargetTemperature(value) {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
@@ -59,12 +79,33 @@ class KNXThermostat extends KNXGenericDevice {
     return null;
   }
 
+  onCapabilityHVACOperatingMode(value, opts) {
+    if (this.knxInterface && this.settings.ga_hvac_operating_mode) {
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
+        .catch((knxerror) => {
+          this.log(knxerror);
+          throw new Error(this.homey.__('errors.hvac_operating_mode_set_failed'));
+        });
+    }
+    return null;
+  }
+
   getMeasuredTemperature() {
     if (this.settings.ga_temperature_measure) {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
         .catch((knxerror) => {
           this.error(knxerror);
           // throw new Error(this.homey.__('errors.measure_temperature_get_failed'));
+        });
+    }
+  }
+
+  getHVACOperatingMode() {
+    if (this.settings.ga_hvac_operating_mode) {
+      this.knxInterface.readKNXGroupAddress(this.settings.ga_hvac_operating_mode)
+        .catch((knxerror) => {
+          this.log(knxerror);
+          throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
         });
     }
   }
