@@ -11,7 +11,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
       this.initOperatingModeCapability();
     } else if (this.hasCapability('hvac_operating_mode')) {
-      this.removeCapability('hvac_operating_mode');
+      this.removeCapability('hvac_operating_mode').catch(this.error);
     }
   }
 
@@ -20,14 +20,14 @@ class KNXThermostat extends KNXGenericDevice {
       if (typeof newSettings.ga_hvac_operating_mode === 'string' && newSettings.ga_hvac_operating_mode !== '') {
         this.initOperatingModeCapability();
       } else if (this.hasCapability('hvac_operating_mode')) {
-        this.removeCapability('hvac_operating_mode');
+        this.removeCapability('hvac_operating_mode').catch(this.error);
       }
     }
   }
 
   initOperatingModeCapability() {
     if (!this.hasCapability('hvac_operating_mode')) {
-      this.addCapability('hvac_operating_mode');
+      this.addCapability('hvac_operating_mode').catch(this.error);
     }
     this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
     // Register actions for flows
