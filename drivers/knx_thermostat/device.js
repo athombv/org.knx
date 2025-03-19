@@ -9,13 +9,35 @@ class KNXThermostat extends KNXGenericDevice {
     super.onInit();
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
-      if (!this.hasCapability('hvac_operating_mode')) {
-        this.addCapability('hvac_operating_mode');
-      }
-      this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
+      this.initOperatingModeCapability();
     } else if (this.hasCapability('hvac_operating_mode')) {
-      this.removeCapability('hvac_operating_mode');
+      this.removeCapability('hvac_operating_mode').catch(this.error);
     }
+  }
+
+  onSettings({ oldSettings, newSettings, changedKeys }) {
+    if (changedKeys.includes('ga_hvac_operating_mode')) {
+      if (typeof newSettings.ga_hvac_operating_mode === 'string' && newSettings.ga_hvac_operating_mode !== '') {
+        this.initOperatingModeCapability();
+      } else if (this.hasCapability('hvac_operating_mode')) {
+        this.removeCapability('hvac_operating_mode').catch(this.error);
+      }
+    }
+  }
+
+  initOperatingModeCapability() {
+    if (!this.hasCapability('hvac_operating_mode')) {
+      this.addCapability('hvac_operating_mode').catch(this.error);
+    }
+    this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
+    // Register actions for flows
+    this.homey.flow.getActionCard('change_hvac_mode')
+      .registerRunListener((args, state) => {
+        return args.device.setCapabilityValue('hvac_operating_mode', args.mode)
+          .then(() => {
+            return args.device.triggerCapabilityListener('hvac_operating_mode', args.mode, {});
+          });
+      });
   }
 
   onKNXEvent(groupaddress, data) {
