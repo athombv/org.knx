@@ -31,6 +31,15 @@ class KNXThermostat extends KNXGenericDevice {
         this.removeCapability('hvac_operating_mode').catch(this.error);
       }
     }
+    if (changedKeys.includes('ga_heating_variable_correction')) {
+      if (typeof newSettings.ga_heating_variable_correction === 'string' && newSettings.ga_heating_variable_correction !== '') {
+        if (!this.hasCapability('heating_variable_correction')) {
+          this.addCapability('heating_variable_correction');
+        }
+      } else if (this.hasCapability('heating_variable_correction')) {
+        this.removeCapability('heating_variable_correction');
+      }
+    }
   }
 
   initOperatingModeCapability() {
