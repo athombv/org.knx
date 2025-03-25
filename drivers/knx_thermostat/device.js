@@ -8,6 +8,14 @@ class KNXThermostat extends KNXGenericDevice {
   onInit() {
     super.onInit();
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
+    if (typeof this.settings.ga_heating_variable_correction === 'string' && this.settings.ga_heating_variable_correction !== '') {
+      if (!this.hasCapability('heating_variable_correction')) {
+        this.addCapability('heating_variable_correction');
+      }
+    } else if (this.hasCapability('heating_variable_correction')) {
+      this.removeCapability('heating_variable_correction');
+    }
+
     if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
       this.initOperatingModeCapability();
     } else if (this.hasCapability('hvac_operating_mode')) {
@@ -21,6 +29,15 @@ class KNXThermostat extends KNXGenericDevice {
         this.initOperatingModeCapability();
       } else if (this.hasCapability('hvac_operating_mode')) {
         this.removeCapability('hvac_operating_mode').catch(this.error);
+      }
+    }
+    if (changedKeys.includes('ga_heating_variable_correction')) {
+      if (typeof newSettings.ga_heating_variable_correction === 'string' && newSettings.ga_heating_variable_correction !== '') {
+        if (!this.hasCapability('heating_variable_correction')) {
+          this.addCapability('heating_variable_correction');
+        }
+      } else if (this.hasCapability('heating_variable_correction')) {
+        this.removeCapability('heating_variable_correction');
       }
     }
   }
@@ -52,6 +69,12 @@ class KNXThermostat extends KNXGenericDevice {
       this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => {
           this.log('Set measure_temperature error', knxerror);
+        });
+    }
+    if (groupaddress === this.settings.ga_heating_variable_correction) {
+      this.setCapabilityValue('heating_variable_correction', DatapointTypeParser.byteUnsigned(data))
+        .catch((knxerror) => {
+          this.log('Set heating_variable_correction error', knxerror);
         });
     }
     if (groupaddress === this.settings.ga_hvac_operating_mode) {
@@ -86,6 +109,13 @@ class KNXThermostat extends KNXGenericDevice {
             this.log(knxerror);
           });
       }
+      if (this.settings.ga_heating_variable_correction) {
+        this.knxInterface.readKNXGroupAddress(this.settings.ga_heating_variable_correction)
+          .catch((knxerror) => {
+            this.log(knxerror);
+          });
+      }
+
     }
   }
 
@@ -118,6 +148,16 @@ class KNXThermostat extends KNXGenericDevice {
         .catch((knxerror) => {
           this.error(knxerror);
           // throw new Error(this.homey.__('errors.measure_temperature_get_failed'));
+        });
+    }
+  }
+
+  getHeatingVariableCorrecting() {
+    if (this.settings.ga_heating_variable_correction) {
+      this.knxInterface.readKNXGroupAddress(this.settings.ga_heating_variable_correction)
+        .catch((knxerror) => {
+          this.log(knxerror);
+          throw new Error(this.homey.__('errors.heating_variable_correction_get_failed'));
         });
     }
   }

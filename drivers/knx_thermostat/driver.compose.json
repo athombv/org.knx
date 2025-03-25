@@ -1,26 +1,29 @@
 {
-    "$extends": ["knx_driver"],
-    "id": "knx_thermostat",
-    "name": {
-        "en": "Thermostat",
-        "nl": "Thermostaat",
-        "da": "Termostat",
-        "de": "Thermostat",
-        "es": "Termostato",
-        "fr": "Thermostat",
-        "it": "Termostato",
-        "no": "Termostat",
-        "sv": "Termostat",
-        "pl": "Termostat",
-        "ru": "Термостат",
-        "ko": "온도 조절기"
-    },
-    "class": "thermostat",
-    "capabilities": [
-        "target_temperature",
-        "measure_temperature",
-        "hvac_operating_mode"
-    ],
+  "$extends": [
+    "knx_driver"
+  ],
+  "id": "knx_thermostat",
+  "name": {
+    "en": "Thermostat",
+    "nl": "Thermostaat",
+    "da": "Termostat",
+    "de": "Thermostat",
+    "es": "Termostato",
+    "fr": "Thermostat",
+    "it": "Termostato",
+    "no": "Termostat",
+    "sv": "Termostat",
+    "pl": "Termostat",
+    "ru": "Термостат",
+    "ko": "온도 조절기"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "target_temperature",
+    "measure_temperature",
+    "hvac_operating_mode",
+    "heating_variable_correction"
+  ],
     "pair": [
         {
             "id": "select_interface",
@@ -161,6 +164,29 @@
                                 "ru": "Введите групповой адрес",
                                 "ko": "그룹 주소 입력"
                             }
+                        },
+                        {
+                          "id": "ga_heating_variable_correction",
+                          "type": "text",
+                          "label": {
+                            "en": "Correcting variable heating",
+                            "fr": "Correction des variations de chauffage"
+                          },
+                          "value": "",
+                          "hint": {
+                            "en": "Enter groupaddress",
+                            "nl": "Vul groepadres in",
+                            "da": "Indtast gruppeadresse",
+                            "de": "Gruppenadresse eingeben",
+                            "es": "Ingrese la dirección de grupo",
+                            "fr": "Entrez l'adresse de groupe",
+                            "it": "Inserisci l'indirizzo di gruppo",
+                            "no": "Angi gruppadresse",
+                            "sv": "Ange gruppadress",
+                            "pl": "Wpisz adres grupowy",
+                            "ru": "Введите групповой адрес",
+                            "ko": "그룹 주소 입력"
+                          }
                         }
                     ]
                 }

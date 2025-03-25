@@ -46,7 +46,8 @@
       "thermostat": {
         "target": "Adresse de température cible",
         "measure": "Adresse de mesure de température",
-        "mode": "Adresse de mode HVAC"
+        "mode": "Adresse de mode HVAC",
+        "heating_variable_correction": "Adresse de variable de correction du chauffage"
       },
       "rgb": {
         "red_toggle_action": "Adresse de basculement du canal rouge",
@@ -83,6 +84,8 @@
     "temperature_set_failed": "Échec du réglage de la température !",
     "temperature_get_failed": "Échec de la récupération de la température !",
     "hvac_operating_mode_set_failed": "Échec du changement de mode de fonctionnement",
+    "measure_temperature_get_failed": "Échec de récupération de la temperature mesuré!",
+    "heating_variable_correction_get_failed": "Échec de récupération de la variable de correcting du chauffage",
     "windowcovering_failed": "Échec du changement d'état !",
     "windowcovering_stop_failed": "Échec de l'arrêt de la couverture de fenêtre !",
     "invalid_group_address": "Adresse de groupe invalide.",
