@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.knx",
-  "version": "1.3.3",
+  "version": "1.3.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -716,7 +716,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=knx_thermostat"
+            "filter": "driver_id=knx_thermostat&capabilities=hvac_operating_mode"
           },
           {
             "name": "mode",
@@ -4126,50 +4126,58 @@
               }
             },
             {
-              "id": "ga_hvac_operating_mode",
-              "type": "text",
+              "type": "group",
               "label": {
-                "en": "HVAC operating mode address",
-                "fr": "Adresse de mode de fonctionnement HVAC"
+                "en": "Optional (Removing these groupadresses will break flows)",
+                "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)"
               },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in",
-                "da": "Indtast gruppeadresse",
-                "de": "Gruppenadresse eingeben",
-                "es": "Ingrese la dirección de grupo",
-                "fr": "Entrez l'adresse de groupe",
-                "it": "Inserisci l'indirizzo di gruppo",
-                "no": "Angi gruppadresse",
-                "sv": "Ange gruppadress",
-                "pl": "Wpisz adres grupowy",
-                "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
-              }
-            },
-            {
-              "id": "ga_heating_variable_correction",
-              "type": "text",
-              "label": {
-                "en": "Correcting variable heating",
-                "fr": "Correction des variations de chauffage"
-              },
-              "value": "",
-              "hint": {
-                "en": "Enter groupaddress",
-                "nl": "Vul groepadres in",
-                "da": "Indtast gruppeadresse",
-                "de": "Gruppenadresse eingeben",
-                "es": "Ingrese la dirección de grupo",
-                "fr": "Entrez l'adresse de groupe",
-                "it": "Inserisci l'indirizzo di gruppo",
-                "no": "Angi gruppadresse",
-                "sv": "Ange gruppadress",
-                "pl": "Wpisz adres grupowy",
-                "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
-              }
+              "children": [
+                {
+                  "id": "ga_hvac_operating_mode",
+                  "type": "text",
+                  "label": {
+                    "en": "HVAC operating mode address",
+                    "fr": "Adresse de mode de fonctionnement HVAC"
+                  },
+                  "value": "",
+                  "hint": {
+                    "en": "Enter groupaddress",
+                    "nl": "Vul groepadres in",
+                    "da": "Indtast gruppeadresse",
+                    "de": "Gruppenadresse eingeben",
+                    "es": "Ingrese la dirección de grupo",
+                    "fr": "Entrez l'adresse de groupe",
+                    "it": "Inserisci l'indirizzo di gruppo",
+                    "no": "Angi gruppadresse",
+                    "sv": "Ange gruppadress",
+                    "pl": "Wpisz adres grupowy",
+                    "ru": "Введите групповой адрес",
+                    "ko": "그룹 주소 입력"
+                  }
+                },
+                {
+                  "id": "ga_heating_variable_correction",
+                  "type": "text",
+                  "label": {
+                    "en": "Correcting variable heating",
+                    "fr": "Correction des variations de chauffage"
+                  },
+                  "value": "",
+                  "hint": {
+                    "en": "Enter groupaddress",
+                    "nl": "Vul groepadres in",
+                    "da": "Indtast gruppeadresse",
+                    "de": "Gruppenadresse eingeben",
+                    "es": "Ingrese la dirección de grupo",
+                    "fr": "Entrez l'adresse de groupe",
+                    "it": "Inserisci l'indirizzo di gruppo",
+                    "no": "Angi gruppadresse",
+                    "sv": "Ange gruppadress",
+                    "pl": "Wpisz adres grupowy",
+                    "ru": "Введите групповой адрес",
+                    "ko": "그룹 주소 입력"
+                  }
+              ]
             }
           ]
         },

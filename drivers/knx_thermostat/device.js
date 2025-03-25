@@ -15,14 +15,37 @@ class KNXThermostat extends KNXGenericDevice {
     } else if (this.hasCapability('heating_variable_correction')) {
       this.removeCapability('heating_variable_correction');
     }
+
     if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
-      if (!this.hasCapability('hvac_operating_mode')) {
-        this.addCapability('hvac_operating_mode');
-      }
-      this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
+      this.initOperatingModeCapability();
     } else if (this.hasCapability('hvac_operating_mode')) {
-      this.removeCapability('hvac_operating_mode');
+      this.removeCapability('hvac_operating_mode').catch(this.error);
     }
+  }
+
+  onSettings({ oldSettings, newSettings, changedKeys }) {
+    if (changedKeys.includes('ga_hvac_operating_mode')) {
+      if (typeof newSettings.ga_hvac_operating_mode === 'string' && newSettings.ga_hvac_operating_mode !== '') {
+        this.initOperatingModeCapability();
+      } else if (this.hasCapability('hvac_operating_mode')) {
+        this.removeCapability('hvac_operating_mode').catch(this.error);
+      }
+    }
+  }
+
+  initOperatingModeCapability() {
+    if (!this.hasCapability('hvac_operating_mode')) {
+      this.addCapability('hvac_operating_mode').catch(this.error);
+    }
+    this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
+    // Register actions for flows
+    this.homey.flow.getActionCard('change_hvac_mode')
+      .registerRunListener((args, state) => {
+        return args.device.setCapabilityValue('hvac_operating_mode', args.mode)
+          .then(() => {
+            return args.device.triggerCapabilityListener('hvac_operating_mode', args.mode, {});
+          });
+      });
   }
 
   onKNXEvent(groupaddress, data) {
@@ -83,10 +106,11 @@ class KNXThermostat extends KNXGenericDevice {
             this.log(knxerror);
           });
       }
+
     }
   }
 
-  onCapabilityTargetTemperature(value, opts) {
+  onCapabilityTargetTemperature(value) {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
       return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
