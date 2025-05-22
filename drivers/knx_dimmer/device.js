@@ -14,7 +14,7 @@ class KNXDimmer extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
-      this.setCapabilityValue('onoff', DatapointTypeParser.onoff(data))
+      this.setCapabilityValue('onoff', DatapointTypeParser.bitFormat(data))
         .catch((knxerror) => {
           this.log('Set onoff error', knxerror);
         });
