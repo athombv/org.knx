@@ -49,7 +49,8 @@
                 "target": "Target temperature address",
                 "target_status": "Target temperature status address",
                 "measure": "Temperature measurement address",
-                "mode": "HVAC mode address"
+                "mode": "HVAC mode address",
+                "mode_status": "HVAC mode status address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",

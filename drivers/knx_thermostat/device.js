@@ -23,6 +23,7 @@ class KNXThermostat extends KNXGenericDevice {
         this.removeCapability('hvac_operating_mode').catch(this.error);
       }
     }
+    super.onSettings({ oldSettings, newSettings, changedKeys });
   }
 
   initOperatingModeCapability() {
@@ -59,7 +60,12 @@ class KNXThermostat extends KNXGenericDevice {
           this.log('Set measure_temperature error', knxerror);
         });
     }
-    if (groupaddress === this.settings.ga_hvac_operating_mode) {
+    // A thermostat can optionally have a different status address then the operating mode address
+    let operatingModeStatusAddress = this.settings.ga_hvac_operating_mode;
+    if (typeof this.settings.ga_hvac_operating_mode_status === 'string' && this.settings.ga_hvac_operating_mode_status !== '') {
+      operatingModeStatusAddress = this.settings.ga_hvac_operating_mode_status;
+    }
+    if (groupaddress === operatingModeStatusAddress) {
       this.setCapabilityValue('hvac_operating_mode', DatapointTypeParser.dpt20(data).toString())
         .catch((knxerror) => {
           this.log('Set HVAC operating mode error', knxerror);
@@ -75,12 +81,7 @@ class KNXThermostat extends KNXGenericDevice {
       // This will be catched by onKNXEvent, hence the return value is not used.
       this.getTargetTemperature();
       this.getMeasuredTemperature();
-      if (this.settings.ga_hvac_operating_mode) {
-        this.knxInterface.readKNXGroupAddress(this.settings.ga_hvac_operating_mode)
-          .catch((knxerror) => {
-            this.log(knxerror);
-          });
-      }
+      this.getHVACOperatingMode();
     }
   }
 
@@ -115,11 +116,16 @@ class KNXThermostat extends KNXGenericDevice {
 
   onCapabilityHVACOperatingMode(value, opts) {
     if (this.knxInterface && this.settings.ga_hvac_operating_mode) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
+      const writePromise = this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.hvac_operating_mode_set_failed'));
         });
+
+      // Reread the operating mode after a timeout to prevent mismatch between KNX device and Homey
+      this.homey.setTimeout(this.getHVACOperatingMode.bind(this), 500);
+
+      return writePromise;
     }
     return null;
   }
@@ -135,8 +141,13 @@ class KNXThermostat extends KNXGenericDevice {
   }
 
   getHVACOperatingMode() {
-    if (this.settings.ga_hvac_operating_mode) {
-      this.knxInterface.readKNXGroupAddress(this.settings.ga_hvac_operating_mode)
+    // A thermostat can optionally have a different status address then the operating mode address
+    let operatingModeStatusAddress = this.settings.ga_hvac_operating_mode;
+    if (typeof this.settings.ga_hvac_operating_mode_status === 'string' && this.settings.ga_hvac_operating_mode_status !== '') {
+      operatingModeStatusAddress = this.settings.ga_hvac_operating_mode_status;
+    }
+    if (operatingModeStatusAddress) {
+      this.knxInterface.readKNXGroupAddress(operatingModeStatusAddress)
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));

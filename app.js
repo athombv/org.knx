@@ -53,6 +53,11 @@ class KNXApp extends Homey.App {
 
     this.KNXInterfaceFoundHandler = this.onKNXInterface.bind(this);
     this.knxInterfaceManager.on('interface_found', this.KNXInterfaceFoundHandler);
+
+    const hvacOperatingModeChangedTrigger = this.homey.flow.getDeviceTriggerCard('hvac_operating_mode_changed');
+    hvacOperatingModeChangedTrigger.registerRunListener(async (args, state) => {
+      return args.hvac_operating_mode === 'Any' || args.device.getCapabilityValue('hvac_operating_mode') === args.hvac_operating_mode;
+    });
   }
 
   // referenced via this.KNXEventHandler
