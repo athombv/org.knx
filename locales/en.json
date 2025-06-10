@@ -75,7 +75,9 @@
                 "updown": "Up/down address",
                 "stop": "Stop address",
                 "tilt": "Tilt address",
-                "tilt_status": "Tilt status address"
+                "tilt_status": "Tilt status address",
+                "height": "Height address",
+                "height_status": "Height status address"
             },
             "sensor": "Sensor address",
             "scene": "Scene address"

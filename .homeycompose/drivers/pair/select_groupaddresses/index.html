@@ -304,6 +304,22 @@
 				<select id="windowcover_statusga_dropdown" class="knx-dropdown right"></select>
 				<input id="windowcover_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
+			<div class="knx-entry">
+				<label for="windowcover_height_address" class="left"
+					   data-i18n="settings.groupaddresses.windowcovering.height"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="windowcover_height_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="windowcover_height_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="windowcover_height_status_address" class="left"
+					   data-i18n="settings.groupaddresses.windowcovering.height_status"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="windowcover_height_status_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="windowcover_height_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
 		</div>
 	</fieldset>
 	<fieldset id="knx-sensor-fieldset" style="display: none">
@@ -584,6 +600,8 @@
             'ga_up_down': $('#windowcover_updown_address').val(),
             'ga_stop': $('#windowcover_stop_address').val(),
             'ga_status': $('#windowcover_status_address').val(),
+            'ga_height': $('#windowcover_height_address').val(),
+            'ga_height_status': $('#windowcover_height_status_address').val(),
             'macAddress': interfaceMAC,
           };
           break;

@@ -5,43 +5,62 @@ const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
 class KNXWindowCovering extends KNXGenericDevice {
 
-  onInit() {
-    super.onInit();
+  async onInit() {
     this.registerCapabilityListener('windowcoverings_state', this.onCapabilityWindowCovering.bind(this));
+    if (this.settings.ga_height) {
+      await this.addCapabilityIfNotExists('windowcoverings_set');
+      this.registerCapabilityListener('windowcoverings_set', this.onCapabilityWindowCoveringSet.bind(this));
+    } else {
+      await this.removeCapabilityIfExists('windowcoverings_set');
+    }
+    super.onInit();
   }
 
-  onKNXEvent(groupaddress, data) {
+  async onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_status) {
       const state = DatapointTypeParser.bitFormat(data);
       if (state) {
         if (this.settings.invert_updown === true) {
-          this.setCapabilityValue('windowcoverings_state', 'up')
+          await this.setCapabilityValue('windowcoverings_state', 'up')
             .catch((knxerror) => {
               this.log('Set windowcoverings_state error', knxerror);
             });
         } else {
-          this.setCapabilityValue('windowcoverings_state', 'down')
+          await this.setCapabilityValue('windowcoverings_state', 'down')
             .catch((knxerror) => {
               this.log('Set windowcoverings_state error', knxerror);
             });
         }
       } else if (this.settings.invert_updown === true) {
-        this.setCapabilityValue('windowcoverings_state', 'down')
+        await this.setCapabilityValue('windowcoverings_state', 'down')
           .catch((knxerror) => {
             this.log('Set windowcoverings_state error', knxerror);
           });
       } else {
-        this.setCapabilityValue('windowcoverings_state', 'up')
+        await this.setCapabilityValue('windowcoverings_state', 'up')
           .catch((knxerror) => {
             this.log('Set windowcoverings_state error', knxerror);
           });
       }
       this.log(state);
     }
+
+    // A window covering can optionally have a different status address then the height address
+    let heightAddress = this.settings.ga_height;
+    if (typeof this.settings.ga_height_status === 'string' && this.settings.ga_height_status !== '') {
+      heightAddress = this.settings.ga_height_status;
+    }
+
+    if (groupaddress === heightAddress) {
+      await this.setCapabilityValue('windowcoverings_set', DatapointTypeParser.dim(data))
+        .catch((knxerror) => {
+          this.log('Set windowcoverings_set error', knxerror);
+        });
+    }
   }
 
-  onCapabilityWindowCovering(value, opts) {
+  onCapabilityWindowCovering(value) {
     this.log(value);
     if (this.knxInterface) {
       switch (value) {
@@ -81,6 +100,29 @@ class KNXWindowCovering extends KNXGenericDevice {
       }
     }
     return null;
+  }
+
+  onCapabilityWindowCoveringSet(value) {
+    if (!this.knxInterface || !this.settings.ga_height) {
+      return null;
+    }
+
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, value * 255, 'DPT5')
+      .catch((knxerror) => {
+        throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
+      });
+  }
+
+  async onSettings({ oldSettings, newSettings, changedKeys }) {
+    if (changedKeys.includes('ga_height')) {
+      if (typeof newSettings.ga_height === 'string' && newSettings.ga_height !== '') {
+        await this.addCapabilityIfNotExists('windowcoverings_set');
+        this.registerCapabilityListener('windowcoverings_set', this.onCapabilityWindowCoveringSet.bind(this));
+      } else {
+        await this.removeCapabilityIfExists('windowcoverings_set');
+      }
+    }
+    await super.onSettings({ oldSettings, newSettings, changedKeys });
   }
 
 }

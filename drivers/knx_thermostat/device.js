@@ -285,18 +285,6 @@ class KNXThermostat extends KNXGenericDevice {
     return null;
   }
 
-  async addCapabilityIfNotExists(capability) {
-    if (!this.hasCapability(capability)) {
-      await this.addCapability(capability).catch(this.error);
-    }
-  }
-
-  async removeCapabilityIfExists(capability) {
-    if (this.hasCapability(capability)) {
-      await this.removeCapability(capability).catch(this.error);
-    }
-  }
-
 }
 
 module.exports = KNXThermostat;
