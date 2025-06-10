@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Adresse de température cible",
-        "measure": "Adresse de mesure de température",
+        "target_status": "Adresse de statut de température cible",
+        "measure": "Adresse de mesure de la température",
         "mode": "Adresse de mode HVAC"
       },
       "rgb": {

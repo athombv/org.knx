@@ -45,6 +45,7 @@
       },
       "thermostat": {
         "target": "목표 온도 주소",
+        "target_status": "목표 온도 상태 주소",
         "measure": "온도 측정 주소"
       },
       "rgb": {

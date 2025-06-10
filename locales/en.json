@@ -47,6 +47,7 @@
             },
             "thermostat": {
                 "target": "Target temperature address",
+                "target_status": "Target temperature status address",
                 "measure": "Temperature measurement address",
                 "mode": "HVAC mode address"
             },

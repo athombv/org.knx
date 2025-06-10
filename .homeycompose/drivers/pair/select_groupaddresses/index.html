@@ -196,7 +196,7 @@
 	<fieldset id="knx-thermostat-fieldset" style="display: none">
 		<div class="knx-thermostat field row">
 			<div class="knx-entry">
-			<label for="temperature_target_address" class="left"
+				<label for="temperature_target_address" class="left"
 				   data-i18n="settings.groupaddresses.thermostat.target"></label>
 			</div>
 			<div class="knx-entry">
@@ -204,12 +204,20 @@
 				<input id="temperature_target_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
 			<div class="knx-entry">
-			<label for="temperature_measure_address" class="left"
+				<label for="temperature_target_status_address" class="left"
+				   data-i18n="settings.groupaddresses.thermostat.target_status"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="temperature_target_status_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="temperature_target_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="temperature_measure_address" class="left"
 				   data-i18n="settings.groupaddresses.thermostat.measure"></label>
 			</div>
 			<div class="knx-entry">
 				<select id="temperature_measure_ga_dropdown" class="knx-dropdown right"></select>
-        <input id="temperature_measure_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+        		<input id="temperature_measure_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
       <label style="font-weight:bold" data-i18n="settings.groupaddresses.optional"></label>
 			<div class="knx-entry">
@@ -510,6 +518,7 @@
           device.name = 'KNX Thermostat';
           device.settings = {
             'ga_temperature_target': $('#temperature_target_address').val(),
+            'ga_temperature_target_status': $('#temperature_target_status_address').val(),
             'ga_temperature_measure': $('#temperature_measure_address').val(),
             'ga_hvac_operating_mode': $('#hvac_operating_mode_address').val(),
             'macAddress': interfaceMAC,

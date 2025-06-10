@@ -42,7 +42,12 @@ class KNXThermostat extends KNXGenericDevice {
 
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
-    if (groupaddress === this.settings.ga_temperature_target) {
+    // A thermostat can optionally have a different status address then the target temperature address
+    let targetTemperatureStatusAddress = this.settings.ga_temperature_target;
+    if (typeof this.settings.ga_temperature_target_status === 'string' && this.settings.ga_temperature_target_status !== '') {
+      targetTemperatureStatusAddress = this.settings.ga_temperature_target_status;
+    }
+    if (groupaddress === targetTemperatureStatusAddress) {
       this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => {
           this.log('Set target_temperature error', knxerror);
@@ -66,20 +71,10 @@ class KNXThermostat extends KNXGenericDevice {
     super.onKNXConnection(connectionStatus);
 
     if (connectionStatus === 'connected') {
-      // Reading the groupaddress will trigger a event on the bus.
+      // Reading the groupaddress will trigger an event on the bus.
       // This will be catched by onKNXEvent, hence the return value is not used.
-      if (this.settings.ga_temperature_target) {
-        this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_target)
-          .catch((knxerror) => {
-            this.log(knxerror);
-          });
-      }
-      if (this.settings.ga_temperature_measure) {
-        this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
-          .catch((knxerror) => {
-            this.log(knxerror);
-          });
-      }
+      this.getTargetTemperature();
+      this.getMeasuredTemperature();
       if (this.settings.ga_hvac_operating_mode) {
         this.knxInterface.readKNXGroupAddress(this.settings.ga_hvac_operating_mode)
           .catch((knxerror) => {
@@ -89,14 +84,31 @@ class KNXThermostat extends KNXGenericDevice {
     }
   }
 
+  getTargetTemperature() {
+    // A thermostat can optionally have a different status address then the target temperature address
+    let statusAddress = this.settings.ga_temperature_target;
+    if (typeof this.settings.ga_temperature_target_status === 'string' && this.settings.ga_temperature_target_status !== '') {
+      statusAddress = this.settings.ga_temperature_target_status;
+    }
+    if (statusAddress) {
+      this.knxInterface.readKNXGroupAddress(statusAddress)
+        .catch((knxerror) => {
+          this.log(knxerror);
+        });
+    }
+  }
+
   onCapabilityTargetTemperature(value) {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
+      const writePromise = this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.temperature_set_failed'));
         });
+      // Reread the target temperature after a timeout to prevent mismatch between KNX device and Homey
+      this.homey.setTimeout(this.getTargetTemperature.bind(this), 500);
+      return writePromise;
     }
     return null;
   }
@@ -113,7 +125,7 @@ class KNXThermostat extends KNXGenericDevice {
   }
 
   getMeasuredTemperature() {
-    if (this.settings.ga_temperature_measure) {
+    if (this.knxInterface && this.settings.ga_temperature_measure) {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
         .catch((knxerror) => {
           this.error(knxerror);
