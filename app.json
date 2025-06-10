@@ -133,6 +133,78 @@
       },
       {
         "title": {
+          "en": "Fan auto mode disabled"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_auto_mode"
+          }
+        ],
+        "id": "knx_fan_auto_mode_false"
+      },
+      {
+        "title": {
+          "en": "Fan auto mode enabled"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_auto_mode"
+          }
+        ],
+        "id": "knx_fan_auto_mode_true"
+      },
+      {
+        "title": {
+          "en": "Fan speed changed"
+        },
+        "tokens": [
+          {
+            "name": "knx_fan_speed",
+            "type": "number",
+            "title": {
+              "en": "Speed"
+            },
+            "example": 0.5
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_speed,knx_fan_speed_no_step_defined"
+          }
+        ],
+        "id": "knx_fan_speed_changed"
+      },
+      {
+        "title": {
+          "en": "Fan speed changed"
+        },
+        "tokens": [
+          {
+            "name": "knx_fan_speed",
+            "type": "number",
+            "title": {
+              "en": "Speed"
+            },
+            "example": 2
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_speed,knx_fan_speed_step_defined"
+          }
+        ],
+        "id": "knx_fan_speed_changed_with_step"
+      },
+      {
+        "title": {
           "en": "Received new value on group address",
           "nl": "Een nieuwe waarde ontvangen op groepsadres",
           "da": "Modtaget ny værdi på gruppeadresse",
@@ -484,6 +556,84 @@
       }
     ],
     "actions": [
+      {
+        "title": {
+          "en": "Disable fan auto mode"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_auto_mode"
+          }
+        ],
+        "id": "knx_fan_auto_mode_disable"
+      },
+      {
+        "title": {
+          "en": "Enable fan auto mode"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_auto_mode"
+          }
+        ],
+        "id": "knx_fan_auto_mode_enable"
+      },
+      {
+        "title": {
+          "en": "Set fan speed"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_speed,knx_fan_speed_no_step_defined"
+          },
+          {
+            "name": "speed",
+            "type": "range",
+            "title": {
+              "en": "Speed"
+            },
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          }
+        ],
+        "id": "knx_fan_speed_no_step_set"
+      },
+      {
+        "title": {
+          "en": "Set fan speed"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knx_thermostat&capabilities=knx_fan_speed,knx_fan_speed_step_defined"
+          },
+          {
+            "name": "speed",
+            "type": "autocomplete",
+            "title": {
+              "en": "Speed"
+            }
+          }
+        ],
+        "id": "knx_fan_speed_step_set"
+      },
       {
         "title": {
           "en": "Send a Read Telegram",
@@ -4290,6 +4440,106 @@
                 "ru": "Введите групповой адрес",
                 "ko": "그룹 주소 입력"
               }
+            },
+            {
+              "id": "ga_fan_speed",
+              "type": "text",
+              "label": {
+                "en": "Fan speed address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_fan_speed_status",
+              "type": "text",
+              "label": {
+                "en": "Fan speed status address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "fan_speed_steps",
+              "type": "number",
+              "label": {
+                "en": "Number of fan speed steps"
+              },
+              "hint": {
+                "en": "e.g. 3 for three on-states and off. Leave empty for 0-100%"
+              },
+              "min": 0,
+              "max": 99
+            },
+            {
+              "id": "ga_fan_auto_mode",
+              "type": "text",
+              "label": {
+                "en": "Fan auto mode address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_fan_auto_mode_status",
+              "type": "text",
+              "label": {
+                "en": "Fan auto mode status address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo di gruppo",
+                "no": "Angi gruppadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
             }
           ]
         },
@@ -4756,6 +5006,51 @@
           }
         }
       ]
+    },
+    "knx_fan_auto_mode": {
+      "type": "boolean",
+      "uiComponent": "toggle",
+      "title": {
+        "en": "Fan auto mode"
+      },
+      "getable": true,
+      "setable": true,
+      "icon": "assets/capabilities/fan_auto_mode.svg"
+    },
+    "knx_fan_speed": {
+      "type": "number",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": "slider",
+      "units": {
+        "en": "%"
+      },
+      "decimals": 2,
+      "min": 0,
+      "max": 1,
+      "getable": true,
+      "setable": true
+    },
+    "knx_fan_speed_no_step_defined": {
+      "type": "string",
+      "title": {
+        "en": "Marker capability for thermostats without fan speed step defined"
+      },
+      "uiComponent": null,
+      "getable": false,
+      "setable": false,
+      "insights": false
+    },
+    "knx_fan_speed_step_defined": {
+      "type": "string",
+      "title": {
+        "en": "Marker capability for thermostats with fan speed step defined"
+      },
+      "uiComponent": null,
+      "getable": false,
+      "setable": false,
+      "insights": false
     },
     "scene_capability": {
       "title": {

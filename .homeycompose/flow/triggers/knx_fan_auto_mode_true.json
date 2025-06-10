@@ -1,0 +1,12 @@
+{
+  "title": {
+    "en": "Fan auto mode enabled"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=knx_thermostat&capabilities=knx_fan_auto_mode"
+    }
+  ]
+}

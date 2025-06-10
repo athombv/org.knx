@@ -10,7 +10,8 @@
         width: auto;
     }
 
-    .knx-wrap fieldset input[type="text"] {
+    .knx-wrap fieldset input[type="text"],
+    .knx-wrap fieldset input[type="number"]	{
         max-width: 70px;
     }
 
@@ -235,6 +236,45 @@
 			<div class="knx-entry">
 				<select id="hvac_mode_status_ga_dropdown" class="knx-dropdown right"></select>
         		<input id="hvac_operating_mode_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+        		<label for="fan_speed_address" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.fan_speed"></label>
+        	</div>
+			<div class="knx-entry">
+				<select id="fan_speed_ga_dropdown" class="knx-dropdown right"></select>
+        		<input id="fan_speed_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+        		<label for="fan_speed_steps" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.fan_speed_steps"></label>
+        	</div>
+			<div class="knx-entry">
+        		<input id="fan_speed_steps" type="number" class="knx-text" placeholder="e.g. 3" />
+			</div>
+			<div class="knx-entry">
+        		<label for="fan_speed_status_address" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.fan_speed_status"></label>
+        	</div>
+			<div class="knx-entry">
+				<select id="fan_speed_status_ga_dropdown" class="knx-dropdown right"></select>
+        		<input id="fan_speed_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+        		<label for="fan_auto_mode_address" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.fan_auto_mode"></label>
+        	</div>
+			<div class="knx-entry">
+				<select id="fan_auto_mode_ga_dropdown" class="knx-dropdown right"></select>
+        		<input id="fan_auto_mode_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+        		<label for="fan_auto_mode_status_address" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.fan_auto_mode_status"></label>
+        	</div>
+			<div class="knx-entry">
+				<select id="fan_auto_mode_status_ga_dropdown" class="knx-dropdown right"></select>
+        		<input id="fan_auto_mode_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
 		</div>
 	</fieldset>
@@ -530,6 +570,11 @@
             'ga_temperature_measure': $('#temperature_measure_address').val(),
             'ga_hvac_operating_mode': $('#hvac_operating_mode_address').val(),
             'ga_hvac_operating_mode_status': $('#hvac_operating_mode_status_address').val(),
+            'ga_fan_speed': $('#fan_speed_address').val(),
+            'ga_fan_speed_status': $('#fan_speed_status_address').val(),
+            'ga_fan_auto_mode': $('#fan_auto_mode_address').val(),
+            'ga_fan_auto_mode_status': $('#fan_auto_mode_status_address').val(),
+            'fan_speed_steps': parseInt($('#fan_speed_steps').val()),
             'macAddress': interfaceMAC,
           };
           break;

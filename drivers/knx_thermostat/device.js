@@ -5,31 +5,63 @@ const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
 class KNXThermostat extends KNXGenericDevice {
 
-  onInit() {
-    super.onInit();
+  async onInit() {
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
-      this.initOperatingModeCapability();
-    } else if (this.hasCapability('hvac_operating_mode')) {
-      this.removeCapability('hvac_operating_mode').catch(this.error);
+      await this.initOperatingModeCapability();
+    } else {
+      await this.removeCapabilityIfExists('hvac_operating_mode');
     }
+    if (typeof this.settings.ga_fan_speed === 'string' && this.settings.ga_fan_speed !== '') {
+      await this.initFanSpeedCapability();
+    } else {
+      await this.removeCapabilityIfExists('knx_fan_speed');
+    }
+    if (typeof this.settings.ga_fan_auto_mode === 'string' && this.settings.ga_fan_auto_mode !== '') {
+      await this.initFanAutoModeCapability();
+    } else {
+      await this.removeCapabilityIfExists('knx_fan_auto_mode');
+    }
+    super.onInit();
   }
 
-  onSettings({ oldSettings, newSettings, changedKeys }) {
+  async onSettings({ oldSettings, newSettings, changedKeys }) {
     if (changedKeys.includes('ga_hvac_operating_mode')) {
       if (typeof newSettings.ga_hvac_operating_mode === 'string' && newSettings.ga_hvac_operating_mode !== '') {
-        this.initOperatingModeCapability();
-      } else if (this.hasCapability('hvac_operating_mode')) {
-        this.removeCapability('hvac_operating_mode').catch(this.error);
+        await this.initOperatingModeCapability();
+      } else {
+        await this.removeCapabilityIfExists('hvac_operating_mode');
       }
     }
-    super.onSettings({ oldSettings, newSettings, changedKeys });
+    if (changedKeys.includes('ga_fan_speed')) {
+      if (typeof newSettings.ga_fan_speed === 'string' && newSettings.ga_fan_speed !== '') {
+        await this.initFanSpeedCapability();
+      } else {
+        await this.removeCapabilityIfExists('knx_fan_speed');
+      }
+    } else if (changedKeys.includes('fan_speed_steps')) { // If the address was changed the update in fan speed steps is already handled
+      if (typeof newSettings.fan_speed_steps === 'number' && newSettings.fan_speed_steps !== 0) {
+        await this.addCapabilityIfNotExists('knx_fan_speed_step_defined');
+        await this.removeCapabilityIfExists('knx_fan_speed_no_step_defined');
+        this.setCapabilityOptions('knx_fan_speed', { step: 1 / newSettings.fan_speed_steps });
+      } else {
+        await this.addCapabilityIfNotExists('knx_fan_speed_no_step_defined');
+        await this.removeCapabilityIfExists('knx_fan_speed_step_defined');
+        this.setCapabilityOptions('knx_fan_speed', { step: 0.01 });
+      }
+    }
+    if (changedKeys.includes('ga_fan_auto_mode')) {
+      if (typeof newSettings.ga_fan_auto_mode === 'string' && newSettings.ga_fan_auto_mode !== '') {
+        await this.initFanAutoModeCapability();
+      } else if (this.hasCapability('knx_fan_auto_mode')) {
+        await this.removeCapability('knx_fan_auto_mode').catch(this.error);
+      }
+    }
+    await super.onSettings({ oldSettings, newSettings, changedKeys });
   }
 
-  initOperatingModeCapability() {
-    if (!this.hasCapability('hvac_operating_mode')) {
-      this.addCapability('hvac_operating_mode').catch(this.error);
-    }
+  async initOperatingModeCapability() {
+    await this.addCapabilityIfNotExists('hvac_operating_mode');
     this.registerCapabilityListener('hvac_operating_mode', this.onCapabilityHVACOperatingMode.bind(this));
     // Register actions for flows
     this.homey.flow.getActionCard('change_hvac_mode')
@@ -39,6 +71,25 @@ class KNXThermostat extends KNXGenericDevice {
             return args.device.triggerCapabilityListener('hvac_operating_mode', args.mode, {});
           });
       });
+  }
+
+  async initFanSpeedCapability() {
+    await this.addCapabilityIfNotExists('knx_fan_speed');
+    if (typeof this.settings.fan_speed_steps === 'number' && this.settings.fan_speed_steps !== 0) {
+      await this.addCapabilityIfNotExists('knx_fan_speed_step_defined');
+      await this.removeCapabilityIfExists('knx_fan_speed_no_step_defined');
+      this.setCapabilityOptions('knx_fan_speed', { step: 1 / this.settings.fan_speed_steps });
+    } else {
+      await this.addCapabilityIfNotExists('knx_fan_speed_no_step_defined');
+      await this.removeCapabilityIfExists('knx_fan_speed_step_defined');
+      this.setCapabilityOptions('knx_fan_speed', { step: 0.01 });
+    }
+    this.registerCapabilityListener('knx_fan_speed', this.onCapabilityFanSpeed.bind(this));
+  }
+
+  async initFanAutoModeCapability() {
+    await this.addCapabilityIfNotExists('knx_fan_auto_mode');
+    this.registerCapabilityListener('knx_fan_auto_mode', this.onCapabilityFanAutoMode.bind(this));
   }
 
   onKNXEvent(groupaddress, data) {
@@ -69,6 +120,35 @@ class KNXThermostat extends KNXGenericDevice {
       this.setCapabilityValue('hvac_operating_mode', DatapointTypeParser.dpt20(data).toString())
         .catch((knxerror) => {
           this.log('Set HVAC operating mode error', knxerror);
+        });
+    }
+    // A thermostat can optionally have a different status address then the fan speed address
+    let fanSpeedStatusAddress = this.settings.ga_fan_speed;
+    if (typeof this.settings.ga_fan_speed_status === 'string' && this.settings.ga_fan_speed_status !== '') {
+      fanSpeedStatusAddress = this.settings.ga_fan_speed_status;
+    }
+    if (groupaddress === fanSpeedStatusAddress) {
+      const speed = DatapointTypeParser.dim(data);
+      this.setCapabilityValue('knx_fan_speed', speed)
+        .then(() => {
+          if (this.hasCapability('knx_fan_speed_step_defined')) {
+            const closestLevel = Math.round(this.settings.fan_speed_steps * speed);
+            this.homey.flow.getDeviceTriggerCard('knx_fan_speed_changed_with_step').trigger(this, { knx_fan_speed: closestLevel }).catch(this.error);
+          }
+        })
+        .catch((knxerror) => {
+          this.log('Set fan speed error', knxerror);
+        });
+    }
+    // A thermostat can optionally have a different status address then the operating mode address
+    let fanAutoModeStatusAddress = this.settings.ga_fan_auto_mode;
+    if (typeof this.settings.ga_fan_auto_mode_status === 'string' && this.settings.ga_fan_auto_mode_status !== '') {
+      fanAutoModeStatusAddress = this.settings.ga_fan_auto_mode_status;
+    }
+    if (groupaddress === fanAutoModeStatusAddress) {
+      this.setCapabilityValue('knx_fan_auto_mode', DatapointTypeParser.bitFormat(data))
+        .catch((knxerror) => {
+          this.log('Set fan auto mode error', knxerror);
         });
     }
   }
@@ -152,6 +232,68 @@ class KNXThermostat extends KNXGenericDevice {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
         });
+    }
+  }
+
+  getFanSpeed() {
+    // A thermostat can optionally have a different status address then the fan speed address
+    let statusAddress = this.settings.ga_fan_speed;
+    if (typeof this.settings.ga_fan_speed_status === 'string' && this.settings.ga_fan_speed_status !== '') {
+      statusAddress = this.settings.ga_fan_speed_status;
+    }
+    if (statusAddress) {
+      this.knxInterface.readKNXGroupAddress(statusAddress)
+        .catch((knxerror) => {
+          this.log(knxerror);
+        });
+    }
+  }
+
+  onCapabilityFanSpeed(value) {
+    if (this.knxInterface && this.settings.ga_fan_speed) {
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
+        .catch((knxerror) => {
+          this.log(knxerror);
+          throw new Error(this.homey.__('errors.fan_speed_set_failed'));
+        });
+    }
+    return null;
+  }
+
+  getFanAutoMode() {
+    // A thermostat can optionally have a different status address then the fan auto mode address
+    let statusAddress = this.settings.ga_fan_auto_mode;
+    if (typeof this.settings.ga_fan_auto_mode_status === 'string' && this.settings.ga_fan_auto_mode_status !== '') {
+      statusAddress = this.settings.ga_fan_auto_mode_status;
+    }
+    if (statusAddress) {
+      this.knxInterface.readKNXGroupAddress(statusAddress)
+        .catch((knxerror) => {
+          this.log(knxerror);
+        });
+    }
+  }
+
+  onCapabilityFanAutoMode(value) {
+    if (this.knxInterface && this.settings.ga_fan_auto_mode) {
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
+        .catch((knxerror) => {
+          this.log(knxerror);
+          throw new Error(this.homey.__('errors.fan_auto_mode_set_failed'));
+        });
+    }
+    return null;
+  }
+
+  async addCapabilityIfNotExists(capability) {
+    if (!this.hasCapability(capability)) {
+      await this.addCapability(capability).catch(this.error);
+    }
+  }
+
+  async removeCapabilityIfExists(capability) {
+    if (this.hasCapability(capability)) {
+      await this.removeCapability(capability).catch(this.error);
     }
   }
 
