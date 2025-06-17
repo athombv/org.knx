@@ -15,6 +15,9 @@
         {
           "name": "mode",
           "type": "dropdown",
+          "title": {
+            "en": "Mode"
+          },
           "values": [
             {
               "id": "0",

@@ -46,18 +46,23 @@ class KNXWindowCovering extends KNXGenericDevice {
       this.log(state);
     }
 
-    // A window covering can optionally have a different status address then the height address
-    let heightAddress = this.settings.ga_height;
-    if (typeof this.settings.ga_height_status === 'string' && this.settings.ga_height_status !== '') {
-      heightAddress = this.settings.ga_height_status;
-    }
-
-    if (groupaddress === heightAddress) {
+    if (groupaddress === this.getStatusAddress('ga_height')) {
       await this.setCapabilityValue('windowcoverings_set', DatapointTypeParser.dim(data))
         .catch((knxerror) => {
           this.log('Set windowcoverings_set error', knxerror);
         });
     }
+  }
+
+  onKNXConnection(connectionStatus) {
+    super.onKNXConnection(connectionStatus);
+
+    if (connectionStatus !== 'connected') {
+      return;
+    }
+    // Reading the groupaddress will trigger an event on the bus.
+    // This will be catched by onKNXEvent, hence the return value is not used.
+    this.getWindowCoveringHeight();
   }
 
   onCapabilityWindowCovering(value) {
@@ -100,6 +105,20 @@ class KNXWindowCovering extends KNXGenericDevice {
       }
     }
     return null;
+  }
+
+  getWindowCoveringHeight() {
+    if (!this.knxInterface) {
+      return;
+    }
+    const statusAddress = this.getStatusAddress('ga_height');
+    if (!statusAddress) {
+      return;
+    }
+    this.knxInterface.readKNXGroupAddress(statusAddress)
+      .catch((knxerror) => {
+        this.log(knxerror);
+      });
   }
 
   onCapabilityWindowCoveringSet(value) {

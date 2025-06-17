@@ -94,12 +94,7 @@ class KNXThermostat extends KNXGenericDevice {
 
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
-    // A thermostat can optionally have a different status address then the target temperature address
-    let targetTemperatureStatusAddress = this.settings.ga_temperature_target;
-    if (typeof this.settings.ga_temperature_target_status === 'string' && this.settings.ga_temperature_target_status !== '') {
-      targetTemperatureStatusAddress = this.settings.ga_temperature_target_status;
-    }
-    if (groupaddress === targetTemperatureStatusAddress) {
+    if (groupaddress === this.getStatusAddress('ga_temperature_target')) {
       this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => {
           this.log('Set target_temperature error', knxerror);
@@ -111,23 +106,13 @@ class KNXThermostat extends KNXGenericDevice {
           this.log('Set measure_temperature error', knxerror);
         });
     }
-    // A thermostat can optionally have a different status address then the operating mode address
-    let operatingModeStatusAddress = this.settings.ga_hvac_operating_mode;
-    if (typeof this.settings.ga_hvac_operating_mode_status === 'string' && this.settings.ga_hvac_operating_mode_status !== '') {
-      operatingModeStatusAddress = this.settings.ga_hvac_operating_mode_status;
-    }
-    if (groupaddress === operatingModeStatusAddress) {
+    if (groupaddress === this.getStatusAddress('ga_hvac_operating_mode')) {
       this.setCapabilityValue('hvac_operating_mode', DatapointTypeParser.dpt20(data).toString())
         .catch((knxerror) => {
           this.log('Set HVAC operating mode error', knxerror);
         });
     }
-    // A thermostat can optionally have a different status address then the fan speed address
-    let fanSpeedStatusAddress = this.settings.ga_fan_speed;
-    if (typeof this.settings.ga_fan_speed_status === 'string' && this.settings.ga_fan_speed_status !== '') {
-      fanSpeedStatusAddress = this.settings.ga_fan_speed_status;
-    }
-    if (groupaddress === fanSpeedStatusAddress) {
+    if (groupaddress === this.getStatusAddress('ga_fan_speed')) {
       const speed = DatapointTypeParser.dim(data);
       this.setCapabilityValue('knx_fan_speed', speed)
         .then(() => {
@@ -140,12 +125,7 @@ class KNXThermostat extends KNXGenericDevice {
           this.log('Set fan speed error', knxerror);
         });
     }
-    // A thermostat can optionally have a different status address then the operating mode address
-    let fanAutoModeStatusAddress = this.settings.ga_fan_auto_mode;
-    if (typeof this.settings.ga_fan_auto_mode_status === 'string' && this.settings.ga_fan_auto_mode_status !== '') {
-      fanAutoModeStatusAddress = this.settings.ga_fan_auto_mode_status;
-    }
-    if (groupaddress === fanAutoModeStatusAddress) {
+    if (groupaddress === this.getStatusAddress('ga_fan_auto_mode')) {
       this.setCapabilityValue('knx_fan_auto_mode', DatapointTypeParser.bitFormat(data))
         .catch((knxerror) => {
           this.log('Set fan auto mode error', knxerror);
@@ -156,133 +136,124 @@ class KNXThermostat extends KNXGenericDevice {
   onKNXConnection(connectionStatus) {
     super.onKNXConnection(connectionStatus);
 
-    if (connectionStatus === 'connected') {
-      // Reading the groupaddress will trigger an event on the bus.
-      // This will be catched by onKNXEvent, hence the return value is not used.
-      this.getTargetTemperature();
-      this.getMeasuredTemperature();
-      this.getHVACOperatingMode();
+    if (connectionStatus !== 'connected') {
+      return;
     }
+    // Reading the groupaddress will trigger an event on the bus.
+    // This will be catched by onKNXEvent, hence the return value is not used.
+    this.getTargetTemperature();
+    this.getMeasuredTemperature();
+    this.getHVACOperatingMode();
+    this.getFanAutoMode();
+    this.getFanSpeed();
   }
 
   getTargetTemperature() {
-    // A thermostat can optionally have a different status address then the target temperature address
-    let statusAddress = this.settings.ga_temperature_target;
-    if (typeof this.settings.ga_temperature_target_status === 'string' && this.settings.ga_temperature_target_status !== '') {
-      statusAddress = this.settings.ga_temperature_target_status;
+    if (!this.knxInterface) {
+      return;
     }
-    if (statusAddress) {
-      this.knxInterface.readKNXGroupAddress(statusAddress)
-        .catch((knxerror) => {
-          this.log(knxerror);
-        });
+    const statusAddress = this.getStatusAddress('ga_temperature_target');
+    if (!statusAddress) {
+      return;
     }
+    this.knxInterface.readKNXGroupAddress(statusAddress)
+      .catch((knxerror) => {
+        this.log(knxerror);
+      });
   }
 
   onCapabilityTargetTemperature(value) {
     this.getMeasuredTemperature();
-    if (this.knxInterface && this.settings.ga_temperature_target) {
-      const writePromise = this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
-        .catch((knxerror) => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.temperature_set_failed'));
-        });
-      // Reread the target temperature after a timeout to prevent mismatch between KNX device and Homey
-      this.homey.setTimeout(this.getTargetTemperature.bind(this), 500);
-      return writePromise;
+    if (!this.knxInterface || !this.settings.ga_temperature_target) {
+      return null;
     }
-    return null;
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
+      // Reread the target temperature after a timeout to prevent mismatch between KNX device and Homey
+      .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
+      .catch((knxerror) => {
+        this.log(knxerror);
+        throw new Error(this.homey.__('errors.temperature_set_failed'));
+      });
   }
 
   onCapabilityHVACOperatingMode(value, opts) {
-    if (this.knxInterface && this.settings.ga_hvac_operating_mode) {
-      const writePromise = this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
-        .catch((knxerror) => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.hvac_operating_mode_set_failed'));
-        });
-
-      // Reread the operating mode after a timeout to prevent mismatch between KNX device and Homey
-      this.homey.setTimeout(this.getHVACOperatingMode.bind(this), 500);
-
-      return writePromise;
+    if (!this.knxInterface || !this.settings.ga_hvac_operating_mode) {
+      return null;
     }
-    return null;
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
+      // Reread the operating mode after a timeout to prevent mismatch between KNX device and Homey
+      .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
+      .catch((knxerror) => {
+        this.log(knxerror);
+        throw new Error(this.homey.__('errors.hvac_operating_mode_set_failed'));
+      });
   }
 
   getMeasuredTemperature() {
-    if (this.knxInterface && this.settings.ga_temperature_measure) {
-      this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
-        .catch((knxerror) => {
-          this.error(knxerror);
-          // throw new Error(this.homey.__('errors.measure_temperature_get_failed'));
-        });
+    if (!this.knxInterface || !this.settings.ga_temperature_measure) {
+      return;
     }
+    this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
+      .catch((knxerror) => {
+        this.error(knxerror);
+        // throw new Error(this.homey.__('errors.measure_temperature_get_failed'));
+      });
   }
 
   getHVACOperatingMode() {
-    // A thermostat can optionally have a different status address then the operating mode address
-    let operatingModeStatusAddress = this.settings.ga_hvac_operating_mode;
-    if (typeof this.settings.ga_hvac_operating_mode_status === 'string' && this.settings.ga_hvac_operating_mode_status !== '') {
-      operatingModeStatusAddress = this.settings.ga_hvac_operating_mode_status;
+    const operatingModeStatusAddress = this.getStatusAddress('ga_hvac_operating_mode');
+    if (!this.knxInterface || !operatingModeStatusAddress) {
+      return;
     }
-    if (operatingModeStatusAddress) {
-      this.knxInterface.readKNXGroupAddress(operatingModeStatusAddress)
-        .catch((knxerror) => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
-        });
-    }
+    this.knxInterface.readKNXGroupAddress(operatingModeStatusAddress)
+      .catch((knxerror) => {
+        this.log(knxerror);
+        throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
+      });
   }
 
   getFanSpeed() {
-    // A thermostat can optionally have a different status address then the fan speed address
-    let statusAddress = this.settings.ga_fan_speed;
-    if (typeof this.settings.ga_fan_speed_status === 'string' && this.settings.ga_fan_speed_status !== '') {
-      statusAddress = this.settings.ga_fan_speed_status;
+    const statusAddress = this.getStatusAddress('ga_fan_speed');
+    if (!this.knxInterface || !statusAddress) {
+      return;
     }
-    if (statusAddress) {
-      this.knxInterface.readKNXGroupAddress(statusAddress)
-        .catch((knxerror) => {
-          this.log(knxerror);
-        });
-    }
+    this.knxInterface.readKNXGroupAddress(statusAddress)
+      .catch((knxerror) => {
+        this.log(knxerror);
+      });
   }
 
   onCapabilityFanSpeed(value) {
-    if (this.knxInterface && this.settings.ga_fan_speed) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
-        .catch((knxerror) => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.fan_speed_set_failed'));
-        });
+    if (!this.knxInterface || !this.settings.ga_fan_speed) {
+      return null;
     }
-    return null;
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
+      .catch((knxerror) => {
+        this.log(knxerror);
+        throw new Error(this.homey.__('errors.fan_speed_set_failed'));
+      });
   }
 
   getFanAutoMode() {
-    // A thermostat can optionally have a different status address then the fan auto mode address
-    let statusAddress = this.settings.ga_fan_auto_mode;
-    if (typeof this.settings.ga_fan_auto_mode_status === 'string' && this.settings.ga_fan_auto_mode_status !== '') {
-      statusAddress = this.settings.ga_fan_auto_mode_status;
+    const statusAddress = this.getStatusAddress('ga_fan_auto_mode');
+    if (!this.knxInterface || !statusAddress) {
+      return;
     }
-    if (statusAddress) {
-      this.knxInterface.readKNXGroupAddress(statusAddress)
-        .catch((knxerror) => {
-          this.log(knxerror);
-        });
-    }
+    this.knxInterface.readKNXGroupAddress(statusAddress)
+      .catch((knxerror) => {
+        this.log(knxerror);
+      });
   }
 
   onCapabilityFanAutoMode(value) {
-    if (this.knxInterface && this.settings.ga_fan_auto_mode) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
-        .catch((knxerror) => {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.fan_auto_mode_set_failed'));
-        });
+    if (!this.knxInterface || !this.settings.ga_fan_auto_mode) {
+      return null;
     }
-    return null;
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
+      .catch((knxerror) => {
+        this.log(knxerror);
+        throw new Error(this.homey.__('errors.fan_auto_mode_set_failed'));
+      });
   }
 
 }
