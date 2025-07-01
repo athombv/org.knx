@@ -4039,7 +4039,7 @@
         "target_temperature",
         "measure_temperature",
         "hvac_operating_mode",
-        "heating_variable_correction"
+        "actuator_value"
       ],
       "settings": [
         {
@@ -4156,11 +4156,10 @@
                   }
                 },
                 {
-                  "id": "ga_heating_variable_correction",
+                  "id": "ga_actuator_value",
                   "type": "text",
                   "label": {
-                    "en": "Correcting variable heating",
-                    "fr": "Correction des variations de chauffage"
+                    "en": "Actuator value"
                   },
                   "value": "",
                   "hint": {
@@ -4550,6 +4549,37 @@
     }
   ],
   "capabilities": {
+    "actuator_value": {
+      "type": "number",
+      "title": {
+        "en": "Actuator value"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%",
+        "da": "%",
+        "it": "%",
+        "ko": "%",
+        "pl": "%",
+        "ru": "%",
+        "sv": "%",
+        "es": "%",
+        "fr": " %",
+        "no": "%"
+      },
+      "desc": {
+        "en": "The current actuator value in percent."
+      },
+      "insights": false,
+      "chartType": "stepLine",
+      "decimals": 2,
+      "min": 0,
+      "max": 255,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "minCompatibility": "5.0.0"
+    },
     "dimcontrol_down": {
       "title": {
         "en": "Dim down",
@@ -4587,39 +4617,6 @@
       "type": "boolean",
       "getable": true,
       "setable": true
-    },
-    "heating_variable_correction": {
-      "type": "number",
-      "title": {
-        "en": "Heating variability correction",
-        "fr": "Correction de la variable de chauffage"
-      },
-      "units": {
-        "en": "%",
-        "nl": "%",
-        "da": "%",
-        "it": "%",
-        "ko": "%",
-        "pl": "%",
-        "ru": "%",
-        "sv": "%",
-        "es": "%",
-        "fr": " %",
-        "no": "%"
-      },
-      "desc": {
-        "en": "The current heating variability correction in percent.",
-        "fr": "La variable de correction actuelle du chauffage en pourcentage."
-      },
-      "insights": false,
-      "chartType": "stepLine",
-      "decimals": 2,
-      "min": 0,
-      "max": 255,
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "minCompatibility": "5.0.0"
     },
     "hvac_operating_mode": {
       "type": "enum",

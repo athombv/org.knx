@@ -22,7 +22,7 @@
     "target_temperature",
     "measure_temperature",
     "hvac_operating_mode",
-    "heating_variable_correction"
+    "actuator_value"
   ],
     "pair": [
         {
@@ -166,11 +166,10 @@
                             }
                         },
                         {
-                          "id": "ga_heating_variable_correction",
+                          "id": "ga_actuator_value",
                           "type": "text",
                           "label": {
-                            "en": "Correcting variable heating",
-                            "fr": "Correction des variations de chauffage"
+                            "en": "Actuator value"
                           },
                           "value": "",
                           "hint": {

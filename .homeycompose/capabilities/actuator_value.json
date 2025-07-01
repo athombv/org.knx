@@ -1,8 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Heating variability correction",
-    "fr": "Correction de la variable de chauffage"
+    "en": "Actuator value"
   },
   "units": {
     "en": "%",
@@ -18,8 +17,7 @@
     "no": "%"
   },
   "desc": {
-    "en": "The current heating variability correction in percent.",
-    "fr": "La variable de correction actuelle du chauffage en pourcentage."
+    "en": "The current actuator value in percent."
   },
   "insights": false,
   "chartType": "stepLine",
@@ -32,11 +30,9 @@
   "$flow": {
     "triggers": [
       {
-        "id": "heating_variable_correction_changed",
+        "id": "actuator_value_changed",
         "title": {
-          "en": "The heating variability correction changed",
-          "fr": "La variable de correction actuelle du chauffage a changé"
-          
+          "en": "The actuator value changed"
         },
         "tokens": [
           {

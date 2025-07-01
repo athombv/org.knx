@@ -221,12 +221,12 @@
         <input id="hvac_operating_mode_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
 			<div class="knx-entry">
-        <label for="heating_variable_correction_address" class="left"
-             data-i18n="settings.groupaddresses.thermostat.heating_variable_correction"></label>
+        <label for="actuator_value_address" class="left"
+             data-i18n="settings.groupaddresses.thermostat.actuator_value"></label>
         </div>      
 			<div class="knx-entry">
-				<select id="heating_variable_correction_ga_dropdown" class="knx-dropdown right"></select>
-        <input id="heating_variable_correction_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+				<select id="actuator_value_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="actuator_value_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>      
 		</div>
 	</fieldset>
@@ -520,7 +520,7 @@
             'ga_temperature_target': $('#temperature_target_address').val(),
             'ga_temperature_measure': $('#temperature_measure_address').val(),
             'ga_hvac_operating_mode': $('#hvac_operating_mode_address').val(),
-            'ga_heating_variable_correction': $('#heating_variable_correction_address').val(),
+            'ga_actuator_value': $('#actuator_value_address').val(),
             'macAddress': interfaceMAC,
           };
           break;
