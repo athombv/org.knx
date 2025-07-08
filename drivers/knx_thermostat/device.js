@@ -97,19 +97,19 @@ class KNXThermostat extends KNXGenericDevice {
     if (groupaddress === this.getStatusAddress('ga_temperature_target')) {
       this.setCapabilityValue('target_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => {
-          this.log('Set target_temperature error', knxerror);
+          this.error('Set target_temperature error', knxerror);
         });
     }
     if (groupaddress === this.settings.ga_temperature_measure) {
       this.setCapabilityValue('measure_temperature', DatapointTypeParser.dpt9(data))
         .catch((knxerror) => {
-          this.log('Set measure_temperature error', knxerror);
+          this.error('Set measure_temperature error', knxerror);
         });
     }
     if (groupaddress === this.getStatusAddress('ga_hvac_operating_mode')) {
       this.setCapabilityValue('hvac_operating_mode', DatapointTypeParser.dpt20(data).toString())
         .catch((knxerror) => {
-          this.log('Set HVAC operating mode error', knxerror);
+          this.error('Set HVAC operating mode error', knxerror);
         });
     }
     if (groupaddress === this.getStatusAddress('ga_fan_speed')) {
@@ -122,13 +122,13 @@ class KNXThermostat extends KNXGenericDevice {
           }
         })
         .catch((knxerror) => {
-          this.log('Set fan speed error', knxerror);
+          this.error('Set fan speed error', knxerror);
         });
     }
     if (groupaddress === this.getStatusAddress('ga_fan_auto_mode')) {
       this.setCapabilityValue('knx_fan_auto_mode', DatapointTypeParser.bitFormat(data))
         .catch((knxerror) => {
-          this.log('Set fan auto mode error', knxerror);
+          this.error('Set fan auto mode error', knxerror);
         });
     }
   }
@@ -157,9 +157,7 @@ class KNXThermostat extends KNXGenericDevice {
       return;
     }
     this.knxInterface.readKNXGroupAddress(statusAddress)
-      .catch((knxerror) => {
-        this.log(knxerror);
-      });
+      .catch(this.error);
   }
 
   onCapabilityTargetTemperature(value) {
@@ -171,7 +169,7 @@ class KNXThermostat extends KNXGenericDevice {
       // Reread the target temperature after a timeout to prevent mismatch between KNX device and Homey
       .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
       .catch((knxerror) => {
-        this.log(knxerror);
+        this.error(knxerror);
         throw new Error(this.homey.__('errors.temperature_set_failed'));
       });
   }
@@ -184,7 +182,7 @@ class KNXThermostat extends KNXGenericDevice {
       // Reread the operating mode after a timeout to prevent mismatch between KNX device and Homey
       .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
       .catch((knxerror) => {
-        this.log(knxerror);
+        this.error(knxerror);
         throw new Error(this.homey.__('errors.hvac_operating_mode_set_failed'));
       });
   }
@@ -194,10 +192,7 @@ class KNXThermostat extends KNXGenericDevice {
       return;
     }
     this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_measure)
-      .catch((knxerror) => {
-        this.error(knxerror);
-        // throw new Error(this.homey.__('errors.measure_temperature_get_failed'));
-      });
+      .catch(this.error);
   }
 
   getHVACOperatingMode() {
@@ -207,7 +202,7 @@ class KNXThermostat extends KNXGenericDevice {
     }
     this.knxInterface.readKNXGroupAddress(operatingModeStatusAddress)
       .catch((knxerror) => {
-        this.log(knxerror);
+        this.error(knxerror);
         throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
       });
   }
@@ -218,9 +213,7 @@ class KNXThermostat extends KNXGenericDevice {
       return;
     }
     this.knxInterface.readKNXGroupAddress(statusAddress)
-      .catch((knxerror) => {
-        this.log(knxerror);
-      });
+      .catch(this.error);
   }
 
   onCapabilityFanSpeed(value) {
@@ -229,7 +222,7 @@ class KNXThermostat extends KNXGenericDevice {
     }
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
       .catch((knxerror) => {
-        this.log(knxerror);
+        this.error(knxerror);
         throw new Error(this.homey.__('errors.fan_speed_set_failed'));
       });
   }
@@ -240,9 +233,7 @@ class KNXThermostat extends KNXGenericDevice {
       return;
     }
     this.knxInterface.readKNXGroupAddress(statusAddress)
-      .catch((knxerror) => {
-        this.log(knxerror);
-      });
+      .catch(this.error);
   }
 
   onCapabilityFanAutoMode(value) {
@@ -251,7 +242,7 @@ class KNXThermostat extends KNXGenericDevice {
     }
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
       .catch((knxerror) => {
-        this.log(knxerror);
+        this.error(knxerror);
         throw new Error(this.homey.__('errors.fan_auto_mode_set_failed'));
       });
   }

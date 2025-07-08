@@ -24,23 +24,23 @@ class KNXWindowCovering extends KNXGenericDevice {
         if (this.settings.invert_updown === true) {
           await this.setCapabilityValue('windowcoverings_state', 'up')
             .catch((knxerror) => {
-              this.log('Set windowcoverings_state error', knxerror);
+              this.error('Set windowcoverings_state error', knxerror);
             });
         } else {
           await this.setCapabilityValue('windowcoverings_state', 'down')
             .catch((knxerror) => {
-              this.log('Set windowcoverings_state error', knxerror);
+              this.error('Set windowcoverings_state error', knxerror);
             });
         }
       } else if (this.settings.invert_updown === true) {
         await this.setCapabilityValue('windowcoverings_state', 'down')
           .catch((knxerror) => {
-            this.log('Set windowcoverings_state error', knxerror);
+            this.error('Set windowcoverings_state error', knxerror);
           });
       } else {
         await this.setCapabilityValue('windowcoverings_state', 'up')
           .catch((knxerror) => {
-            this.log('Set windowcoverings_state error', knxerror);
+            this.error('Set windowcoverings_state error', knxerror);
           });
       }
       this.log(state);
@@ -49,7 +49,7 @@ class KNXWindowCovering extends KNXGenericDevice {
     if (groupaddress === this.getStatusAddress('ga_height')) {
       await this.setCapabilityValue('windowcoverings_set', DatapointTypeParser.dim(data))
         .catch((knxerror) => {
-          this.log('Set windowcoverings_set error', knxerror);
+          this.error('Set windowcoverings_set error', knxerror);
         });
     }
   }
@@ -116,9 +116,7 @@ class KNXWindowCovering extends KNXGenericDevice {
       return;
     }
     this.knxInterface.readKNXGroupAddress(statusAddress)
-      .catch((knxerror) => {
-        this.log(knxerror);
-      });
+      .catch(this.error);
   }
 
   onCapabilityWindowCoveringSet(value) {

@@ -10,7 +10,7 @@ class KNXElectricMeteringSensor extends KNXGenericDevice {
     if (groupaddress === this.settings.ga_sensor) {
       this.setCapabilityValue('meter_power', DatapointTypeParser.dpt14(data))
         .catch((knxerror) => {
-          this.log('Set meter_power error', knxerror);
+          this.error('Set meter_power error', knxerror);
         });
     }
   }
@@ -25,9 +25,7 @@ class KNXElectricMeteringSensor extends KNXGenericDevice {
     // This will be catched by onKNXEvent, hence the return value is not used.
     if (this.settings.ga_sensor) {
       this.knxInterface.readKNXGroupAddress(this.settings.ga_sensor)
-        .catch((knxerror) => {
-          this.log(knxerror);
-        });
+        .catch(this.error);
     }
   }
 
