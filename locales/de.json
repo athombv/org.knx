@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Zieltemperaturadresse",
-        "measure": "Temperaturmessadresse"
+        "target_status": "Zieltemperaturstatusadresse",
+        "measure": "Adresse zur Temperaturmessung"
       },
       "rgb": {
         "red_toggle_action": "Schaltadresse roter Kanal",

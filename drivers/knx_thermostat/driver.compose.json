@@ -71,7 +71,7 @@
                     "type": "text",
                     "label": {
                         "en": "Target temperature address",
-                        "nl": "Doel temperatuur adres",
+                        "nl": "Doeltemperatuuradres",
                         "da": "Måltemperaturadresse",
                         "de": "Zieltemperaturadresse",
                         "es": "Dirección de temperatura objetivo",
@@ -100,11 +100,44 @@
                     }
                 },
                 {
+                    "id": "ga_temperature_target_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Target temperature status address",
+                        "nl": "Doeltemperatuurstatusadres",
+                        "da": "Måltemperaturstatusadresse",
+                        "de": "Zieltemperaturstatusadresse",
+                        "es": "Dirección de estado de temperatura objetivo",
+                        "fr": "Adresse de statut de température cible",
+                        "it": "Indirizzo di stato di temperatura desiderata",
+                        "no": "Måltemperaturstatusadresse",
+                        "sv": "Måladress för temperatur status",
+                        "pl": "Adres docelowej temperatury statusu",
+                        "ru": "Адрес целевой температуры статуса",
+                        "ko": "목표 온도 상태 주소"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
+                },
+                {
                     "id": "ga_temperature_measure",
                     "type": "text",
                     "label": {
                         "en": "Temperature measurement address",
-                        "nl": "Temperatuur meting adres",
+                        "nl": "Temperatuurmetingadres",
                         "da": "Temperaturmålingsadresse",
                         "de": "Adresse zur Temperaturmessung",
                         "es": "Dirección de medición de temperatura",
@@ -131,38 +164,161 @@
                         "ru": "Введите групповой адрес",
                         "ko": "그룹 주소 입력"
                     }
+                }
+            ]
+        },
+        {
+            "type": "group",
+            "label": {
+                "en": "Optional (Removing these groupadresses will break flows)",
+                "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)"
+            },
+            "children": [
+                {
+                    "id": "ga_hvac_operating_mode",
+                    "type": "text",
+                    "label": {
+                        "en": "HVAC operating mode address",
+                        "fr": "Adresse de mode de fonctionnement HVAC"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
                 },
                 {
-                    "type": "group",
+                    "id": "ga_hvac_operating_mode_status",
+                    "type": "text",
                     "label": {
-                        "en": "Optional (Removing these groupadresses will break flows)",
-                        "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)"
+                        "en": "HVAC operating mode status address",
+                        "fr": "Adresse de statut de mode de fonctionnement HVAC"
                     },
-                    "children": [
-                        {
-                            "id": "ga_hvac_operating_mode",
-                            "type": "text",
-                            "label": {
-                                "en": "HVAC operating mode address",
-                                "fr": "Adresse de mode de fonctionnement HVAC"
-                            },
-                            "value": "",
-                            "hint": {
-                                "en": "Enter groupaddress",
-                                "nl": "Vul groepadres in",
-                                "da": "Indtast gruppeadresse",
-                                "de": "Gruppenadresse eingeben",
-                                "es": "Ingrese la dirección de grupo",
-                                "fr": "Entrez l'adresse de groupe",
-                                "it": "Inserisci l'indirizzo di gruppo",
-                                "no": "Angi gruppadresse",
-                                "sv": "Ange gruppadress",
-                                "pl": "Wpisz adres grupowy",
-                                "ru": "Введите групповой адрес",
-                                "ko": "그룹 주소 입력"
-                            }
-                        }
-                    ]
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
+                },
+                {
+                    "id": "ga_fan_speed",
+                    "type": "text",
+                    "label": {
+                        "en": "Fan speed address"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
+                },
+                {
+                    "id": "ga_fan_speed_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Fan speed status address"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
+                },
+                {
+                    "id": "fan_speed_steps",
+                    "type": "number",
+                    "label": {
+                        "en": "Number of fan speed steps"
+                    },
+                    "hint": {
+                        "en": "e.g. 3 for three on-states and off. Leave empty for 0-100%"
+                    },
+                    "min": 0,
+                    "max": 99
+                },
+                {
+                    "id": "ga_fan_auto_mode",
+                    "type": "text",
+                    "label": {
+                        "en": "Fan auto mode address"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
+                },
+                {
+                    "id": "ga_fan_auto_mode_status",
+                    "type": "text",
+                    "label": {
+                        "en": "Fan auto mode status address"
+                    },
+                    "value": "",
+                    "hint": {
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in",
+                        "da": "Indtast gruppeadresse",
+                        "de": "Gruppenadresse eingeben",
+                        "es": "Ingrese la dirección de grupo",
+                        "fr": "Entrez l'adresse de groupe",
+                        "it": "Inserisci l'indirizzo di gruppo",
+                        "no": "Angi gruppadresse",
+                        "sv": "Ange gruppadress",
+                        "pl": "Wpisz adres grupowy",
+                        "ru": "Введите групповой адрес",
+                        "ko": "그룹 주소 입력"
+                    }
                 }
             ]
         },

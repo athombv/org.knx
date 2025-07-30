@@ -44,8 +44,9 @@
         "status": "Indirizzo stato"
       },
       "thermostat": {
-        "target": "Indirizzo temperatura obiettivo",
-        "measure": "Indirizzo misurazione temperatura"
+        "target": "Indirizzo temperatura desiderata",
+        "target_status": "Indirizzo di stato di temperatura desiderata",
+        "measure": "Indirizzo di misurazione della temperatura"
       },
       "rgb": {
         "red_toggle_action": "Indirizzo interruttore canale rosso",

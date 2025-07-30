@@ -4,7 +4,7 @@
       "id": "change_hvac_mode",
       "title": {
         "en": "Change HVAC mode",
-        "fr": "Chnage le mode de fonctionnement HVAC"
+        "fr": "Change le mode de fonctionnement HVAC"
       },
       "titleFormatted": {
         "en": "Change mode to [[mode]]",
@@ -15,6 +15,9 @@
         {
           "name": "mode",
           "type": "dropdown",
+          "title": {
+            "en": "Mode"
+          },
           "values": [
             {
               "id": "0",

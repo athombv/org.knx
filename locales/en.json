@@ -47,8 +47,15 @@
             },
             "thermostat": {
                 "target": "Target temperature address",
+                "target_status": "Target temperature status address",
                 "measure": "Temperature measurement address",
-                "mode": "HVAC mode address"
+                "mode": "HVAC mode address",
+                "mode_status": "HVAC mode status address",
+                "fan_speed": "Fan speed address",
+                "fan_speed_status": "Fan speed status address",
+                "fan_speed_steps": "Number of fan speed steps (leave empty for 0-100%, off-state doesn't need to be included)",
+                "fan_auto_mode": "Fan auto mode address",
+                "fan_auto_mode_status": "Fan auto mode status address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
@@ -68,7 +75,9 @@
                 "updown": "Up/down address",
                 "stop": "Stop address",
                 "tilt": "Tilt address",
-                "tilt_status": "Tilt status address"
+                "tilt_status": "Tilt status address",
+                "height": "Height address",
+                "height_status": "Height status address"
             },
             "sensor": "Sensor address",
             "scene": "Scene address"

@@ -45,6 +45,7 @@
       },
       "thermostat": {
         "target": "Adres docelowej temperatury",
+        "target_status": "Adres docelowej temperatury statusu",
         "measure": "Adres pomiaru temperatury"
       },
       "rgb": {

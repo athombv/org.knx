@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "uiComponent": "toggle",
+  "title": {
+    "en": "Fan auto mode"
+  },
+  "getable": true,
+  "setable": true,
+  "icon": "assets/capabilities/fan_auto_mode.svg"
+}

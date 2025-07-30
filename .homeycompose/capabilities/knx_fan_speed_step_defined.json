@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Marker capability for thermostats with fan speed step defined"
+  },
+  "uiComponent": null,
+  "getable": false,
+  "setable": false,
+  "insights": false
+}

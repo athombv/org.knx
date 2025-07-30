@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Måltemperaturadresse",
-        "measure": "Målingstemperaturadresse"
+        "target_status": "Måltemperaturstatusadresse",
+        "measure": "Adresse for temperaturmåling"
       },
       "rgb": {
         "red_toggle_action": "Bytt adresse rød kanal",
