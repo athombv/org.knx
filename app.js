@@ -53,6 +53,62 @@ class KNXApp extends Homey.App {
 
     this.KNXInterfaceFoundHandler = this.onKNXInterface.bind(this);
     this.knxInterfaceManager.on('interface_found', this.KNXInterfaceFoundHandler);
+
+    const hvacOperatingModeChangedTrigger = this.homey.flow.getDeviceTriggerCard('hvac_operating_mode_changed');
+    hvacOperatingModeChangedTrigger.registerRunListener(async (args, state) => {
+      return args.hvac_operating_mode === 'Any' || args.device.getCapabilityValue('hvac_operating_mode') === args.hvac_operating_mode;
+    });
+
+    const fanAutoModeDisableAction = this.homey.flow.getActionCard('knx_fan_auto_mode_disable');
+    fanAutoModeDisableAction.registerRunListener(async (args, state) => {
+      if (args.device.getCapabilityValue('knx_fan_auto_mode') === false) {
+        return;
+      }
+      args.device.onCapabilityFanAutoMode(false);
+      await args.device.setCapabilityValue('knx_fan_auto_mode', false).catch(this.error);
+    });
+
+    const fanAutoModeEnableAction = this.homey.flow.getActionCard('knx_fan_auto_mode_enable');
+    fanAutoModeEnableAction.registerRunListener(async (args, state) => {
+      if (args.device.getCapabilityValue('knx_fan_auto_mode') === true) {
+        return;
+      }
+      args.device.onCapabilityFanAutoMode(true);
+      await args.device.setCapabilityValue('knx_fan_auto_mode', true).catch(this.error);
+    });
+
+    const fanSpeedNoStepSetAction = this.homey.flow.getActionCard('knx_fan_speed_no_step_set');
+    fanSpeedNoStepSetAction.registerRunListener(async (args, state) => {
+      if (args.device.getCapabilityValue('knx_fan_speed') === args.speed) {
+        return;
+      }
+      args.device.onCapabilityFanSpeed(args.speed);
+      await args.device.setCapabilityValue('knx_fan_speed', args.speed).catch(this.error);
+    });
+
+    const fanSpeedStepSetAction = this.homey.flow.getActionCard('knx_fan_speed_step_set');
+    fanSpeedStepSetAction.registerArgumentAutocompleteListener(
+      'speed',
+      async (query, args) => {
+        const noSteps = args.device.settings.fan_speed_steps;
+        const results = [];
+        for (let i = 0; i <= noSteps; i++) {
+          results.push({
+            name: i.toString(),
+            value: Math.round(i * (100 / noSteps)) / 100,
+          });
+        }
+        return results.filter((r) => r.name.includes(query.toLowerCase()));
+      },
+    );
+    fanSpeedStepSetAction.registerRunListener(async (args, state) => {
+      const speed = args.speed.value;
+      if (Math.round(args.device.getCapabilityValue('knx_fan_speed') * 100) / 100 === speed) {
+        return;
+      }
+      args.device.onCapabilityFanSpeed(speed);
+      await args.device.setCapabilityValue('knx_fan_speed', speed).catch(this.error);
+    });
   }
 
   // referenced via this.KNXEventHandler

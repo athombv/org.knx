@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Måladress för temperatur",
-        "measure": "Mätadress för temperatur"
+        "target_status": "Måladress för temperatur status",
+        "measure": "Temperaturmätningsadress"
       },
       "rgb": {
         "red_toggle_action": "Växeladress röd kanal",
@@ -80,7 +81,8 @@
     "dim_failed": "Dimmning av enheten misslyckades!",
     "rgb_failed": "Inställning av färg misslyckades!",
     "temperature_set_failed": "Inställning av temperatur misslyckades!",
-    "measure_temperature_get_failed": "Hämtning av temperatur misslyckades!",
+    "temperature_get_failed": "Hämtning av temperatur misslyckades!",
+
     "windowcovering_failed": "Ändring av tillstånd misslyckades!",
     "windowcovering_stop_failed": "Stopp av fönsterbeklädnad misslyckades!",
     "invalid_group_address": "Ogiltig gruppadress.",

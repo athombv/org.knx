@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Dirección de temperatura objetivo",
-        "measure": "Dirección de medida de temperatura"
+        "target_status": "Dirección de estado de temperatura objetivo",
+        "measure": "Dirección de medición de temperatura"
       },
       "rgb": {
         "red_toggle_action": "Dirección de interruptor canal rojo",
@@ -80,7 +81,7 @@
     "dim_failed": "¡Error al atenuar el dispositivo!",
     "rgb_failed": "¡Error al configurar el color!",
     "temperature_set_failed": "¡Error al ajustar la temperatura!",
-    "measure_temperature_get_failed": "¡Error al obtener la temperatura!",
+    "temperature_get_failed": "¡Error al obtener la temperatura!",
     "windowcovering_failed": "¡Error al cambiar el estado!",
     "windowcovering_stop_failed": "¡Error al detener la cubierta de la ventana!",
     "invalid_group_address": "Dirección de grupo no válida.",

@@ -164,6 +164,50 @@
             "ru": "Введите групповой адрес",
             "ko": "그룹 주소를 입력하세요"
           }
+        },
+        {
+          "id": "ga_height",
+          "type": "text",
+          "label": {
+            "en": "Height address"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección del grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_height_status",
+          "type": "text",
+          "label": {
+            "en": "Height status address"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección del grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
         }
       ]
     },

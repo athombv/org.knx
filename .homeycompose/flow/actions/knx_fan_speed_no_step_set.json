@@ -1,0 +1,28 @@
+{
+  "title": {
+    "en": "Set fan speed"
+  },
+  "titleFormatted": {
+    "en": "Set fan speed to [[speed]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=knx_thermostat&capabilities=knx_fan_speed,knx_fan_speed_no_step_defined"
+    },
+    {
+      "name": "speed",
+      "type": "range",
+      "title": {
+        "en": "Speed"
+      },
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "label": "%",
+      "labelMultiplier": 100,
+      "labelDecimals": 0
+    }
+  ]
+}

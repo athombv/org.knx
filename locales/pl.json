@@ -45,6 +45,7 @@
       },
       "thermostat": {
         "target": "Adres docelowej temperatury",
+        "target_status": "Adres docelowej temperatury statusu",
         "measure": "Adres pomiaru temperatury"
       },
       "rgb": {
@@ -80,7 +81,8 @@
     "dim_failed": "Ściemnianie urządzenia nie powiodło się!",
     "rgb_failed": "Ustawianie koloru nie powiodło się!",
     "temperature_set_failed": "Ustawienie temperatury nie powiodło się!",
-    "measure_temperature_get_failed": "Pobieranie temperatury nie powiodło się!",
+    "temperature_get_failed": "Pobieranie temperatury nie powiodło się!",
+
     "windowcovering_failed": "Zmiana stanu nie powiodła się!",
     "windowcovering_stop_failed": "Zatrzymanie osłony okiennej nie powiodło się!",
     "invalid_group_address": "Nieprawidłowy adres grupy.",

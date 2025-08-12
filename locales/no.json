@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Måltemperaturadresse",
-        "measure": "Målingstemperaturadresse"
+        "target_status": "Måltemperaturstatusadresse",
+        "measure": "Adresse for temperaturmåling"
       },
       "rgb": {
         "red_toggle_action": "Bytt adresse rød kanal",
@@ -80,7 +81,8 @@
     "dim_failed": "Dimming av enhet mislyktes!",
     "rgb_failed": "Innstilling av farge mislyktes!",
     "temperature_set_failed": "Innstilling av temperatur mislyktes!",
-    "measure_temperature_get_failed": "Henting av temperatur mislyktes!",
+    "temperature_get_failed": "Henting av temperatur mislyktes!",
+
     "windowcovering_failed": "Endring av tilstand mislyktes!",
     "windowcovering_stop_failed": "Stopp av vindusdekning mislyktes!",
     "invalid_group_address": "Ugyldig gruppadresse.",

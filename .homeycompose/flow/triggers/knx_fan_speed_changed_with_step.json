@@ -1,0 +1,22 @@
+{
+  "title": {
+    "en": "Fan speed changed"
+  },
+  "tokens": [
+    {
+      "name": "knx_fan_speed",
+      "type": "number",
+      "title": {
+        "en": "Speed"
+      },
+      "example": 2
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=knx_thermostat&capabilities=knx_fan_speed,knx_fan_speed_step_defined"
+    }
+  ]
+}

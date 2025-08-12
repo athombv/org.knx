@@ -45,7 +45,8 @@
       },
       "thermostat": {
         "target": "Zieltemperaturadresse",
-        "measure": "Temperaturmessadresse"
+        "target_status": "Zieltemperaturstatusadresse",
+        "measure": "Adresse zur Temperaturmessung"
       },
       "rgb": {
         "red_toggle_action": "Schaltadresse roter Kanal",
@@ -80,7 +81,7 @@
     "dim_failed": "Dimmen des Geräts fehlgeschlagen!",
     "rgb_failed": "Farbeinstellung fehlgeschlagen!",
     "temperature_set_failed": "Temperatureinstellung fehlgeschlagen!",
-    "measure_temperature_get_failed": "Temperaturabfrage fehlgeschlagen!",
+    "temperature_get_failed": "Temperaturabfrage fehlgeschlagen!",
     "windowcovering_failed": "Zustandsänderung fehlgeschlagen!",
     "windowcovering_stop_failed": "Anhalten der Fensterabdeckung fehlgeschlagen!",
     "invalid_group_address": "Ungültige Gruppenadresse.",

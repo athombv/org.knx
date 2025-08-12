@@ -1,0 +1,72 @@
+{
+  "actions": [
+    {
+      "id": "change_hvac_mode",
+      "title": {
+        "en": "Change HVAC mode",
+        "fr": "Change le mode de fonctionnement HVAC"
+      },
+      "titleFormatted": {
+        "en": "Change mode to [[mode]]",
+        "fr": "Changer le mode à [[mode]]"
+      },
+      "$filter": "capabilities=hvac_operating_mode",
+      "args": [
+        {
+          "name": "mode",
+          "type": "dropdown",
+          "title": {
+            "en": "Mode"
+          },
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "Automatic",
+                "nl": "Automatisch",
+                "de": "Automatisch",
+                "fr": "Automatique",
+                "it": "Automatica",
+                "sv": "Automatiskt",
+                "no": "Automatisk",
+                "es": "Automático",
+                "da": "Automatisk",
+                "ru": "Автоматически",
+                "pl": "Automatyczny",
+                "ko": "자동"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Comfort",
+                "fr": "Confort"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Standby / Absence",
+                "fr": "Veille / Absence"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "Economy / Night",
+                "fr": "Economie / Nuit"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "Building protection",
+                "fr": "Protection du bâtiment / Hors gel"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

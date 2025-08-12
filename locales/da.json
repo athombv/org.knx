@@ -44,8 +44,9 @@
         "status": "Status adresse"
       },
       "thermostat": {
-        "target": "Mål temperatur adresse",
-        "measure": "Temperatur målings adresse"
+        "target": "Måltemperaturadresse",
+        "target_status": "Måltemperaturstatusadresse",
+        "measure": "Temperaturmålingsadresse"
       },
       "rgb": {
         "red_toggle_action": "Skift adresse rød kanal",
@@ -80,7 +81,7 @@
     "dim_failed": "Dæmpning af enheden mislykkedes!",
     "rgb_failed": "Indstilling af farve mislykkedes!",
     "temperature_set_failed": "Indstilling af temperatur mislykkedes!",
-    "measure_temperature_get_failed": "Hentning af temperatur mislykkedes!",
+    "temperature_get_failed": "Hentning af temperatur mislykkedes!",
     "windowcovering_failed": "Ændring af tilstand mislykkedes!",
     "windowcovering_stop_failed": "Stop af vinduesafdækning mislykkedes!",
     "invalid_group_address": "Ugyldig gruppeadresse.",

@@ -36,6 +36,7 @@
             "generic_status": "Status adres",
             "save": "Apparaat opslaan",
             "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
+            "optional": "Optionele groepadressen, Laat leeg als je apparaat deze functies niet ondersteunt.",
             "switch": {
                 "toggle": "Schakel adres",
                 "status": "Schakel status"
@@ -45,8 +46,9 @@
                 "status": "Dimwaarde adres"
             },
             "thermostat": {
-                "target": "Doel temperatuur adres",
-                "measure": "Ruimtetemperatuur adres"
+                "target": "Doeltemperatuuradres",
+                "target_status": "Doeltemperatuurstatusadres",
+                "measure": "Temperatuurmetingadres"
             },
             "rgb": {
                 "red_toggle_action": "Schakel adres rood kanaal",
@@ -81,7 +83,8 @@
         "dim_failed": "Dimmen van apparaat mislukt!",
         "rgb_failed": "Kleur veranderen mislukt!",
         "temperature_set_failed": "Temperatuur instellen mislukt!",
-        "measure_temperature_get_failed": "Temperatuur ophalen mislukt!",
+        "temperature_get_failed": "Temperatuur ophalen mislukt!",
+
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
         "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
         "invalid_group_address": "Ongeldig groepadres.",
