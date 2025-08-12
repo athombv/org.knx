@@ -9,7 +9,7 @@ class KNXElectricMeteringSensor extends KNXGenericDevice {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_sensor) {
       const dpt14 = DatapointTypeParser.dpt14(data);
-      if (dpt14 === false) {
+      if (dpt14 === null) {
         // Invalid DPT14, log error
         this.error('Invalid DPT14 received');
         return;
