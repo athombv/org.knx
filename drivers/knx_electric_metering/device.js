@@ -8,7 +8,13 @@ class KNXElectricMeteringSensor extends KNXGenericDevice {
   onKNXEvent(groupaddress, data) {
     super.onKNXEvent(groupaddress, data);
     if (groupaddress === this.settings.ga_sensor) {
-      this.setCapabilityValue('meter_power', DatapointTypeParser.dpt14(data))
+      const dpt14 = DatapointTypeParser.dpt14(data);
+      if (dpt14 === false) {
+        // Invalid DPT14, log error
+        this.error('Invalid DPT14 received');
+        return;
+      }
+      this.setCapabilityValue('meter_power', dpt14)
         .catch((knxerror) => {
           this.error('Set meter_power error', knxerror);
         });
