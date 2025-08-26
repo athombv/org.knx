@@ -54,6 +54,66 @@
 			</div>
 		</div>
 	</fieldset>
+  <fieldset id="vimar-thermostat-02952-b-fieldset" style="display: none">
+    <div class="vimar-thermostat field row">
+      <div class="knx-entry">
+        <label for="thermostat_actualtarget_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.actualtarget"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_actualtarget_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_actualtarget_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+      <div class="knx-entry">
+        <label for="thermostat_mode_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.mode"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_mode_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_mode_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+      <div class="knx-entry">
+        <label for="thermostat_mode_state_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.mode_state"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_mode_state_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_mode_state_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+      <div class="knx-entry">
+        <label for="thermostat_summerwinter_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.summer_winter"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_summerwinter_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_summerwinter_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+      <div class="knx-entry">
+        <label for="thermostat_windowswitch_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.window_switch"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_windowswitch_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_windowswitch_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+      <div class="knx-entry">
+        <label for="thermostat_valveheating_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.valve_heating"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_valveheating_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_valveheating_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+      <div class="knx-entry">
+        <label for="thermostat_valvecooling_address" class="left"
+           data-i18n="settings.groupaddresses.vimar_thermostat_02952.b.valve_cooling"></label>
+      </div>
+      <div class="knx-entry">
+        <select id="thermostat_valvecooling_ga_dropdown" class="knx-dropdown right"></select>
+        <input id="thermostat_valvecooling_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+      </div>
+    </div>
+  </fieldset>
 	<fieldset id="knx-switch-fieldset" style="display: none">
 		<div class="knx-switch field row">
 			<div class="knx-entry">
@@ -368,9 +428,9 @@
 Homey.setTitle(Homey.__('settings.groupaddresses.body'));
 // Global variables
 var deviceType;
-var deviceUuid; //const?
+var deviceUuid;
 var interfaceMAC;
-var groupAddresses;
+var groupAddresses = [];
 
 Homey.emit('return_selected_interface')
   .then(function (macAddress) {
@@ -382,14 +442,12 @@ Homey.emit('return_selected_interface')
 
 Homey.emit('get_uuid')
   .then(function (uuid) {
-    console.log(uuid); // result is: Hello!, function (error, uuid) {
     deviceUuid = uuid;
   });
 
 Homey.getOptions()
   .then(function (options) {
     deviceType = options.devicetype;
-
     displayDeviceTypeFields();
   })
   .catch(function (error) {
@@ -399,69 +457,57 @@ Homey.getOptions()
 function displayDeviceTypeFields() {
   switch (deviceType) {
     case 'light':
-      console.log('device is a light');
-      $('#knx-light-fieldset').css('display', 'block');
+      $('#knx-light-fieldset').show();
       break;
     case 'switch':
-      console.log('device is a switch');
-      $('#knx-switch-fieldset').css('display', 'block');
-      $('#knx-learnmode-fieldset').css('display', 'block');
+      $('#knx-switch-fieldset').show();
+      $('#knx-learnmode-fieldset').show();
       break;
     case 'dimmer':
-      console.log('device is a dimmer');
-      $('#knx-light-fieldset').css('display', 'block');
-      $('#knx-dimmer-fieldset').css('display', 'block');
+      $('#knx-light-fieldset').show();
+      $('#knx-dimmer-fieldset').show();
       break;
     case 'dimcontrol':
-      console.log('device is a dimcontrol');
-      $('#knx-light-fieldset').css('display', 'block');
-      $('#knx-dimmer-fieldset').css('display', 'block');
-      $('#knx-dimmer-status-entry').css('display', 'none');
+      $('#knx-light-fieldset').show();
+      $('#knx-dimmer-fieldset').show();
+      $('#knx-dimmer-status-entry').hide();
       break;
     case 'rgb':
-      console.log('device is a rgb');
-      $('#knx-rgb-fieldset').css('display', 'block');
+      $('#knx-rgb-fieldset').show();
       break;
     case 'thermostat':
-      console.log('device is a thermostat');
-      $('#knx-thermostat-fieldset').css('display', 'block');
+      $('#knx-thermostat-fieldset').show();
       break;
     case 'windowcovering':
-      console.log('device is a windowcovering');
-      $('#knx-windowcovering-fieldset').css('display', 'block');
+      $('#knx-windowcovering-fieldset').show();
       break;
     case 'sensor':
-      console.log('device is a sensor');
-      $('#knx-sensor-fieldset').css('display', 'block');
+      $('#knx-sensor-fieldset').show();
       break;
     case 'scene':
-      console.log('device is a scene');
-      $('#knx-scene-fieldset').css('display', 'block');
+      $('#knx-scene-fieldset').show();
       break;
     case 'vimar_thermostat_02952.b':
-      console.log('device is a vimar thermostat');
-      $('#knx-thermostat-fieldset').css('display', 'block');
-      $('#vimar-thermostat-02952-b-fieldset').css('display', 'block');
+      $('#knx-thermostat-fieldset').show();
+      $('#vimar-thermostat-02952-b-fieldset').show();
       break;
   }
 }
 
-$learnmodeDropdown = $('#learnmode_dropdown');
-$learnmodeButton = $('#learnmode_button');
-$testButton = $('#test_button');
-
+var $learnmodeDropdown = $('#learnmode_dropdown');
+var $learnmodeButton = $('#learnmode_button');
+var $testButton = $('#test_button');
 var $xmlText = $('#xmltext');
 
-// Helper functions
-
-function listGroupAddressesDropdown(selectItem, filter) {
+function listGroupAddressesDropdown($select) {
+  $select.append('<option value="">' + Homey.__('settings.groupaddresses.select') + '</option>');
   groupAddresses.forEach(function (etsEntry) {
     var optionEl = document.createElement('option');
     optionEl.value = etsEntry.address;
     optionEl.textContent = etsEntry.name + Homey.__('settings.groupaddresses.pairing_list') + etsEntry.address;
-    $(selectItem).append(optionEl);
+    $select.append(optionEl);
   });
-  $(selectItem).toggle(!!groupAddresses.length);
+  $select.toggle(!!groupAddresses.length);
 }
 
 $('.knx-dropdown').on('change', function () {
@@ -471,11 +517,10 @@ $('.knx-dropdown').on('change', function () {
 
 $learnmodeButton.on('click', function () {
   $learnmodeButton.attr('disabled', 'disabled');
-  $learnmodeDropdown.innerHTML = '';
+  $learnmodeDropdown.empty();
 
   Homey.emit('learnmode')
     .then(function (filteredList) {
-      console.log('filteredList', filteredList);
       $learnmodeButton.removeAttr('disabled');
 
       if (filteredList && filteredList.length > 0) {
@@ -489,8 +534,7 @@ $learnmodeButton.on('click', function () {
         $learnmodeDropdown.toggle(!!filteredList.length);
         $testButton.toggle(!!filteredList.length);
         $('#switch_toggle_address').val($learnmodeDropdown.val());
-      }
-      else {
+      } else {
         Homey.alert(Homey.__('settings.learnmode.no_result'), 'info');
       }
     })
@@ -507,9 +551,9 @@ $testButton.on('click', function () {
   $testButton.attr('disabled', 'disabled');
   var testTimeMs = 3200;
   Homey.emit('test_groupaddress', { address: $learnmodeDropdown.val(), time: testTimeMs })
-  .catch(function(error) {
+    .catch(function (error) {
       Homey.alert(error);
-  });
+    });
 
   setTimeout(function () {
     $testButton.removeAttr('disabled');
@@ -519,177 +563,135 @@ $testButton.on('click', function () {
 });
 
 $('#save_button').on('click', function () {
-  if (interfaceMAC) {
-    console.log('Saving this device');
+  if (!interfaceMAC) {
+    return Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
+  }
 
-    var device = {
-      data: {
-        id: deviceUuid,
-      },
-    };
+  var device = { data: { id: deviceUuid } };
 
-    switch (deviceType) {
-      case 'light':
-        device.name = 'KNX Light';
-        device.settings = {
-          'ga_switch': $('#toggle_address').val(),
-          'ga_status': $('#toggle_status_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'switch':
-        device.name = 'KNX Switch';
-        device.settings = {
-          'ga_switch': $('#switch_toggle_address').val(),
-          'ga_status': $('#switch_status_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'dimmer':
-        device.name = 'KNX Dimmer';
-        device.settings = {
-          'ga_switch': $('#toggle_address').val(),
-          'ga_status': $('#toggle_status_address').val(),
-          'ga_dim': $('#dim_address').val(),
-          'ga_dim_status': $('#dim_status_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'dimcontrol':
-        device.name = 'KNX Relative Dimmer';
-        device.settings = {
-          'ga_switch': $('#toggle_address').val(),
-          'ga_status': $('#toggle_status_address').val(),
-          'ga_dim': $('#dim_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'rgb':
-        device.name = 'KNX RGB';
-        device.settings = {
-          'ga_red_toggle': $('#red_toggle_input').val(),
-          'ga_red_toggle_status': $('#red_toggle_status_input').val(),
-          'ga_red_dim': $('#red_dim_input').val(),
-          'ga_red_dim_status': $('#red_dim_status_input').val(),
-          'ga_green_toggle': $('#green_toggle_input').val(),
-          'ga_green_toggle_status': $('#green_toggle_status_input').val(),
-          'ga_green_dim': $('#green_dim_input').val(),
-          'ga_green_dim_status': $('#green_dim_status_input').val(),
-          'ga_blue_toggle': $('#blue_toggle_input').val(),
-          'ga_blue_toggle_status': $('#blue_toggle_status_input').val(),
-          'ga_blue_dim': $('#blue_dim_input').val(),
-          'ga_blue_dim_status': $('#blue_dim_status_input').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'thermostat':
-        device.name = 'KNX Thermostat';
-        device.settings = {
-          'ga_temperature_target': $('#temperature_target_address').val(),
-          'ga_temperature_measure': $('#temperature_measure_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'windowcovering':
-        device.name = 'KNX Windowcovering';
-        device.settings = {
-          'ga_up_down': $('#windowcover_updown_address').val(),
-          'ga_stop': $('#windowcover_stop_address').val(),
-          'ga_status': $('#windowcover_status_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'sensor':
-        device.name = 'KNX Sensor';
-        device.settings = {
-          'ga_sensor': $('#sensor_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'scene':
-        device.name = 'KNX Scene';
-        device.settings = {
-          'ga_scene': $('#scene_address').val(),
-          'scene_number': $('#scene_number').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-      case 'vimar_thermostat_02952.b':
-        device.name = 'Vimar Thermostat';
-        device.settings = {
-          'ga_temperature_target': $('#temperature_target_address').val(),
-          'ga_temperature_target_actual': $('#thermostat_actualtarget_address').val(),
-          'ga_temperature_measure': $('#temperature_measure_address').val(),
-          'ga_thermostat_mode': $('#thermostat_mode_address').val(),
-          'ga_thermostat_mode_state': $('#thermostat_mode_state_address').val(),
-          'ga_summerwinter_state': $('#thermostat_summerwinter_address').val(),
-          'ga_window_switch': $('#thermostat_windowswitch_address').val(),
-          'ga_valve_heating_state': $('#thermostat_valveheating_address').val(),
-          'ga_valve_cooling_state': $('#thermostat_valvecooling_address').val(),
-          'macAddress': interfaceMAC,
-        };
-        break;
-    }
+  switch (deviceType) {
+    case 'light':
+      device.name = 'KNX Light';
+      device.settings = {
+        'ga_switch': $('#toggle_address').val(),
+        'ga_status': $('#toggle_status_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'switch':
+      device.name = 'KNX Switch';
+      device.settings = {
+        'ga_switch': $('#switch_toggle_address').val(),
+        'ga_status': $('#switch_status_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'dimmer':
+      device.name = 'KNX Dimmer';
+      device.settings = {
+        'ga_switch': $('#toggle_address').val(),
+        'ga_status': $('#toggle_status_address').val(),
+        'ga_dim': $('#dim_address').val(),
+        'ga_dim_status': $('#dim_status_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'dimcontrol':
+      device.name = 'KNX Relative Dimmer';
+      device.settings = {
+        'ga_switch': $('#toggle_address').val(),
+        'ga_status': $('#toggle_status_address').val(),
+        'ga_dim': $('#dim_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'rgb':
+      device.name = 'KNX RGB';
+      device.settings = {
+        'ga_red_toggle': $('#red_toggle_input').val(),
+        'ga_red_toggle_status': $('#red_toggle_status_input').val(),
+        'ga_red_dim': $('#red_dim_input').val(),
+        'ga_red_dim_status': $('#red_dim_status_input').val(),
+        'ga_green_toggle': $('#green_toggle_input').val(),
+        'ga_green_toggle_status': $('#green_toggle_status_input').val(),
+        'ga_green_dim': $('#green_dim_input').val(),
+        'ga_green_dim_status': $('#green_dim_status_input').val(),
+        'ga_blue_toggle': $('#blue_toggle_input').val(),
+        'ga_blue_toggle_status': $('#blue_toggle_status_input').val(),
+        'ga_blue_dim': $('#blue_dim_input').val(),
+        'ga_blue_dim_status': $('#blue_dim_status_input').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'thermostat':
+      device.name = 'KNX Thermostat';
+      device.settings = {
+        'ga_temperature_target': $('#temperature_target_address').val(),
+        'ga_temperature_target_status': $('#temperature_target_status_address').val(),
+        'ga_temperature_measure': $('#temperature_measure_address').val(),
+        'ga_hvac_operating_mode': $('#hvac_operating_mode_address').val(),
+        'ga_hvac_operating_mode_status': $('#hvac_operating_mode_status_address').val(),
+        'ga_fan_speed': $('#fan_speed_address').val(),
+        'ga_fan_speed_status': $('#fan_speed_status_address').val(),
+        'ga_fan_auto_mode': $('#fan_auto_mode_address').val(),
+        'ga_fan_auto_mode_status': $('#fan_auto_mode_status_address').val(),
+        'fan_speed_steps': parseInt($('#fan_speed_steps').val()),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'windowcovering':
+      device.name = 'KNX Windowcovering';
+      device.settings = {
+        'ga_up_down': $('#windowcover_updown_address').val(),
+        'ga_stop': $('#windowcover_stop_address').val(),
+        'ga_status': $('#windowcover_status_address').val(),
+        'ga_height': $('#windowcover_height_address').val(),
+        'ga_height_status': $('#windowcover_height_status_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'sensor':
+      device.name = 'KNX Sensor';
+      device.settings = {
+        'ga_sensor': $('#sensor_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'scene':
+      device.name = 'KNX Scene';
+      device.settings = {
+        'ga_scene': $('#scene_address').val(),
+        'scene_number': $('#scene_number').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+    case 'vimar_thermostat_02952.b':
+      device.name = 'Vimar Thermostat';
+      device.settings = {
+        'ga_temperature_target': $('#temperature_target_address').val(),
+        'ga_temperature_target_actual': $('#thermostat_actualtarget_address').val(),
+        'ga_temperature_measure': $('#temperature_measure_address').val(),
+        'ga_thermostat_mode': $('#thermostat_mode_address').val(),
+        'ga_thermostat_mode_state': $('#thermostat_mode_state_address').val(),
+        'ga_summerwinter_state': $('#thermostat_summerwinter_address').val(),
+        'ga_window_switch': $('#thermostat_windowswitch_address').val(),
+        'ga_valve_heating_state': $('#thermostat_valveheating_address').val(),
+        'ga_valve_cooling_state': $('#thermostat_valvecooling_address').val(),
+        'macAddress': interfaceMAC,
+      };
+      break;
+  }
 
-  $learnmodeDropdown = $('#learnmode_dropdown');
-  $learnmodeButton = $('#learnmode_button');
-  $testButton = $('#test_button');
-
-  var $xmlText = $('#xmltext');
-
-  // Helper functions
-
-  function listGroupAddressesDropdown(selectItem, filter) {
-    selectItem.append('<option value="">' + Homey.__('settings.groupaddresses.select') + '</option>');
-    groupAddresses.forEach(function (etsEntry) {
-      var optionEl = document.createElement('option');
-      optionEl.value = etsEntry.address;
-      optionEl.textContent = etsEntry.name + Homey.__('settings.groupaddresses.pairing_list') + etsEntry.address;
-      $(selectItem).append(optionEl);
+  Homey.createDevice(device)
+    .then(function () {
+      Homey.done();
+    })
+    .catch(function (error) {
+      Homey.alert(error);
     });
-    $(selectItem).toggle(!!groupAddresses.length);
-  }
-
-  $('.knx-dropdown').on('change', function () {
-    var value = $(this).val();
-    $(this).next('.knx-text').val(value);
-  });
-
-  $learnmodeButton.on('click', function () {
-    $learnmodeButton.attr('disabled', 'disabled');
-    $learnmodeDropdown.innerHTML = '';
-
-    Homey.emit('learnmode')
-      .then(function (filteredList) {
-        console.log('filteredList', filteredList);
-        $learnmodeButton.removeAttr('disabled');
-
-        if (filteredList && filteredList.length > 0) {
-          filteredList.forEach(function (event) {
-            var optionEl = document.createElement('option');
-            optionEl.value = event.destination;
-            optionEl.textContent = Homey.__('settings.groupaddresses.generic') + event.destination;
-            $learnmodeDropdown.append(optionEl);
-          });
-
-          $learnmodeDropdown.toggle(!!filteredList.length);
-          $testButton.toggle(!!filteredList.length);
-          $('#switch_toggle_address').val($learnmodeDropdown.val());
-        }
-        else {
-          Homey.alert(Homey.__('settings.learnmode.no_result'), 'info');
-        }
-      })
-      .catch(function (error) {
-        Homey.alert(err);
-      });
-  }
-  else {
-    Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
-  }
 });
 
-// Check if there are uploaded groupaddresses available
+// Populate ETS group addresses if available
 Homey.emit('list_etsimport', function (error, groupAddressList) {
   if (error) {
     console.log('ets error', error.message, error.toString());
@@ -701,156 +703,8 @@ Homey.emit('list_etsimport', function (error, groupAddressList) {
     var $span = $('<span />').html(Homey.__('settings.projectfile.existingxml.title'));
     $xmlText.html($span);
 
-    setTimeout(function () {
-      $testButton.removeAttr('disabled');
-    }, testTimeMs);
-
-    $('#toggle_address').val($learnmodeDropdown.val());
-  });
-
-  $('#save_button').on('click', function () {
-    if (interfaceMAC) {
-      console.log('Saving this device');
-
-      var device = {
-        data: {
-          id: deviceUuid,
-        },
-      };
-
-      switch (deviceType) {
-        case 'light':
-          device.name = 'KNX Light';
-          device.settings = {
-            'ga_switch': $('#toggle_address').val(),
-            'ga_status': $('#toggle_status_address').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'switch':
-          device.name = 'KNX Switch';
-          device.settings = {
-            'ga_switch': $('#switch_toggle_address').val(),
-            'ga_status': $('#switch_status_address').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'dimmer':
-          device.name = 'KNX Dimmer';
-          device.settings = {
-            'ga_switch': $('#toggle_address').val(),
-            'ga_status': $('#toggle_status_address').val(),
-            'ga_dim': $('#dim_address').val(),
-            'ga_dim_status': $('#dim_status_address').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'dimcontrol':
-          device.name = 'KNX Relative Dimmer';
-          device.settings = {
-            'ga_switch': $('#toggle_address').val(),
-            'ga_status': $('#toggle_status_address').val(),
-            'ga_dim': $('#dim_address').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'rgb':
-          device.name = 'KNX RGB';
-          device.settings = {
-            'ga_red_toggle': $('#red_toggle_input').val(),
-            'ga_red_toggle_status': $('#red_toggle_status_input').val(),
-            'ga_red_dim': $('#red_dim_input').val(),
-            'ga_red_dim_status': $('#red_dim_status_input').val(),
-            'ga_green_toggle': $('#green_toggle_input').val(),
-            'ga_green_toggle_status': $('#green_toggle_status_input').val(),
-            'ga_green_dim': $('#green_dim_input').val(),
-            'ga_green_dim_status': $('#green_dim_status_input').val(),
-            'ga_blue_toggle': $('#blue_toggle_input').val(),
-            'ga_blue_toggle_status': $('#blue_toggle_status_input').val(),
-            'ga_blue_dim': $('#blue_dim_input').val(),
-            'ga_blue_dim_status': $('#blue_dim_status_input').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'thermostat':
-          device.name = 'KNX Thermostat';
-          device.settings = {
-            'ga_temperature_target': $('#temperature_target_address').val(),
-            'ga_temperature_target_status': $('#temperature_target_status_address').val(),
-            'ga_temperature_measure': $('#temperature_measure_address').val(),
-            'ga_hvac_operating_mode': $('#hvac_operating_mode_address').val(),
-            'ga_hvac_operating_mode_status': $('#hvac_operating_mode_status_address').val(),
-            'ga_fan_speed': $('#fan_speed_address').val(),
-            'ga_fan_speed_status': $('#fan_speed_status_address').val(),
-            'ga_fan_auto_mode': $('#fan_auto_mode_address').val(),
-            'ga_fan_auto_mode_status': $('#fan_auto_mode_status_address').val(),
-            'fan_speed_steps': parseInt($('#fan_speed_steps').val()),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'windowcovering':
-          device.name = 'KNX Windowcovering';
-          device.settings = {
-            'ga_up_down': $('#windowcover_updown_address').val(),
-            'ga_stop': $('#windowcover_stop_address').val(),
-            'ga_status': $('#windowcover_status_address').val(),
-            'ga_height': $('#windowcover_height_address').val(),
-            'ga_height_status': $('#windowcover_height_status_address').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'sensor':
-          device.name = 'KNX Sensor';
-          device.settings = {
-            'ga_sensor': $('#sensor_address').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-        case 'scene':
-          device.name = 'KNX Scene';
-          device.settings = {
-            'ga_scene': $('#scene_address').val(),
-            'scene_number': $('#scene_number').val(),
-            'macAddress': interfaceMAC,
-          };
-          break;
-      }
-
-      Homey.createDevice(device)
-        .then(function () {
-          Homey.done();
-        })
-        .catch(function (error) {
-          Homey.alert(err);
-        });
-    }
-    else {
-      Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
-    }
-  });
-
-  // Check if there are uploaded groupaddresses available
-  Homey.emit('list_etsimport', function (error, groupAddressList) {
-    if (error) {
-      console.log('ets error', error.message, error.toString());
-      return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString());
-    }
-
-    if (groupAddressList && groupAddressList.length > 0) {
-      groupAddresses = groupAddressList;
-      var $span = $('<span />').html(Homey.__('settings.projectfile.existingxml.title'));
-      $xmlText.html($span);
-
-      $('.knx-dropdown').each(function () {
-        listGroupAddressesDropdown($(this));
-      });
-    }
-
-    var $a = $('<a href="#">' + Homey.__('settings.projectfile.upload') + '</a>');
-    $a.click(function (e) {
-      e.preventDefault();
-      Homey.showView('parse_knxproj');
-      return false;
+    $('.knx-dropdown').each(function () {
+      listGroupAddressesDropdown($(this));
     });
   }
 

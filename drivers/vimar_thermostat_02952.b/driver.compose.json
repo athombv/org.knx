@@ -3,7 +3,17 @@
     "id": "vimar_thermostat_02952.b",
     "name": {
         "en": "Vimar Thermostat",
-        "nl": "Vimar Thermostaat"
+        "nl": "Vimar Thermostaat",
+        "da": "Vimar Termostat",
+        "de": "Vimar Thermostat",
+        "es": "Termostato Vimar",
+        "fr": "Thermostat Vimar",
+        "it": "Termostato Vimar",
+        "no": "Vimar Termostat",
+        "sv": "Vimar Termostat",
+        "pl": "Termostat Vimar",
+        "ru": "Термостат Vimar",
+        "ko": "Vimar 온도 조절기"
     },
     "class": "thermostat",
     "capabilities": [
@@ -46,106 +56,107 @@
             "type": "group",
             "label": {
                 "en": "KNX groupaddress",
-                "nl": "KNX groepadressen"
+                "nl": "KNX groepadressen",
+                "da": "KNX gruppeadresse",
+                "de": "KNX-Gruppenadresse",
+                "es": "Dirección de grupo KNX",
+                "fr": "Adresse de groupe KNX",
+                "it": "Indirizzo di gruppo KNX",
+                "no": "KNX gruppadresse",
+                "sv": "KNX gruppadress",
+                "pl": "Adres grupowy KNX",
+                "ru": "Групповой адрес KNX",
+                "ko": "KNX 그룹 주소"
             },
             "children": [
                 {
                     "id": "ga_temperature_target",
                     "type": "text",
-                    "label": {
-                        "en": "Setpoint Shift address"
-                    },
+                    "label": { "en": "Setpoint Shift address", "nl": "Setpoint verschuiving adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_temperature_measure",
                     "type": "text",
-                    "label": {
-                        "en": "Actual Temperature address"
-                    },
+                    "label": { "en": "Temperature measurement address", "nl": "Temperatuurmetingadres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_temperature_target_actual",
                     "type": "text",
-                    "label": {
-                        "en": "Actual setpoint address"
-                    },
+                    "label": { "en": "Target temperature status address", "nl": "Doeltemperatuurstatusadres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_thermostat_mode",
                     "type": "text",
-                    "label": {
-                        "en": "Thermostat mode address"
-                    },
+                    "label": { "en": "Thermostat mode address", "nl": "Thermostaat modus adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_thermostat_mode_state",
                     "type": "text",
-                    "label": {
-                        "en": "Thermostat mode state address"
-                    },
+                    "label": { "en": "Thermostat mode status address", "nl": "Thermostaat modus status adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_summerwinter_state",
                     "type": "text",
-                    "label": {
-                        "en": "Summer/Winter state address"
-                    },
+                    "label": { "en": "Summer/Winter state address", "nl": "Zomer/Winter status adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_window_switch",
                     "type": "text",
-                    "label": {
-                        "en": "Window Switch address"
-                    },
+                    "label": { "en": "Window switch address", "nl": "Raamschakelaar adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_valve_heating_state",
                     "type": "text",
-                    "label": {
-                        "en": "Heating Valve state address"
-                    },
+                    "label": { "en": "Heating valve status address", "nl": "Verwarmingsklep status adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 },
                 {
                     "id": "ga_valve_cooling_state",
                     "type": "text",
-                    "label": {
-                        "en": "Cooling Valve state address"
-                    },
+                    "label": { "en": "Cooling valve status address", "nl": "Koelklep status adres" },
                     "value": "",
                     "hint": {
-                        "en": "Enter groupaddress"
+                        "en": "Enter groupaddress",
+                        "nl": "Vul groepadres in"
                     }
                 }
             ]
@@ -154,7 +165,17 @@
             "type": "group",
             "label": {
                 "en": "Network settings",
-                "nl": "Netwerk instellingen"
+                "nl": "Netwerk instellingen",
+                "da": "Netværksindstillinger",
+                "de": "Netzwerkeinstellungen",
+                "es": "Configuración de red",
+                "fr": "Paramètres réseau",
+                "it": "Impostazioni di rete",
+                "no": "Nettverksinnstillinger",
+                "sv": "Nätverksinställningar",
+                "pl": "Ustawienia sieciowe",
+                "ru": "Сетевые настройки",
+                "ko": "네트워크 설정"
             },
             "children": [
                 {

@@ -10,7 +10,7 @@ const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 //
 class VimarThermostat02952BDevice extends KNXGenericDevice {
 
-  onInit() {
+  async onInit() {
     super.onInit();
 
     // Initialize variables
@@ -21,18 +21,21 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     this.registerCapabilityListener('vimar_thermostat_mode', this.onCapabilityMode.bind(this));
 
-    // Maybe this can be placed better during pairing?
-    if (!this.settings.ga_summerwinter_state && this.hasCapability('summer_winter')) {
-      this.removeCapability('summer_winter');
-      this.knxInterface.removeKNXConnectionListener(this.settings.ga_summerwinter_state, this.KNXEventHandler);
+    // Ensure optional capabilities reflect configured addresses at startup
+    if (this.settings.ga_summerwinter_state) {
+      await this.addCapabilityIfNotExists('summer_winter');
+    } else {
+      await this.removeCapabilityIfExists('summer_winter');
     }
-    if (!this.settings.ga_valve_heating_state && this.hasCapability('valve_heating')) {
-      this.removeCapability('valve_heating');
-      this.knxInterface.removeKNXConnectionListener(this.settings.ga_valve_heating_state, this.KNXEventHandler);
+    if (this.settings.ga_valve_heating_state) {
+      await this.addCapabilityIfNotExists('valve_heating');
+    } else {
+      await this.removeCapabilityIfExists('valve_heating');
     }
-    if (!this.settings.ga_valve_cooling_state && this.hasCapability('valve_cooling')) {
-      this.removeCapability('valve_cooling');
-      this.knxInterface.removeKNXConnectionListener(this.settings.ga_valve_cooling_state, this.KNXEventHandler);
+    if (this.settings.ga_valve_cooling_state) {
+      await this.addCapabilityIfNotExists('valve_cooling');
+    } else {
+      await this.removeCapabilityIfExists('valve_cooling');
     }
   }
 
@@ -42,14 +45,14 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     try {
       if (groupaddress === this.settings.ga_temperature_target) {
         this.currentSetpointShift = DatapointTypeParser.dpt9(data);
-        setTimeout(() => {
+  this.homey.setTimeout(() => {
           this.currentSetpointShift = undefined;
         }, 500);
       }
       if (groupaddress === this.settings.ga_temperature_target_actual) {
         this.currentSetpoint = DatapointTypeParser.dpt9(data);
         await this.setCapabilityValue('target_temperature', this.currentSetpoint);
-        setTimeout(() => {
+  this.homey.setTimeout(() => {
           this.currentSetpoint = undefined;
         }, 500);
       }
@@ -83,6 +86,15 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     } catch (error) {
       this.log('Error in onKNXEvent', error);
     }
+  }
+
+  removeKNXEventListeners(settings) {
+    super.removeKNXEventListeners(settings);
+    this.knxInterface.removeKNXEventListener(settings.ga_temperature_target_actual, this.KNXEventHandler);
+    this.knxInterface.removeKNXEventListener(settings.ga_thermostat_mode_state, this.KNXEventHandler);
+    this.knxInterface.removeKNXEventListener(settings.ga_summerwinter_state, this.KNXEventHandler);
+    this.knxInterface.removeKNXEventListener(settings.ga_valve_heating_state, this.KNXEventHandler);
+    this.knxInterface.removeKNXEventListener(settings.ga_valve_cooling_state, this.KNXEventHandler);
   }
 
   addKNXEventListeners(settings) {
@@ -195,7 +207,7 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     if (!newSettings.ga_summerwinter_state && this.hasCapability('summer_winter')) {
       this.removeCapability('summer_winter');
       if (oldSettings.ga_summerwinter_state) {
-        this.knxInterface.removeKNXConnectionListener(oldSettings.ga_summerwinter_state, this.KNXEventHandler);
+        this.knxInterface.removeKNXEventListener(oldSettings.ga_summerwinter_state, this.KNXEventHandler);
       }
     } else if (newSettings.ga_summerwinter_state && !this.hasCapability('summer_winter')) {
       this.addCapability('summer_winter');
@@ -204,7 +216,7 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     if (!newSettings.ga_valve_heating_state && this.hasCapability('valve_heating')) {
       this.removeCapability('valve_heating');
       if (oldSettings.ga_valve_heating_state) {
-        this.knxInterface.removeKNXConnectionListener(oldSettings.ga_valve_heating_state, this.KNXEventHandler);
+        this.knxInterface.removeKNXEventListener(oldSettings.ga_valve_heating_state, this.KNXEventHandler);
       }
     } else if (newSettings.ga_valve_heating_state && !this.hasCapability('valve_heating')) {
       this.addCapability('valve_heating');
@@ -213,7 +225,7 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     if (!newSettings.ga_valve_cooling_state && this.hasCapability('valve_cooling')) {
       this.removeCapability('valve_cooling');
       if (oldSettings.ga_valve_cooling_state) {
-        this.knxInterface.removeKNXConnectionListener(oldSettings.ga_valve_cooling_state, this.KNXEventHandler);
+        this.knxInterface.removeKNXEventListener(oldSettings.ga_valve_cooling_state, this.KNXEventHandler);
       }
     } else if (newSettings.ga_valve_cooling_state && !this.hasCapability('valve_cooling')) {
       this.addCapability('valve_cooling');

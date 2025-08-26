@@ -68,6 +68,17 @@
                 "valve_heating": "Heating valve status address",
                 "valve_cooling": "Cooling valve status address"
             },
+            "vimar_thermostat_02952.b": {
+                "target": "Target temperature address",
+                "actualtarget": "Target temperature status address",
+                "measure": "Temperature measurement address",
+                "mode": "Thermostat mode address",
+                "mode_state": "Thermostat mode status address",
+                "summer_winter": "Summer/Winter address",
+                "window_switch": "Window switch address",
+                "valve_heating": "Heating valve status address",
+                "valve_cooling": "Cooling valve status address"
+            },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
                 "red_toggle_status": "Status address red channel",
@@ -103,7 +114,10 @@
         "dim_failed": "Dimming the device failed!",
         "rgb_failed": "Setting color failed!",
         "temperature_set_failed": "Setting temperature failed!",
-        "temperature_get_failed": "Getting temperature failed!",
+    "temperature_get_failed": "Getting temperature failed!",
+    "mode_set_failed": "Setting thermostat mode failed!",
+    "window_switch_failed": "Setting window switch failed!",
+    "reset_to_basesetpoint_failed": "Resetting to base setpoint failed!",
         "hvac_operating_mode_get_failed": "Getting operating mode failed!",
         "hvac_operating_mode_set_failed": "Setting operating mode failed!",
         "windowcovering_failed": "Changing state failed!",

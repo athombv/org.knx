@@ -61,6 +61,17 @@
                 "valve_heating": "Verwarmingsklep status adres",
                 "valve_cooling": "Koelklep status adres"
             },
+            "vimar_thermostat_02952.b": {
+                "target": "Doel temperatuur adres",
+                "actualtarget": "Doel temperatuur status adres",
+                "measure": "Ruimtetemperatuur adres",
+                "mode": "Thermostaat modus adres",
+                "mode_state": "Thermostaat modus status adres",
+                "summer_winter": "Zomer/Winter adres",
+                "window_switch": "Raamschakelaar adres",
+                "valve_heating": "Verwarmingsklep status adres",
+                "valve_cooling": "Koelklep status adres"
+            },
             "rgb": {
                 "red_toggle_action": "Schakel adres rood kanaal",
                 "red_toggle_status": "Status adres rood kanaal",
@@ -94,7 +105,10 @@
         "dim_failed": "Dimmen van apparaat mislukt!",
         "rgb_failed": "Kleur veranderen mislukt!",
         "temperature_set_failed": "Temperatuur instellen mislukt!",
-        "temperature_get_failed": "Temperatuur ophalen mislukt!",
+    "temperature_get_failed": "Temperatuur ophalen mislukt!",
+    "mode_set_failed": "Thermostaatmodus instellen mislukt!",
+    "window_switch_failed": "Raamschakelaar instellen mislukt!",
+    "reset_to_basesetpoint_failed": "Resetten naar basis setpoint mislukt!",
 
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
         "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
