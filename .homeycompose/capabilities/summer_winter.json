@@ -5,5 +5,6 @@
   "type": "string",
   "getable": true,
   "setable": false,
-  "uiComponent": "sensor"
+  "uiComponent": "sensor",
+  "icon": "assets/capabilities/summer_winter.svg"
 }
