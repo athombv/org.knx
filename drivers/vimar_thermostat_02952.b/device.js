@@ -166,19 +166,25 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     }
   }
 
-  onCapabilityTargetTemperature(value, opts) {
+  async onCapabilityTargetTemperature(value, opts) {
     this.getMeasuredTemperature();
     if (this.knxInterface && this.settings.ga_temperature_target) {
       if (this.currentSetpointBase === undefined) {
-        throw new Error('Actual setpoint and shift are unknown');
+        await this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_target);
+        await this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_target_actual);
+        await (new Promise(resolve => setTimeout(resolve, 500)));
       }
 
+      if (this.currentSetpointBase === undefined) {
+        throw new Error('Actual setpoint and shift are unknown');
+      }
       const newShift = value - this.currentSetpointBase;
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, newShift, 'DPT9.1')
-        .catch((knxerror) => {
+      try {
+        await this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, newShift, 'DPT9.1');
+      } catch (knxerror) {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.temperature_set_failed'));
-        });
+      }
     }
     return null;
   }

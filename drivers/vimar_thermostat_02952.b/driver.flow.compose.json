@@ -5,6 +5,9 @@
       "title": {
         "en": "Set Window Switch"
       },
+      "titleFormatted": {
+        "en": "Set Window Switch to [[open]]"
+      },
       "args": [
         {
           "type": "checkbox",
