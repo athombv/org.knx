@@ -5589,7 +5589,8 @@
       "type": "string",
       "getable": true,
       "setable": false,
-      "uiComponent": "sensor"
+      "uiComponent": "sensor",
+      "icon": "assets/capabilities/summer_winter.svg"
     },
     "valve_cooling": {
       "title": {
@@ -5599,7 +5600,8 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "uiQuickAction": false
+      "uiQuickAction": false,
+      "icon": "assets/capabilities/valve_cooling.svg"
     },
     "valve_heating": {
       "title": {
@@ -5609,7 +5611,8 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "uiQuickAction": false
+      "uiQuickAction": false,
+      "icon": "assets/capabilities/valve_heating.svg"
     },
     "vimar_thermostat_mode": {
       "type": "enum",

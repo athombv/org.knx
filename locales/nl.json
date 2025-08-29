@@ -50,18 +50,7 @@
                 "target_status": "Doeltemperatuurstatusadres",
                 "measure": "Temperatuurmetingadres"
             },
-            "vimar_thermostat_02952": {
-                "target": "Doel temperatuur adres",
-                "actualtarget": "Doel temperatuur status adres",
-                "measure": "Ruimtetemperatuur adres",
-                "mode": "Thermostaat modus adres",
-                "mode_state": "Thermostaat modus status adres",
-                "summer_winter": "Zomer/Winter adres",
-                "window_switch": "Raamschakelaar adres",
-                "valve_heating": "Verwarmingsklep status adres",
-                "valve_cooling": "Koelklep status adres"
-            },
-            "vimar_thermostat_02952.b": {
+            "vimar_thermostat_02952b": {
                 "target": "Doel temperatuur adres",
                 "actualtarget": "Doel temperatuur status adres",
                 "measure": "Ruimtetemperatuur adres",
