@@ -11,7 +11,7 @@
             "manual_interface_input": "vul handmatig een adres in."
         },
         "learnmode": {
-            "title" : "Inleermodus",
+            "title": "Inleermodus",
             "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey.",
             "testbutton": "Test groepadres",
             "no_result": "Geen apparaten gevonden."
@@ -24,11 +24,11 @@
                 "explanation": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen en te bewaren in Homey. "
             },
             "existingxml": {
-	            "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
+                "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
             },
             "upload": "ETS project uploaden"
         },
-        "groupaddresses" : {
+        "groupaddresses": {
             "generic": "Groepadres",
             "pairing_list": ", groepadres: ",
             "select": "Selecteer groepsadres uit het ETS project",
@@ -84,7 +84,7 @@
             "sensor": "Sensor adres",
             "scene": "Scene adres"
         },
-        "scene_number" : "Scene nummer"
+        "scene_number": "Scene nummer"
     },
     "errors": {
         "generic_error": "Er is een fout opgetreden: ",
@@ -94,11 +94,10 @@
         "dim_failed": "Dimmen van apparaat mislukt!",
         "rgb_failed": "Kleur veranderen mislukt!",
         "temperature_set_failed": "Temperatuur instellen mislukt!",
-    "temperature_get_failed": "Temperatuur ophalen mislukt!",
-    "mode_set_failed": "Thermostaatmodus instellen mislukt!",
-    "window_switch_failed": "Raamschakelaar instellen mislukt!",
-    "reset_to_basesetpoint_failed": "Resetten naar basis setpoint mislukt!",
-
+        "temperature_get_failed": "Temperatuur ophalen mislukt!",
+        "mode_set_failed": "Thermostaatmodus instellen mislukt!",
+        "window_switch_failed": "Raamschakelaar instellen mislukt!",
+        "reset_to_basesetpoint_failed": "Resetten naar basis setpoint mislukt!",
         "windowcovering_failed": "Raambedekking schakelen mislukt!",
         "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
         "invalid_group_address": "Ongeldig groepadres.",
