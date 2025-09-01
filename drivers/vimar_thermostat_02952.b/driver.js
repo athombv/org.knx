@@ -8,12 +8,15 @@ class VimarThermostat02952BDriver extends KNXGenericDriver {
     super.onInit();
 
     this.homey.flow.getActionCard('set-window-switch').registerRunListener(async (args, state) => {
-      if (args.device.settings.ga_window_switch)
+      if (args.device.settings.ga_window_switch) {
         return args.device.knxInterface.writeKNXGroupAddress(args.device.settings.ga_window_switch, args.open, 'DPT1')
           .catch((knxerror) => {
             this.log(knxerror);
             throw new Error(this.homey.__('errors.window_switch_failed'));
           });
+      } else {
+        return undefined; //For linting purposes return undefined
+      }
     });
 
     this.homey.flow.getActionCard('reset_to_basesetpoint').registerRunListener(async (args, state) => {

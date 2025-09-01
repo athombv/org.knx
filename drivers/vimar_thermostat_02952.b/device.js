@@ -45,14 +45,14 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
     try {
       if (groupaddress === this.settings.ga_temperature_target) {
         this.currentSetpointShift = DatapointTypeParser.dpt9(data);
-  this.homey.setTimeout(() => {
+        this.homey.setTimeout(() => {
           this.currentSetpointShift = undefined;
         }, 500);
       }
       if (groupaddress === this.settings.ga_temperature_target_actual) {
         this.currentSetpoint = DatapointTypeParser.dpt9(data);
         await this.setCapabilityValue('target_temperature', this.currentSetpoint);
-  this.homey.setTimeout(() => {
+        this.homey.setTimeout(() => {
           this.currentSetpoint = undefined;
         }, 500);
       }
@@ -182,8 +182,8 @@ class VimarThermostat02952BDevice extends KNXGenericDevice {
       try {
         await this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, newShift, 'DPT9.1');
       } catch (knxerror) {
-          this.log(knxerror);
-          throw new Error(this.homey.__('errors.temperature_set_failed'));
+        this.log(knxerror);
+        throw new Error(this.homey.__('errors.temperature_set_failed'));
       }
     }
     return null;
