@@ -17,7 +17,7 @@
     "ru": "Контроллер Комнаты (Мульти-Функциональная Панель)",
     "ko": "룸 컨트롤러 (다기능 패널)"
   },
-  "class": "sensor",
+  "class": "thermostat",
   "capabilities": [
     "onoff.button1",
     "onoff.button2", 
@@ -282,7 +282,7 @@
       },
       "children": [
         {
-          "id": "ga_temperature",
+          "id": "ga_temperature", 
           "type": "text",
           "label": {
             "en": "Temperature measurement address",

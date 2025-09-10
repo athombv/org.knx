@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.knx",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#006BB3",
@@ -4737,7 +4737,7 @@
         "ru": "Контроллер Комнаты (Мульти-Функциональная Панель)",
         "ko": "룸 컨트롤러 (다기능 패널)"
       },
-      "class": "sensor",
+      "class": "thermostat",
       "capabilities": [
         "onoff.button1",
         "onoff.button2",
@@ -5034,6 +5034,826 @@
                 "pl": "Wprowadź adres grupowy dla wilgotności (np. 3/0/6)",
                 "ru": "Введите групповой адрес для влажности (напр. 3/0/6)",
                 "ko": "습도용 그룹 주소를 입력하세요 (예: 3/0/6)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network settings",
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på den krævede KNX IP interface",
+                "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP necesaria para KNX",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnitt IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på den krævede KNX IP interface",
+                "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP necesaria para KNX",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/knx_room_controller_6btn/assets/images/large.png",
+        "small": "/drivers/knx_room_controller_6btn/assets/images/small.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "select_groupaddresses",
+            "prev": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "select_groupaddresses",
+          "options": {
+            "devicetype": "room_controller_6btn"
+          },
+          "navigation": {
+            "prev": "select_interface"
+          }
+        }
+      ],
+      "id": "knx_room_controller_6btn",
+      "name": {
+        "en": "Room Controller 6-Button (Multi-Function Panel)",
+        "nl": "Kamer Controller 6-Knops (Multi-Functie Paneel)",
+        "da": "Rum Controller 6-Knap (Multi-Funktions Panel)",
+        "de": "Raum Controller 6-Tasten (Multi-Funktions Panel)",
+        "es": "Controlador de Habitación 6-Botones (Panel Multi-Función)",
+        "fr": "Contrôleur de Pièce 6-Boutons (Panneau Multi-Fonction)",
+        "it": "Controller Stanza 6-Pulsanti (Pannello Multi-Funzione)",
+        "no": "Rom Controller 6-Knapp (Multi-Funksjons Panel)",
+        "sv": "Rums Controller 6-Knappar (Multi-Funktions Panel)",
+        "pl": "Kontroler Pokoju 6-Przycisków (Panel Multi-Funkcyjny)",
+        "ru": "Контроллер Комнаты 6-Кнопок (Мульти-Функциональная Панель)",
+        "ko": "룸 컨트롤러 6-버튼 (다기능 패널)"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "onoff.button1",
+        "onoff.button3",
+        "onoff.button5",
+        "onoff.button2",
+        "onoff.button4",
+        "onoff.button6",
+        "measure_temperature"
+      ],
+      "capabilitiesOptions": {
+        "onoff.button1": {
+          "title": {
+            "en": "Button 1",
+            "nl": "Knop 1",
+            "da": "Knap 1",
+            "de": "Taste 1",
+            "es": "Botón 1",
+            "fr": "Bouton 1",
+            "it": "Pulsante 1",
+            "no": "Knapp 1",
+            "sv": "Knapp 1",
+            "pl": "Przycisk 1",
+            "ru": "Кнопка 1",
+            "ko": "버튼 1"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        },
+        "onoff.button2": {
+          "title": {
+            "en": "Button 2",
+            "nl": "Knop 2",
+            "da": "Knap 2",
+            "de": "Taste 2",
+            "es": "Botón 2",
+            "fr": "Bouton 2",
+            "it": "Pulsante 2",
+            "no": "Knapp 2",
+            "sv": "Knapp 2",
+            "pl": "Przycisk 2",
+            "ru": "Кнопка 2",
+            "ko": "버튼 2"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        },
+        "onoff.button3": {
+          "title": {
+            "en": "Button 3",
+            "nl": "Knop 3",
+            "da": "Knap 3",
+            "de": "Taste 3",
+            "es": "Botón 3",
+            "fr": "Bouton 3",
+            "it": "Pulsante 3",
+            "no": "Knapp 3",
+            "sv": "Knapp 3",
+            "pl": "Przycisk 3",
+            "ru": "Кнопка 3",
+            "ko": "버튼 3"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        },
+        "onoff.button4": {
+          "title": {
+            "en": "Button 4",
+            "nl": "Knop 4",
+            "da": "Knap 4",
+            "de": "Taste 4",
+            "es": "Botón 4",
+            "fr": "Bouton 4",
+            "it": "Pulsante 4",
+            "no": "Knapp 4",
+            "sv": "Knapp 4",
+            "pl": "Przycisk 4",
+            "ru": "Кнопка 4",
+            "ko": "버튼 4"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        },
+        "onoff.button5": {
+          "title": {
+            "en": "Button 5",
+            "nl": "Knop 5",
+            "da": "Knap 5",
+            "de": "Taste 5",
+            "es": "Botón 5",
+            "fr": "Bouton 5",
+            "it": "Pulsante 5",
+            "no": "Knapp 5",
+            "sv": "Knapp 5",
+            "pl": "Przycisk 5",
+            "ru": "Кнопка 5",
+            "ko": "버튼 5"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        },
+        "onoff.button6": {
+          "title": {
+            "en": "Button 6",
+            "nl": "Knop 6",
+            "da": "Knap 6",
+            "de": "Taste 6",
+            "es": "Botón 6",
+            "fr": "Bouton 6",
+            "it": "Pulsante 6",
+            "no": "Knapp 6",
+            "sv": "Knapp 6",
+            "pl": "Przycisk 6",
+            "ru": "Кнопка 6",
+            "ko": "버튼 6"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 1 KNX addresses",
+            "nl": "Knop 1 KNX adressen",
+            "da": "Knap 1 KNX adresser",
+            "de": "Taste 1 KNX Adressen",
+            "es": "Direcciones KNX Botón 1",
+            "fr": "Adresses KNX Bouton 1",
+            "it": "Indirizzi KNX Pulsante 1",
+            "no": "Knapp 1 KNX adresser",
+            "sv": "Knapp 1 KNX adresser",
+            "pl": "Adresy KNX Przycisk 1",
+            "ru": "Адреса KNX Кнопка 1",
+            "ko": "버튼 1 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button1_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 1 switching address",
+                "nl": "Knop 1 schakel adres",
+                "da": "Knap 1 skift adresse",
+                "de": "Taste 1 Schaltadresse",
+                "es": "Dirección de conmutación Botón 1",
+                "fr": "Adresse de commutation Bouton 1",
+                "it": "Indirizzo di commutazione Pulsante 1",
+                "no": "Knapp 1 bryteradresse",
+                "sv": "Knapp 1 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 1",
+                "ru": "Адрес переключения Кнопка 1",
+                "ko": "버튼 1 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 1 switching (e.g., 3/0/1)",
+                "nl": "Vul groepadres voor knop 1 schakelen in (bijv. 3/0/1)",
+                "da": "Indtast gruppeadresse for knap 1 skift (f.eks. 3/0/1)",
+                "de": "Gruppenadresse für Taste 1 Schalten eingeben (z.B. 3/0/1)",
+                "es": "Ingrese dirección de grupo para conmutación botón 1 (ej. 3/0/1)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 1 (ex. 3/0/1)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 1 (es. 3/0/1)",
+                "no": "Skriv inn gruppeadresse for knapp 1 bryter (f.eks. 3/0/1)",
+                "sv": "Ange gruppadress för knapp 1 koppling (t.ex. 3/0/1)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 1 (np. 3/0/1)",
+                "ru": "Введите групповой адрес для переключения кнопка 1 (напр. 3/0/1)",
+                "ko": "버튼 1 스위칭용 그룹 주소를 입력하세요 (예: 3/0/1)"
+              }
+            },
+            {
+              "id": "ga_button1_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 1 feedback address",
+                "nl": "Knop 1 terugkoppeling adres",
+                "da": "Knap 1 feedback adresse",
+                "de": "Taste 1 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 1",
+                "fr": "Adresse de retour Bouton 1",
+                "it": "Indirizzo di feedback Pulsante 1",
+                "no": "Knapp 1 tilbakemeldingsadresse",
+                "sv": "Knapp 1 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 1",
+                "ru": "Адрес обратной связи Кнопка 1",
+                "ko": "버튼 1 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 1 feedback (e.g., 3/0/2)",
+                "nl": "Vul groepadres voor knop 1 terugkoppeling in (bijv. 3/0/2)",
+                "da": "Indtast gruppeadresse for knap 1 feedback (f.eks. 3/0/2)",
+                "de": "Gruppenadresse für Taste 1 Rückmeldung eingeben (z.B. 3/0/2)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 1 (ej. 3/0/2)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 1 (ex. 3/0/2)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 1 (es. 3/0/2)",
+                "no": "Skriv inn gruppeadresse for knapp 1 tilbakemelding (f.eks. 3/0/2)",
+                "sv": "Ange gruppadress för knapp 1 återkoppling (t.ex. 3/0/2)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 1 (np. 3/0/2)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 1 (напр. 3/0/2)",
+                "ko": "버튼 1 피드백용 그룹 주소를 입력하세요 (예: 3/0/2)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 2 KNX addresses",
+            "nl": "Knop 2 KNX adressen",
+            "da": "Knap 2 KNX adresser",
+            "de": "Taste 2 KNX Adressen",
+            "es": "Direcciones KNX Botón 2",
+            "fr": "Adresses KNX Bouton 2",
+            "it": "Indirizzi KNX Pulsante 2",
+            "no": "Knapp 2 KNX adresser",
+            "sv": "Knapp 2 KNX adresser",
+            "pl": "Adresy KNX Przycisk 2",
+            "ru": "Адреса KNX Кнопка 2",
+            "ko": "버튼 2 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button2_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 2 switching address",
+                "nl": "Knop 2 schakel adres",
+                "da": "Knap 2 skift adresse",
+                "de": "Taste 2 Schaltadresse",
+                "es": "Dirección de conmutación Botón 2",
+                "fr": "Adresse de commutation Bouton 2",
+                "it": "Indirizzo di commutazione Pulsante 2",
+                "no": "Knapp 2 bryteradresse",
+                "sv": "Knapp 2 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 2",
+                "ru": "Адрес переключения Кнопка 2",
+                "ko": "버튼 2 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 2 switching (e.g., 3/0/3)",
+                "nl": "Vul groepadres voor knop 2 schakelen in (bijv. 3/0/3)",
+                "da": "Indtast gruppeadresse for knap 2 skift (f.eks. 3/0/3)",
+                "de": "Gruppenadresse für Taste 2 Schalten eingeben (z.B. 3/0/3)",
+                "es": "Ingrese dirección de grupo para conmutación botón 2 (ej. 3/0/3)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 2 (ex. 3/0/3)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 2 (es. 3/0/3)",
+                "no": "Skriv inn gruppeadresse for knapp 2 bryter (f.eks. 3/0/3)",
+                "sv": "Ange gruppadress för knapp 2 koppling (t.ex. 3/0/3)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 2 (np. 3/0/3)",
+                "ru": "Введите групповой адрес для переключения кнопка 2 (напр. 3/0/3)",
+                "ko": "버튼 2 스위칭용 그룹 주소를 입력하세요 (예: 3/0/3)"
+              }
+            },
+            {
+              "id": "ga_button2_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 2 feedback address",
+                "nl": "Knop 2 terugkoppeling adres",
+                "da": "Knap 2 feedback adresse",
+                "de": "Taste 2 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 2",
+                "fr": "Adresse de retour Bouton 2",
+                "it": "Indirizzo di feedback Pulsante 2",
+                "no": "Knapp 2 tilbakemeldingsadresse",
+                "sv": "Knapp 2 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 2",
+                "ru": "Адрес обратной связи Кнопка 2",
+                "ko": "버튼 2 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 2 feedback (e.g., 3/0/4)",
+                "nl": "Vul groepadres voor knop 2 terugkoppeling in (bijv. 3/0/4)",
+                "da": "Indtast gruppeadresse for knap 2 feedback (f.eks. 3/0/4)",
+                "de": "Gruppenadresse für Taste 2 Rückmeldung eingeben (z.B. 3/0/4)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 2 (ej. 3/0/4)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 2 (ex. 3/0/4)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 2 (es. 3/0/4)",
+                "no": "Skriv inn gruppeadresse for knapp 2 tilbakemelding (f.eks. 3/0/4)",
+                "sv": "Ange gruppadress för knapp 2 återkoppling (t.ex. 3/0/4)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 2 (np. 3/0/4)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 2 (напр. 3/0/4)",
+                "ko": "버튼 2 피드백용 그룹 주소를 입력하세요 (예: 3/0/4)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 3 KNX addresses",
+            "nl": "Knop 3 KNX adressen",
+            "da": "Knap 3 KNX adresser",
+            "de": "Taste 3 KNX Adressen",
+            "es": "Direcciones KNX Botón 3",
+            "fr": "Adresses KNX Bouton 3",
+            "it": "Indirizzi KNX Pulsante 3",
+            "no": "Knapp 3 KNX adresser",
+            "sv": "Knapp 3 KNX adresser",
+            "pl": "Adresy KNX Przycisk 3",
+            "ru": "Адреса KNX Кнопка 3",
+            "ko": "버튼 3 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button3_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 3 switching address",
+                "nl": "Knop 3 schakel adres",
+                "da": "Knap 3 skift adresse",
+                "de": "Taste 3 Schaltadresse",
+                "es": "Dirección de conmutación Botón 3",
+                "fr": "Adresse de commutation Bouton 3",
+                "it": "Indirizzo di commutazione Pulsante 3",
+                "no": "Knapp 3 bryteradresse",
+                "sv": "Knapp 3 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 3",
+                "ru": "Адрес переключения Кнопка 3",
+                "ko": "버튼 3 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 3 switching (e.g., 3/0/5)",
+                "nl": "Vul groepadres voor knop 3 schakelen in (bijv. 3/0/5)",
+                "da": "Indtast gruppeadresse for knap 3 skift (f.eks. 3/0/5)",
+                "de": "Gruppenadresse für Taste 3 Schalten eingeben (z.B. 3/0/5)",
+                "es": "Ingrese dirección de grupo para conmutación botón 3 (ej. 3/0/5)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 3 (ex. 3/0/5)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 3 (es. 3/0/5)",
+                "no": "Skriv inn gruppeadresse for knapp 3 bryter (f.eks. 3/0/5)",
+                "sv": "Ange gruppadress för knapp 3 koppling (t.ex. 3/0/5)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 3 (np. 3/0/5)",
+                "ru": "Введите групповой адрес для переключения кнопка 3 (напр. 3/0/5)",
+                "ko": "버튼 3 스위칭용 그룹 주소를 입력하세요 (예: 3/0/5)"
+              }
+            },
+            {
+              "id": "ga_button3_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 3 feedback address",
+                "nl": "Knop 3 terugkoppeling adres",
+                "da": "Knap 3 feedback adresse",
+                "de": "Taste 3 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 3",
+                "fr": "Adresse de retour Bouton 3",
+                "it": "Indirizzo di feedback Pulsante 3",
+                "no": "Knapp 3 tilbakemeldingsadresse",
+                "sv": "Knapp 3 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 3",
+                "ru": "Адрес обратной связи Кнопка 3",
+                "ko": "버튼 3 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 3 feedback (e.g., 3/0/6)",
+                "nl": "Vul groepadres voor knop 3 terugkoppeling in (bijv. 3/0/6)",
+                "da": "Indtast gruppeadresse for knap 3 feedback (f.eks. 3/0/6)",
+                "de": "Gruppenadresse für Taste 3 Rückmeldung eingeben (z.B. 3/0/6)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 3 (ej. 3/0/6)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 3 (ex. 3/0/6)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 3 (es. 3/0/6)",
+                "no": "Skriv inn gruppeadresse for knapp 3 tilbakemelding (f.eks. 3/0/6)",
+                "sv": "Ange gruppadress för knapp 3 återkoppling (t.ex. 3/0/6)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 3 (np. 3/0/6)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 3 (напр. 3/0/6)",
+                "ko": "버튼 3 피드백용 그룹 주소를 입력하세요 (예: 3/0/6)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 4 KNX addresses",
+            "nl": "Knop 4 KNX adressen",
+            "da": "Knap 4 KNX adresser",
+            "de": "Taste 4 KNX Adressen",
+            "es": "Direcciones KNX Botón 4",
+            "fr": "Adresses KNX Bouton 4",
+            "it": "Indirizzi KNX Pulsante 4",
+            "no": "Knapp 4 KNX adresser",
+            "sv": "Knapp 4 KNX adresser",
+            "pl": "Adresy KNX Przycisk 4",
+            "ru": "Адреса KNX Кнопка 4",
+            "ko": "버튼 4 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button4_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 4 switching address",
+                "nl": "Knop 4 schakel adres",
+                "da": "Knap 4 skift adresse",
+                "de": "Taste 4 Schaltadresse",
+                "es": "Dirección de conmutación Botón 4",
+                "fr": "Adresse de commutation Bouton 4",
+                "it": "Indirizzo di commutazione Pulsante 4",
+                "no": "Knapp 4 bryteradresse",
+                "sv": "Knapp 4 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 4",
+                "ru": "Адрес переключения Кнопка 4",
+                "ko": "버튼 4 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 4 switching (e.g., 3/0/7)",
+                "nl": "Vul groepadres voor knop 4 schakelen in (bijv. 3/0/7)",
+                "da": "Indtast gruppeadresse for knap 4 skift (f.eks. 3/0/7)",
+                "de": "Gruppenadresse für Taste 4 Schalten eingeben (z.B. 3/0/7)",
+                "es": "Ingrese dirección de grupo para conmutación botón 4 (ej. 3/0/7)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 4 (ex. 3/0/7)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 4 (es. 3/0/7)",
+                "no": "Skriv inn gruppeadresse for knapp 4 bryter (f.eks. 3/0/7)",
+                "sv": "Ange gruppadress för knapp 4 koppling (t.ex. 3/0/7)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 4 (np. 3/0/7)",
+                "ru": "Введите групповой адрес для переключения кнопка 4 (напр. 3/0/7)",
+                "ko": "버튼 4 스위칭용 그룹 주소를 입력하세요 (예: 3/0/7)"
+              }
+            },
+            {
+              "id": "ga_button4_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 4 feedback address",
+                "nl": "Knop 4 terugkoppeling adres",
+                "da": "Knap 4 feedback adresse",
+                "de": "Taste 4 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 4",
+                "fr": "Adresse de retour Bouton 4",
+                "it": "Indirizzo di feedback Pulsante 4",
+                "no": "Knapp 4 tilbakemeldingsadresse",
+                "sv": "Knapp 4 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 4",
+                "ru": "Адрес обратной связи Кнопка 4",
+                "ko": "버튼 4 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 4 feedback (e.g., 3/0/8)",
+                "nl": "Vul groepadres voor knop 4 terugkoppeling in (bijv. 3/0/8)",
+                "da": "Indtast gruppeadresse for knap 4 feedback (f.eks. 3/0/8)",
+                "de": "Gruppenadresse für Taste 4 Rückmeldung eingeben (z.B. 3/0/8)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 4 (ej. 3/0/8)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 4 (ex. 3/0/8)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 4 (es. 3/0/8)",
+                "no": "Skriv inn gruppeadresse for knapp 4 tilbakemelding (f.eks. 3/0/8)",
+                "sv": "Ange gruppadress för knapp 4 återkoppling (t.ex. 3/0/8)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 4 (np. 3/0/8)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 4 (напр. 3/0/8)",
+                "ko": "버튼 4 피드백용 그룹 주소를 입력하세요 (예: 3/0/8)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 5 KNX addresses",
+            "nl": "Knop 5 KNX adressen",
+            "da": "Knap 5 KNX adresser",
+            "de": "Taste 5 KNX Adressen",
+            "es": "Direcciones KNX Botón 5",
+            "fr": "Adresses KNX Bouton 5",
+            "it": "Indirizzi KNX Pulsante 5",
+            "no": "Knapp 5 KNX adresser",
+            "sv": "Knapp 5 KNX adresser",
+            "pl": "Adresy KNX Przycisk 5",
+            "ru": "Адреса KNX Кнопка 5",
+            "ko": "버튼 5 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button5_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 5 switching address",
+                "nl": "Knop 5 schakel adres",
+                "da": "Knap 5 skift adresse",
+                "de": "Taste 5 Schaltadresse",
+                "es": "Dirección de conmutación Botón 5",
+                "fr": "Adresse de commutation Bouton 5",
+                "it": "Indirizzo di commutazione Pulsante 5",
+                "no": "Knapp 5 bryteradresse",
+                "sv": "Knapp 5 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 5",
+                "ru": "Адрес переключения Кнопка 5",
+                "ko": "버튼 5 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 5 switching (e.g., 3/0/9)",
+                "nl": "Vul groepadres voor knop 5 schakelen in (bijv. 3/0/9)",
+                "da": "Indtast gruppeadresse for knap 5 skift (f.eks. 3/0/9)",
+                "de": "Gruppenadresse für Taste 5 Schalten eingeben (z.B. 3/0/9)",
+                "es": "Ingrese dirección de grupo para conmutación botón 5 (ej. 3/0/9)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 5 (ex. 3/0/9)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 5 (es. 3/0/9)",
+                "no": "Skriv inn gruppeadresse for knapp 5 bryter (f.eks. 3/0/9)",
+                "sv": "Ange gruppadress för knapp 5 koppling (t.ex. 3/0/9)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 5 (np. 3/0/9)",
+                "ru": "Введите групповой адрес для переключения кнопка 5 (напр. 3/0/9)",
+                "ko": "버튼 5 스위칭용 그룹 주소를 입력하세요 (예: 3/0/9)"
+              }
+            },
+            {
+              "id": "ga_button5_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 5 feedback address",
+                "nl": "Knop 5 terugkoppeling adres",
+                "da": "Knap 5 feedback adresse",
+                "de": "Taste 5 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 5",
+                "fr": "Adresse de retour Bouton 5",
+                "it": "Indirizzo di feedback Pulsante 5",
+                "no": "Knapp 5 tilbakemeldingsadresse",
+                "sv": "Knapp 5 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 5",
+                "ru": "Адрес обратной связи Кнопка 5",
+                "ko": "버튼 5 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 5 feedback (e.g., 3/0/10)",
+                "nl": "Vul groepadres voor knop 5 terugkoppeling in (bijv. 3/0/10)",
+                "da": "Indtast gruppeadresse for knap 5 feedback (f.eks. 3/0/10)",
+                "de": "Gruppenadresse für Taste 5 Rückmeldung eingeben (z.B. 3/0/10)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 5 (ej. 3/0/10)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 5 (ex. 3/0/10)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 5 (es. 3/0/10)",
+                "no": "Skriv inn gruppeadresse for knapp 5 tilbakemelding (f.eks. 3/0/10)",
+                "sv": "Ange gruppadress för knapp 5 återkoppling (t.ex. 3/0/10)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 5 (np. 3/0/10)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 5 (напр. 3/0/10)",
+                "ko": "버튼 5 피드백용 그룹 주소를 입력하세요 (예: 3/0/10)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 6 KNX addresses",
+            "nl": "Knop 6 KNX adressen",
+            "da": "Knap 6 KNX adresser",
+            "de": "Taste 6 KNX Adressen",
+            "es": "Direcciones KNX Botón 6",
+            "fr": "Adresses KNX Bouton 6",
+            "it": "Indirizzi KNX Pulsante 6",
+            "no": "Knapp 6 KNX adresser",
+            "sv": "Knapp 6 KNX adresser",
+            "pl": "Adresy KNX Przycisk 6",
+            "ru": "Адреса KNX Кнопка 6",
+            "ko": "버튼 6 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button6_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 6 switching address",
+                "nl": "Knop 6 schakel adres",
+                "da": "Knap 6 skift adresse",
+                "de": "Taste 6 Schaltadresse",
+                "es": "Dirección de conmutación Botón 6",
+                "fr": "Adresse de commutation Bouton 6",
+                "it": "Indirizzo di commutazione Pulsante 6",
+                "no": "Knapp 6 bryteradresse",
+                "sv": "Knapp 6 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 6",
+                "ru": "Адрес переключения Кнопка 6",
+                "ko": "버튼 6 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 6 switching (e.g., 3/0/11)",
+                "nl": "Vul groepadres voor knop 6 schakelen in (bijv. 3/0/11)",
+                "da": "Indtast gruppeadresse for knap 6 skift (f.eks. 3/0/11)",
+                "de": "Gruppenadresse für Taste 6 Schalten eingeben (z.B. 3/0/11)",
+                "es": "Ingrese dirección de grupo para conmutación botón 6 (ej. 3/0/11)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 6 (ex. 3/0/11)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 6 (es. 3/0/11)",
+                "no": "Skriv inn gruppeadresse for knapp 6 bryter (f.eks. 3/0/11)",
+                "sv": "Ange gruppadress för knapp 6 koppling (t.ex. 3/0/11)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 6 (np. 3/0/11)",
+                "ru": "Введите групповой адрес для переключения кнопка 6 (напр. 3/0/11)",
+                "ko": "버튼 6 스위칭용 그룹 주소를 입력하세요 (예: 3/0/11)"
+              }
+            },
+            {
+              "id": "ga_button6_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 6 feedback address",
+                "nl": "Knop 6 terugkoppeling adres",
+                "da": "Knap 6 feedback adresse",
+                "de": "Taste 6 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 6",
+                "fr": "Adresse de retour Bouton 6",
+                "it": "Indirizzo di feedback Pulsante 6",
+                "no": "Knapp 6 tilbakemeldingsadresse",
+                "sv": "Knapp 6 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 6",
+                "ru": "Адрес обратной связи Кнопка 6",
+                "ko": "버튼 6 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 6 feedback (e.g., 3/0/12)",
+                "nl": "Vul groepadres voor knop 6 terugkoppeling in (bijv. 3/0/12)",
+                "da": "Indtast gruppeadresse for knap 6 feedback (f.eks. 3/0/12)",
+                "de": "Gruppenadresse für Taste 6 Rückmeldung eingeben (z.B. 3/0/12)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 6 (ej. 3/0/12)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 6 (ex. 3/0/12)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 6 (es. 3/0/12)",
+                "no": "Skriv inn gruppeadresse for knapp 6 tilbakemelding (f.eks. 3/0/12)",
+                "sv": "Ange gruppadress för knapp 6 återkoppling (t.ex. 3/0/12)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 6 (np. 3/0/12)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 6 (напр. 3/0/12)",
+                "ko": "버튼 6 피드백용 그룹 주소를 입력하세요 (예: 3/0/12)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Sensor KNX addresses",
+            "nl": "Sensor KNX adressen",
+            "da": "Sensor KNX adresser",
+            "de": "Sensor KNX Adressen",
+            "es": "Direcciones KNX Sensor",
+            "fr": "Adresses KNX Capteur",
+            "it": "Indirizzi KNX Sensore",
+            "no": "Sensor KNX adresser",
+            "sv": "Sensor KNX adresser",
+            "pl": "Adresy KNX Czujnik",
+            "ru": "Адреса KNX Датчик",
+            "ko": "센서 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_temperature",
+              "type": "text",
+              "label": {
+                "en": "Temperature measurement address",
+                "nl": "Temperatuur meting adres",
+                "da": "Temperaturmåling adresse",
+                "de": "Adresse der Temperaturmessung",
+                "es": "Dirección de medición de temperatura",
+                "fr": "Adresse de mesure de la température",
+                "it": "Indirizzo di misurazione della temperatura",
+                "no": "Temperaturmålingsadresse",
+                "sv": "Temperaturmätningsadress",
+                "pl": "Adres pomiaru temperatury",
+                "ru": "Адрес измерения температуры",
+                "ko": "온도 측정 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for temperature (e.g., 3/0/13)",
+                "nl": "Vul groepadres voor temperatuur in (bijv. 3/0/13)",
+                "da": "Indtast gruppeadresse for temperatur (f.eks. 3/0/13)",
+                "de": "Gruppenadresse für Temperatur eingeben (z.B. 3/0/13)",
+                "es": "Ingrese la dirección de grupo para temperatura (ej. 3/0/13)",
+                "fr": "Entrez l'adresse de groupe pour la température (ex. 3/0/13)",
+                "it": "Inserisci l'indirizzo di gruppo per la temperatura (es. 3/0/13)",
+                "no": "Skriv inn gruppeadresse for temperatur (f.eks. 3/0/13)",
+                "sv": "Ange gruppadress för temperatur (t.ex. 3/0/13)",
+                "pl": "Wprowadź adres grupowy dla temperatury (np. 3/0/13)",
+                "ru": "Введите групповой адрес для температуры (напр. 3/0/13)",
+                "ko": "온도용 그룹 주소를 입력하세요 (예: 3/0/13)"
               }
             }
           ]
