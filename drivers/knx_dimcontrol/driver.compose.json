@@ -166,6 +166,39 @@
             "ru": "Введите групповой адрес",
             "ko": "그룹 주소 입력"
           }
+        },
+        {
+          "id": "ga_dim_status",
+          "type": "text",
+          "label": {
+            "en": "Dim status address",
+            "nl": "Dim status adres",
+            "da": "Dæmpningsstatusadresse",
+            "de": "Dimmen-Statusadresse",
+            "es": "Dirección de estado del regulador",
+            "fr": "Adresse de statut de variation",
+            "it": "Indirizzo di stato della regolazione",
+            "no": "Adresse for dimmingsstatus",
+            "sv": "Dimmningsstatusadress",
+            "pl": "Adres statusu ściemniacza",
+            "ru": "Адрес состояния регулятора света",
+            "ko": "디밍 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduzca la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserire l'indirizzo di gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wprowadź adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
+          }
         }
       ]
     },

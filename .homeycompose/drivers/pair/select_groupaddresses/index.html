@@ -322,14 +322,49 @@
 			</div>
 		</div>
 	</fieldset>
-	<fieldset id="knx-sensor-fieldset" style="display: none">
-		<div class="knx-sensor field row">
+	<fieldset id="knx-room-controller-fieldset" style="display: none">
+		<div class="knx-room-controller field row">
 			<div class="knx-entry">
-				<label for="sensor_address" class="left" data-i18n="settings.groupaddresses.sensor"></label>
+				<label for="button1_switch_address" class="left">Button 1 switching address:</label>
 			</div>
 			<div class="knx-entry">
-				<select id="sensor_ga_dropdown" class="knx-dropdown right"></select>
-				<input id="sensor_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+				<select id="button1_switch_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="button1_switch_address" type="text" class="knx-text" placeholder="e.g. 3/0/1" />
+			</div>
+			<div class="knx-entry">
+				<label for="button1_feedback_address" class="left">Button 1 feedback address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="button1_feedback_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="button1_feedback_address" type="text" class="knx-text" placeholder="e.g. 3/0/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="button2_switch_address" class="left">Button 2 switching address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="button2_switch_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="button2_switch_address" type="text" class="knx-text" placeholder="e.g. 3/0/3" />
+			</div>
+			<div class="knx-entry">
+				<label for="button2_feedback_address" class="left">Button 2 feedback address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="button2_feedback_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="button2_feedback_address" type="text" class="knx-text" placeholder="e.g. 3/0/4" />
+			</div>
+			<div class="knx-entry">
+				<label for="temperature_address" class="left">Temperature measurement address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="temperature_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="temperature_address" type="text" class="knx-text" placeholder="e.g. 3/0/5" />
+			</div>
+			<div class="knx-entry">
+				<label for="humidity_address" class="left">Humidity measurement address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="humidity_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="humidity_address" type="text" class="knx-text" placeholder="e.g. 3/0/6" />
 			</div>
 		</div>
 	</fieldset>
@@ -437,6 +472,10 @@
       case 'scene':
         console.log('device is a scene');
         $('#knx-scene-fieldset').css('display', 'block');
+        break;
+      case 'room_controller':
+        console.log('device is a room_controller');
+        $('#knx-room-controller-fieldset').css('display', 'block');
         break;
     }
   }
@@ -617,6 +656,18 @@
           device.settings = {
             'ga_scene': $('#scene_address').val(),
             'scene_number': $('#scene_number').val(),
+            'macAddress': interfaceMAC,
+          };
+          break;
+        case 'room_controller':
+          device.name = 'KNX Room Controller';
+          device.settings = {
+            'ga_button1_switch': $('#button1_switch_address').val(),
+            'ga_button1_feedback': $('#button1_feedback_address').val(),
+            'ga_button2_switch': $('#button2_switch_address').val(),
+            'ga_button2_feedback': $('#button2_feedback_address').val(),
+            'ga_temperature_measure': $('#temperature_address').val(),
+            'ga_sensor': $('#humidity_address').val(),
             'macAddress': interfaceMAC,
           };
           break;

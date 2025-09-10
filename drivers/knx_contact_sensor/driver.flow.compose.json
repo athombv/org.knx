@@ -1,0 +1,241 @@
+{
+  "triggers": [
+    {
+      "id": "contact_opened",
+      "title": {
+        "en": "Contact opened",
+        "nl": "Contact geopend",
+        "da": "Kontakt åbnet",
+        "de": "Kontakt geöffnet",
+        "es": "Contacto abierto",
+        "fr": "Contact ouvert",
+        "it": "Contatto aperto",
+        "no": "Kontakt åpnet",
+        "sv": "Kontakt öppnad",
+        "pl": "Kontakt otwarty",
+        "ru": "Контакт открыт",
+        "ko": "접촉 열림"
+      },
+      "titleFormatted": {
+        "en": "Contact opened",
+        "nl": "Contact geopend",
+        "da": "Kontakt åbnet",
+        "de": "Kontakt geöffnet",
+        "es": "Contacto abierto",
+        "fr": "Contact ouvert",
+        "it": "Contatto aperto",
+        "no": "Kontakt åpnet",
+        "sv": "Kontakt öppnad",
+        "pl": "Kontakt otwarty",
+        "ru": "Контакт открыт",
+        "ko": "접촉 열림"
+      },
+      "hint": {
+        "en": "When the contact sensor is opened (e.g., door/window opened)",
+        "nl": "Wanneer de contactsensor wordt geopend (bijv. deur/raam geopend)",
+        "da": "Når kontaktsensoren åbnes (f.eks. dør/vindue åbnet)",
+        "de": "Wenn der Kontaktsensor geöffnet wird (z.B. Tür/Fenster geöffnet)",
+        "es": "Cuando el sensor de contacto se abre (p. ej., puerta/ventana abierta)",
+        "fr": "Lorsque le capteur de contact est ouvert (par ex., porte/fenêtre ouverte)",
+        "it": "Quando il sensore di contatto è aperto (ad es., porta/finestra aperta)",
+        "no": "Når kontaktsensoren åpnes (f.eks. dør/vindu åpnet)",
+        "sv": "När kontaktsensorn öppnas (t.ex. dörr/fönster öppnat)",
+        "pl": "Gdy czujnik kontaktu jest otwarty (np. drzwi/okno otwarte)",
+        "ru": "Когда датчик контакта открывается (например, дверь/окно открыто)",
+        "ko": "접촉 센서가 열릴 때 (예: 문/창문 열림)"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "contact",
+          "title": {
+            "en": "Contact",
+            "nl": "Contact",
+            "da": "Kontakt",
+            "de": "Kontakt",
+            "es": "Contacto",
+            "fr": "Contact",
+            "it": "Contatto",
+            "no": "Kontakt",
+            "sv": "Kontakt",
+            "pl": "Kontakt",
+            "ru": "Контакт",
+            "ko": "접촉"
+          },
+          "example": {
+            "en": "Contact state",
+            "nl": "Contact status",
+            "da": "Kontaktstatus",
+            "de": "Kontaktstatus",
+            "es": "Estado del contacto",
+            "fr": "État du contact",
+            "it": "Stato del contatto",
+            "no": "Kontaktstatus",
+            "sv": "Kontaktstatus",
+            "pl": "Stan kontaktu",
+            "ru": "Состояние контакта",
+            "ko": "접촉 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact_closed",
+      "title": {
+        "en": "Contact closed",
+        "nl": "Contact gesloten",
+        "da": "Kontakt lukket",
+        "de": "Kontakt geschlossen",
+        "es": "Contacto cerrado",
+        "fr": "Contact fermé",
+        "it": "Contatto chiuso",
+        "no": "Kontakt lukket",
+        "sv": "Kontakt stängd",
+        "pl": "Kontakt zamknięty",
+        "ru": "Контакт закрыт",
+        "ko": "접촉 닫힘"
+      },
+      "titleFormatted": {
+        "en": "Contact closed",
+        "nl": "Contact gesloten",
+        "da": "Kontakt lukket",
+        "de": "Kontakt geschlossen",
+        "es": "Contacto cerrado",
+        "fr": "Contact fermé",
+        "it": "Contatto chiuso",
+        "no": "Kontakt lukket",
+        "sv": "Kontakt stängd",
+        "pl": "Kontakt zamknięty",
+        "ru": "Контакт закрыт",
+        "ko": "접촉 닫힘"
+      },
+      "hint": {
+        "en": "When the contact sensor is closed (e.g., door/window closed)",
+        "nl": "Wanneer de contactsensor wordt gesloten (bijv. deur/raam gesloten)",
+        "da": "Når kontaktsensoren lukkes (f.eks. dør/vindue lukket)",
+        "de": "Wenn der Kontaktsensor geschlossen wird (z.B. Tür/Fenster geschlossen)",
+        "es": "Cuando el sensor de contacto se cierra (p. ej., puerta/ventana cerrada)",
+        "fr": "Lorsque le capteur de contact est fermé (par ex., porte/fenêtre fermée)",
+        "it": "Quando il sensore di contatto è chiuso (ad es., porta/finestra chiusa)",
+        "no": "Når kontaktsensoren lukkes (f.eks. dør/vindu lukket)",
+        "sv": "När kontaktsensorn stängs (t.ex. dörr/fönster stängt)",
+        "pl": "Gdy czujnik kontaktu jest zamknięty (np. drzwi/okno zamknięte)",
+        "ru": "Когда датчик контакта закрывается (например, дверь/окно закрыто)",
+        "ko": "접촉 센서가 닫힐 때 (예: 문/창문 닫힘)"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "contact",
+          "title": {
+            "en": "Contact",
+            "nl": "Contact",
+            "da": "Kontakt",
+            "de": "Kontakt",
+            "es": "Contacto",
+            "fr": "Contact",
+            "it": "Contatto",
+            "no": "Kontakt",
+            "sv": "Kontakt",
+            "pl": "Kontakt",
+            "ru": "Контакт",
+            "ko": "접촉"
+          },
+          "example": {
+            "en": "Contact state",
+            "nl": "Contact status",
+            "da": "Kontaktstatus",
+            "de": "Kontaktstatus",
+            "es": "Estado del contacto",
+            "fr": "État du contact",
+            "it": "Stato del contatto",
+            "no": "Kontaktstatus",
+            "sv": "Kontaktstatus",
+            "pl": "Stan kontaktu",
+            "ru": "Состояние контакта",
+            "ko": "접촉 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact_changed",
+      "title": {
+        "en": "Contact changed",
+        "nl": "Contact veranderd",
+        "da": "Kontakt ændret",
+        "de": "Kontakt geändert",
+        "es": "Contacto cambiado",
+        "fr": "Contact changé",
+        "it": "Contatto cambiato",
+        "no": "Kontakt endret",
+        "sv": "Kontakt ändrad",
+        "pl": "Kontakt zmieniony",
+        "ru": "Контакт изменился",
+        "ko": "접촉 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Contact changed",
+        "nl": "Contact veranderd",
+        "da": "Kontakt ændret",
+        "de": "Kontakt geändert",
+        "es": "Contacto cambiado",
+        "fr": "Contact changé",
+        "it": "Contatto cambiato",
+        "no": "Kontakt endret",
+        "sv": "Kontakt ändrad",
+        "pl": "Kontakt zmieniony",
+        "ru": "Контакт изменился",
+        "ko": "접촉 변경됨"
+      },
+      "hint": {
+        "en": "When the contact sensor state changes",
+        "nl": "Wanneer de contactsensor status verandert",
+        "da": "Når kontaktsensorens tilstand ændres",
+        "de": "Wenn sich der Kontaktsensorstatus ändert",
+        "es": "Cuando cambia el estado del sensor de contacto",
+        "fr": "Lorsque l'état du capteur de contact change",
+        "it": "Quando cambia lo stato del sensore di contatto",
+        "no": "Når kontaktsensorens tilstand endres",
+        "sv": "När kontaktsensorns tillstånd ändras",
+        "pl": "Gdy zmienia się stan czujnika kontaktu",
+        "ru": "Когда изменяется состояние датчика контакта",
+        "ko": "접촉 센서 상태가 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "contact",
+          "title": {
+            "en": "Contact",
+            "nl": "Contact",
+            "da": "Kontakt",
+            "de": "Kontakt",
+            "es": "Contacto",
+            "fr": "Contact",
+            "it": "Contatto",
+            "no": "Kontakt",
+            "sv": "Kontakt",
+            "pl": "Kontakt",
+            "ru": "Контакт",
+            "ko": "접촉"
+          },
+          "example": {
+            "en": "Contact state",
+            "nl": "Contact status",
+            "da": "Kontaktstatus",
+            "de": "Kontaktstatus",
+            "es": "Estado del contacto",
+            "fr": "État du contact",
+            "it": "Stato del contatto",
+            "no": "Kontaktstatus",
+            "sv": "Kontaktstatus",
+            "pl": "Stan kontaktu",
+            "ru": "Состояние контакта",
+            "ko": "접촉 상태"
+          }
+        }
+      ]
+    }
+  ]
+}

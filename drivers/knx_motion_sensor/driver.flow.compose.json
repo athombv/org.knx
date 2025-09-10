@@ -1,0 +1,241 @@
+{
+  "triggers": [
+    {
+      "id": "motion_detected",
+      "title": {
+        "en": "Motion detected",
+        "nl": "Beweging gedetecteerd",
+        "da": "Bevægelse registreret",
+        "de": "Bewegung erkannt",
+        "es": "Movimiento detectado",
+        "fr": "Mouvement détecté",
+        "it": "Movimento rilevato",
+        "no": "Bevegelse oppdaget",
+        "sv": "Rörelse upptäckt",
+        "pl": "Wykryto ruch",
+        "ru": "Обнаружено движение",
+        "ko": "움직임 감지됨"
+      },
+      "titleFormatted": {
+        "en": "Motion detected",
+        "nl": "Beweging gedetecteerd",
+        "da": "Bevægelse registreret",
+        "de": "Bewegung erkannt",
+        "es": "Movimiento detectado",
+        "fr": "Mouvement détecté",
+        "it": "Movimento rilevato",
+        "no": "Bevegelse oppdaget",
+        "sv": "Rörelse upptäckt",
+        "pl": "Wykryto ruch",
+        "ru": "Обнаружено движение",
+        "ko": "움직임 감지됨"
+      },
+      "hint": {
+        "en": "When motion is detected by the sensor",
+        "nl": "Wanneer beweging wordt gedetecteerd door de sensor",
+        "da": "Når bevægelse registreres af sensoren",
+        "de": "Wenn Bewegung vom Sensor erkannt wird",
+        "es": "Cuando el sensor detecta movimiento",
+        "fr": "Lorsque le mouvement est détecté par le capteur",
+        "it": "Quando il movimento viene rilevato dal sensore",
+        "no": "Når bevegelse oppdages av sensoren",
+        "sv": "När rörelse upptäcks av sensorn",
+        "pl": "Gdy czujnik wykryje ruch",
+        "ru": "Когда датчик обнаруживает движение",
+        "ko": "센서가 움직임을 감지할 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "motion",
+          "title": {
+            "en": "Motion",
+            "nl": "Beweging",
+            "da": "Bevægelse",
+            "de": "Bewegung",
+            "es": "Movimiento",
+            "fr": "Mouvement",
+            "it": "Movimento",
+            "no": "Bevegelse",
+            "sv": "Rörelse",
+            "pl": "Ruch",
+            "ru": "Движение",
+            "ko": "움직임"
+          },
+          "example": {
+            "en": "Motion detected state",
+            "nl": "Beweging gedetecteerd status",
+            "da": "Status for registreret bevægelse",
+            "de": "Status der erkannten Bewegung",
+            "es": "Estado de detección de movimiento",
+            "fr": "État de détection de mouvement",
+            "it": "Stato di rilevamento movimento",
+            "no": "Status for oppdaget bevegelse",
+            "sv": "Status för upptäckt rörelse",
+            "pl": "Stan wykrycia ruchu",
+            "ru": "Состояние обнаружения движения",
+            "ko": "움직임 감지 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "motion_stopped",
+      "title": {
+        "en": "Motion stopped",
+        "nl": "Beweging gestopt",
+        "da": "Bevægelse stoppet",
+        "de": "Bewegung gestoppt",
+        "es": "Movimiento detenido",
+        "fr": "Mouvement arrêté",
+        "it": "Movimento interrotto",
+        "no": "Bevegelse stoppet",
+        "sv": "Rörelse stoppad",
+        "pl": "Ruch zatrzymany",
+        "ru": "Движение прекратилось",
+        "ko": "움직임 중지됨"
+      },
+      "titleFormatted": {
+        "en": "Motion stopped",
+        "nl": "Beweging gestopt",
+        "da": "Bevægelse stoppet",
+        "de": "Bewegung gestoppt",
+        "es": "Movimiento detenido",
+        "fr": "Mouvement arrêté",
+        "it": "Movimento interrotto",
+        "no": "Bevegelse stoppet",
+        "sv": "Rörelse stoppad",
+        "pl": "Ruch zatrzymany",
+        "ru": "Движение прекратилось",
+        "ko": "움직임 중지됨"
+      },
+      "hint": {
+        "en": "When motion is no longer detected by the sensor",
+        "nl": "Wanneer beweging niet meer wordt gedetecteerd door de sensor",
+        "da": "Når bevægelse ikke længere registreres af sensoren",
+        "de": "Wenn keine Bewegung mehr vom Sensor erkannt wird",
+        "es": "Cuando el sensor ya no detecta movimiento",
+        "fr": "Lorsque le mouvement n'est plus détecté par le capteur",
+        "it": "Quando il movimento non viene più rilevato dal sensore",
+        "no": "Når bevegelse ikke lenger oppdages av sensoren",
+        "sv": "När rörelse inte längre upptäcks av sensorn",
+        "pl": "Gdy czujnik przestaje wykrywać ruch",
+        "ru": "Когда датчик больше не обнаруживает движение",
+        "ko": "센서가 더 이상 움직임을 감지하지 않을 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "motion",
+          "title": {
+            "en": "Motion",
+            "nl": "Beweging",
+            "da": "Bevægelse",
+            "de": "Bewegung",
+            "es": "Movimiento",
+            "fr": "Mouvement",
+            "it": "Movimento",
+            "no": "Bevegelse",
+            "sv": "Rörelse",
+            "pl": "Ruch",
+            "ru": "Движение",
+            "ko": "움직임"
+          },
+          "example": {
+            "en": "Motion detected state",
+            "nl": "Beweging gedetecteerd status",
+            "da": "Status for registreret bevægelse",
+            "de": "Status der erkannten Bewegung",
+            "es": "Estado de detección de movimiento",
+            "fr": "État de détection de mouvement",
+            "it": "Stato di rilevamento movimento",
+            "no": "Status for oppdaget bevegelse",
+            "sv": "Status för upptäckt rörelse",
+            "pl": "Stan wykrycia ruchu",
+            "ru": "Состояние обнаружения движения",
+            "ko": "움직임 감지 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "motion_changed",
+      "title": {
+        "en": "Motion changed",
+        "nl": "Beweging veranderd",
+        "da": "Bevægelse ændret",
+        "de": "Bewegung geändert",
+        "es": "Movimiento cambiado",
+        "fr": "Mouvement changé",
+        "it": "Movimento cambiato",
+        "no": "Bevegelse endret",
+        "sv": "Rörelse ändrad",
+        "pl": "Ruch zmieniony",
+        "ru": "Движение изменилось",
+        "ko": "움직임 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Motion changed",
+        "nl": "Beweging veranderd",
+        "da": "Bevægelse ændret",
+        "de": "Bewegung geändert",
+        "es": "Movimiento cambiado",
+        "fr": "Mouvement changé",
+        "it": "Movimento cambiato",
+        "no": "Bevegelse endret",
+        "sv": "Rörelse ändrad",
+        "pl": "Ruch zmieniony",
+        "ru": "Движение изменилось",
+        "ko": "움직임 변경됨"
+      },
+      "hint": {
+        "en": "When motion detection state changes",
+        "nl": "Wanneer de bewegingsdetectie status verandert",
+        "da": "Når status for bevægelsesregistrering ændres",
+        "de": "Wenn sich der Bewegungserkennungsstatus ändert",
+        "es": "Cuando cambia el estado de detección de movimiento",
+        "fr": "Lorsque l'état de détection de mouvement change",
+        "it": "Quando cambia lo stato di rilevamento del movimento",
+        "no": "Når status for bevegelsesoppdagelse endres",
+        "sv": "När status för rörelseupptäckt ändras",
+        "pl": "Gdy zmienia się stan wykrywania ruchu",
+        "ru": "Когда изменяется состояние обнаружения движения",
+        "ko": "움직임 감지 상태가 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "motion",
+          "title": {
+            "en": "Motion",
+            "nl": "Beweging",
+            "da": "Bevægelse",
+            "de": "Bewegung",
+            "es": "Movimiento",
+            "fr": "Mouvement",
+            "it": "Movimento",
+            "no": "Bevegelse",
+            "sv": "Rörelse",
+            "pl": "Ruch",
+            "ru": "Движение",
+            "ko": "움직임"
+          },
+          "example": {
+            "en": "Motion detected state",
+            "nl": "Beweging gedetecteerd status",
+            "da": "Status for registreret bevægelse",
+            "de": "Status der erkannten Bewegung",
+            "es": "Estado de detección de movimiento",
+            "fr": "État de détection de mouvement",
+            "it": "Stato di rilevamento movimento",
+            "no": "Status for oppdaget bevegelse",
+            "sv": "Status för upptäckt rörelse",
+            "pl": "Stan wykrycia ruchu",
+            "ru": "Состояние обнаружения движения",
+            "ko": "움직임 감지 상태"
+          }
+        }
+      ]
+    }
+  ]
+}

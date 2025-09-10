@@ -469,6 +469,952 @@
         "id": "trigger_from_scene"
       },
       {
+        "id": "contact_opened",
+        "title": {
+          "en": "Contact opened",
+          "nl": "Contact geopend",
+          "da": "Kontakt åbnet",
+          "de": "Kontakt geöffnet",
+          "es": "Contacto abierto",
+          "fr": "Contact ouvert",
+          "it": "Contatto aperto",
+          "no": "Kontakt åpnet",
+          "sv": "Kontakt öppnad",
+          "pl": "Kontakt otwarty",
+          "ru": "Контакт открыт",
+          "ko": "접촉 열림"
+        },
+        "titleFormatted": {
+          "en": "Contact opened",
+          "nl": "Contact geopend",
+          "da": "Kontakt åbnet",
+          "de": "Kontakt geöffnet",
+          "es": "Contacto abierto",
+          "fr": "Contact ouvert",
+          "it": "Contatto aperto",
+          "no": "Kontakt åpnet",
+          "sv": "Kontakt öppnad",
+          "pl": "Kontakt otwarty",
+          "ru": "Контакт открыт",
+          "ko": "접촉 열림"
+        },
+        "hint": {
+          "en": "When the contact sensor is opened (e.g., door/window opened)",
+          "nl": "Wanneer de contactsensor wordt geopend (bijv. deur/raam geopend)",
+          "da": "Når kontaktsensoren åbnes (f.eks. dør/vindue åbnet)",
+          "de": "Wenn der Kontaktsensor geöffnet wird (z.B. Tür/Fenster geöffnet)",
+          "es": "Cuando el sensor de contacto se abre (p. ej., puerta/ventana abierta)",
+          "fr": "Lorsque le capteur de contact est ouvert (par ex., porte/fenêtre ouverte)",
+          "it": "Quando il sensore di contatto è aperto (ad es., porta/finestra aperta)",
+          "no": "Når kontaktsensoren åpnes (f.eks. dør/vindu åpnet)",
+          "sv": "När kontaktsensorn öppnas (t.ex. dörr/fönster öppnat)",
+          "pl": "Gdy czujnik kontaktu jest otwarty (np. drzwi/okno otwarte)",
+          "ru": "Когда датчик контакта открывается (например, дверь/окно открыто)",
+          "ko": "접촉 센서가 열릴 때 (예: 문/창문 열림)"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "contact",
+            "title": {
+              "en": "Contact",
+              "nl": "Contact",
+              "da": "Kontakt",
+              "de": "Kontakt",
+              "es": "Contacto",
+              "fr": "Contact",
+              "it": "Contatto",
+              "no": "Kontakt",
+              "sv": "Kontakt",
+              "pl": "Kontakt",
+              "ru": "Контакт",
+              "ko": "접촉"
+            },
+            "example": {
+              "en": "Contact state",
+              "nl": "Contact status",
+              "da": "Kontaktstatus",
+              "de": "Kontaktstatus",
+              "es": "Estado del contacto",
+              "fr": "État du contact",
+              "it": "Stato del contatto",
+              "no": "Kontaktstatus",
+              "sv": "Kontaktstatus",
+              "pl": "Stan kontaktu",
+              "ru": "Состояние контакта",
+              "ko": "접촉 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_contact_sensor"
+          }
+        ]
+      },
+      {
+        "id": "contact_closed",
+        "title": {
+          "en": "Contact closed",
+          "nl": "Contact gesloten",
+          "da": "Kontakt lukket",
+          "de": "Kontakt geschlossen",
+          "es": "Contacto cerrado",
+          "fr": "Contact fermé",
+          "it": "Contatto chiuso",
+          "no": "Kontakt lukket",
+          "sv": "Kontakt stängd",
+          "pl": "Kontakt zamknięty",
+          "ru": "Контакт закрыт",
+          "ko": "접촉 닫힘"
+        },
+        "titleFormatted": {
+          "en": "Contact closed",
+          "nl": "Contact gesloten",
+          "da": "Kontakt lukket",
+          "de": "Kontakt geschlossen",
+          "es": "Contacto cerrado",
+          "fr": "Contact fermé",
+          "it": "Contatto chiuso",
+          "no": "Kontakt lukket",
+          "sv": "Kontakt stängd",
+          "pl": "Kontakt zamknięty",
+          "ru": "Контакт закрыт",
+          "ko": "접촉 닫힘"
+        },
+        "hint": {
+          "en": "When the contact sensor is closed (e.g., door/window closed)",
+          "nl": "Wanneer de contactsensor wordt gesloten (bijv. deur/raam gesloten)",
+          "da": "Når kontaktsensoren lukkes (f.eks. dør/vindue lukket)",
+          "de": "Wenn der Kontaktsensor geschlossen wird (z.B. Tür/Fenster geschlossen)",
+          "es": "Cuando el sensor de contacto se cierra (p. ej., puerta/ventana cerrada)",
+          "fr": "Lorsque le capteur de contact est fermé (par ex., porte/fenêtre fermée)",
+          "it": "Quando il sensore di contatto è chiuso (ad es., porta/finestra chiusa)",
+          "no": "Når kontaktsensoren lukkes (f.eks. dør/vindu lukket)",
+          "sv": "När kontaktsensorn stängs (t.ex. dörr/fönster stängt)",
+          "pl": "Gdy czujnik kontaktu jest zamknięty (np. drzwi/okno zamknięte)",
+          "ru": "Когда датчик контакта закрывается (например, дверь/окно закрыто)",
+          "ko": "접촉 센서가 닫힐 때 (예: 문/창문 닫힘)"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "contact",
+            "title": {
+              "en": "Contact",
+              "nl": "Contact",
+              "da": "Kontakt",
+              "de": "Kontakt",
+              "es": "Contacto",
+              "fr": "Contact",
+              "it": "Contatto",
+              "no": "Kontakt",
+              "sv": "Kontakt",
+              "pl": "Kontakt",
+              "ru": "Контакт",
+              "ko": "접촉"
+            },
+            "example": {
+              "en": "Contact state",
+              "nl": "Contact status",
+              "da": "Kontaktstatus",
+              "de": "Kontaktstatus",
+              "es": "Estado del contacto",
+              "fr": "État du contact",
+              "it": "Stato del contatto",
+              "no": "Kontaktstatus",
+              "sv": "Kontaktstatus",
+              "pl": "Stan kontaktu",
+              "ru": "Состояние контакта",
+              "ko": "접촉 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_contact_sensor"
+          }
+        ]
+      },
+      {
+        "id": "contact_changed",
+        "title": {
+          "en": "Contact changed",
+          "nl": "Contact veranderd",
+          "da": "Kontakt ændret",
+          "de": "Kontakt geändert",
+          "es": "Contacto cambiado",
+          "fr": "Contact changé",
+          "it": "Contatto cambiato",
+          "no": "Kontakt endret",
+          "sv": "Kontakt ändrad",
+          "pl": "Kontakt zmieniony",
+          "ru": "Контакт изменился",
+          "ko": "접촉 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Contact changed",
+          "nl": "Contact veranderd",
+          "da": "Kontakt ændret",
+          "de": "Kontakt geändert",
+          "es": "Contacto cambiado",
+          "fr": "Contact changé",
+          "it": "Contatto cambiato",
+          "no": "Kontakt endret",
+          "sv": "Kontakt ändrad",
+          "pl": "Kontakt zmieniony",
+          "ru": "Контакт изменился",
+          "ko": "접촉 변경됨"
+        },
+        "hint": {
+          "en": "When the contact sensor state changes",
+          "nl": "Wanneer de contactsensor status verandert",
+          "da": "Når kontaktsensorens tilstand ændres",
+          "de": "Wenn sich der Kontaktsensorstatus ändert",
+          "es": "Cuando cambia el estado del sensor de contacto",
+          "fr": "Lorsque l'état du capteur de contact change",
+          "it": "Quando cambia lo stato del sensore di contatto",
+          "no": "Når kontaktsensorens tilstand endres",
+          "sv": "När kontaktsensorns tillstånd ändras",
+          "pl": "Gdy zmienia się stan czujnika kontaktu",
+          "ru": "Когда изменяется состояние датчика контакта",
+          "ko": "접촉 센서 상태가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "contact",
+            "title": {
+              "en": "Contact",
+              "nl": "Contact",
+              "da": "Kontakt",
+              "de": "Kontakt",
+              "es": "Contacto",
+              "fr": "Contact",
+              "it": "Contatto",
+              "no": "Kontakt",
+              "sv": "Kontakt",
+              "pl": "Kontakt",
+              "ru": "Контакт",
+              "ko": "접촉"
+            },
+            "example": {
+              "en": "Contact state",
+              "nl": "Contact status",
+              "da": "Kontaktstatus",
+              "de": "Kontaktstatus",
+              "es": "Estado del contacto",
+              "fr": "État du contact",
+              "it": "Stato del contatto",
+              "no": "Kontaktstatus",
+              "sv": "Kontaktstatus",
+              "pl": "Stan kontaktu",
+              "ru": "Состояние контакта",
+              "ko": "접촉 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_contact_sensor"
+          }
+        ]
+      },
+      {
+        "id": "humidity_changed",
+        "title": {
+          "en": "Humidity changed",
+          "nl": "Vochtigheid veranderd",
+          "da": "Fugtighed ændret",
+          "de": "Feuchtigkeit geändert",
+          "es": "Humedad cambiada",
+          "fr": "Humidité changée",
+          "it": "Umidità cambiata",
+          "no": "Luftfuktighet endret",
+          "sv": "Luftfuktighet ändrad",
+          "pl": "Wilgotność zmieniona",
+          "ru": "Влажность изменилась",
+          "ko": "습도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Humidity changed to [[humidity]]%",
+          "nl": "Vochtigheid veranderd naar [[humidity]]%",
+          "da": "Fugtighed ændret til [[humidity]]%",
+          "de": "Feuchtigkeit geändert auf [[humidity]]%",
+          "es": "Humedad cambiada a [[humidity]]%",
+          "fr": "Humidité changée à [[humidity]]%",
+          "it": "Umidità cambiata a [[humidity]]%",
+          "no": "Luftfuktighet endret til [[humidity]]%",
+          "sv": "Luftfuktighet ändrad till [[humidity]]%",
+          "pl": "Wilgotność zmieniona na [[humidity]]%",
+          "ru": "Влажность изменилась на [[humidity]]%",
+          "ko": "습도가 [[humidity]]%로 변경됨"
+        },
+        "hint": {
+          "en": "When the humidity measurement changes",
+          "nl": "Wanneer de vochtigheidsmeting verandert",
+          "da": "Når fugtighedsmålingen ændres",
+          "de": "Wenn sich die Feuchtigkeitsmessung ändert",
+          "es": "Cuando cambia la medición de humedad",
+          "fr": "Lorsque la mesure d'humidité change",
+          "it": "Quando cambia la misurazione dell'umidità",
+          "no": "Når luftfuktighetsmålingen endres",
+          "sv": "När luftfuktighetsmätningen ändras",
+          "pl": "Gdy zmienia się pomiar wilgotności",
+          "ru": "Когда изменяется измерение влажности",
+          "ko": "습도 측정값이 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "humidity",
+            "title": {
+              "en": "Humidity",
+              "nl": "Vochtigheid",
+              "da": "Fugtighed",
+              "de": "Feuchtigkeit",
+              "es": "Humedad",
+              "fr": "Humidité",
+              "it": "Umidità",
+              "no": "Luftfuktighet",
+              "sv": "Luftfuktighet",
+              "pl": "Wilgotność",
+              "ru": "Влажность",
+              "ko": "습도"
+            },
+            "example": {
+              "en": "The current humidity percentage",
+              "nl": "Het huidige vochtigheidpercentage",
+              "da": "Den aktuelle fugtighedsprocent",
+              "de": "Der aktuelle Feuchtigkeitsprozentsatz",
+              "es": "El porcentaje de humedad actual",
+              "fr": "Le pourcentage d'humidité actuel",
+              "it": "La percentuale di umidità attuale",
+              "no": "Den gjeldende luftfuktighetsprosenten",
+              "sv": "Den aktuella luftfuktighetsprocenten",
+              "pl": "Aktualny procent wilgotności",
+              "ru": "Текущий процент влажности",
+              "ko": "현재 습도 백분율"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_humidity_sensor"
+          }
+        ]
+      },
+      {
+        "id": "luminance_changed",
+        "title": {
+          "en": "Luminance changed",
+          "nl": "Lichtsterkte veranderd",
+          "da": "Lysintensitet ændret",
+          "de": "Helligkeit geändert",
+          "es": "Luminancia cambiada",
+          "fr": "Luminance changée",
+          "it": "Luminanza cambiata",
+          "no": "Lysstyrke endret",
+          "sv": "Ljusstyrka ändrad",
+          "pl": "Luminancja zmieniona",
+          "ru": "Яркость изменилась",
+          "ko": "조도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Luminance changed to [[luminance]] lux",
+          "nl": "Lichtsterkte veranderd naar [[luminance]] lux",
+          "da": "Lysintensitet ændret til [[luminance]] lux",
+          "de": "Helligkeit geändert auf [[luminance]] lux",
+          "es": "Luminancia cambiada a [[luminance]] lux",
+          "fr": "Luminance changée à [[luminance]] lux",
+          "it": "Luminanza cambiata a [[luminance]] lux",
+          "no": "Lysstyrke endret til [[luminance]] lux",
+          "sv": "Ljusstyrka ändrad till [[luminance]] lux",
+          "pl": "Luminancja zmieniona na [[luminance]] lux",
+          "ru": "Яркость изменилась на [[luminance]] лк",
+          "ko": "조도가 [[luminance]] lux로 변경됨"
+        },
+        "hint": {
+          "en": "When the luminance measurement changes",
+          "nl": "Wanneer de lichtsterkte meting verandert",
+          "da": "Når lysintensitetsmålingen ændres",
+          "de": "Wenn sich die Helligkeitsmessung ändert",
+          "es": "Cuando cambia la medición de luminancia",
+          "fr": "Lorsque la mesure de luminance change",
+          "it": "Quando cambia la misurazione della luminanza",
+          "no": "Når lysstyrke-målingen endres",
+          "sv": "När ljusstyrkemätningen ändras",
+          "pl": "Gdy zmienia się pomiar luminancji",
+          "ru": "Когда изменяется измерение яркости",
+          "ko": "조도 측정값이 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "luminance",
+            "title": {
+              "en": "Luminance",
+              "nl": "Lichtsterkte",
+              "da": "Lysintensitet",
+              "de": "Helligkeit",
+              "es": "Luminancia",
+              "fr": "Luminance",
+              "it": "Luminanza",
+              "no": "Lysstyrke",
+              "sv": "Ljusstyrka",
+              "pl": "Luminancja",
+              "ru": "Яркость",
+              "ko": "조도"
+            },
+            "example": {
+              "en": "The current luminance in lux",
+              "nl": "De huidige lichtsterkte in lux",
+              "da": "Den aktuelle lysintensitet i lux",
+              "de": "Die aktuelle Helligkeit in Lux",
+              "es": "La luminancia actual en lux",
+              "fr": "La luminance actuelle en lux",
+              "it": "La luminanza attuale in lux",
+              "no": "Den gjeldende lysstyrken i lux",
+              "sv": "Den aktuella ljusstyrkan i lux",
+              "pl": "Aktualna luminancja w luksach",
+              "ru": "Текущая яркость в люксах",
+              "ko": "현재 조도(럭스)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_luminance_sensor"
+          }
+        ]
+      },
+      {
+        "id": "motion_detected",
+        "title": {
+          "en": "Motion detected",
+          "nl": "Beweging gedetecteerd",
+          "da": "Bevægelse registreret",
+          "de": "Bewegung erkannt",
+          "es": "Movimiento detectado",
+          "fr": "Mouvement détecté",
+          "it": "Movimento rilevato",
+          "no": "Bevegelse oppdaget",
+          "sv": "Rörelse upptäckt",
+          "pl": "Wykryto ruch",
+          "ru": "Обнаружено движение",
+          "ko": "움직임 감지됨"
+        },
+        "titleFormatted": {
+          "en": "Motion detected",
+          "nl": "Beweging gedetecteerd",
+          "da": "Bevægelse registreret",
+          "de": "Bewegung erkannt",
+          "es": "Movimiento detectado",
+          "fr": "Mouvement détecté",
+          "it": "Movimento rilevato",
+          "no": "Bevegelse oppdaget",
+          "sv": "Rörelse upptäckt",
+          "pl": "Wykryto ruch",
+          "ru": "Обнаружено движение",
+          "ko": "움직임 감지됨"
+        },
+        "hint": {
+          "en": "When motion is detected by the sensor",
+          "nl": "Wanneer beweging wordt gedetecteerd door de sensor",
+          "da": "Når bevægelse registreres af sensoren",
+          "de": "Wenn Bewegung vom Sensor erkannt wird",
+          "es": "Cuando el sensor detecta movimiento",
+          "fr": "Lorsque le mouvement est détecté par le capteur",
+          "it": "Quando il movimento viene rilevato dal sensore",
+          "no": "Når bevegelse oppdages av sensoren",
+          "sv": "När rörelse upptäcks av sensorn",
+          "pl": "Gdy czujnik wykryje ruch",
+          "ru": "Когда датчик обнаруживает движение",
+          "ko": "센서가 움직임을 감지할 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "motion",
+            "title": {
+              "en": "Motion",
+              "nl": "Beweging",
+              "da": "Bevægelse",
+              "de": "Bewegung",
+              "es": "Movimiento",
+              "fr": "Mouvement",
+              "it": "Movimento",
+              "no": "Bevegelse",
+              "sv": "Rörelse",
+              "pl": "Ruch",
+              "ru": "Движение",
+              "ko": "움직임"
+            },
+            "example": {
+              "en": "Motion detected state",
+              "nl": "Beweging gedetecteerd status",
+              "da": "Status for registreret bevægelse",
+              "de": "Status der erkannten Bewegung",
+              "es": "Estado de detección de movimiento",
+              "fr": "État de détection de mouvement",
+              "it": "Stato di rilevamento movimento",
+              "no": "Status for oppdaget bevegelse",
+              "sv": "Status för upptäckt rörelse",
+              "pl": "Stan wykrycia ruchu",
+              "ru": "Состояние обнаружения движения",
+              "ko": "움직임 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_motion_sensor"
+          }
+        ]
+      },
+      {
+        "id": "motion_stopped",
+        "title": {
+          "en": "Motion stopped",
+          "nl": "Beweging gestopt",
+          "da": "Bevægelse stoppet",
+          "de": "Bewegung gestoppt",
+          "es": "Movimiento detenido",
+          "fr": "Mouvement arrêté",
+          "it": "Movimento interrotto",
+          "no": "Bevegelse stoppet",
+          "sv": "Rörelse stoppad",
+          "pl": "Ruch zatrzymany",
+          "ru": "Движение прекратилось",
+          "ko": "움직임 중지됨"
+        },
+        "titleFormatted": {
+          "en": "Motion stopped",
+          "nl": "Beweging gestopt",
+          "da": "Bevægelse stoppet",
+          "de": "Bewegung gestoppt",
+          "es": "Movimiento detenido",
+          "fr": "Mouvement arrêté",
+          "it": "Movimento interrotto",
+          "no": "Bevegelse stoppet",
+          "sv": "Rörelse stoppad",
+          "pl": "Ruch zatrzymany",
+          "ru": "Движение прекратилось",
+          "ko": "움직임 중지됨"
+        },
+        "hint": {
+          "en": "When motion is no longer detected by the sensor",
+          "nl": "Wanneer beweging niet meer wordt gedetecteerd door de sensor",
+          "da": "Når bevægelse ikke længere registreres af sensoren",
+          "de": "Wenn keine Bewegung mehr vom Sensor erkannt wird",
+          "es": "Cuando el sensor ya no detecta movimiento",
+          "fr": "Lorsque le mouvement n'est plus détecté par le capteur",
+          "it": "Quando il movimento non viene più rilevato dal sensore",
+          "no": "Når bevegelse ikke lenger oppdages av sensoren",
+          "sv": "När rörelse inte längre upptäcks av sensorn",
+          "pl": "Gdy czujnik przestaje wykrywać ruch",
+          "ru": "Когда датчик больше не обнаруживает движение",
+          "ko": "센서가 더 이상 움직임을 감지하지 않을 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "motion",
+            "title": {
+              "en": "Motion",
+              "nl": "Beweging",
+              "da": "Bevægelse",
+              "de": "Bewegung",
+              "es": "Movimiento",
+              "fr": "Mouvement",
+              "it": "Movimento",
+              "no": "Bevegelse",
+              "sv": "Rörelse",
+              "pl": "Ruch",
+              "ru": "Движение",
+              "ko": "움직임"
+            },
+            "example": {
+              "en": "Motion detected state",
+              "nl": "Beweging gedetecteerd status",
+              "da": "Status for registreret bevægelse",
+              "de": "Status der erkannten Bewegung",
+              "es": "Estado de detección de movimiento",
+              "fr": "État de détection de mouvement",
+              "it": "Stato di rilevamento movimento",
+              "no": "Status for oppdaget bevegelse",
+              "sv": "Status för upptäckt rörelse",
+              "pl": "Stan wykrycia ruchu",
+              "ru": "Состояние обнаружения движения",
+              "ko": "움직임 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_motion_sensor"
+          }
+        ]
+      },
+      {
+        "id": "motion_changed",
+        "title": {
+          "en": "Motion changed",
+          "nl": "Beweging veranderd",
+          "da": "Bevægelse ændret",
+          "de": "Bewegung geändert",
+          "es": "Movimiento cambiado",
+          "fr": "Mouvement changé",
+          "it": "Movimento cambiato",
+          "no": "Bevegelse endret",
+          "sv": "Rörelse ändrad",
+          "pl": "Ruch zmieniony",
+          "ru": "Движение изменилось",
+          "ko": "움직임 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Motion changed",
+          "nl": "Beweging veranderd",
+          "da": "Bevægelse ændret",
+          "de": "Bewegung geändert",
+          "es": "Movimiento cambiado",
+          "fr": "Mouvement changé",
+          "it": "Movimento cambiato",
+          "no": "Bevegelse endret",
+          "sv": "Rörelse ändrad",
+          "pl": "Ruch zmieniony",
+          "ru": "Движение изменилось",
+          "ko": "움직임 변경됨"
+        },
+        "hint": {
+          "en": "When motion detection state changes",
+          "nl": "Wanneer de bewegingsdetectie status verandert",
+          "da": "Når status for bevægelsesregistrering ændres",
+          "de": "Wenn sich der Bewegungserkennungsstatus ändert",
+          "es": "Cuando cambia el estado de detección de movimiento",
+          "fr": "Lorsque l'état de détection de mouvement change",
+          "it": "Quando cambia lo stato di rilevamento del movimento",
+          "no": "Når status for bevegelsesoppdagelse endres",
+          "sv": "När status för rörelseupptäckt ändras",
+          "pl": "Gdy zmienia się stan wykrywania ruchu",
+          "ru": "Когда изменяется состояние обнаружения движения",
+          "ko": "움직임 감지 상태가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "motion",
+            "title": {
+              "en": "Motion",
+              "nl": "Beweging",
+              "da": "Bevægelse",
+              "de": "Bewegung",
+              "es": "Movimiento",
+              "fr": "Mouvement",
+              "it": "Movimento",
+              "no": "Bevegelse",
+              "sv": "Rörelse",
+              "pl": "Ruch",
+              "ru": "Движение",
+              "ko": "움직임"
+            },
+            "example": {
+              "en": "Motion detected state",
+              "nl": "Beweging gedetecteerd status",
+              "da": "Status for registreret bevægelse",
+              "de": "Status der erkannten Bewegung",
+              "es": "Estado de detección de movimiento",
+              "fr": "État de détection de mouvement",
+              "it": "Stato di rilevamento movimento",
+              "no": "Status for oppdaget bevegelse",
+              "sv": "Status för upptäckt rörelse",
+              "pl": "Stan wykrycia ruchu",
+              "ru": "Состояние обнаружения движения",
+              "ko": "움직임 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_motion_sensor"
+          }
+        ]
+      },
+      {
+        "id": "smoke_detected",
+        "title": {
+          "en": "Smoke detected",
+          "nl": "Rook gedetecteerd",
+          "da": "Røg registreret",
+          "de": "Rauch erkannt",
+          "es": "Humo detectado",
+          "fr": "Fumée détectée",
+          "it": "Fumo rilevato",
+          "no": "Røyk oppdaget",
+          "sv": "Rök upptäckt",
+          "pl": "Wykryto dym",
+          "ru": "Обнаружен дым",
+          "ko": "연기 감지됨"
+        },
+        "titleFormatted": {
+          "en": "Smoke detected",
+          "nl": "Rook gedetecteerd",
+          "da": "Røg registreret",
+          "de": "Rauch erkannt",
+          "es": "Humo detectado",
+          "fr": "Fumée détectée",
+          "it": "Fumo rilevato",
+          "no": "Røyk oppdaget",
+          "sv": "Rök upptäckt",
+          "pl": "Wykryto dym",
+          "ru": "Обнаружен дым",
+          "ko": "연기 감지됨"
+        },
+        "hint": {
+          "en": "When smoke is detected by the sensor",
+          "nl": "Wanneer rook wordt gedetecteerd door de sensor",
+          "da": "Når røg registreres af sensoren",
+          "de": "Wenn Rauch vom Sensor erkannt wird",
+          "es": "Cuando el sensor detecta humo",
+          "fr": "Lorsque la fumée est détectée par le capteur",
+          "it": "Quando il fumo viene rilevato dal sensore",
+          "no": "Når røyk oppdages av sensoren",
+          "sv": "När rök upptäcks av sensorn",
+          "pl": "Gdy czujnik wykryje dym",
+          "ru": "Когда датчик обнаруживает дым",
+          "ko": "센서가 연기를 감지할 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "smoke",
+            "title": {
+              "en": "Smoke",
+              "nl": "Rook",
+              "da": "Røg",
+              "de": "Rauch",
+              "es": "Humo",
+              "fr": "Fumée",
+              "it": "Fumo",
+              "no": "Røyk",
+              "sv": "Rök",
+              "pl": "Dym",
+              "ru": "Дым",
+              "ko": "연기"
+            },
+            "example": {
+              "en": "Smoke detected state",
+              "nl": "Rook gedetecteerd status",
+              "da": "Status for registreret røg",
+              "de": "Status der Raucherkennung",
+              "es": "Estado de detección de humo",
+              "fr": "État de détection de fumée",
+              "it": "Stato di rilevamento fumo",
+              "no": "Status for oppdaget røyk",
+              "sv": "Status för upptäckt rök",
+              "pl": "Stan wykrycia dymu",
+              "ru": "Состояние обнаружения дыма",
+              "ko": "연기 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_smoke_sensor"
+          }
+        ]
+      },
+      {
+        "id": "smoke_cleared",
+        "title": {
+          "en": "Smoke cleared",
+          "nl": "Rook verdwenen",
+          "da": "Røg forsvundet",
+          "de": "Rauch verschwunden",
+          "es": "Humo despejado",
+          "fr": "Fumée dissipée",
+          "it": "Fumo scomparso",
+          "no": "Røyk forsvunnet",
+          "sv": "Rök försvunnen",
+          "pl": "Dym zniknął",
+          "ru": "Дым рассеялся",
+          "ko": "연기 제거됨"
+        },
+        "titleFormatted": {
+          "en": "Smoke cleared",
+          "nl": "Rook verdwenen",
+          "da": "Røg forsvundet",
+          "de": "Rauch verschwunden",
+          "es": "Humo despejado",
+          "fr": "Fumée dissipée",
+          "it": "Fumo scomparso",
+          "no": "Røyk forsvunnet",
+          "sv": "Rök försvunnen",
+          "pl": "Dym zniknął",
+          "ru": "Дым рассеялся",
+          "ko": "연기 제거됨"
+        },
+        "hint": {
+          "en": "When smoke is no longer detected by the sensor",
+          "nl": "Wanneer rook niet meer wordt gedetecteerd door de sensor",
+          "da": "Når røg ikke længere registreres af sensoren",
+          "de": "Wenn kein Rauch mehr vom Sensor erkannt wird",
+          "es": "Cuando el sensor ya no detecta humo",
+          "fr": "Lorsque la fumée n'est plus détectée par le capteur",
+          "it": "Quando il fumo non viene più rilevato dal sensore",
+          "no": "Når røyk ikke lenger oppdages av sensoren",
+          "sv": "När rök inte längre upptäcks av sensorn",
+          "pl": "Gdy czujnik przestaje wykrywać dym",
+          "ru": "Когда датчик больше не обнаруживает дым",
+          "ko": "센서가 더 이상 연기를 감지하지 않을 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "smoke",
+            "title": {
+              "en": "Smoke",
+              "nl": "Rook",
+              "da": "Røg",
+              "de": "Rauch",
+              "es": "Humo",
+              "fr": "Fumée",
+              "it": "Fumo",
+              "no": "Røyk",
+              "sv": "Rök",
+              "pl": "Dym",
+              "ru": "Дым",
+              "ko": "연기"
+            },
+            "example": {
+              "en": "Smoke detected state",
+              "nl": "Rook gedetecteerd status",
+              "da": "Status for registreret røg",
+              "de": "Status der Raucherkennung",
+              "es": "Estado de detección de humo",
+              "fr": "État de détection de fumée",
+              "it": "Stato di rilevamento fumo",
+              "no": "Status for oppdaget røyk",
+              "sv": "Status för upptäckt rök",
+              "pl": "Stan wykrycia dymu",
+              "ru": "Состояние обнаружения дыма",
+              "ko": "연기 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_smoke_sensor"
+          }
+        ]
+      },
+      {
+        "id": "smoke_changed",
+        "title": {
+          "en": "Smoke changed",
+          "nl": "Rook veranderd",
+          "da": "Røg ændret",
+          "de": "Rauch geändert",
+          "es": "Humo cambiado",
+          "fr": "Fumée changée",
+          "it": "Fumo cambiato",
+          "no": "Røyk endret",
+          "sv": "Rök ändrad",
+          "pl": "Dym zmieniony",
+          "ru": "Дым изменился",
+          "ko": "연기 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Smoke changed",
+          "nl": "Rook veranderd",
+          "da": "Røg ændret",
+          "de": "Rauch geändert",
+          "es": "Humo cambiado",
+          "fr": "Fumée changée",
+          "it": "Fumo cambiato",
+          "no": "Røyk endret",
+          "sv": "Rök ändrad",
+          "pl": "Dym zmieniony",
+          "ru": "Дым изменился",
+          "ko": "연기 변경됨"
+        },
+        "hint": {
+          "en": "When smoke detection state changes",
+          "nl": "Wanneer de rookdetectie status verandert",
+          "da": "Når røgdetektionsstatus ændres",
+          "de": "Wenn sich der Raucherkennungsstatus ändert",
+          "es": "Cuando cambia el estado de detección de humo",
+          "fr": "Lorsque l'état de détection de fumée change",
+          "it": "Quando cambia lo stato di rilevamento del fumo",
+          "no": "Når røykdeteksjonsstatusen endres",
+          "sv": "När rökdetekteringsstatusen ändras",
+          "pl": "Gdy zmienia się stan wykrywania dymu",
+          "ru": "Когда изменяется состояние обнаружения дыма",
+          "ko": "연기 감지 상태가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "smoke",
+            "title": {
+              "en": "Smoke",
+              "nl": "Rook",
+              "da": "Røg",
+              "de": "Rauch",
+              "es": "Humo",
+              "fr": "Fumée",
+              "it": "Fumo",
+              "no": "Røyk",
+              "sv": "Rök",
+              "pl": "Dym",
+              "ru": "Дым",
+              "ko": "연기"
+            },
+            "example": {
+              "en": "Smoke detected state",
+              "nl": "Rook gedetecteerd status",
+              "da": "Status for registreret røg",
+              "de": "Status der Raucherkennung",
+              "es": "Estado de detección de humo",
+              "fr": "État de détection de fumée",
+              "it": "Stato di rilevamento fumo",
+              "no": "Status for oppdaget røyk",
+              "sv": "Status för upptäckt rök",
+              "pl": "Stan wykrycia dymu",
+              "ru": "Состояние обнаружения дыма",
+              "ko": "연기 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_smoke_sensor"
+          }
+        ]
+      },
+      {
         "id": "changed",
         "title": {
           "en": "Turned on or off",
@@ -551,6 +1497,350 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=knx_switch"
+          }
+        ]
+      },
+      {
+        "id": "tamper_detected",
+        "title": {
+          "en": "Tamper detected",
+          "nl": "Sabotage gedetecteerd",
+          "da": "Sabotage registreret",
+          "de": "Manipulation erkannt",
+          "es": "Manipulación detectada",
+          "fr": "Sabotage détecté",
+          "it": "Manomissione rilevata",
+          "no": "Tukling oppdaget",
+          "sv": "Manipulering upptäckt",
+          "pl": "Wykryto sabotaż",
+          "ru": "Обнаружено вмешательство",
+          "ko": "변조 감지됨"
+        },
+        "titleFormatted": {
+          "en": "Tamper detected",
+          "nl": "Sabotage gedetecteerd",
+          "da": "Sabotage registreret",
+          "de": "Manipulation erkannt",
+          "es": "Manipulación detectada",
+          "fr": "Sabotage détecté",
+          "it": "Manomissione rilevata",
+          "no": "Tukling oppdaget",
+          "sv": "Manipulering upptäckt",
+          "pl": "Wykryto sabotaż",
+          "ru": "Обнаружено вмешательство",
+          "ko": "변조 감지됨"
+        },
+        "hint": {
+          "en": "When tampering is detected by the sensor",
+          "nl": "Wanneer sabotage wordt gedetecteerd door de sensor",
+          "da": "Når sabotage registreres af sensoren",
+          "de": "Wenn Manipulation vom Sensor erkannt wird",
+          "es": "Cuando el sensor detecta manipulación",
+          "fr": "Lorsque le sabotage est détecté par le capteur",
+          "it": "Quando la manomissione viene rilevata dal sensore",
+          "no": "Når tukling oppdages av sensoren",
+          "sv": "När manipulering upptäcks av sensorn",
+          "pl": "Gdy czujnik wykryje sabotaż",
+          "ru": "Когда датчик обнаруживает вмешательство",
+          "ko": "센서가 변조를 감지할 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "tamper",
+            "title": {
+              "en": "Tamper",
+              "nl": "Sabotage",
+              "da": "Sabotage",
+              "de": "Manipulation",
+              "es": "Manipulación",
+              "fr": "Sabotage",
+              "it": "Manomissione",
+              "no": "Tukling",
+              "sv": "Manipulering",
+              "pl": "Sabotaż",
+              "ru": "Вмешательство",
+              "ko": "변조"
+            },
+            "example": {
+              "en": "Tamper detected state",
+              "nl": "Sabotage gedetecteerd status",
+              "da": "Status for registreret sabotage",
+              "de": "Status der Manipulationserkennung",
+              "es": "Estado de detección de manipulación",
+              "fr": "État de détection de sabotage",
+              "it": "Stato di rilevamento manomissione",
+              "no": "Status for oppdaget tukling",
+              "sv": "Status för upptäckt manipulering",
+              "pl": "Stan wykrycia sabotażu",
+              "ru": "Состояние обнаружения вмешательства",
+              "ko": "변조 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_tamper_sensor"
+          }
+        ]
+      },
+      {
+        "id": "tamper_cleared",
+        "title": {
+          "en": "Tamper cleared",
+          "nl": "Sabotage opgeheven",
+          "da": "Sabotage fjernet",
+          "de": "Manipulation aufgehoben",
+          "es": "Manipulación eliminada",
+          "fr": "Sabotage éliminé",
+          "it": "Manomissione rimossa",
+          "no": "Tukling fjernet",
+          "sv": "Manipulering borttagen",
+          "pl": "Sabotaż usunięty",
+          "ru": "Вмешательство устранено",
+          "ko": "변조 해제됨"
+        },
+        "titleFormatted": {
+          "en": "Tamper cleared",
+          "nl": "Sabotage opgeheven",
+          "da": "Sabotage fjernet",
+          "de": "Manipulation aufgehoben",
+          "es": "Manipulación eliminada",
+          "fr": "Sabotage éliminé",
+          "it": "Manomissione rimossa",
+          "no": "Tukling fjernet",
+          "sv": "Manipulering borttagen",
+          "pl": "Sabotaż usunięty",
+          "ru": "Вмешательство устранено",
+          "ko": "변조 해제됨"
+        },
+        "hint": {
+          "en": "When tampering is no longer detected by the sensor",
+          "nl": "Wanneer sabotage niet meer wordt gedetecteerd door de sensor",
+          "da": "Når sabotage ikke længere registreres af sensoren",
+          "de": "Wenn keine Manipulation mehr vom Sensor erkannt wird",
+          "es": "Cuando el sensor ya no detecta manipulación",
+          "fr": "Lorsque le sabotage n'est plus détecté par le capteur",
+          "it": "Quando la manomissione non viene più rilevata dal sensore",
+          "no": "Når tukling ikke lenger oppdages av sensoren",
+          "sv": "När manipulering inte längre upptäcks av sensorn",
+          "pl": "Gdy czujnik przestaje wykrywać sabotaż",
+          "ru": "Когда датчик больше не обнаруживает вмешательство",
+          "ko": "센서가 더 이상 변조를 감지하지 않을 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "tamper",
+            "title": {
+              "en": "Tamper",
+              "nl": "Sabotage",
+              "da": "Sabotage",
+              "de": "Manipulation",
+              "es": "Manipulación",
+              "fr": "Sabotage",
+              "it": "Manomissione",
+              "no": "Tukling",
+              "sv": "Manipulering",
+              "pl": "Sabotaż",
+              "ru": "Вмешательство",
+              "ko": "변조"
+            },
+            "example": {
+              "en": "Tamper detected state",
+              "nl": "Sabotage gedetecteerd status",
+              "da": "Status for registreret sabotage",
+              "de": "Status der Manipulationserkennung",
+              "es": "Estado de detección de manipulación",
+              "fr": "État de détection de sabotage",
+              "it": "Stato di rilevamento manomissione",
+              "no": "Status for oppdaget tukling",
+              "sv": "Status för upptäckt manipulering",
+              "pl": "Stan wykrycia sabotażu",
+              "ru": "Состояние обнаружения вмешательства",
+              "ko": "변조 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_tamper_sensor"
+          }
+        ]
+      },
+      {
+        "id": "tamper_changed",
+        "title": {
+          "en": "Tamper changed",
+          "nl": "Sabotage veranderd",
+          "da": "Sabotage ændret",
+          "de": "Manipulation geändert",
+          "es": "Manipulación cambiada",
+          "fr": "Sabotage changé",
+          "it": "Manomissione cambiata",
+          "no": "Tukling endret",
+          "sv": "Manipulering ändrad",
+          "pl": "Sabotaż zmieniony",
+          "ru": "Вмешательство изменилось",
+          "ko": "변조 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Tamper changed",
+          "nl": "Sabotage veranderd",
+          "da": "Sabotage ændret",
+          "de": "Manipulation geändert",
+          "es": "Manipulación cambiada",
+          "fr": "Sabotage changé",
+          "it": "Manomissione cambiata",
+          "no": "Tukling endret",
+          "sv": "Manipulering ändrad",
+          "pl": "Sabotaż zmieniony",
+          "ru": "Вмешательство изменилось",
+          "ko": "변조 변경됨"
+        },
+        "hint": {
+          "en": "When tamper detection state changes",
+          "nl": "Wanneer de sabotage detectie status verandert",
+          "da": "Når sabotagedetektionsstatus ændres",
+          "de": "Wenn sich der Manipulationserkennungsstatus ändert",
+          "es": "Cuando cambia el estado de detección de manipulación",
+          "fr": "Lorsque l'état de détection de sabotage change",
+          "it": "Quando cambia lo stato di rilevamento della manomissione",
+          "no": "Når tuklingdeteksjonsstatusen endres",
+          "sv": "När manipuleringsdetekteringsstatusen ändras",
+          "pl": "Gdy zmienia się stan wykrywania sabotażu",
+          "ru": "Когда изменяется состояние обнаружения вмешательства",
+          "ko": "변조 감지 상태가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "tamper",
+            "title": {
+              "en": "Tamper",
+              "nl": "Sabotage",
+              "da": "Sabotage",
+              "de": "Manipulation",
+              "es": "Manipulación",
+              "fr": "Sabotage",
+              "it": "Manomissione",
+              "no": "Tukling",
+              "sv": "Manipulering",
+              "pl": "Sabotaż",
+              "ru": "Вмешательство",
+              "ko": "변조"
+            },
+            "example": {
+              "en": "Tamper detected state",
+              "nl": "Sabotage gedetecteerd status",
+              "da": "Status for registreret sabotage",
+              "de": "Status der Manipulationserkennung",
+              "es": "Estado de detección de manipulación",
+              "fr": "État de détection de sabotage",
+              "it": "Stato di rilevamento manomissione",
+              "no": "Status for oppdaget tukling",
+              "sv": "Status för upptäckt manipulering",
+              "pl": "Stan wykrycia sabotażu",
+              "ru": "Состояние обнаружения вмешательства",
+              "ko": "변조 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_tamper_sensor"
+          }
+        ]
+      },
+      {
+        "id": "temperature_changed",
+        "title": {
+          "en": "Temperature changed",
+          "nl": "Temperatuur veranderd",
+          "da": "Temperatur ændret",
+          "de": "Temperatur geändert",
+          "es": "Temperatura cambiada",
+          "fr": "Température changée",
+          "it": "Temperatura cambiata",
+          "no": "Temperatur endret",
+          "sv": "Temperatur ändrad",
+          "pl": "Temperatura zmieniona",
+          "ru": "Температура изменилась",
+          "ko": "온도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Temperature changed to [[temperature]]°C",
+          "nl": "Temperatuur veranderd naar [[temperature]]°C",
+          "da": "Temperatur ændret til [[temperature]]°C",
+          "de": "Temperatur geändert auf [[temperature]]°C",
+          "es": "Temperatura cambiada a [[temperature]]°C",
+          "fr": "Température changée à [[temperature]]°C",
+          "it": "Temperatura cambiata a [[temperature]]°C",
+          "no": "Temperatur endret til [[temperature]]°C",
+          "sv": "Temperatur ändrad till [[temperature]]°C",
+          "pl": "Temperatura zmieniona na [[temperature]]°C",
+          "ru": "Температура изменилась на [[temperature]]°C",
+          "ko": "온도가 [[temperature]]°C로 변경됨"
+        },
+        "hint": {
+          "en": "When the temperature measurement changes",
+          "nl": "Wanneer de temperatuurmeting verandert",
+          "da": "Når temperaturmålingen ændres",
+          "de": "Wenn sich die Temperaturmessung ändert",
+          "es": "Cuando cambia la medición de temperatura",
+          "fr": "Lorsque la mesure de température change",
+          "it": "Quando cambia la misurazione della temperatura",
+          "no": "Når temperaturmålingen endres",
+          "sv": "När temperaturmätningen ändras",
+          "pl": "Gdy zmienia się pomiar temperatury",
+          "ru": "Когда изменяется измерение температуры",
+          "ko": "온도 측정값이 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "da": "Temperatur",
+              "de": "Temperatur",
+              "es": "Temperatura",
+              "fr": "Température",
+              "it": "Temperatura",
+              "no": "Temperatur",
+              "sv": "Temperatur",
+              "pl": "Temperatura",
+              "ru": "Температура",
+              "ko": "온도"
+            },
+            "example": {
+              "en": "The current temperature in degrees Celsius",
+              "nl": "De huidige temperatuur in graden Celsius",
+              "da": "Den aktuelle temperatur i grader Celsius",
+              "de": "Die aktuelle Temperatur in Grad Celsius",
+              "es": "La temperatura actual en grados Celsius",
+              "fr": "La température actuelle en degrés Celsius",
+              "it": "La temperatura attuale in gradi Celsius",
+              "no": "Den gjeldende temperaturen i grader Celsius",
+              "sv": "Den aktuella temperaturen i grader Celsius",
+              "pl": "Aktualna temperatura w stopniach Celsjusza",
+              "ru": "Текущая температура в градусах Цельсия",
+              "ko": "현재 온도(섭씨)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_temperature_sensor"
           }
         ]
       }
@@ -1357,6 +2647,39 @@
                 "fr": "Entrez l'adresse de groupe",
                 "it": "Inserisci l'indirizzo di gruppo",
                 "no": "Angi gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소 입력"
+              }
+            },
+            {
+              "id": "ga_dim_status",
+              "type": "text",
+              "label": {
+                "en": "Dim status address",
+                "nl": "Dim status adres",
+                "da": "Dæmpningsstatusadresse",
+                "de": "Dimmen-Statusadresse",
+                "es": "Dirección de estado del regulador",
+                "fr": "Adresse de statut de variation",
+                "it": "Indirizzo di stato della regolazione",
+                "no": "Adresse for dimmingsstatus",
+                "sv": "Dimmningsstatusadress",
+                "pl": "Adres statusu ściemniacza",
+                "ru": "Адрес состояния регулятора света",
+                "ko": "디밍 상태 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduzca la dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
@@ -3358,6 +4681,444 @@
               "hint": {
                 "en": "IP address of the required KNX IP interface",
                 "nl": "IP adres van de KNX IP interface"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/knx_room_controller/assets/images/large.png",
+        "small": "/drivers/knx_room_controller/assets/images/small.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "select_groupaddresses",
+            "prev": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "select_groupaddresses",
+          "options": {
+            "devicetype": "room_controller"
+          },
+          "navigation": {
+            "prev": "select_interface"
+          }
+        }
+      ],
+      "id": "knx_room_controller",
+      "name": {
+        "en": "Room Controller (Multi-Function Panel)",
+        "nl": "Kamer Controller (Multi-Functie Paneel)",
+        "da": "Rum Controller (Multi-Funktions Panel)",
+        "de": "Raum Controller (Multi-Funktions Panel)",
+        "es": "Controlador de Habitación (Panel Multi-Función)",
+        "fr": "Contrôleur de Pièce (Panneau Multi-Fonction)",
+        "it": "Controller Stanza (Pannello Multi-Funzione)",
+        "no": "Rom Controller (Multi-Funksjons Panel)",
+        "sv": "Rums Controller (Multi-Funktions Panel)",
+        "pl": "Kontroler Pokoju (Panel Multi-Funkcyjny)",
+        "ru": "Контроллер Комнаты (Мульти-Функциональная Панель)",
+        "ko": "룸 컨트롤러 (다기능 패널)"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff.button1",
+        "onoff.button2",
+        "measure_temperature",
+        "measure_humidity"
+      ],
+      "capabilitiesOptions": {
+        "onoff.button1": {
+          "title": {
+            "en": "Button 1",
+            "nl": "Knop 1",
+            "da": "Knap 1",
+            "de": "Taste 1",
+            "es": "Botón 1",
+            "fr": "Bouton 1",
+            "it": "Pulsante 1",
+            "no": "Knapp 1",
+            "sv": "Knapp 1",
+            "pl": "Przycisk 1",
+            "ru": "Кнопка 1",
+            "ko": "버튼 1"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        },
+        "onoff.button2": {
+          "title": {
+            "en": "Button 2",
+            "nl": "Knop 2",
+            "da": "Knap 2",
+            "de": "Taste 2",
+            "es": "Botón 2",
+            "fr": "Bouton 2",
+            "it": "Pulsante 2",
+            "no": "Knapp 2",
+            "sv": "Knapp 2",
+            "pl": "Przycisk 2",
+            "ru": "Кнопка 2",
+            "ko": "버튼 2"
+          },
+          "uiComponent": "button",
+          "uiQuickAction": true
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 1 KNX addresses",
+            "nl": "Knop 1 KNX adressen",
+            "da": "Knap 1 KNX adresser",
+            "de": "Taste 1 KNX Adressen",
+            "es": "Direcciones KNX Botón 1",
+            "fr": "Adresses KNX Bouton 1",
+            "it": "Indirizzi KNX Pulsante 1",
+            "no": "Knapp 1 KNX adresser",
+            "sv": "Knapp 1 KNX adresser",
+            "pl": "Adresy KNX Przycisk 1",
+            "ru": "Адреса KNX Кнопка 1",
+            "ko": "버튼 1 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button1_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 1 switching address",
+                "nl": "Knop 1 schakel adres",
+                "da": "Knap 1 skift adresse",
+                "de": "Taste 1 Schaltadresse",
+                "es": "Dirección de conmutación Botón 1",
+                "fr": "Adresse de commutation Bouton 1",
+                "it": "Indirizzo di commutazione Pulsante 1",
+                "no": "Knapp 1 bryteradresse",
+                "sv": "Knapp 1 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 1",
+                "ru": "Адрес переключения Кнопка 1",
+                "ko": "버튼 1 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 1 switching (e.g., 3/0/1)",
+                "nl": "Vul groepadres voor knop 1 schakelen in (bijv. 3/0/1)",
+                "da": "Indtast gruppeadresse for knap 1 skift (f.eks. 3/0/1)",
+                "de": "Gruppenadresse für Taste 1 Schalten eingeben (z.B. 3/0/1)",
+                "es": "Ingrese dirección de grupo para conmutación botón 1 (ej. 3/0/1)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 1 (ex. 3/0/1)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 1 (es. 3/0/1)",
+                "no": "Skriv inn gruppeadresse for knapp 1 bryter (f.eks. 3/0/1)",
+                "sv": "Ange gruppadress för knapp 1 koppling (t.ex. 3/0/1)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 1 (np. 3/0/1)",
+                "ru": "Введите групповой адрес для переключения кнопка 1 (напр. 3/0/1)",
+                "ko": "버튼 1 스위칭용 그룹 주소를 입력하세요 (예: 3/0/1)"
+              }
+            },
+            {
+              "id": "ga_button1_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 1 feedback address",
+                "nl": "Knop 1 terugkoppeling adres",
+                "da": "Knap 1 feedback adresse",
+                "de": "Taste 1 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 1",
+                "fr": "Adresse de retour Bouton 1",
+                "it": "Indirizzo di feedback Pulsante 1",
+                "no": "Knapp 1 tilbakemeldingsadresse",
+                "sv": "Knapp 1 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 1",
+                "ru": "Адрес обратной связи Кнопка 1",
+                "ko": "버튼 1 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 1 feedback (e.g., 3/0/2)",
+                "nl": "Vul groepadres voor knop 1 terugkoppeling in (bijv. 3/0/2)",
+                "da": "Indtast gruppeadresse for knap 1 feedback (f.eks. 3/0/2)",
+                "de": "Gruppenadresse für Taste 1 Rückmeldung eingeben (z.B. 3/0/2)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 1 (ej. 3/0/2)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 1 (ex. 3/0/2)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 1 (es. 3/0/2)",
+                "no": "Skriv inn gruppeadresse for knapp 1 tilbakemelding (f.eks. 3/0/2)",
+                "sv": "Ange gruppadress för knapp 1 återkoppling (t.ex. 3/0/2)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 1 (np. 3/0/2)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 1 (напр. 3/0/2)",
+                "ko": "버튼 1 피드백용 그룹 주소를 입력하세요 (예: 3/0/2)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Button 2 KNX addresses",
+            "nl": "Knop 2 KNX adressen",
+            "da": "Knap 2 KNX adresser",
+            "de": "Taste 2 KNX Adressen",
+            "es": "Direcciones KNX Botón 2",
+            "fr": "Adresses KNX Bouton 2",
+            "it": "Indirizzi KNX Pulsante 2",
+            "no": "Knapp 2 KNX adresser",
+            "sv": "Knapp 2 KNX adresser",
+            "pl": "Adresy KNX Przycisk 2",
+            "ru": "Адреса KNX Кнопка 2",
+            "ko": "버튼 2 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_button2_switch",
+              "type": "text",
+              "label": {
+                "en": "Button 2 switching address",
+                "nl": "Knop 2 schakel adres",
+                "da": "Knap 2 skift adresse",
+                "de": "Taste 2 Schaltadresse",
+                "es": "Dirección de conmutación Botón 2",
+                "fr": "Adresse de commutation Bouton 2",
+                "it": "Indirizzo di commutazione Pulsante 2",
+                "no": "Knapp 2 bryteradresse",
+                "sv": "Knapp 2 kopplingsadress",
+                "pl": "Adres przełączania Przycisk 2",
+                "ru": "Адрес переключения Кнопка 2",
+                "ko": "버튼 2 스위칭 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 2 switching (e.g., 3/0/3)",
+                "nl": "Vul groepadres voor knop 2 schakelen in (bijv. 3/0/3)",
+                "da": "Indtast gruppeadresse for knap 2 skift (f.eks. 3/0/3)",
+                "de": "Gruppenadresse für Taste 2 Schalten eingeben (z.B. 3/0/3)",
+                "es": "Ingrese dirección de grupo para conmutación botón 2 (ej. 3/0/3)",
+                "fr": "Entrez l'adresse de groupe pour commutation bouton 2 (ex. 3/0/3)",
+                "it": "Inserisci indirizzo di gruppo per commutazione pulsante 2 (es. 3/0/3)",
+                "no": "Skriv inn gruppeadresse for knapp 2 bryter (f.eks. 3/0/3)",
+                "sv": "Ange gruppadress för knapp 2 koppling (t.ex. 3/0/3)",
+                "pl": "Wprowadź adres grupowy dla przełączania przycisk 2 (np. 3/0/3)",
+                "ru": "Введите групповой адрес для переключения кнопка 2 (напр. 3/0/3)",
+                "ko": "버튼 2 스위칭용 그룹 주소를 입력하세요 (예: 3/0/3)"
+              }
+            },
+            {
+              "id": "ga_button2_feedback",
+              "type": "text",
+              "label": {
+                "en": "Button 2 feedback address",
+                "nl": "Knop 2 terugkoppeling adres",
+                "da": "Knap 2 feedback adresse",
+                "de": "Taste 2 Rückmeldungsadresse",
+                "es": "Dirección de retroalimentación Botón 2",
+                "fr": "Adresse de retour Bouton 2",
+                "it": "Indirizzo di feedback Pulsante 2",
+                "no": "Knapp 2 tilbakemeldingsadresse",
+                "sv": "Knapp 2 återkopplingsadress",
+                "pl": "Adres informacji zwrotnej Przycisk 2",
+                "ru": "Адрес обратной связи Кнопка 2",
+                "ko": "버튼 2 피드백 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for button 2 feedback (e.g., 3/0/4)",
+                "nl": "Vul groepadres voor knop 2 terugkoppeling in (bijv. 3/0/4)",
+                "da": "Indtast gruppeadresse for knap 2 feedback (f.eks. 3/0/4)",
+                "de": "Gruppenadresse für Taste 2 Rückmeldung eingeben (z.B. 3/0/4)",
+                "es": "Ingrese dirección de grupo para retroalimentación botón 2 (ej. 3/0/4)",
+                "fr": "Entrez l'adresse de groupe pour retour bouton 2 (ex. 3/0/4)",
+                "it": "Inserisci indirizzo di gruppo per feedback pulsante 2 (es. 3/0/4)",
+                "no": "Skriv inn gruppeadresse for knapp 2 tilbakemelding (f.eks. 3/0/4)",
+                "sv": "Ange gruppadress för knapp 2 återkoppling (t.ex. 3/0/4)",
+                "pl": "Wprowadź adres grupowy dla informacji zwrotnej przycisk 2 (np. 3/0/4)",
+                "ru": "Введите групповой адрес для обратной связи кнопка 2 (напр. 3/0/4)",
+                "ko": "버튼 2 피드백용 그룹 주소를 입력하세요 (예: 3/0/4)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Sensor KNX addresses",
+            "nl": "Sensor KNX adressen",
+            "da": "Sensor KNX adresser",
+            "de": "Sensor KNX Adressen",
+            "es": "Direcciones KNX Sensor",
+            "fr": "Adresses KNX Capteur",
+            "it": "Indirizzi KNX Sensore",
+            "no": "Sensor KNX adresser",
+            "sv": "Sensor KNX adresser",
+            "pl": "Adresy KNX Czujnik",
+            "ru": "Адреса KNX Датчик",
+            "ko": "센서 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_temperature",
+              "type": "text",
+              "label": {
+                "en": "Temperature measurement address",
+                "nl": "Temperatuur meting adres",
+                "da": "Temperaturmåling adresse",
+                "de": "Adresse der Temperaturmessung",
+                "es": "Dirección de medición de temperatura",
+                "fr": "Adresse de mesure de la température",
+                "it": "Indirizzo di misurazione della temperatura",
+                "no": "Temperaturmålingsadresse",
+                "sv": "Temperaturmätningsadress",
+                "pl": "Adres pomiaru temperatury",
+                "ru": "Адрес измерения температуры",
+                "ko": "온도 측정 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for temperature (e.g., 3/0/5)",
+                "nl": "Vul groepadres voor temperatuur in (bijv. 3/0/5)",
+                "da": "Indtast gruppeadresse for temperatur (f.eks. 3/0/5)",
+                "de": "Gruppenadresse für Temperatur eingeben (z.B. 3/0/5)",
+                "es": "Ingrese la dirección de grupo para temperatura (ej. 3/0/5)",
+                "fr": "Entrez l'adresse de groupe pour la température (ex. 3/0/5)",
+                "it": "Inserisci l'indirizzo di gruppo per la temperatura (es. 3/0/5)",
+                "no": "Skriv inn gruppeadresse for temperatur (f.eks. 3/0/5)",
+                "sv": "Ange gruppadress för temperatur (t.ex. 3/0/5)",
+                "pl": "Wprowadź adres grupowy dla temperatury (np. 3/0/5)",
+                "ru": "Введите групповой адрес для температуры (напр. 3/0/5)",
+                "ko": "온도용 그룹 주소를 입력하세요 (예: 3/0/5)"
+              }
+            },
+            {
+              "id": "ga_humidity",
+              "type": "text",
+              "label": {
+                "en": "Humidity measurement address",
+                "nl": "Vochtigheids meting adres",
+                "da": "Fugtmålingsadresse",
+                "de": "Adresse der Feuchtemessung",
+                "es": "Dirección de medición de humedad",
+                "fr": "Adresse de mesure d'humidité",
+                "it": "Indirizzo di misurazione dell'umidità",
+                "no": "Fuktighetsmålingsadresse",
+                "sv": "Luftfuktighetsmätningsadress",
+                "pl": "Adres pomiaru wilgotności",
+                "ru": "Адрес измерения влажности",
+                "ko": "습도 측정 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for humidity (e.g., 3/0/6)",
+                "nl": "Vul groepadres voor vochtigheid in (bijv. 3/0/6)",
+                "da": "Indtast gruppeadresse for fugtighed (f.eks. 3/0/6)",
+                "de": "Gruppenadresse für Feuchtigkeit eingeben (z.B. 3/0/6)",
+                "es": "Ingrese la dirección de grupo para humedad (ej. 3/0/6)",
+                "fr": "Entrez l'adresse de groupe pour l'humidité (ex. 3/0/6)",
+                "it": "Inserisci l'indirizzo di gruppo per l'umidità (es. 3/0/6)",
+                "no": "Skriv inn gruppeadresse for fuktighet (f.eks. 3/0/6)",
+                "sv": "Ange gruppadress för luftfuktighet (t.ex. 3/0/6)",
+                "pl": "Wprowadź adres grupowy dla wilgotności (np. 3/0/6)",
+                "ru": "Введите групповой адрес для влажности (напр. 3/0/6)",
+                "ko": "습도용 그룹 주소를 입력하세요 (예: 3/0/6)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network settings",
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på den krævede KNX IP interface",
+                "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP necesaria para KNX",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnitt IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på den krævede KNX IP interface",
+                "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP necesaria para KNX",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]

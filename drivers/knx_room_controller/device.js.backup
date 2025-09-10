@@ -1,0 +1,140 @@
+'use strict';
+
+const KNXGenericDevice = require('../../lib/GenericKNXDevice');
+const DatapointTypeParser = require('../../lib/DatapointTypeParser');
+
+class KNXRoomControllerDevice extends KNXGenericDevice {
+
+  async onInit() {
+    await super.onInit();
+    
+    // Register listeners for all capabilities
+    this.registerCapabilityListener('onoff.button1', this.onCapabilityButton1.bind(this));
+    this.registerCapabilityListener('onoff.button2', this.onCapabilityButton2.bind(this));
+    
+    this.log('KNX Room Controller device has been initialized');
+  }
+
+  // Override to add our custom button subscriptions
+  addKNXEventListeners(settings) {
+    // Call parent to handle standard capabilities (measure_temperature, measure_humidity)  
+    super.addKNXEventListeners(settings);
+    
+    // Add our custom button subscriptions
+    if (settings.ga_button1_switch) {
+      this.knxInterface.addKNXEventListener(settings.ga_button1_switch, this.KNXEventHandler);
+      this.log('🔗 Subscribed to Button 1 switch:', settings.ga_button1_switch);
+    }
+    if (settings.ga_button1_feedback) {
+      this.knxInterface.addKNXEventListener(settings.ga_button1_feedback, this.KNXEventHandler);
+      this.log('🔗 Subscribed to Button 1 feedback:', settings.ga_button1_feedback);
+    }
+    if (settings.ga_button2_switch) {
+      this.knxInterface.addKNXEventListener(settings.ga_button2_switch, this.KNXEventHandler);
+      this.log('🔗 Subscribed to Button 2 switch:', settings.ga_button2_switch);
+    }
+    if (settings.ga_button2_feedback) {
+      this.knxInterface.addKNXEventListener(settings.ga_button2_feedback, this.KNXEventHandler);
+      this.log('🔗 Subscribed to Button 2 feedback:', settings.ga_button2_feedback);
+    }
+  }
+
+  onKNXEvent(groupaddress, data) {
+    super.onKNXEvent(groupaddress, data);
+
+    this.log('🔥 KNX Event received:', { groupaddress, data });
+    const settings = this.getSettings();
+
+    // Handle Button 1 events
+    if (groupaddress === settings.ga_button1_feedback || 
+        (groupaddress === settings.ga_button1_switch && !settings.ga_button1_feedback)) {
+      this.log('🔘 Processing Button 1 event');
+      const value = DatapointTypeParser.bitFormat(data);
+      this.setCapabilityValue('onoff.button1', value).catch(this.error);
+      this.log(`✅ Button 1 updated from ${groupaddress}: ${value}`);
+    }
+
+    // Handle Button 2 events  
+    if (groupaddress === settings.ga_button2_feedback || 
+        (groupaddress === settings.ga_button2_switch && !settings.ga_button2_feedback)) {
+      this.log('🔘 Processing Button 2 event');
+      const value = DatapointTypeParser.bitFormat(data);
+      this.setCapabilityValue('onoff.button2', value).catch(this.error);
+      this.log(`✅ Button 2 updated from ${groupaddress}: ${value}`);
+    }
+
+    // Temperature and Humidity are handled by parent GenericKNXDevice automatically
+    // but let's add some debug logging
+    if (groupaddress === settings.ga_temperature_measure) {
+      this.log('🌡️ Temperature event detected, parent should handle this');
+    }
+    if (groupaddress === settings.ga_sensor) {
+      this.log('💧 Humidity event detected, parent should handle this');
+    }
+  }
+
+  onKNXConnection(connectionStatus) {
+    super.onKNXConnection(connectionStatus);
+
+    if (connectionStatus === 'connected') {
+      const settings = this.getSettings();
+      this.log('🔗 KNX connected, current settings:', settings);
+
+      // Read initial values for our custom button capabilities
+      if (settings.ga_button1_feedback) {
+        this.knxInterface.readKNXGroupAddress(settings.ga_button1_feedback).catch(this.error);
+      } else if (settings.ga_button1_switch) {
+        this.knxInterface.readKNXGroupAddress(settings.ga_button1_switch).catch(this.error);
+      }
+
+      if (settings.ga_button2_feedback) {
+        this.knxInterface.readKNXGroupAddress(settings.ga_button2_feedback).catch(this.error);
+      } else if (settings.ga_button2_switch) {
+        this.knxInterface.readKNXGroupAddress(settings.ga_button2_switch).catch(this.error);
+      }
+      
+      // Parent class handles reading ga_temperature_measure and ga_sensor
+    }
+  }
+
+  async onCapabilityButton1(value, opts) {
+    try {
+      const settings = this.getSettings();
+      if (settings.ga_button1_switch) {
+        await this.knxInterface.writeKNXGroupAddress(settings.ga_button1_switch, value ? 1 : 0);
+        this.log(`Button 1 switched to: ${value}`);
+      }
+      return value;
+    } catch (error) {
+      this.error('Error switching button 1:', error);
+      throw error;
+    }
+  }
+
+  async onCapabilityButton2(value, opts) {
+    try {
+      const settings = this.getSettings();
+      if (settings.ga_button2_switch) {
+        await this.knxInterface.writeKNXGroupAddress(settings.ga_button2_switch, value ? 1 : 0);
+        this.log(`Button 2 switched to: ${value}`);
+      }
+      return value;
+    } catch (error) {
+      this.error('Error switching button 2:', error);
+      throw error;
+    }
+  }
+
+  async onSettings({ oldSettings, newSettings, changedKeys }) {
+    this.log('Settings changed:', changedKeys);
+    await super.onSettings({ oldSettings, newSettings, changedKeys });
+  }
+
+  async onDeleted() {
+    this.log('KNX Room Controller device deleted');
+    await super.onDeleted();
+  }
+
+}
+
+module.exports = KNXRoomControllerDevice;

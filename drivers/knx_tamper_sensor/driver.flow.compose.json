@@ -1,0 +1,241 @@
+{
+  "triggers": [
+    {
+      "id": "tamper_detected",
+      "title": {
+        "en": "Tamper detected",
+        "nl": "Sabotage gedetecteerd",
+        "da": "Sabotage registreret",
+        "de": "Manipulation erkannt",
+        "es": "Manipulación detectada",
+        "fr": "Sabotage détecté",
+        "it": "Manomissione rilevata",
+        "no": "Tukling oppdaget",
+        "sv": "Manipulering upptäckt",
+        "pl": "Wykryto sabotaż",
+        "ru": "Обнаружено вмешательство",
+        "ko": "변조 감지됨"
+      },
+      "titleFormatted": {
+        "en": "Tamper detected",
+        "nl": "Sabotage gedetecteerd",
+        "da": "Sabotage registreret",
+        "de": "Manipulation erkannt",
+        "es": "Manipulación detectada",
+        "fr": "Sabotage détecté",
+        "it": "Manomissione rilevata",
+        "no": "Tukling oppdaget",
+        "sv": "Manipulering upptäckt",
+        "pl": "Wykryto sabotaż",
+        "ru": "Обнаружено вмешательство",
+        "ko": "변조 감지됨"
+      },
+      "hint": {
+        "en": "When tampering is detected by the sensor",
+        "nl": "Wanneer sabotage wordt gedetecteerd door de sensor",
+        "da": "Når sabotage registreres af sensoren",
+        "de": "Wenn Manipulation vom Sensor erkannt wird",
+        "es": "Cuando el sensor detecta manipulación",
+        "fr": "Lorsque le sabotage est détecté par le capteur",
+        "it": "Quando la manomissione viene rilevata dal sensore",
+        "no": "Når tukling oppdages av sensoren",
+        "sv": "När manipulering upptäcks av sensorn",
+        "pl": "Gdy czujnik wykryje sabotaż",
+        "ru": "Когда датчик обнаруживает вмешательство",
+        "ko": "센서가 변조를 감지할 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "tamper",
+          "title": {
+            "en": "Tamper",
+            "nl": "Sabotage",
+            "da": "Sabotage",
+            "de": "Manipulation",
+            "es": "Manipulación",
+            "fr": "Sabotage",
+            "it": "Manomissione",
+            "no": "Tukling",
+            "sv": "Manipulering",
+            "pl": "Sabotaż",
+            "ru": "Вмешательство",
+            "ko": "변조"
+          },
+          "example": {
+            "en": "Tamper detected state",
+            "nl": "Sabotage gedetecteerd status",
+            "da": "Status for registreret sabotage",
+            "de": "Status der Manipulationserkennung",
+            "es": "Estado de detección de manipulación",
+            "fr": "État de détection de sabotage",
+            "it": "Stato di rilevamento manomissione",
+            "no": "Status for oppdaget tukling",
+            "sv": "Status för upptäckt manipulering",
+            "pl": "Stan wykrycia sabotażu",
+            "ru": "Состояние обнаружения вмешательства",
+            "ko": "변조 감지 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tamper_cleared",
+      "title": {
+        "en": "Tamper cleared",
+        "nl": "Sabotage opgeheven",
+        "da": "Sabotage fjernet",
+        "de": "Manipulation aufgehoben",
+        "es": "Manipulación eliminada",
+        "fr": "Sabotage éliminé",
+        "it": "Manomissione rimossa",
+        "no": "Tukling fjernet",
+        "sv": "Manipulering borttagen",
+        "pl": "Sabotaż usunięty",
+        "ru": "Вмешательство устранено",
+        "ko": "변조 해제됨"
+      },
+      "titleFormatted": {
+        "en": "Tamper cleared",
+        "nl": "Sabotage opgeheven",
+        "da": "Sabotage fjernet",
+        "de": "Manipulation aufgehoben",
+        "es": "Manipulación eliminada",
+        "fr": "Sabotage éliminé",
+        "it": "Manomissione rimossa",
+        "no": "Tukling fjernet",
+        "sv": "Manipulering borttagen",
+        "pl": "Sabotaż usunięty",
+        "ru": "Вмешательство устранено",
+        "ko": "변조 해제됨"
+      },
+      "hint": {
+        "en": "When tampering is no longer detected by the sensor",
+        "nl": "Wanneer sabotage niet meer wordt gedetecteerd door de sensor",
+        "da": "Når sabotage ikke længere registreres af sensoren",
+        "de": "Wenn keine Manipulation mehr vom Sensor erkannt wird",
+        "es": "Cuando el sensor ya no detecta manipulación",
+        "fr": "Lorsque le sabotage n'est plus détecté par le capteur",
+        "it": "Quando la manomissione non viene più rilevata dal sensore",
+        "no": "Når tukling ikke lenger oppdages av sensoren",
+        "sv": "När manipulering inte längre upptäcks av sensorn",
+        "pl": "Gdy czujnik przestaje wykrywać sabotaż",
+        "ru": "Когда датчик больше не обнаруживает вмешательство",
+        "ko": "센서가 더 이상 변조를 감지하지 않을 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "tamper",
+          "title": {
+            "en": "Tamper",
+            "nl": "Sabotage",
+            "da": "Sabotage",
+            "de": "Manipulation",
+            "es": "Manipulación",
+            "fr": "Sabotage",
+            "it": "Manomissione",
+            "no": "Tukling",
+            "sv": "Manipulering",
+            "pl": "Sabotaż",
+            "ru": "Вмешательство",
+            "ko": "변조"
+          },
+          "example": {
+            "en": "Tamper detected state",
+            "nl": "Sabotage gedetecteerd status",
+            "da": "Status for registreret sabotage",
+            "de": "Status der Manipulationserkennung",
+            "es": "Estado de detección de manipulación",
+            "fr": "État de détection de sabotage",
+            "it": "Stato di rilevamento manomissione",
+            "no": "Status for oppdaget tukling",
+            "sv": "Status för upptäckt manipulering",
+            "pl": "Stan wykrycia sabotażu",
+            "ru": "Состояние обнаружения вмешательства",
+            "ko": "변조 감지 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tamper_changed",
+      "title": {
+        "en": "Tamper changed",
+        "nl": "Sabotage veranderd",
+        "da": "Sabotage ændret",
+        "de": "Manipulation geändert",
+        "es": "Manipulación cambiada",
+        "fr": "Sabotage changé",
+        "it": "Manomissione cambiata",
+        "no": "Tukling endret",
+        "sv": "Manipulering ändrad",
+        "pl": "Sabotaż zmieniony",
+        "ru": "Вмешательство изменилось",
+        "ko": "변조 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Tamper changed",
+        "nl": "Sabotage veranderd",
+        "da": "Sabotage ændret",
+        "de": "Manipulation geändert",
+        "es": "Manipulación cambiada",
+        "fr": "Sabotage changé",
+        "it": "Manomissione cambiata",
+        "no": "Tukling endret",
+        "sv": "Manipulering ändrad",
+        "pl": "Sabotaż zmieniony",
+        "ru": "Вмешательство изменилось",
+        "ko": "변조 변경됨"
+      },
+      "hint": {
+        "en": "When tamper detection state changes",
+        "nl": "Wanneer de sabotage detectie status verandert",
+        "da": "Når sabotagedetektionsstatus ændres",
+        "de": "Wenn sich der Manipulationserkennungsstatus ändert",
+        "es": "Cuando cambia el estado de detección de manipulación",
+        "fr": "Lorsque l'état de détection de sabotage change",
+        "it": "Quando cambia lo stato di rilevamento della manomissione",
+        "no": "Når tuklingdeteksjonsstatusen endres",
+        "sv": "När manipuleringsdetekteringsstatusen ändras",
+        "pl": "Gdy zmienia się stan wykrywania sabotażu",
+        "ru": "Когда изменяется состояние обнаружения вмешательства",
+        "ko": "변조 감지 상태가 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "tamper",
+          "title": {
+            "en": "Tamper",
+            "nl": "Sabotage",
+            "da": "Sabotage",
+            "de": "Manipulation",
+            "es": "Manipulación",
+            "fr": "Sabotage",
+            "it": "Manomissione",
+            "no": "Tukling",
+            "sv": "Manipulering",
+            "pl": "Sabotaż",
+            "ru": "Вмешательство",
+            "ko": "변조"
+          },
+          "example": {
+            "en": "Tamper detected state",
+            "nl": "Sabotage gedetecteerd status",
+            "da": "Status for registreret sabotage",
+            "de": "Status der Manipulationserkennung",
+            "es": "Estado de detección de manipulación",
+            "fr": "État de détection de sabotage",
+            "it": "Stato di rilevamento manomissione",
+            "no": "Status for oppdaget tukling",
+            "sv": "Status för upptäckt manipulering",
+            "pl": "Stan wykrycia sabotażu",
+            "ru": "Состояние обнаружения вмешательства",
+            "ko": "변조 감지 상태"
+          }
+        }
+      ]
+    }
+  ]
+}

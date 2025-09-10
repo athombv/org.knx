@@ -1,0 +1,83 @@
+{
+  "triggers": [
+    {
+      "id": "temperature_changed",
+      "title": {
+        "en": "Temperature changed",
+        "nl": "Temperatuur veranderd",
+        "da": "Temperatur ændret",
+        "de": "Temperatur geändert",
+        "es": "Temperatura cambiada",
+        "fr": "Température changée",
+        "it": "Temperatura cambiata",
+        "no": "Temperatur endret",
+        "sv": "Temperatur ändrad",
+        "pl": "Temperatura zmieniona",
+        "ru": "Температура изменилась",
+        "ko": "온도 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Temperature changed to [[temperature]]°C",
+        "nl": "Temperatuur veranderd naar [[temperature]]°C",
+        "da": "Temperatur ændret til [[temperature]]°C",
+        "de": "Temperatur geändert auf [[temperature]]°C",
+        "es": "Temperatura cambiada a [[temperature]]°C",
+        "fr": "Température changée à [[temperature]]°C",
+        "it": "Temperatura cambiata a [[temperature]]°C",
+        "no": "Temperatur endret til [[temperature]]°C",
+        "sv": "Temperatur ändrad till [[temperature]]°C",
+        "pl": "Temperatura zmieniona na [[temperature]]°C",
+        "ru": "Температура изменилась на [[temperature]]°C",
+        "ko": "온도가 [[temperature]]°C로 변경됨"
+      },
+      "hint": {
+        "en": "When the temperature measurement changes",
+        "nl": "Wanneer de temperatuurmeting verandert",
+        "da": "Når temperaturmålingen ændres",
+        "de": "Wenn sich die Temperaturmessung ändert",
+        "es": "Cuando cambia la medición de temperatura",
+        "fr": "Lorsque la mesure de température change",
+        "it": "Quando cambia la misurazione della temperatura",
+        "no": "Når temperaturmålingen endres",
+        "sv": "När temperaturmätningen ändras",
+        "pl": "Gdy zmienia się pomiar temperatury",
+        "ru": "Когда изменяется измерение температуры",
+        "ko": "온도 측정값이 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "da": "Temperatur",
+            "de": "Temperatur",
+            "es": "Temperatura",
+            "fr": "Température",
+            "it": "Temperatura",
+            "no": "Temperatur",
+            "sv": "Temperatur",
+            "pl": "Temperatura",
+            "ru": "Температура",
+            "ko": "온도"
+          },
+          "example": {
+            "en": "The current temperature in degrees Celsius",
+            "nl": "De huidige temperatuur in graden Celsius",
+            "da": "Den aktuelle temperatur i grader Celsius",
+            "de": "Die aktuelle Temperatur in Grad Celsius",
+            "es": "La temperatura actual en grados Celsius",
+            "fr": "La température actuelle en degrés Celsius",
+            "it": "La temperatura attuale in gradi Celsius",
+            "no": "Den gjeldende temperaturen i grader Celsius",
+            "sv": "Den aktuella temperaturen i grader Celsius",
+            "pl": "Aktualna temperatura w stopniach Celsjusza",
+            "ru": "Текущая температура в градусах Цельсия",
+            "ko": "현재 온도(섭씨)"
+          }
+        }
+      ]
+    }
+  ]
+}

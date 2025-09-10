@@ -1,0 +1,241 @@
+{
+  "triggers": [
+    {
+      "id": "smoke_detected",
+      "title": {
+        "en": "Smoke detected",
+        "nl": "Rook gedetecteerd",
+        "da": "Røg registreret",
+        "de": "Rauch erkannt",
+        "es": "Humo detectado",
+        "fr": "Fumée détectée",
+        "it": "Fumo rilevato",
+        "no": "Røyk oppdaget",
+        "sv": "Rök upptäckt",
+        "pl": "Wykryto dym",
+        "ru": "Обнаружен дым",
+        "ko": "연기 감지됨"
+      },
+      "titleFormatted": {
+        "en": "Smoke detected",
+        "nl": "Rook gedetecteerd",
+        "da": "Røg registreret",
+        "de": "Rauch erkannt",
+        "es": "Humo detectado",
+        "fr": "Fumée détectée",
+        "it": "Fumo rilevato",
+        "no": "Røyk oppdaget",
+        "sv": "Rök upptäckt",
+        "pl": "Wykryto dym",
+        "ru": "Обнаружен дым",
+        "ko": "연기 감지됨"
+      },
+      "hint": {
+        "en": "When smoke is detected by the sensor",
+        "nl": "Wanneer rook wordt gedetecteerd door de sensor",
+        "da": "Når røg registreres af sensoren",
+        "de": "Wenn Rauch vom Sensor erkannt wird",
+        "es": "Cuando el sensor detecta humo",
+        "fr": "Lorsque la fumée est détectée par le capteur",
+        "it": "Quando il fumo viene rilevato dal sensore",
+        "no": "Når røyk oppdages av sensoren",
+        "sv": "När rök upptäcks av sensorn",
+        "pl": "Gdy czujnik wykryje dym",
+        "ru": "Когда датчик обнаруживает дым",
+        "ko": "센서가 연기를 감지할 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "smoke",
+          "title": {
+            "en": "Smoke",
+            "nl": "Rook",
+            "da": "Røg",
+            "de": "Rauch",
+            "es": "Humo",
+            "fr": "Fumée",
+            "it": "Fumo",
+            "no": "Røyk",
+            "sv": "Rök",
+            "pl": "Dym",
+            "ru": "Дым",
+            "ko": "연기"
+          },
+          "example": {
+            "en": "Smoke detected state",
+            "nl": "Rook gedetecteerd status",
+            "da": "Status for registreret røg",
+            "de": "Status der Raucherkennung",
+            "es": "Estado de detección de humo",
+            "fr": "État de détection de fumée",
+            "it": "Stato di rilevamento fumo",
+            "no": "Status for oppdaget røyk",
+            "sv": "Status för upptäckt rök",
+            "pl": "Stan wykrycia dymu",
+            "ru": "Состояние обнаружения дыма",
+            "ko": "연기 감지 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "smoke_cleared",
+      "title": {
+        "en": "Smoke cleared",
+        "nl": "Rook verdwenen",
+        "da": "Røg forsvundet",
+        "de": "Rauch verschwunden",
+        "es": "Humo despejado",
+        "fr": "Fumée dissipée",
+        "it": "Fumo scomparso",
+        "no": "Røyk forsvunnet",
+        "sv": "Rök försvunnen",
+        "pl": "Dym zniknął",
+        "ru": "Дым рассеялся",
+        "ko": "연기 제거됨"
+      },
+      "titleFormatted": {
+        "en": "Smoke cleared",
+        "nl": "Rook verdwenen",
+        "da": "Røg forsvundet",
+        "de": "Rauch verschwunden",
+        "es": "Humo despejado",
+        "fr": "Fumée dissipée",
+        "it": "Fumo scomparso",
+        "no": "Røyk forsvunnet",
+        "sv": "Rök försvunnen",
+        "pl": "Dym zniknął",
+        "ru": "Дым рассеялся",
+        "ko": "연기 제거됨"
+      },
+      "hint": {
+        "en": "When smoke is no longer detected by the sensor",
+        "nl": "Wanneer rook niet meer wordt gedetecteerd door de sensor",
+        "da": "Når røg ikke længere registreres af sensoren",
+        "de": "Wenn kein Rauch mehr vom Sensor erkannt wird",
+        "es": "Cuando el sensor ya no detecta humo",
+        "fr": "Lorsque la fumée n'est plus détectée par le capteur",
+        "it": "Quando il fumo non viene più rilevato dal sensore",
+        "no": "Når røyk ikke lenger oppdages av sensoren",
+        "sv": "När rök inte längre upptäcks av sensorn",
+        "pl": "Gdy czujnik przestaje wykrywać dym",
+        "ru": "Когда датчик больше не обнаруживает дым",
+        "ko": "센서가 더 이상 연기를 감지하지 않을 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "smoke",
+          "title": {
+            "en": "Smoke",
+            "nl": "Rook",
+            "da": "Røg",
+            "de": "Rauch",
+            "es": "Humo",
+            "fr": "Fumée",
+            "it": "Fumo",
+            "no": "Røyk",
+            "sv": "Rök",
+            "pl": "Dym",
+            "ru": "Дым",
+            "ko": "연기"
+          },
+          "example": {
+            "en": "Smoke detected state",
+            "nl": "Rook gedetecteerd status",
+            "da": "Status for registreret røg",
+            "de": "Status der Raucherkennung",
+            "es": "Estado de detección de humo",
+            "fr": "État de détection de fumée",
+            "it": "Stato di rilevamento fumo",
+            "no": "Status for oppdaget røyk",
+            "sv": "Status för upptäckt rök",
+            "pl": "Stan wykrycia dymu",
+            "ru": "Состояние обнаружения дыма",
+            "ko": "연기 감지 상태"
+          }
+        }
+      ]
+    },
+    {
+      "id": "smoke_changed",
+      "title": {
+        "en": "Smoke changed",
+        "nl": "Rook veranderd",
+        "da": "Røg ændret",
+        "de": "Rauch geändert",
+        "es": "Humo cambiado",
+        "fr": "Fumée changée",
+        "it": "Fumo cambiato",
+        "no": "Røyk endret",
+        "sv": "Rök ändrad",
+        "pl": "Dym zmieniony",
+        "ru": "Дым изменился",
+        "ko": "연기 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Smoke changed",
+        "nl": "Rook veranderd",
+        "da": "Røg ændret",
+        "de": "Rauch geändert",
+        "es": "Humo cambiado",
+        "fr": "Fumée changée",
+        "it": "Fumo cambiato",
+        "no": "Røyk endret",
+        "sv": "Rök ändrad",
+        "pl": "Dym zmieniony",
+        "ru": "Дым изменился",
+        "ko": "연기 변경됨"
+      },
+      "hint": {
+        "en": "When smoke detection state changes",
+        "nl": "Wanneer de rookdetectie status verandert",
+        "da": "Når røgdetektionsstatus ændres",
+        "de": "Wenn sich der Raucherkennungsstatus ändert",
+        "es": "Cuando cambia el estado de detección de humo",
+        "fr": "Lorsque l'état de détection de fumée change",
+        "it": "Quando cambia lo stato di rilevamento del fumo",
+        "no": "Når røykdeteksjonsstatusen endres",
+        "sv": "När rökdetekteringsstatusen ändras",
+        "pl": "Gdy zmienia się stan wykrywania dymu",
+        "ru": "Когда изменяется состояние обнаружения дыма",
+        "ko": "연기 감지 상태가 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "boolean",
+          "name": "smoke",
+          "title": {
+            "en": "Smoke",
+            "nl": "Rook",
+            "da": "Røg",
+            "de": "Rauch",
+            "es": "Humo",
+            "fr": "Fumée",
+            "it": "Fumo",
+            "no": "Røyk",
+            "sv": "Rök",
+            "pl": "Dym",
+            "ru": "Дым",
+            "ko": "연기"
+          },
+          "example": {
+            "en": "Smoke detected state",
+            "nl": "Rook gedetecteerd status",
+            "da": "Status for registreret røg",
+            "de": "Status der Raucherkennung",
+            "es": "Estado de detección de humo",
+            "fr": "État de détection de fumée",
+            "it": "Stato di rilevamento fumo",
+            "no": "Status for oppdaget røyk",
+            "sv": "Status för upptäckt rök",
+            "pl": "Stan wykrycia dymu",
+            "ru": "Состояние обнаружения дыма",
+            "ko": "연기 감지 상태"
+          }
+        }
+      ]
+    }
+  ]
+}

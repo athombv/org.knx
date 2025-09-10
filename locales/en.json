@@ -80,9 +80,22 @@
                 "height_status": "Height status address"
             },
             "sensor": "Sensor address",
-            "scene": "Scene address"
+            "scene": "Scene address",
+            "room_controller": {
+                "button1_switch": "Button 1 switching address",
+                "button1_feedback": "Button 1 feedback address", 
+                "button2_switch": "Button 2 switching address",
+                "button2_feedback": "Button 2 feedback address",
+                "temperature": "Temperature measurement address",
+                "humidity": "Humidity measurement address"
+            }
         },
-        "scene_number" : "Scene number"
+        "scene_number" : "Scene number",
+        "pair": {
+            "room_controller": {
+                "name": "Room Controller (Multi-Function Panel)"
+            }
+        }
     },
     "errors": {
         "generic_error": "There was an error: ",

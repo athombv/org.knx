@@ -1,0 +1,83 @@
+{
+  "triggers": [
+    {
+      "id": "luminance_changed",
+      "title": {
+        "en": "Luminance changed",
+        "nl": "Lichtsterkte veranderd",
+        "da": "Lysintensitet ændret",
+        "de": "Helligkeit geändert",
+        "es": "Luminancia cambiada",
+        "fr": "Luminance changée",
+        "it": "Luminanza cambiata",
+        "no": "Lysstyrke endret",
+        "sv": "Ljusstyrka ändrad",
+        "pl": "Luminancja zmieniona",
+        "ru": "Яркость изменилась",
+        "ko": "조도 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Luminance changed to [[luminance]] lux",
+        "nl": "Lichtsterkte veranderd naar [[luminance]] lux",
+        "da": "Lysintensitet ændret til [[luminance]] lux",
+        "de": "Helligkeit geändert auf [[luminance]] lux",
+        "es": "Luminancia cambiada a [[luminance]] lux",
+        "fr": "Luminance changée à [[luminance]] lux",
+        "it": "Luminanza cambiata a [[luminance]] lux",
+        "no": "Lysstyrke endret til [[luminance]] lux",
+        "sv": "Ljusstyrka ändrad till [[luminance]] lux",
+        "pl": "Luminancja zmieniona na [[luminance]] lux",
+        "ru": "Яркость изменилась на [[luminance]] лк",
+        "ko": "조도가 [[luminance]] lux로 변경됨"
+      },
+      "hint": {
+        "en": "When the luminance measurement changes",
+        "nl": "Wanneer de lichtsterkte meting verandert",
+        "da": "Når lysintensitetsmålingen ændres",
+        "de": "Wenn sich die Helligkeitsmessung ändert",
+        "es": "Cuando cambia la medición de luminancia",
+        "fr": "Lorsque la mesure de luminance change",
+        "it": "Quando cambia la misurazione della luminanza",
+        "no": "Når lysstyrke-målingen endres",
+        "sv": "När ljusstyrkemätningen ändras",
+        "pl": "Gdy zmienia się pomiar luminancji",
+        "ru": "Когда изменяется измерение яркости",
+        "ko": "조도 측정값이 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "number",
+          "name": "luminance",
+          "title": {
+            "en": "Luminance",
+            "nl": "Lichtsterkte",
+            "da": "Lysintensitet",
+            "de": "Helligkeit",
+            "es": "Luminancia",
+            "fr": "Luminance",
+            "it": "Luminanza",
+            "no": "Lysstyrke",
+            "sv": "Ljusstyrka",
+            "pl": "Luminancja",
+            "ru": "Яркость",
+            "ko": "조도"
+          },
+          "example": {
+            "en": "The current luminance in lux",
+            "nl": "De huidige lichtsterkte in lux",
+            "da": "Den aktuelle lysintensitet i lux",
+            "de": "Die aktuelle Helligkeit in Lux",
+            "es": "La luminancia actual en lux",
+            "fr": "La luminance actuelle en lux",
+            "it": "La luminanza attuale in lux",
+            "no": "Den gjeldende lysstyrken i lux",
+            "sv": "Den aktuella ljusstyrkan i lux",
+            "pl": "Aktualna luminancja w luksach",
+            "ru": "Текущая яркость в люксах",
+            "ko": "현재 조도(럭스)"
+          }
+        }
+      ]
+    }
+  ]
+}

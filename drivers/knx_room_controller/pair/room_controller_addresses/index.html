@@ -1,0 +1,129 @@
+<style type="text/css">
+    .knx-wrap fieldset input[type="text"] {
+        max-width: 200px;
+        margin-left: 0.4em;
+    }
+
+    .knx-wrap fieldset .row label {
+        width: auto;
+    }
+
+    .knx-wrap fieldset input[type="text"] {
+        max-width: 150px;
+    }
+
+    .knx-wrap .knx-entry {
+        overflow: hidden;
+        padding-bottom: 0.8em;
+    }
+
+    .knx-wrap .section-title {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .knx-wrap .address-group {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="knx-wrap" id="ga_input">
+    <p>Select which group addresses to use with the new Room Controller device</p>
+    
+    <div class="address-group">
+        <div class="section-title">Button 1 Addresses</div>
+        
+        <div class="knx-entry">
+            <label for="ga_button1_switch" class="left">Button 1 switching address:</label>
+            <input id="ga_button1_switch" type="text" class="knx-text" placeholder="e.g. 3/0/1" />
+        </div>
+        
+        <div class="knx-entry">
+            <label for="ga_button1_feedback" class="left">Button 1 feedback address:</label>
+            <input id="ga_button1_feedback" type="text" class="knx-text" placeholder="e.g. 3/0/2" />
+        </div>
+    </div>
+
+    <div class="address-group">
+        <div class="section-title">Button 2 Addresses</div>
+        
+        <div class="knx-entry">
+            <label for="ga_button2_switch" class="left">Button 2 switching address:</label>
+            <input id="ga_button2_switch" type="text" class="knx-text" placeholder="e.g. 3/0/3" />
+        </div>
+        
+        <div class="knx-entry">
+            <label for="ga_button2_feedback" class="left">Button 2 feedback address:</label>
+            <input id="ga_button2_feedback" type="text" class="knx-text" placeholder="e.g. 3/0/4" />
+        </div>
+    </div>
+
+    <div class="address-group">
+        <div class="section-title">Sensor Addresses</div>
+        
+        <div class="knx-entry">
+            <label for="ga_temperature" class="left">Temperature measurement address:</label>
+            <input id="ga_temperature" type="text" class="knx-text" placeholder="e.g. 3/0/5" />
+        </div>
+        
+        <div class="knx-entry">
+            <label for="ga_humidity" class="left">Humidity measurement address:</label>
+            <input id="ga_humidity" type="text" class="knx-text" placeholder="e.g. 3/0/6" />
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; font-style: italic; color: #666;">
+        Note: You can leave fields empty if your device doesn't have those specific functions.
+    </p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get existing device data if available
+    const data = Homey.getDeviceData() || {};
+    
+    // Fill in existing values
+    document.getElementById('ga_button1_switch').value = data.ga_button1_switch || '';
+    document.getElementById('ga_button1_feedback').value = data.ga_button1_feedback || '';
+    document.getElementById('ga_button2_switch').value = data.ga_button2_switch || '';
+    document.getElementById('ga_button2_feedback').value = data.ga_button2_feedback || '';
+    document.getElementById('ga_temperature').value = data.ga_temperature || '';
+    document.getElementById('ga_humidity').value = data.ga_humidity || '';
+});
+
+function getAddresses() {
+    return {
+        ga_button1_switch: document.getElementById('ga_button1_switch').value.trim(),
+        ga_button1_feedback: document.getElementById('ga_button1_feedback').value.trim(),
+        ga_button2_switch: document.getElementById('ga_button2_switch').value.trim(),
+        ga_button2_feedback: document.getElementById('ga_button2_feedback').value.trim(),
+        ga_temperature: document.getElementById('ga_temperature').value.trim(),
+        ga_humidity: document.getElementById('ga_humidity').value.trim()
+    };
+}
+
+function validateAddresses() {
+    const addresses = getAddresses();
+    
+    // Check if at least one address is provided
+    const hasAnyAddress = Object.values(addresses).some(addr => addr.length > 0);
+    
+    if (!hasAnyAddress) {
+        throw new Error('Please provide at least one group address');
+    }
+    
+    // Validate address format (basic check)
+    for (const [key, address] of Object.entries(addresses)) {
+        if (address && !/^\d+\/\d+\/\d+$/.test(address)) {
+            throw new Error(`Invalid group address format: ${address}. Use format like 1/2/3`);
+        }
+    }
+    
+    return addresses;
+}
+</script>

@@ -1,0 +1,83 @@
+{
+  "triggers": [
+    {
+      "id": "humidity_changed",
+      "title": {
+        "en": "Humidity changed",
+        "nl": "Vochtigheid veranderd",
+        "da": "Fugtighed ændret",
+        "de": "Feuchtigkeit geändert",
+        "es": "Humedad cambiada",
+        "fr": "Humidité changée",
+        "it": "Umidità cambiata",
+        "no": "Luftfuktighet endret",
+        "sv": "Luftfuktighet ändrad",
+        "pl": "Wilgotność zmieniona",
+        "ru": "Влажность изменилась",
+        "ko": "습도 변경됨"
+      },
+      "titleFormatted": {
+        "en": "Humidity changed to [[humidity]]%",
+        "nl": "Vochtigheid veranderd naar [[humidity]]%",
+        "da": "Fugtighed ændret til [[humidity]]%",
+        "de": "Feuchtigkeit geändert auf [[humidity]]%",
+        "es": "Humedad cambiada a [[humidity]]%",
+        "fr": "Humidité changée à [[humidity]]%",
+        "it": "Umidità cambiata a [[humidity]]%",
+        "no": "Luftfuktighet endret til [[humidity]]%",
+        "sv": "Luftfuktighet ändrad till [[humidity]]%",
+        "pl": "Wilgotność zmieniona na [[humidity]]%",
+        "ru": "Влажность изменилась на [[humidity]]%",
+        "ko": "습도가 [[humidity]]%로 변경됨"
+      },
+      "hint": {
+        "en": "When the humidity measurement changes",
+        "nl": "Wanneer de vochtigheidsmeting verandert",
+        "da": "Når fugtighedsmålingen ændres",
+        "de": "Wenn sich die Feuchtigkeitsmessung ändert",
+        "es": "Cuando cambia la medición de humedad",
+        "fr": "Lorsque la mesure d'humidité change",
+        "it": "Quando cambia la misurazione dell'umidità",
+        "no": "Når luftfuktighetsmålingen endres",
+        "sv": "När luftfuktighetsmätningen ändras",
+        "pl": "Gdy zmienia się pomiar wilgotności",
+        "ru": "Когда изменяется измерение влажности",
+        "ko": "습도 측정값이 변경될 때"
+      },
+      "tokens": [
+        {
+          "type": "number",
+          "name": "humidity",
+          "title": {
+            "en": "Humidity",
+            "nl": "Vochtigheid",
+            "da": "Fugtighed",
+            "de": "Feuchtigkeit",
+            "es": "Humedad",
+            "fr": "Humidité",
+            "it": "Umidità",
+            "no": "Luftfuktighet",
+            "sv": "Luftfuktighet",
+            "pl": "Wilgotność",
+            "ru": "Влажность",
+            "ko": "습도"
+          },
+          "example": {
+            "en": "The current humidity percentage",
+            "nl": "Het huidige vochtigheidpercentage",
+            "da": "Den aktuelle fugtighedsprocent",
+            "de": "Der aktuelle Feuchtigkeitsprozentsatz",
+            "es": "El porcentaje de humedad actual",
+            "fr": "Le pourcentage d'humidité actuel",
+            "it": "La percentuale di umidità attuale",
+            "no": "Den gjeldende luftfuktighetsprosenten",
+            "sv": "Den aktuella luftfuktighetsprocenten",
+            "pl": "Aktualny procent wilgotności",
+            "ru": "Текущий процент влажности",
+            "ko": "현재 습도 백분율"
+          }
+        }
+      ]
+    }
+  ]
+}

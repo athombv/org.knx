@@ -71,7 +71,15 @@
                 "tilt_status": "Hoekverstelling status adres"
             },
             "sensor": "Sensor adres",
-            "scene": "Scene adres"
+            "scene": "Scene adres",
+            "room_controller": {
+                "button1_switch": "Knop 1 schakel adres",
+                "button1_feedback": "Knop 1 terugkoppeling adres", 
+                "button2_switch": "Knop 2 schakel adres",
+                "button2_feedback": "Knop 2 terugkoppeling adres",
+                "temperature": "Temperatuur meting adres",
+                "humidity": "Vochtigheids meting adres"
+            }
         },
         "scene_number" : "Scene nummer"
     },
