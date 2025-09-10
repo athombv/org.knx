@@ -68,8 +68,9 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
       return;
     }
 
-    // Call parent for any other events
-    super.onKNXEvent(groupaddress, data);
+    // Only call parent for logging, but don't let it process our sensor events
+    // because it expects different setting names and single capability
+    this.log('received', groupaddress, data);
   }
 
   // Override to add all our subscriptions
@@ -126,10 +127,17 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
   }
 
   onKNXConnection(connectionStatus) {
-    super.onKNXConnection(connectionStatus);
+    // Don't call parent's onKNXConnection - it tries to read ga_sensor which we don't use
+    // Instead, call grandparent (GenericKNXDevice) directly for basic connection handling
+    if (connectionStatus === 'connected') {
+      this.setAvailable();
+    } else if (connectionStatus === 'disconnected') {
+      this.setUnavailable(this.homey.__('errors.ip.interface_not_available'));
+    }
 
     if (connectionStatus === 'connected') {
       const settings = this.getSettings();
+      this.log('🔗 Room Controller connected to KNX');
       
       // Read initial button values
       if (settings.ga_button1_feedback) {
@@ -147,9 +155,11 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
       // Read initial sensor values
       if (settings.ga_temperature) {
         this.knxInterface.readKNXGroupAddress(settings.ga_temperature).catch(this.error);
+        this.log('🌡️ Reading initial temperature');
       }
       if (settings.ga_humidity) {
         this.knxInterface.readKNXGroupAddress(settings.ga_humidity).catch(this.error);
+        this.log('💧 Reading initial humidity');
       }
     }
   }

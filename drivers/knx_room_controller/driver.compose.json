@@ -17,7 +17,7 @@
     "ru": "Контроллер Комнаты (Мульти-Функциональная Панель)",
     "ko": "룸 컨트롤러 (다기능 패널)"
   },
-  "class": "other",
+  "class": "sensor",
   "capabilities": [
     "onoff.button1",
     "onoff.button2", 
