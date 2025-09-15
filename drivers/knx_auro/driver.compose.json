@@ -1,0 +1,292 @@
+{
+  "$extends": [
+    "knx_sensor"
+  ],
+  "id": "knx_auro",
+  "name": {
+    "en": "Auro Sensor (Luminance, Motion & Temperature)",
+    "nl": "Auro Sensor (Licht intensiteit, beweging & temperatuur)",
+    "da": "Lys, bevægelse & temperatursensor",
+    "de": "Helligkeits-, Bewegungs- & Temperatursensor",
+    "es": "Sensor de luminancia, movimiento y temperatura",
+    "fr": "Capteur de luminance, mouvement et température",
+    "it": "Sensore di luminanza, movimento e temperatura",
+    "no": "Lys-, bevegelse- & temperatursensor",
+    "sv": "Ljus-, rörelse- & temperatursensor",
+    "pl": "Czujnik luminancji, ruchu i temperatury",
+    "ru": "Датчик освещенности, движения и температуры",
+    "ko": "조도, 모션 및 온도 센서"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_luminance",
+    "alarm_motion",
+    "measure_temperature"
+  ],
+  "pair": [
+    {
+      "id": "select_interface",
+      "$template": "select_interface",
+      "navigation": {
+        "next": "auro_addresses"
+      }
+    },
+    {
+      "id": "parse_knxproj",
+      "$template": "parse_knxproj",
+      "navigation": {
+        "next": "auro_addresses",
+        "prev": "auro_addresses"
+      }
+    },
+    {
+      "id": "auro_addresses",
+      "navigation": {
+        "prev": "select_interface"
+      }
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Motion KNX addresses",
+        "nl": "Beweging KNX adressen",
+        "da": "Bevægelse KNX adresser",
+        "de": "Bewegungs KNX Adressen",
+        "es": "Direcciones KNX de movimiento",
+        "fr": "Adresses KNX de mouvement",
+        "it": "Indirizzi KNX di movimento",
+        "no": "Bevegelse KNX adresser",
+        "sv": "Rörelse KNX adresser",
+        "pl": "Adresy KNX ruchu",
+        "ru": "Адреса KNX движения",
+        "ko": "모션 KNX 주소"
+      },
+      "children": [
+        {
+          "id": "ga_motion",
+          "type": "text",
+          "label": {
+            "en": "Motion detection address",
+            "nl": "Bewegingsdetectie adres",
+            "da": "Bevægelsesdetektionsadresse",
+            "de": "Bewegungserkennungsadresse",
+            "es": "Dirección de detección de movimiento",
+            "fr": "Adresse de détection de mouvement",
+            "it": "Indirizzo di rilevamento movimento",
+            "no": "Bevegelsesdeteksjonsadresse",
+            "sv": "Rörelsedetektionsadress",
+            "pl": "Adres wykrywania ruchu",
+            "ru": "Адрес обнаружения движения",
+            "ko": "모션 감지 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress for motion detection (e.g., 3/0/1)",
+            "nl": "Vul groepadres voor bewegingsdetectie in (bijv. 3/0/1)",
+            "da": "Indtast gruppeadresse for bevægelsesdetektion (f.eks. 3/0/1)",
+            "de": "Gruppenadresse für Bewegungserkennung eingeben (z.B. 3/0/1)",
+            "es": "Ingrese dirección de grupo para detección de movimiento (ej. 3/0/1)",
+            "fr": "Entrez l'adresse de groupe pour détection de mouvement (ex. 3/0/1)",
+            "it": "Inserisci indirizzo di gruppo per rilevamento movimento (es. 3/0/1)",
+            "no": "Skriv inn gruppeadresse for bevegelsesdetektion (f.eks. 3/0/1)",
+            "sv": "Ange gruppadress för rörelsedetektering (t.ex. 3/0/1)",
+            "pl": "Wprowadź adres grupowy dla wykrywania ruchu (np. 3/0/1)",
+            "ru": "Введите групповой адрес для обнаружения движения (напр. 3/0/1)",
+            "ko": "모션 감지용 그룹 주소를 입력하세요 (예: 3/0/1)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Luminance KNX addresses",
+        "nl": "Licht intensiteit KNX adressen",
+        "da": "Lys KNX adresser",
+        "de": "Helligkeits KNX Adressen",
+        "es": "Direcciones KNX de luminancia",
+        "fr": "Adresses KNX de luminance",
+        "it": "Indirizzi KNX di luminanza",
+        "no": "Lys KNX adresser",
+        "sv": "Ljus KNX adresser",
+        "pl": "Adresy KNX luminancji",
+        "ru": "Адреса KNX освещенности",
+        "ko": "조도 KNX 주소"
+      },
+      "children": [
+        {
+          "id": "ga_luminance",
+          "type": "text",
+          "label": {
+            "en": "Luminance measurement address",
+            "nl": "Licht meting adres",
+            "da": "Adresse for lysmåling",
+            "de": "Adresse für Helligkeitsmessung",
+            "es": "Dirección de medición de luminancia",
+            "fr": "Adresse de mesure de luminance",
+            "it": "Indirizzo di misura della luminanza",
+            "no": "Lysmålingsadresse",
+            "sv": "Mätadress för ljusvärde",
+            "pl": "Adres pomiaru luminancji",
+            "ru": "Адрес измерения освещенности",
+            "ko": "조도 측정 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress for luminance (e.g., 3/0/2)",
+            "nl": "Vul groepadres voor licht intensiteit in (bijv. 3/0/2)",
+            "da": "Indtast gruppeadresse for lys (f.eks. 3/0/2)",
+            "de": "Gruppenadresse für Helligkeit eingeben (z.B. 3/0/2)",
+            "es": "Ingrese dirección de grupo para luminancia (ej. 3/0/2)",
+            "fr": "Entrez l'adresse de groupe pour luminance (ex. 3/0/2)",
+            "it": "Inserisci indirizzo di gruppo per luminanza (es. 3/0/2)",
+            "no": "Skriv inn gruppeadresse for lys (f.eks. 3/0/2)",
+            "sv": "Ange gruppadress för ljus (t.ex. 3/0/2)",
+            "pl": "Wprowadź adres grupowy dla luminancji (np. 3/0/2)",
+            "ru": "Введите групповой адрес для освещенности (напр. 3/0/2)",
+            "ko": "조도용 그룹 주소를 입력하세요 (예: 3/0/2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Temperature KNX addresses",
+        "nl": "Temperatuur KNX adressen",
+        "da": "Temperatur KNX adresser",
+        "de": "Temperatur KNX Adressen",
+        "es": "Direcciones KNX de temperatura",
+        "fr": "Adresses KNX de température",
+        "it": "Indirizzi KNX di temperatura",
+        "no": "Temperatur KNX adresser",
+        "sv": "Temperatur KNX adresser",
+        "pl": "Adresy KNX temperatury",
+        "ru": "Адреса KNX температуры",
+        "ko": "온도 KNX 주소"
+      },
+      "children": [
+        {
+          "id": "ga_temperature",
+          "type": "text",
+          "label": {
+            "en": "Temperature measurement address",
+            "nl": "Temperatuur meting adres",
+            "da": "Temperaturmålingsadresse",
+            "de": "Adresse der Temperaturmessung",
+            "es": "Dirección de medición de temperatura",
+            "fr": "Adresse de mesure de la température",
+            "it": "Indirizzo di misurazione della temperatura",
+            "no": "Temperaturmålingsadresse",
+            "sv": "Temperaturmätningsadress",
+            "pl": "Adres pomiaru temperatury",
+            "ru": "Адрес измерения температуры",
+            "ko": "온도 측정 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress for temperature (e.g., 3/0/3)",
+            "nl": "Vul groepadres voor temperatuur in (bijv. 3/0/3)",
+            "da": "Indtast gruppeadresse for temperatur (f.eks. 3/0/3)",
+            "de": "Gruppenadresse für Temperatur eingeben (z.B. 3/0/3)",
+            "es": "Ingrese la dirección de grupo para temperatura (ej. 3/0/3)",
+            "fr": "Entrez l'adresse de groupe pour la température (ex. 3/0/3)",
+            "it": "Inserisci l'indirizzo di gruppo per la temperatura (es. 3/0/3)",
+            "no": "Skriv inn gruppeadresse for temperatur (f.eks. 3/0/3)",
+            "sv": "Ange gruppadress för temperatur (t.ex. 3/0/3)",
+            "pl": "Wprowadź adres grupowy dla temperatury (np. 3/0/3)",
+            "ru": "Введите групповой адрес для температуры (напр. 3/0/3)",
+            "ko": "온도용 그룹 주소를 입력하세요 (예: 3/0/3)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Network settings",
+        "nl": "Netwerk instellingen",
+        "da": "Netværksindstillinger",
+        "de": "Netzwerkeinstellungen",
+        "es": "Configuración de red",
+        "fr": "Paramètres réseau",
+        "it": "Impostazioni di rete",
+        "no": "Nettverksinnstillinger",
+        "sv": "Nätverksinställningar",
+        "pl": "Ustawienia sieci",
+        "ru": "Настройки сети",
+        "ko": "네트워크 설정"
+      },
+      "children": [
+        {
+          "id": "macAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface MAC address",
+            "nl": "Interface MAC adres",
+            "da": "Interface MAC-adresse",
+            "de": "MAC-Adresse der Schnittstelle",
+            "es": "Dirección MAC de la interfaz",
+            "fr": "Adresse MAC de l'interface",
+            "it": "Indirizzo MAC dell'interfaccia",
+            "no": "Grensesnitt MAC-adresse",
+            "sv": "Gränssnitt MAC-adress",
+            "pl": "Adres MAC interfejsu",
+            "ru": "MAC-адрес интерфейса",
+            "ko": "인터페이스 MAC 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "MAC address of the required KNX IP interface",
+            "nl": "MAC adres van de KNX IP interface",
+            "da": "MAC-adresse på den krævede KNX IP interface",
+            "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+            "es": "Dirección MAC de la interfaz IP necesaria para KNX",
+            "fr": "Adresse MAC de l'interface IP KNX requise",
+            "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+            "no": "MAC-adressen til det nødvendige KNX IP-grensesnittet",
+            "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+            "pl": "Adres MAC wymaganego interfejsu KNX IP",
+            "ru": "MAC-адрес требуемого интерфейса KNX IP",
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+          }
+        },
+        {
+          "id": "ipAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface IP address",
+            "nl": "Interface IP adres",
+            "da": "Interface IP-adresse",
+            "de": "IP-Adresse der Schnittstelle",
+            "es": "Dirección IP de la interfaz",
+            "fr": "Adresse IP de l'interface",
+            "it": "Indirizzo IP dell'interfaccia",
+            "no": "Grensesnitt IP-adresse",
+            "sv": "Gränssnitt IP-adress",
+            "pl": "Adres IP interfejsu",
+            "ru": "IP-адрес интерфейса",
+            "ko": "인터페이스 IP 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "IP address of the required KNX IP interface",
+            "nl": "IP adres van de KNX IP interface",
+            "da": "IP-adresse på den krævede KNX IP interface",
+            "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+            "es": "Dirección IP de la interfaz IP necesaria para KNX",
+            "fr": "Adresse IP de l'interface IP KNX requise",
+            "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+            "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+            "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+            "pl": "Adres IP wymaganego interfejsu KNX IP",
+            "ru": "IP-адрес требуемого интерфейса KNX IP",
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -17,7 +17,7 @@
     "ru": "Контроллер Комнаты (Мульти-Функциональная Панель)",
     "ko": "룸 컨트롤러 (다기능 패널)"
   },
-  "class": "thermostat",
+  "class": "sensor",
   "capabilities": [
     "onoff.button1",
     "onoff.button2", 
@@ -25,6 +25,46 @@
     "measure_humidity"
   ],
   "capabilitiesOptions": {
+    "measure_temperature": {
+      "title": {
+        "en": "Temperature",
+        "nl": "Temperatuur",
+        "da": "Temperatur",
+        "de": "Temperatur",
+        "es": "Temperatura",
+        "fr": "Température",
+        "it": "Temperatura",
+        "no": "Temperatur",
+        "sv": "Temperatur",
+        "pl": "Temperatura",
+        "ru": "Температура",
+        "ko": "온도"
+      },
+      "chartType": "spline",
+      "decimals": 1,
+      "insights": true,
+      "uiIndicator": true
+    },
+    "measure_humidity": {
+      "title": {
+        "en": "Humidity",
+        "nl": "Vochtigheid",
+        "da": "Fugtighed",
+        "de": "Feuchtigkeit",
+        "es": "Humedad",
+        "fr": "Humidité",
+        "it": "Umidità",
+        "no": "Fuktighet",
+        "sv": "Luftfuktighet",
+        "pl": "Wilgotność",
+        "ru": "Влажность",
+        "ko": "습도"
+      },
+      "chartType": "spline",
+      "decimals": 1,
+      "insights": true,
+      "uiIndicator": true
+    },
     "onoff.button1": {
       "title": {
         "en": "Button 1",

@@ -17,13 +17,13 @@
     "ru": "Контроллер Комнаты 6-Кнопок (Мульти-Функциональная Панель)",
     "ko": "룸 컨트롤러 6-버튼 (다기능 패널)"
   },
-  "class": "thermostat",
+  "class": "sensor",
   "capabilities": [
     "onoff.button1",
-    "onoff.button3",
-    "onoff.button5",
     "onoff.button2",
+    "onoff.button3",
     "onoff.button4",
+    "onoff.button5",
     "onoff.button6",
     "measure_temperature"
   ],
@@ -135,6 +135,26 @@
       },
       "uiComponent": "button",
       "uiQuickAction": true
+    },
+    "measure_temperature": {
+      "title": {
+        "en": "Temperature",
+        "nl": "Temperatuur",
+        "da": "Temperatur",
+        "de": "Temperatur",
+        "es": "Temperatura",
+        "fr": "Température",
+        "it": "Temperatura",
+        "no": "Temperatur",
+        "sv": "Temperatur",
+        "pl": "Temperatura",
+        "ru": "Температура",
+        "ko": "온도"
+      },
+      "chartType": "spline",
+      "decimals": 1,
+      "insights": true,
+      "uiIndicator": true
     }
   },
   "pair": [

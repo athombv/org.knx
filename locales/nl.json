@@ -81,7 +81,15 @@
                 "humidity": "Vochtigheids meting adres"
             }
         },
-        "scene_number" : "Scene nummer"
+        "scene_number" : "Scene nummer",
+        "pair": {
+            "room_controller": {
+                "name": "Room Controller (Multi-Functie Paneel)"
+            },
+            "auro": {
+                "name": "Auro Sensor (Licht intensiteit, beweging & temperatuur)"
+            }
+        }
     },
     "errors": {
         "generic_error": "Er is een fout opgetreden: ",

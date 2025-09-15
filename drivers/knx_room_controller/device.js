@@ -20,9 +20,9 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
     const settings = this.getSettings();
     this.log('🔥 KNX Event received:', { groupaddress, data });
 
-    // Handle Button 1 events
+    // Handle Button 1 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button1_feedback || 
-        (groupaddress === settings.ga_button1_switch && !settings.ga_button1_feedback)) {
+        groupaddress === settings.ga_button1_switch) {
       this.log('🔘 Processing Button 1 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button1', value).catch(this.error);
@@ -30,9 +30,9 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
       return;
     }
 
-    // Handle Button 2 events  
+    // Handle Button 2 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button2_feedback || 
-        (groupaddress === settings.ga_button2_switch && !settings.ga_button2_feedback)) {
+        groupaddress === settings.ga_button2_switch) {
       this.log('🔘 Processing Button 2 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button2', value).catch(this.error);
@@ -68,9 +68,8 @@ class KNXRoomControllerDevice extends KNXGenericSensor {
       return;
     }
 
-    // Only call parent for logging, but don't let it process our sensor events
-    // because it expects different setting names and single capability
-    this.log('received', groupaddress, data);
+    // Log unhandled events
+    this.log('⚠️ Unhandled KNX event:', groupaddress, data);
   }
 
   // Override to add all our subscriptions

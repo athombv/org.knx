@@ -469,6 +469,436 @@
         "id": "trigger_from_scene"
       },
       {
+        "id": "auro_motion_detected",
+        "title": {
+          "en": "Motion detected",
+          "nl": "Beweging gedetecteerd",
+          "da": "Bevægelse registreret",
+          "de": "Bewegung erkannt",
+          "es": "Movimiento detectado",
+          "fr": "Mouvement détecté",
+          "it": "Movimento rilevato",
+          "no": "Bevegelse oppdaget",
+          "sv": "Rörelse upptäckt",
+          "pl": "Wykryto ruch",
+          "ru": "Обнаружено движение",
+          "ko": "움직임 감지됨"
+        },
+        "titleFormatted": {
+          "en": "Motion detected",
+          "nl": "Beweging gedetecteerd",
+          "da": "Bevægelse registreret",
+          "de": "Bewegung erkannt",
+          "es": "Movimiento detectado",
+          "fr": "Mouvement détecté",
+          "it": "Movimento rilevato",
+          "no": "Bevegelse oppdaget",
+          "sv": "Rörelse upptäckt",
+          "pl": "Wykryto ruch",
+          "ru": "Обнаружено движение",
+          "ko": "움직임 감지됨"
+        },
+        "hint": {
+          "en": "When motion is detected by the sensor",
+          "nl": "Wanneer beweging wordt gedetecteerd door de sensor",
+          "da": "Når bevægelse registreres af sensoren",
+          "de": "Wenn Bewegung vom Sensor erkannt wird",
+          "es": "Cuando el sensor detecta movimiento",
+          "fr": "Lorsque le mouvement est détecté par le capteur",
+          "it": "Quando il movimento viene rilevato dal sensore",
+          "no": "Når bevegelse oppdages av sensoren",
+          "sv": "När rörelse upptäcks av sensorn",
+          "pl": "Gdy czujnik wykryje ruch",
+          "ru": "Когда датчик обнаруживает движение",
+          "ko": "센서가 움직임을 감지할 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "motion",
+            "title": {
+              "en": "Motion",
+              "nl": "Beweging",
+              "da": "Bevægelse",
+              "de": "Bewegung",
+              "es": "Movimiento",
+              "fr": "Mouvement",
+              "it": "Movimento",
+              "no": "Bevegelse",
+              "sv": "Rörelse",
+              "pl": "Ruch",
+              "ru": "Движение",
+              "ko": "움직임"
+            },
+            "example": {
+              "en": "Motion detected state",
+              "nl": "Beweging gedetecteerd status",
+              "da": "Status for registreret bevægelse",
+              "de": "Status der erkannten Bewegung",
+              "es": "Estado de detección de movimiento",
+              "fr": "État de détection de mouvement",
+              "it": "Stato di rilevamento movimento",
+              "no": "Status for oppdaget bevegelse",
+              "sv": "Status för upptäckt rörelse",
+              "pl": "Stan wykrycia ruchu",
+              "ru": "Состояние обнаружения движения",
+              "ko": "움직임 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_auro"
+          }
+        ]
+      },
+      {
+        "id": "auro_motion_stopped",
+        "title": {
+          "en": "Motion stopped",
+          "nl": "Beweging gestopt",
+          "da": "Bevægelse stoppet",
+          "de": "Bewegung gestoppt",
+          "es": "Movimiento detenido",
+          "fr": "Mouvement arrêté",
+          "it": "Movimento interrotto",
+          "no": "Bevegelse stoppet",
+          "sv": "Rörelse stoppad",
+          "pl": "Ruch zatrzymany",
+          "ru": "Движение прекратилось",
+          "ko": "움직임 중지됨"
+        },
+        "titleFormatted": {
+          "en": "Motion stopped",
+          "nl": "Beweging gestopt",
+          "da": "Bevægelse stoppet",
+          "de": "Bewegung gestoppt",
+          "es": "Movimiento detenido",
+          "fr": "Mouvement arrêté",
+          "it": "Movimento interrotto",
+          "no": "Bevegelse stoppet",
+          "sv": "Rörelse stoppad",
+          "pl": "Ruch zatrzymany",
+          "ru": "Движение прекратилось",
+          "ko": "움직임 중지됨"
+        },
+        "hint": {
+          "en": "When motion is no longer detected by the sensor",
+          "nl": "Wanneer beweging niet meer wordt gedetecteerd door de sensor",
+          "da": "Når bevægelse ikke længere registreres af sensoren",
+          "de": "Wenn keine Bewegung mehr vom Sensor erkannt wird",
+          "es": "Cuando el sensor ya no detecta movimiento",
+          "fr": "Lorsque le mouvement n'est plus détecté par le capteur",
+          "it": "Quando il movimento non viene più rilevato dal sensore",
+          "no": "Når bevegelse ikke lenger oppdages av sensoren",
+          "sv": "När rörelse inte längre upptäcks av sensorn",
+          "pl": "Gdy czujnik przestaje wykrywać ruch",
+          "ru": "Когда датчик больше не обнаруживает движение",
+          "ko": "센서가 더 이상 움직임을 감지하지 않을 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "motion",
+            "title": {
+              "en": "Motion",
+              "nl": "Beweging",
+              "da": "Bevægelse",
+              "de": "Bewegung",
+              "es": "Movimiento",
+              "fr": "Mouvement",
+              "it": "Movimento",
+              "no": "Bevegelse",
+              "sv": "Rörelse",
+              "pl": "Ruch",
+              "ru": "Движение",
+              "ko": "움직임"
+            },
+            "example": {
+              "en": "Motion detected state",
+              "nl": "Beweging gedetecteerd status",
+              "da": "Status for registreret bevægelse",
+              "de": "Status der erkannten Bewegung",
+              "es": "Estado de detección de movimiento",
+              "fr": "État de détection de mouvement",
+              "it": "Stato di rilevamento movimento",
+              "no": "Status for oppdaget bevegelse",
+              "sv": "Status för upptäckt rörelse",
+              "pl": "Stan wykrycia ruchu",
+              "ru": "Состояние обнаружения движения",
+              "ko": "움직임 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_auro"
+          }
+        ]
+      },
+      {
+        "id": "auro_motion_changed",
+        "title": {
+          "en": "Motion changed",
+          "nl": "Beweging veranderd",
+          "da": "Bevægelse ændret",
+          "de": "Bewegung geändert",
+          "es": "Movimiento cambiado",
+          "fr": "Mouvement changé",
+          "it": "Movimento cambiato",
+          "no": "Bevegelse endret",
+          "sv": "Rörelse ändrad",
+          "pl": "Ruch zmieniony",
+          "ru": "Движение изменилось",
+          "ko": "움직임 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Motion changed",
+          "nl": "Beweging veranderd",
+          "da": "Bevægelse ændret",
+          "de": "Bewegung geändert",
+          "es": "Movimiento cambiado",
+          "fr": "Mouvement changé",
+          "it": "Movimento cambiato",
+          "no": "Bevegelse endret",
+          "sv": "Rörelse ändrad",
+          "pl": "Ruch zmieniony",
+          "ru": "Движение изменилось",
+          "ko": "움직임 변경됨"
+        },
+        "hint": {
+          "en": "When motion detection state changes",
+          "nl": "Wanneer de bewegingsdetectie status verandert",
+          "da": "Når status for bevægelsesregistrering ændres",
+          "de": "Wenn sich der Bewegungserkennungsstatus ändert",
+          "es": "Cuando cambia el estado de detección de movimiento",
+          "fr": "Lorsque l'état de détection de mouvement change",
+          "it": "Quando cambia lo stato di rilevamento del movimento",
+          "no": "Når status for bevegelsesoppdagelse endres",
+          "sv": "När status för rörelseupptäckt ändras",
+          "pl": "Gdy zmienia się stan wykrywania ruchu",
+          "ru": "Когда изменяется состояние обнаружения движения",
+          "ko": "움직임 감지 상태가 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "motion",
+            "title": {
+              "en": "Motion",
+              "nl": "Beweging",
+              "da": "Bevægelse",
+              "de": "Bewegung",
+              "es": "Movimiento",
+              "fr": "Mouvement",
+              "it": "Movimento",
+              "no": "Bevegelse",
+              "sv": "Rörelse",
+              "pl": "Ruch",
+              "ru": "Движение",
+              "ko": "움직임"
+            },
+            "example": {
+              "en": "Motion detected state",
+              "nl": "Beweging gedetecteerd status",
+              "da": "Status for registreret bevægelse",
+              "de": "Status der erkannten Bewegung",
+              "es": "Estado de detección de movimiento",
+              "fr": "État de détection de mouvement",
+              "it": "Stato di rilevamento movimento",
+              "no": "Status for oppdaget bevegelse",
+              "sv": "Status för upptäckt rörelse",
+              "pl": "Stan wykrycia ruchu",
+              "ru": "Состояние обнаружения движения",
+              "ko": "움직임 감지 상태"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_auro"
+          }
+        ]
+      },
+      {
+        "id": "auro_luminance_changed",
+        "title": {
+          "en": "Luminance changed",
+          "nl": "Lichtsterkte veranderd",
+          "da": "Lysintensitet ændret",
+          "de": "Helligkeit geändert",
+          "es": "Luminancia cambiada",
+          "fr": "Luminance changée",
+          "it": "Luminanza cambiata",
+          "no": "Lysstyrke endret",
+          "sv": "Ljusstyrka ändrad",
+          "pl": "Luminancja zmieniona",
+          "ru": "Яркость изменилась",
+          "ko": "조도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Luminance changed to [[luminance]] lux",
+          "nl": "Lichtsterkte veranderd naar [[luminance]] lux",
+          "da": "Lysintensitet ændret til [[luminance]] lux",
+          "de": "Helligkeit geändert auf [[luminance]] lux",
+          "es": "Luminancia cambiada a [[luminance]] lux",
+          "fr": "Luminance changée à [[luminance]] lux",
+          "it": "Luminanza cambiata a [[luminance]] lux",
+          "no": "Lysstyrke endret til [[luminance]] lux",
+          "sv": "Ljusstyrka ändrad till [[luminance]] lux",
+          "pl": "Luminancja zmieniona na [[luminance]] lux",
+          "ru": "Яркость изменилась на [[luminance]] лк",
+          "ko": "조도가 [[luminance]] lux로 변경됨"
+        },
+        "hint": {
+          "en": "When the luminance measurement changes",
+          "nl": "Wanneer de lichtsterkte meting verandert",
+          "da": "Når lysintensitetsmålingen ændres",
+          "de": "Wenn sich die Helligkeitsmessung ändert",
+          "es": "Cuando cambia la medición de luminancia",
+          "fr": "Lorsque la mesure de luminance change",
+          "it": "Quando cambia la misurazione della luminanza",
+          "no": "Når lysstyrke-målingen endres",
+          "sv": "När ljusstyrkemätningen ändras",
+          "pl": "Gdy zmienia się pomiar luminancji",
+          "ru": "Когда изменяется измерение яркости",
+          "ko": "조도 측정값이 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "luminance",
+            "title": {
+              "en": "Luminance",
+              "nl": "Lichtsterkte",
+              "da": "Lysintensitet",
+              "de": "Helligkeit",
+              "es": "Luminancia",
+              "fr": "Luminance",
+              "it": "Luminanza",
+              "no": "Lysstyrke",
+              "sv": "Ljusstyrka",
+              "pl": "Luminancja",
+              "ru": "Яркость",
+              "ko": "조도"
+            },
+            "example": {
+              "en": "The current luminance in lux",
+              "nl": "De huidige lichtsterkte in lux",
+              "da": "Den aktuelle lysintensitet i lux",
+              "de": "Die aktuelle Helligkeit in Lux",
+              "es": "La luminancia actual en lux",
+              "fr": "La luminance actuelle en lux",
+              "it": "La luminanza attuale in lux",
+              "no": "Den gjeldende lysstyrken i lux",
+              "sv": "Den aktuella ljusstyrkan i lux",
+              "pl": "Aktualna luminancja w luksach",
+              "ru": "Текущая яркость в люксах",
+              "ko": "현재 조도(럭스)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_auro"
+          }
+        ]
+      },
+      {
+        "id": "auro_temperature_changed",
+        "title": {
+          "en": "Temperature changed",
+          "nl": "Temperatuur veranderd",
+          "da": "Temperatur ændret",
+          "de": "Temperatur geändert",
+          "es": "Temperatura cambiada",
+          "fr": "Température changée",
+          "it": "Temperatura cambiata",
+          "no": "Temperatur endret",
+          "sv": "Temperatur ändrad",
+          "pl": "Temperatura zmieniona",
+          "ru": "Температура изменилась",
+          "ko": "온도 변경됨"
+        },
+        "titleFormatted": {
+          "en": "Temperature changed to [[temperature]]°C",
+          "nl": "Temperatuur veranderd naar [[temperature]]°C",
+          "da": "Temperatur ændret til [[temperature]]°C",
+          "de": "Temperatur geändert auf [[temperature]]°C",
+          "es": "Temperatura cambiada a [[temperature]]°C",
+          "fr": "Température changée à [[temperature]]°C",
+          "it": "Temperatura cambiata a [[temperature]]°C",
+          "no": "Temperatur endret til [[temperature]]°C",
+          "sv": "Temperatur ändrad till [[temperature]]°C",
+          "pl": "Temperatura zmieniona na [[temperature]]°C",
+          "ru": "Температура изменилась на [[temperature]]°C",
+          "ko": "온도가 [[temperature]]°C로 변경됨"
+        },
+        "hint": {
+          "en": "When the temperature measurement changes",
+          "nl": "Wanneer de temperatuurmeting verandert",
+          "da": "Når temperaturmålingen ændres",
+          "de": "Wenn sich die Temperaturmessung ändert",
+          "es": "Cuando cambia la medición de temperatura",
+          "fr": "Lorsque la mesure de température change",
+          "it": "Quando cambia la misurazione della temperatura",
+          "no": "Når temperaturmålingen endres",
+          "sv": "När temperaturmätningen ändras",
+          "pl": "Gdy zmienia się pomiar temperatury",
+          "ru": "Когда изменяется измерение температуры",
+          "ko": "온도 측정값이 변경될 때"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "da": "Temperatur",
+              "de": "Temperatur",
+              "es": "Temperatura",
+              "fr": "Température",
+              "it": "Temperatura",
+              "no": "Temperatur",
+              "sv": "Temperatur",
+              "pl": "Temperatura",
+              "ru": "Температура",
+              "ko": "온도"
+            },
+            "example": {
+              "en": "The current temperature in degrees Celsius",
+              "nl": "De huidige temperatuur in graden Celsius",
+              "da": "Den aktuelle temperatur i grader Celsius",
+              "de": "Die aktuelle Temperatur in Grad Celsius",
+              "es": "La temperatura actual en grados Celsius",
+              "fr": "La température actuelle en degrés Celsius",
+              "it": "La temperatura attuale in gradi Celsius",
+              "no": "Den gjeldende temperaturen i grader Celsius",
+              "sv": "Den aktuella temperaturen i grader Celsius",
+              "pl": "Aktualna temperatura w stopniach Celsjusza",
+              "ru": "Текущая температура в градусах Цельсия",
+              "ko": "현재 온도(섭씨)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_auro"
+          }
+        ]
+      },
+      {
         "id": "contact_opened",
         "title": {
           "en": "Contact opened",
@@ -2296,6 +2726,303 @@
     ]
   },
   "drivers": [
+    {
+      "images": {
+        "large": "/drivers/knx_auro/assets/images/large.png",
+        "small": "/drivers/knx_auro/assets/images/small.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "auro_addresses"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "auro_addresses",
+            "prev": "auro_addresses"
+          }
+        },
+        {
+          "id": "auro_addresses",
+          "navigation": {
+            "prev": "select_interface"
+          }
+        }
+      ],
+      "id": "knx_auro",
+      "name": {
+        "en": "Auro Sensor (Luminance, Motion & Temperature)",
+        "nl": "Auro Sensor (Licht intensiteit, beweging & temperatuur)",
+        "da": "Lys, bevægelse & temperatursensor",
+        "de": "Helligkeits-, Bewegungs- & Temperatursensor",
+        "es": "Sensor de luminancia, movimiento y temperatura",
+        "fr": "Capteur de luminance, mouvement et température",
+        "it": "Sensore di luminanza, movimento e temperatura",
+        "no": "Lys-, bevegelse- & temperatursensor",
+        "sv": "Ljus-, rörelse- & temperatursensor",
+        "pl": "Czujnik luminancji, ruchu i temperatury",
+        "ru": "Датчик освещенности, движения и температуры",
+        "ko": "조도, 모션 및 온도 센서"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_luminance",
+        "alarm_motion",
+        "measure_temperature"
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Motion KNX addresses",
+            "nl": "Beweging KNX adressen",
+            "da": "Bevægelse KNX adresser",
+            "de": "Bewegungs KNX Adressen",
+            "es": "Direcciones KNX de movimiento",
+            "fr": "Adresses KNX de mouvement",
+            "it": "Indirizzi KNX di movimento",
+            "no": "Bevegelse KNX adresser",
+            "sv": "Rörelse KNX adresser",
+            "pl": "Adresy KNX ruchu",
+            "ru": "Адреса KNX движения",
+            "ko": "모션 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_motion",
+              "type": "text",
+              "label": {
+                "en": "Motion detection address",
+                "nl": "Bewegingsdetectie adres",
+                "da": "Bevægelsesdetektionsadresse",
+                "de": "Bewegungserkennungsadresse",
+                "es": "Dirección de detección de movimiento",
+                "fr": "Adresse de détection de mouvement",
+                "it": "Indirizzo di rilevamento movimento",
+                "no": "Bevegelsesdeteksjonsadresse",
+                "sv": "Rörelsedetektionsadress",
+                "pl": "Adres wykrywania ruchu",
+                "ru": "Адрес обнаружения движения",
+                "ko": "모션 감지 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for motion detection (e.g., 3/0/1)",
+                "nl": "Vul groepadres voor bewegingsdetectie in (bijv. 3/0/1)",
+                "da": "Indtast gruppeadresse for bevægelsesdetektion (f.eks. 3/0/1)",
+                "de": "Gruppenadresse für Bewegungserkennung eingeben (z.B. 3/0/1)",
+                "es": "Ingrese dirección de grupo para detección de movimiento (ej. 3/0/1)",
+                "fr": "Entrez l'adresse de groupe pour détection de mouvement (ex. 3/0/1)",
+                "it": "Inserisci indirizzo di gruppo per rilevamento movimento (es. 3/0/1)",
+                "no": "Skriv inn gruppeadresse for bevegelsesdetektion (f.eks. 3/0/1)",
+                "sv": "Ange gruppadress för rörelsedetektering (t.ex. 3/0/1)",
+                "pl": "Wprowadź adres grupowy dla wykrywania ruchu (np. 3/0/1)",
+                "ru": "Введите групповой адрес для обнаружения движения (напр. 3/0/1)",
+                "ko": "모션 감지용 그룹 주소를 입력하세요 (예: 3/0/1)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Luminance KNX addresses",
+            "nl": "Licht intensiteit KNX adressen",
+            "da": "Lys KNX adresser",
+            "de": "Helligkeits KNX Adressen",
+            "es": "Direcciones KNX de luminancia",
+            "fr": "Adresses KNX de luminance",
+            "it": "Indirizzi KNX di luminanza",
+            "no": "Lys KNX adresser",
+            "sv": "Ljus KNX adresser",
+            "pl": "Adresy KNX luminancji",
+            "ru": "Адреса KNX освещенности",
+            "ko": "조도 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_luminance",
+              "type": "text",
+              "label": {
+                "en": "Luminance measurement address",
+                "nl": "Licht meting adres",
+                "da": "Adresse for lysmåling",
+                "de": "Adresse für Helligkeitsmessung",
+                "es": "Dirección de medición de luminancia",
+                "fr": "Adresse de mesure de luminance",
+                "it": "Indirizzo di misura della luminanza",
+                "no": "Lysmålingsadresse",
+                "sv": "Mätadress för ljusvärde",
+                "pl": "Adres pomiaru luminancji",
+                "ru": "Адрес измерения освещенности",
+                "ko": "조도 측정 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for luminance (e.g., 3/0/2)",
+                "nl": "Vul groepadres voor licht intensiteit in (bijv. 3/0/2)",
+                "da": "Indtast gruppeadresse for lys (f.eks. 3/0/2)",
+                "de": "Gruppenadresse für Helligkeit eingeben (z.B. 3/0/2)",
+                "es": "Ingrese dirección de grupo para luminancia (ej. 3/0/2)",
+                "fr": "Entrez l'adresse de groupe pour luminance (ex. 3/0/2)",
+                "it": "Inserisci indirizzo di gruppo per luminanza (es. 3/0/2)",
+                "no": "Skriv inn gruppeadresse for lys (f.eks. 3/0/2)",
+                "sv": "Ange gruppadress för ljus (t.ex. 3/0/2)",
+                "pl": "Wprowadź adres grupowy dla luminancji (np. 3/0/2)",
+                "ru": "Введите групповой адрес для освещенности (напр. 3/0/2)",
+                "ko": "조도용 그룹 주소를 입력하세요 (예: 3/0/2)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature KNX addresses",
+            "nl": "Temperatuur KNX adressen",
+            "da": "Temperatur KNX adresser",
+            "de": "Temperatur KNX Adressen",
+            "es": "Direcciones KNX de temperatura",
+            "fr": "Adresses KNX de température",
+            "it": "Indirizzi KNX di temperatura",
+            "no": "Temperatur KNX adresser",
+            "sv": "Temperatur KNX adresser",
+            "pl": "Adresy KNX temperatury",
+            "ru": "Адреса KNX температуры",
+            "ko": "온도 KNX 주소"
+          },
+          "children": [
+            {
+              "id": "ga_temperature",
+              "type": "text",
+              "label": {
+                "en": "Temperature measurement address",
+                "nl": "Temperatuur meting adres",
+                "da": "Temperaturmålingsadresse",
+                "de": "Adresse der Temperaturmessung",
+                "es": "Dirección de medición de temperatura",
+                "fr": "Adresse de mesure de la température",
+                "it": "Indirizzo di misurazione della temperatura",
+                "no": "Temperaturmålingsadresse",
+                "sv": "Temperaturmätningsadress",
+                "pl": "Adres pomiaru temperatury",
+                "ru": "Адрес измерения температуры",
+                "ko": "온도 측정 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress for temperature (e.g., 3/0/3)",
+                "nl": "Vul groepadres voor temperatuur in (bijv. 3/0/3)",
+                "da": "Indtast gruppeadresse for temperatur (f.eks. 3/0/3)",
+                "de": "Gruppenadresse für Temperatur eingeben (z.B. 3/0/3)",
+                "es": "Ingrese la dirección de grupo para temperatura (ej. 3/0/3)",
+                "fr": "Entrez l'adresse de groupe pour la température (ex. 3/0/3)",
+                "it": "Inserisci l'indirizzo di gruppo per la temperatura (es. 3/0/3)",
+                "no": "Skriv inn gruppeadresse for temperatur (f.eks. 3/0/3)",
+                "sv": "Ange gruppadress för temperatur (t.ex. 3/0/3)",
+                "pl": "Wprowadź adres grupowy dla temperatury (np. 3/0/3)",
+                "ru": "Введите групповой адрес для температуры (напр. 3/0/3)",
+                "ko": "온도용 그룹 주소를 입력하세요 (예: 3/0/3)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network settings",
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på den krævede KNX IP interface",
+                "de": "MAC-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP necesaria para KNX",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnitt IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på den krævede KNX IP interface",
+                "de": "IP-Adresse der erforderlichen KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP necesaria para KNX",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adressen til det nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+              }
+            }
+          ]
+        }
+      ]
+    },
     {
       "images": {
         "large": "/drivers/knx_contact_sensor/assets/images/large.png",
@@ -4737,7 +5464,7 @@
         "ru": "Контроллер Комнаты (Мульти-Функциональная Панель)",
         "ko": "룸 컨트롤러 (다기능 패널)"
       },
-      "class": "thermostat",
+      "class": "sensor",
       "capabilities": [
         "onoff.button1",
         "onoff.button2",
@@ -4745,6 +5472,46 @@
         "measure_humidity"
       ],
       "capabilitiesOptions": {
+        "measure_temperature": {
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "da": "Temperatur",
+            "de": "Temperatur",
+            "es": "Temperatura",
+            "fr": "Température",
+            "it": "Temperatura",
+            "no": "Temperatur",
+            "sv": "Temperatur",
+            "pl": "Temperatura",
+            "ru": "Температура",
+            "ko": "온도"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": true
+        },
+        "measure_humidity": {
+          "title": {
+            "en": "Humidity",
+            "nl": "Vochtigheid",
+            "da": "Fugtighed",
+            "de": "Feuchtigkeit",
+            "es": "Humedad",
+            "fr": "Humidité",
+            "it": "Umidità",
+            "no": "Fuktighet",
+            "sv": "Luftfuktighet",
+            "pl": "Wilgotność",
+            "ru": "Влажность",
+            "ko": "습도"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": true
+        },
         "onoff.button1": {
           "title": {
             "en": "Button 1",
@@ -5175,13 +5942,13 @@
         "ru": "Контроллер Комнаты 6-Кнопок (Мульти-Функциональная Панель)",
         "ko": "룸 컨트롤러 6-버튼 (다기능 패널)"
       },
-      "class": "thermostat",
+      "class": "sensor",
       "capabilities": [
         "onoff.button1",
-        "onoff.button3",
-        "onoff.button5",
         "onoff.button2",
+        "onoff.button3",
         "onoff.button4",
+        "onoff.button5",
         "onoff.button6",
         "measure_temperature"
       ],
@@ -5293,6 +6060,26 @@
           },
           "uiComponent": "button",
           "uiQuickAction": true
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "da": "Temperatur",
+            "de": "Temperatur",
+            "es": "Temperatura",
+            "fr": "Température",
+            "it": "Temperatura",
+            "no": "Temperatur",
+            "sv": "Temperatur",
+            "pl": "Temperatura",
+            "ru": "Температура",
+            "ko": "온도"
+          },
+          "chartType": "spline",
+          "decimals": 1,
+          "insights": true,
+          "uiIndicator": true
         }
       },
       "settings": [

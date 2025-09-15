@@ -480,6 +480,42 @@
 			</div>
 		</div>
 	</fieldset>
+	<fieldset id="knx-sensor-fieldset" style="display: none">
+		<div class="knx-sensor field row">
+			<div class="knx-entry">
+				<label for="sensor_address" class="left">Sensor address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="sensor_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="sensor_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+		</div>
+	</fieldset>
+	<fieldset id="knx-auro-fieldset" style="display: none">
+		<div class="knx-auro field row">
+			<div class="knx-entry">
+				<label for="auro_motion_address" class="left">Motion address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="auro_motion_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="auro_motion_address" type="text" class="knx-text" placeholder="e.g. 3/0/1" />
+			</div>
+			<div class="knx-entry">
+				<label for="auro_luminance_address" class="left">Luminance address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="auro_luminance_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="auro_luminance_address" type="text" class="knx-text" placeholder="e.g. 3/0/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="auro_temperature_address" class="left">Temperature address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="auro_temperature_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="auro_temperature_address" type="text" class="knx-text" placeholder="e.g. 3/0/3" />
+			</div>
+		</div>
+	</fieldset>
 	<fieldset id="knx-learnmode-fieldset" style="display: none">
 		<label id="learnmode_label" data-i18n="settings.learnmode.explanation"></label>
 		<div class="knx-entry">
@@ -575,6 +611,10 @@
       case 'room_controller_6btn':
         console.log('device is a room_controller_6btn');
         $('#knx-room-controller-6btn-fieldset').css('display', 'block');
+        break;
+      case 'auro':
+        console.log('device is an auro sensor');
+        $('#knx-auro-fieldset').css('display', 'block');
         break;
     }
   }
@@ -786,6 +826,15 @@
             'ga_button6_switch': $('#btn6_switch_address').val(),
             'ga_button6_feedback': $('#btn6_feedback_address').val(),
             'ga_temperature': $('#temp6btn_address').val(),
+            'macAddress': interfaceMAC,
+          };
+          break;
+        case 'auro':
+          device.name = 'KNX Auro Sensor';
+          device.settings = {
+            'ga_luminance': $('#auro_luminance_address').val(),
+            'ga_motion': $('#auro_motion_address').val(),
+            'ga_temperature': $('#auro_temperature_address').val(),
             'macAddress': interfaceMAC,
           };
           break;

@@ -24,9 +24,9 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
     const settings = this.getSettings();
     this.log('🔥 KNX Event received:', { groupaddress, data });
 
-    // Handle Button 1 events
+    // Handle Button 1 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button1_feedback || 
-        (groupaddress === settings.ga_button1_switch && !settings.ga_button1_feedback)) {
+        groupaddress === settings.ga_button1_switch) {
       this.log('🔘 Processing Button 1 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button1', value).catch(this.error);
@@ -34,9 +34,9 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
       return;
     }
 
-    // Handle Button 2 events  
+    // Handle Button 2 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button2_feedback || 
-        (groupaddress === settings.ga_button2_switch && !settings.ga_button2_feedback)) {
+        groupaddress === settings.ga_button2_switch) {
       this.log('🔘 Processing Button 2 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button2', value).catch(this.error);
@@ -44,9 +44,9 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
       return;
     }
 
-    // Handle Button 3 events  
+    // Handle Button 3 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button3_feedback || 
-        (groupaddress === settings.ga_button3_switch && !settings.ga_button3_feedback)) {
+        groupaddress === settings.ga_button3_switch) {
       this.log('🔘 Processing Button 3 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button3', value).catch(this.error);
@@ -54,9 +54,9 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
       return;
     }
 
-    // Handle Button 4 events  
+    // Handle Button 4 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button4_feedback || 
-        (groupaddress === settings.ga_button4_switch && !settings.ga_button4_feedback)) {
+        groupaddress === settings.ga_button4_switch) {
       this.log('🔘 Processing Button 4 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button4', value).catch(this.error);
@@ -64,9 +64,9 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
       return;
     }
 
-    // Handle Button 5 events  
+    // Handle Button 5 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button5_feedback || 
-        (groupaddress === settings.ga_button5_switch && !settings.ga_button5_feedback)) {
+        groupaddress === settings.ga_button5_switch) {
       this.log('🔘 Processing Button 5 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button5', value).catch(this.error);
@@ -74,9 +74,9 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
       return;
     }
 
-    // Handle Button 6 events  
+    // Handle Button 6 events (listen to BOTH switch and feedback addresses)
     if (groupaddress === settings.ga_button6_feedback || 
-        (groupaddress === settings.ga_button6_switch && !settings.ga_button6_feedback)) {
+        groupaddress === settings.ga_button6_switch) {
       this.log('🔘 Processing Button 6 event');
       const value = DatapointTypeParser.bitFormat(data);
       this.setCapabilityValue('onoff.button6', value).catch(this.error);
@@ -98,9 +98,8 @@ class KNXRoomController6BtnDevice extends KNXGenericSensor {
       return;
     }
 
-
-    // Only call parent for logging, but don't let it process our sensor events
-    this.log('received', groupaddress, data);
+    // Log unhandled events
+    this.log('⚠️ Unhandled KNX event:', groupaddress, data);
   }
 
   // Override to add all our subscriptions

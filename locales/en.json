@@ -94,6 +94,9 @@
         "pair": {
             "room_controller": {
                 "name": "Room Controller (Multi-Function Panel)"
+            },
+            "auro": {
+                "name": "Auro Sensor (Luminance, Motion & Temperature)"
             }
         }
     },

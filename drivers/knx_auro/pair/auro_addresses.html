@@ -1,0 +1,160 @@
+<style type="text/css">
+    .knx-wrap fieldset select,
+    .knx-wrap fieldset input[type="text"] {
+        max-width: 200px;
+        /*float: right;*/
+        margin-left: 0.4em;
+    }
+
+    .knx-wrap fieldset .row label {
+        width: auto;
+    }
+
+    .knx-wrap fieldset input[type="text"],
+    .knx-wrap fieldset input[type="number"]	{
+        max-width: 70px;
+    }
+
+    .knx-wrap fieldset select {
+        display: none;
+    }
+
+    .knx-wrap .knx-entry {
+        overflow: hidden;
+    }
+
+    .knx-wrap .knx-entry:not(:last-child) {
+        padding-bottom: 0.4em;
+    }
+
+    .knx-wrap .margin-top {
+        margin-top: 10px;
+    }
+</style>
+<!-- WARNING: class knx-text needs to be below the class knx-dropdown otherwise the dropdown does not work -->
+<div class="knx-wrap" id="ga_input">
+	<p data-i18n="settings.groupaddresses.body">
+	</p>
+	<fieldset id="knx-auro-fieldset" style="display: block">
+		<div class="knx-auro field row">
+			<div class="knx-entry">
+				<label for="auro_motion_address" class="left">Motion address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="auro_motion_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="auro_motion_address" type="text" class="knx-text" placeholder="e.g. 3/0/1" />
+			</div>
+			<div class="knx-entry">
+				<label for="auro_luminance_address" class="left">Luminance address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="auro_luminance_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="auro_luminance_address" type="text" class="knx-text" placeholder="e.g. 3/0/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="auro_temperature_address" class="left">Temperature address:</label>
+			</div>
+			<div class="knx-entry">
+				<select id="auro_temperature_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="auro_temperature_address" type="text" class="knx-text" placeholder="e.g. 3/0/3" />
+			</div>
+		</div>
+	</fieldset>
+	<p id="xmltext" data-i18n="settings.projectfile.newxml.explanation"></p>
+	<button id="save_button" class="right" data-i18n="settings.groupaddresses.save"></button>
+</div>
+<script>
+  Homey.setTitle(Homey.__('settings.groupaddresses.body'));
+  // Global variables
+  var deviceType = 'auro';
+  var deviceUuid; //const?
+  var interfaceMAC;
+  var groupAddresses;
+
+  Homey.emit('return_selected_interface')
+    .then(function (macAddress) {
+      interfaceMAC = macAddress;
+    })
+    .catch(function (error) {
+      Homey.alert(error);
+    });
+
+  Homey.emit('get_uuid')
+    .then(function (uuid) {
+      console.log(uuid); // result is: Hello!, function (error, uuid) {
+      deviceUuid = uuid;
+    });
+
+  // Helper functions
+  function listGroupAddressesDropdown(selectItem, filter) {
+    selectItem.append('<option value="">' + Homey.__('settings.groupaddresses.select') + '</option>');
+    groupAddresses.forEach(function (etsEntry) {
+      var optionEl = document.createElement('option');
+      optionEl.value = etsEntry.address;
+      optionEl.textContent = etsEntry.name + Homey.__('settings.groupaddresses.pairing_list') + etsEntry.address;
+      $(selectItem).append(optionEl);
+    });
+    $(selectItem).toggle(!!groupAddresses.length);
+  }
+
+  $('.knx-dropdown').on('change', function () {
+    var value = $(this).val();
+    $(this).next('.knx-text').val(value);
+  });
+
+  $('#save_button').on('click', function () {
+    if (interfaceMAC) {
+      console.log('Saving this device');
+
+      var device = {
+        data: {
+          id: deviceUuid,
+        },
+        name: 'KNX Auro Sensor',
+        settings: {
+          'ga_motion': $('#auro_motion_address').val(),
+          'ga_luminance': $('#auro_luminance_address').val(),
+          'ga_temperature': $('#auro_temperature_address').val(),
+          'macAddress': interfaceMAC,
+        },
+      };
+
+      Homey.createDevice(device)
+        .then(function () {
+          Homey.done();
+        })
+        .catch(function (error) {
+          Homey.alert(error);
+        });
+    }
+    else {
+      Homey.alert(Homey.__('errors.save_error'), Homey.__('errors.ip.interface_not_selected'));
+    }
+  });
+
+  // Check if there are uploaded groupaddresses available
+  Homey.emit('list_etsimport', function (error, groupAddressList) {
+    if (error) {
+      console.log('ets error', error.message, error.toString());
+      return Homey.alert(Homey.__('errors.generic_error'), error.message || error.toString());
+    }
+
+    if (groupAddressList && groupAddressList.length > 0) {
+      groupAddresses = groupAddressList;
+      var $span = $('<span />').html(Homey.__('settings.projectfile.existingxml.title'));
+      $('#xmltext').html($span);
+
+      $('.knx-dropdown').each(function () {
+        listGroupAddressesDropdown($(this));
+      });
+    }
+
+    var $a = $('<a href="#">' + Homey.__('settings.projectfile.upload') + '</a>');
+    $a.click(function (e) {
+      e.preventDefault();
+      Homey.showView('parse_knxproj');
+      return false;
+    });
+    $a.appendTo($('#xmltext'));
+  });
+</script>
