@@ -149,9 +149,7 @@ class KNXRGB extends KNXGenericDevice {
     const dim = value ? this.getCapabilityValue('dim') : 0;
 
     // We are not setting the rgb toggles here because else the color will always be set to full white
-    this.onCapabilityHSV({ dim });
-
-    return null;
+    return this.onCapabilityHSV({ dim });
   }
 
   /**
