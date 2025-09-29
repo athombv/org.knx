@@ -68,5 +68,8 @@
   },
   "1.4.0": {
     "en": "Add HVAC options to thermostat and multiple other small features"
+  },
+  "1.4.1": {
+    "en": "Fixes in DPT parsing"
   }
 }

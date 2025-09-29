@@ -143,6 +143,12 @@ class KNXApp extends Homey.App {
             tokens.value_string = value.toISOString();
             tokens.value_number = value.getTime();
             tokens.value_bool = true;
+          } else if (value.scenenumber !== undefined) {
+            // DPT 18 values are parsed as object and contain two properties
+            // save_recall and scenenumber. We ignore the save_recall and assume this is just used to recall a scene
+            tokens.value_string = value.scenenumber.toString();
+            tokens.value_number = value.scenenumber;
+            tokens.value_bool = value.scenenumber > 0;
           }
       }
 
