@@ -203,7 +203,6 @@ class KNXThermostat extends KNXGenericDevice {
     this.knxInterface.readKNXGroupAddress(operatingModeStatusAddress)
       .catch((knxerror) => {
         this.error(knxerror);
-        throw new Error(this.homey.__('errors.hvac_operating_mode_get_failed'));
       });
   }
 
@@ -223,7 +222,6 @@ class KNXThermostat extends KNXGenericDevice {
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
       .catch((knxerror) => {
         this.error(knxerror);
-        throw new Error(this.homey.__('errors.fan_speed_set_failed'));
       });
   }
 
@@ -243,7 +241,6 @@ class KNXThermostat extends KNXGenericDevice {
     return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
       .catch((knxerror) => {
         this.error(knxerror);
-        throw new Error(this.homey.__('errors.fan_auto_mode_set_failed'));
       });
   }
 

@@ -71,5 +71,8 @@
   },
   "1.4.1": {
     "en": "Fixes in DPT parsing"
+  },
+  "1.4.2": {
+    "en": "Fixed issues causing app to crash"
   }
 }
