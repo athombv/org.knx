@@ -29,7 +29,20 @@
       "id": "select_groupaddresses",
       "$template": "select_groupaddresses",
       "options": {
-        "devicetype": "sensor"
+        "devicetype": {
+          "en": "sensor",
+          "nl": "sensor",
+          "da": "sensor",
+          "de": "Sensor",
+          "es": "sensor",
+          "fr": "capteur",
+          "it": "sensore",
+          "no": "sensor",
+          "sv": "sensor",
+          "pl": "czujnik",
+          "ru": "датчик",
+          "ko": "센서"
+        }
       },
       "navigation": {
         "prev": "select_interface"

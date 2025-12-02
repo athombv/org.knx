@@ -1,6 +1,17 @@
 {
   "title": {
-    "en": "Disable fan auto mode"
+    "en": "Disable fan auto mode",
+    "nl": "Ventilator automatische modus uitschakelen",
+    "da": "Deaktiver blæserens automodus",
+    "de": "Lüfterautomatikmodus deaktivieren",
+    "es": "Desactivar modo automático del ventilador",
+    "fr": "Désactiver le mode auto du ventilateur",
+    "it": "Disattiva modalità automatica ventola",
+    "no": "Deaktiver vifte automatisk modus",
+    "sv": "Inaktivera fläktens automatikläge",
+    "pl": "Wyłącz tryb automatyczny wentylatora",
+    "ru": "Отключить автоматический режим вентилятора",
+    "ko": "팬 자동 모드 비활성화"
   },
   "args": [
     {

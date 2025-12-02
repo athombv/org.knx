@@ -1,7 +1,18 @@
 {
   "type": "string",
   "title": {
-    "en": "Marker capability for thermostats with fan speed step defined"
+    "en": "Marker capability for thermostats with fan speed step defined",
+    "nl": "Markeercapaciteit voor thermostaten met gedefinieerde ventilatorsnelheidstap",
+    "da": "Markørmulighed for termostater med defineret ventilatorhastighedstrin",
+    "de": "Markierungsfunktion für Thermostate mit definiertem Lüfterdrehzahlschritt",
+    "es": "Capacidad de marcador para termostatos con paso de velocidad del ventilador definido",
+    "fr": "Capacité de marqueur pour thermostats avec pas de vitesse de ventilateur défini",
+    "it": "Funzionalità di marcatore per termostati con step di velocità della ventola definito",
+    "no": "Markeringskapasitet for termostater med angitt viftehastighetstrinn",
+    "sv": "Markörkapacitet för termostater med definierat fläkthastighetssteg",
+    "pl": "Zdolność markerowania dla termostatów z zdefiniowanym krokiem prędkości wentylatora",
+    "ru": "Функция маркера для термостатов с определенной ступенью скорости вентилятора",
+    "ko": "팬 속도 스텝이 정의된 온도 조절기용 마커 기능"
   },
   "uiComponent": null,
   "getable": false,

@@ -1,13 +1,35 @@
 {
   "title": {
-    "en": "Fan speed changed"
+    "en": "Fan speed changed",
+    "nl": "Ventilatorsnelheid gewijzigd",
+    "da": "Blæserhastighed ændret",
+    "de": "Lüftergeschwindigkeit geändert",
+    "es": "Velocidad del ventilador cambiada",
+    "fr": "Vitesse du ventilateur modifiée",
+    "it": "Velocità della ventola cambiata",
+    "no": "Viftehastighet endret",
+    "sv": "Fläkthastighet ändrad",
+    "pl": "Prędkość wentylatora zmieniona",
+    "ru": "Скорость вентилятора изменена",
+    "ko": "팬 속도 변경"
   },
   "tokens": [
     {
       "name": "knx_fan_speed",
       "type": "number",
       "title": {
-        "en": "Speed"
+        "en": "Speed",
+        "nl": "Snelheid",
+        "da": "Hastighed",
+        "de": "Geschwindigkeit",
+        "es": "Velocidad",
+        "fr": "Vitesse",
+        "it": "Velocità",
+        "no": "Hastighet",
+        "sv": "Hastighet",
+        "pl": "Prędkość",
+        "ru": "Скорость",
+        "ko": "속도"
       },
       "example": 0.5
     }

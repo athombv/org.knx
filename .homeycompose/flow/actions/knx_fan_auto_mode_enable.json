@@ -1,6 +1,17 @@
 {
   "title": {
-    "en": "Enable fan auto mode"
+    "en": "Enable fan auto mode",
+    "nl": "Schakel ventilator automatische modus in",
+    "da": "Aktiver ventilator auto-tilstand",
+    "de": "Lüfter-Automatikmodus aktivieren",
+    "es": "Habilitar modo automático del ventilador",
+    "fr": "Activer le mode automatique du ventilateur",
+    "it": "Abilita la modalità automatica della ventola",
+    "no": "Aktiver vifte automatisk modus",
+    "sv": "Aktivera fläktens automatikläge",
+    "pl": "Włącz tryb automatyczny wentylatora",
+    "ru": "Включить автоматический режим вентилятора",
+    "ko": "팬 자동 모드 활성화"
   },
   "args": [
     {

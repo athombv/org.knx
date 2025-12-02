@@ -169,7 +169,17 @@
           "id": "ga_height",
           "type": "text",
           "label": {
-            "en": "Height address"
+            "en": "Height address",
+            "da": "Højde adresse",
+            "de": "Höhenadresse",
+            "es": "Dirección de altura",
+            "fr": "Adresse de hauteur",
+            "it": "Indirizzo di altezza",
+            "no": "Høydeadresse",
+            "sv": "Höjdadress",
+            "pl": "Adres wysokości",
+            "ru": "Адрес высоты",
+            "ko": "높이 주소"
           },
           "value": "",
           "hint": {
@@ -191,7 +201,17 @@
           "id": "ga_height_status",
           "type": "text",
           "label": {
-            "en": "Height status address"
+            "en": "Height status address",
+            "da": "Statusadresse for højde",
+            "de": "Höhenstatusadresse",
+            "es": "Dirección de estado de altura",
+            "fr": "Adresse de statut de hauteur",
+            "it": "Indirizzo di stato dell'altezza",
+            "no": "Høyde statusadresse",
+            "sv": "Höjdstatusadress",
+            "pl": "Adres stanu wysokości",
+            "ru": "Адрес статуса высоты",
+            "ko": "높이 상태 주소"
           },
           "value": "",
           "hint": {

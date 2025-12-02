@@ -1,59 +1,108 @@
 {
-    "type": "enum",
-    "title": {
-        "en": "Operating mode for heating, ventilation and air-conditioning",
-        "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation"
+  "type": "enum",
+  "title": {
+    "en": "Operating mode for heating, ventilation and air-conditioning",
+    "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation",
+    "nl": "Bedrijfsmodus voor verwarming, ventilatie en airconditioning",
+    "da": "Driftstilstand for opvarmning, ventilation og aircondition",
+    "de": "Betriebsmodus für Heizung, Lüftung und Klimaanlage",
+    "es": "Modo de funcionamiento para calefacción, ventilación y aire acondicionado",
+    "it": "Modalità di funzionamento per riscaldamento, ventilazione e aria condizionata",
+    "no": "Driftsmodus for oppvarming, ventilasjon og klimaanlegg",
+    "sv": "Driftläge för uppvärmning, ventilation och luftkonditionering",
+    "pl": "Tryb pracy dla ogrzewania, wentylacji i klimatyzacji",
+    "ru": "Режим работы для отопления, вентиляции и кондиционирования",
+    "ko": "난방, 환기 및 에어컨 작동 모드"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "uiQuickAction": true,
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Automatic",
+        "nl": "Automatisch",
+        "de": "Automatisch",
+        "fr": "Automatique",
+        "it": "Automatica",
+        "sv": "Automatiskt",
+        "no": "Automatisk",
+        "es": "Automático",
+        "da": "Automatisk",
+        "ru": "Автоматически",
+        "pl": "Automatyczny",
+        "ko": "자동"
+      }
     },
-    "getable": true,
-    "setable": true,
-    "uiComponent": "picker",
-    "uiQuickAction": true,
-    "values": [
-        {
-            "id": "0",
-            "title": {
-                "en": "Automatic",
-                "nl": "Automatisch",
-                "de": "Automatisch",
-                "fr": "Automatique",
-                "it": "Automatica",
-                "sv": "Automatiskt",
-                "no": "Automatisk",
-                "es": "Automático",
-                "da": "Automatisk",
-                "ru": "Автоматически",
-                "pl": "Automatyczny",
-                "ko": "자동"
-            }
-        },
-        {
-            "id": "1",
-            "title": {
-                "en": "Comfort",
-                "fr": "Confort"
-            }
-        },
-        {
-            "id": "2",
-            "title": {
-                "en": "Standby / Absence",
-                "fr": "Veille / Absence"
-            }
-        },
-        {
-            "id": "3",
-            "title": {
-                "en": "Economy / Night",
-                "fr": "Economie / Nuit"
-
-            }
-        },
-        {
-            "id": "4",
-            "title": {
-                "en": "Building protection",
-                "fr": "Protection du bâtiment / Hors gel"
-            }
-        }
-    ]
+    {
+      "id": "1",
+      "title": {
+        "en": "Comfort",
+        "fr": "Confort",
+        "nl": "Comfort",
+        "da": "Komfort",
+        "de": "Komfort",
+        "es": "Confort",
+        "it": "Comfort",
+        "no": "Komfort",
+        "sv": "Komfort",
+        "pl": "Komfort",
+        "ru": "Комфорт",
+        "ko": "편안함"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Standby / Absence",
+        "fr": "Veille / Absence",
+        "nl": "Standby / Afwezig",
+        "da": "Standby / Fravær",
+        "de": "Standby / Abwesenheit",
+        "es": "Espera / Ausencia",
+        "it": "Standby / Assenza",
+        "no": "Standby / Fravær",
+        "sv": "Standby / Frånvaro",
+        "pl": "Czuwanie / Nieobecność",
+        "ru": "Ожидание / Отсутствие",
+        "ko": "대기 / 부재"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Economy / Night",
+        "fr": "Economie / Nuit",
+        "nl": "Economie / Nacht",
+        "da": "Økonomi / Nat",
+        "de": "Sparmodus / Nacht",
+        "es": "Económico / Noche",
+        "it": "Economico / Notte",
+        "no": "Økonomi / Natt",
+        "sv": "Ekonomi / Natt",
+        "pl": "Oszczędność / Noc",
+        "ru": "Экономия / Ночь",
+        "ko": "절약 / 야간"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Building protection",
+        "fr": "Protection du bâtiment / Hors gel",
+        "nl": "Gebouwbescherming",
+        "da": "Bygningsbeskyttelse",
+        "de": "Gebäudeschutz",
+        "es": "Protección del edificio",
+        "it": "Protezione dell'edificio",
+        "no": "Bygningsbeskyttelse",
+        "sv": "Byggnadsskydd",
+        "pl": "Ochrona budynku",
+        "ru": "Защита здания",
+        "ko": "건물 보호"
+      }
+    }
+  ]
 }

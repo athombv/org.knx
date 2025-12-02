@@ -55,11 +55,31 @@
       {
         "title": {
           "en": "Operating mode changed",
-          "fr": "Mode de fonctionnement changé"
+          "fr": "Mode de fonctionnement changé",
+          "nl": "Bedrijfsmodus gewijzigd",
+          "da": "Driftstilstand ændret",
+          "de": "Betriebsmodus geändert",
+          "es": "Modo de funcionamiento cambiado",
+          "it": "Modalità operativa cambiata",
+          "no": "Driftsmodus endret",
+          "sv": "Driftläge ändrat",
+          "pl": "Tryb działania zmieniony",
+          "ru": "Режим работы изменен",
+          "ko": "작동 모드 변경됨"
         },
         "titleFormatted": {
           "en": "Operating mode changed to [[hvac_operating_mode]]",
-          "fr": "Mode de fonctionnement changé à [[hvac_operating_mode]]"
+          "fr": "Mode de fonctionnement changé à [[hvac_operating_mode]]",
+          "nl": "Bedrijfsmodus gewijzigd naar [[hvac_operating_mode]]",
+          "da": "Driftstilstand ændret til [[hvac_operating_mode]]",
+          "de": "Betriebsmodus geändert zu [[hvac_operating_mode]]",
+          "es": "Modo de funcionamiento cambiado a [[hvac_operating_mode]]",
+          "it": "Modalità operativa cambiata in [[hvac_operating_mode]]",
+          "no": "Driftsmodus endret til [[hvac_operating_mode]]",
+          "sv": "Driftläge ändrat till [[hvac_operating_mode]]",
+          "pl": "Tryb działania zmieniony na [[hvac_operating_mode]]",
+          "ru": "Режим работы изменен на [[hvac_operating_mode]]",
+          "ko": "[[hvac_operating_mode]]로 작동 모드 변경됨"
         },
         "args": [
           {
@@ -72,7 +92,17 @@
             "type": "dropdown",
             "title": {
               "en": "Operating mode",
-              "fr": "Mode de fonctionnement"
+              "fr": "Mode de fonctionnement",
+              "nl": "Bedrijfsmodus",
+              "da": "Driftsindstilling",
+              "de": "Betriebsmodus",
+              "es": "Modo de funcionamiento",
+              "it": "Modalità operativa",
+              "no": "Driftsmodus",
+              "sv": "Driftläge",
+              "pl": "Tryb działania",
+              "ru": "Режим работы",
+              "ko": "작동 모드"
             },
             "values": [
               {
@@ -102,28 +132,68 @@
                 "id": "1",
                 "title": {
                   "en": "Comfort",
-                  "fr": "Confort"
+                  "fr": "Confort",
+                  "nl": "Comfort",
+                  "da": "Komfort",
+                  "de": "Komfort",
+                  "es": "Confort",
+                  "it": "Comfort",
+                  "no": "Komfort",
+                  "sv": "Komfort",
+                  "pl": "Komfort",
+                  "ru": "Комфорт",
+                  "ko": "편안함"
                 }
               },
               {
                 "id": "2",
                 "title": {
                   "en": "Standby / Absence",
-                  "fr": "Veille / Absence"
+                  "fr": "Veille / Absence",
+                  "nl": "Standby / Afwezig",
+                  "da": "Standby / Fravær",
+                  "de": "Standby / Abwesenheit",
+                  "es": "En espera / Ausencia",
+                  "it": "Standby / Assente",
+                  "no": "Standby / Fravær",
+                  "sv": "Standby / Frånvaro",
+                  "pl": "Tryb czuwania / Nieobecność",
+                  "ru": "Ожидание / Отсутствие",
+                  "ko": "대기 / 부재중"
                 }
               },
               {
                 "id": "3",
                 "title": {
                   "en": "Economy / Night",
-                  "fr": "Economie / Nuit"
+                  "fr": "Economie / Nuit",
+                  "nl": "Eco / Nacht",
+                  "da": "Økonomi / Nat",
+                  "de": "Spar / Nacht",
+                  "es": "Ahorro / Noche",
+                  "it": "Economia / Notte",
+                  "no": "Økonomi / Natt",
+                  "sv": "Ekonomi / Natt",
+                  "pl": "Ekonomia / Noc",
+                  "ru": "Эконом / Ночь",
+                  "ko": "절약 / 야간"
                 }
               },
               {
                 "id": "4",
                 "title": {
                   "en": "Building protection",
-                  "fr": "Protection du bâtiment / Hors gel"
+                  "fr": "Protection du bâtiment / Hors gel",
+                  "nl": "Gebouwbescherming",
+                  "da": "Bygningsbeskyttelse",
+                  "de": "Gebäudeschutz",
+                  "es": "Protección del edificio",
+                  "it": "Protezione dell'edificio",
+                  "no": "Bygningsbeskyttelse",
+                  "sv": "Byggnadsskydd",
+                  "pl": "Ochrona budynku",
+                  "ru": "Защита здания",
+                  "ko": "건물 보호"
                 }
               }
             ]
@@ -133,7 +203,18 @@
       },
       {
         "title": {
-          "en": "Fan auto mode disabled"
+          "en": "Fan auto mode disabled",
+          "nl": "Ventilator automatische modus uitgeschakeld",
+          "da": "Ventilatorens automode deaktiveret",
+          "de": "Lüfter-Automatikmodus deaktiviert",
+          "es": "Modo automático del ventilador desactivado",
+          "fr": "Mode automatique du ventilateur désactivé",
+          "it": "Modalità automatica della ventola disabilitata",
+          "no": "Vifte automatisk modus deaktivert",
+          "sv": "Fläktens automatiska läge avaktiverat",
+          "pl": "Automatyczny tryb wentylatora wyłączony",
+          "ru": "Автоматический режим вентилятора отключен",
+          "ko": "팬 자동 모드 비활성화됨"
         },
         "args": [
           {
@@ -146,7 +227,18 @@
       },
       {
         "title": {
-          "en": "Fan auto mode enabled"
+          "en": "Fan auto mode enabled",
+          "nl": "Ventilator automatische modus ingeschakeld",
+          "da": "Fan automatisk tilstand aktiveret",
+          "de": "Lüfterautomatikmodus aktiviert",
+          "es": "Modo automático del ventilador habilitado",
+          "fr": "Mode auto du ventilateur activé",
+          "it": "Modalità automatica della ventola abilitata",
+          "no": "Vifte automatisk modus aktivert",
+          "sv": "Fläktens automatiska läge aktiverat",
+          "pl": "Tryb automatyczny wentylatora włączony",
+          "ru": "Автоматический режим вентилятора включен",
+          "ko": "팬 자동 모드 활성화됨"
         },
         "args": [
           {
@@ -159,14 +251,36 @@
       },
       {
         "title": {
-          "en": "Fan speed changed"
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid gewijzigd",
+          "da": "Blæserhastighed ændret",
+          "de": "Lüftergeschwindigkeit geändert",
+          "es": "Velocidad del ventilador cambiada",
+          "fr": "Vitesse du ventilateur modifiée",
+          "it": "Velocità della ventola cambiata",
+          "no": "Viftehastighet endret",
+          "sv": "Fläkthastighet ändrad",
+          "pl": "Prędkość wentylatora zmieniona",
+          "ru": "Скорость вентилятора изменена",
+          "ko": "팬 속도 변경"
         },
         "tokens": [
           {
             "name": "knx_fan_speed",
             "type": "number",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도"
             },
             "example": 0.5
           }
@@ -182,14 +296,36 @@
       },
       {
         "title": {
-          "en": "Fan speed changed"
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid gewijzigd",
+          "da": "Blæserhastighed ændret",
+          "de": "Lüftergeschwindigkeit geändert",
+          "es": "Velocidad del ventilador cambiada",
+          "fr": "Vitesse du ventilateur modifiée",
+          "it": "Velocità della ventola modificata",
+          "no": "Viftehastighet endret",
+          "sv": "Fläkthastighet ändrad",
+          "pl": "Prędkość wentylatora zmieniona",
+          "ru": "Скорость вентилятора изменена",
+          "ko": "팬 속도 변경됨"
         },
         "tokens": [
           {
             "name": "knx_fan_speed",
             "type": "number",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도"
             },
             "example": 2
           }
@@ -558,7 +694,18 @@
     "actions": [
       {
         "title": {
-          "en": "Disable fan auto mode"
+          "en": "Disable fan auto mode",
+          "nl": "Ventilator automatische modus uitschakelen",
+          "da": "Deaktiver blæserens automodus",
+          "de": "Lüfterautomatikmodus deaktivieren",
+          "es": "Desactivar modo automático del ventilador",
+          "fr": "Désactiver le mode auto du ventilateur",
+          "it": "Disattiva modalità automatica ventola",
+          "no": "Deaktiver vifte automatisk modus",
+          "sv": "Inaktivera fläktens automatikläge",
+          "pl": "Wyłącz tryb automatyczny wentylatora",
+          "ru": "Отключить автоматический режим вентилятора",
+          "ko": "팬 자동 모드 비활성화"
         },
         "args": [
           {
@@ -571,7 +718,18 @@
       },
       {
         "title": {
-          "en": "Enable fan auto mode"
+          "en": "Enable fan auto mode",
+          "nl": "Schakel ventilator automatische modus in",
+          "da": "Aktiver ventilator auto-tilstand",
+          "de": "Lüfter-Automatikmodus aktivieren",
+          "es": "Habilitar modo automático del ventilador",
+          "fr": "Activer le mode automatique du ventilateur",
+          "it": "Abilita la modalità automatica della ventola",
+          "no": "Aktiver vifte automatisk modus",
+          "sv": "Aktivera fläktens automatikläge",
+          "pl": "Włącz tryb automatyczny wentylatora",
+          "ru": "Включить автоматический режим вентилятора",
+          "ko": "팬 자동 모드 활성화"
         },
         "args": [
           {
@@ -584,10 +742,32 @@
       },
       {
         "title": {
-          "en": "Set fan speed"
+          "en": "Set fan speed",
+          "nl": "Stel ventilatorsnelheid in",
+          "da": "Indstil blæserhastighed",
+          "de": "Gebläsegeschwindigkeit einstellen",
+          "es": "Configurar velocidad del ventilador",
+          "fr": "Régler la vitesse du ventilateur",
+          "it": "Imposta velocità ventola",
+          "no": "Angi viftehastighet",
+          "sv": "Ställ in fläkthastighet",
+          "pl": "Ustaw prędkość wentylatora",
+          "ru": "Установить скорость вентилятора",
+          "ko": "팬 속도 설정"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[speed]]"
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Stel ventilatorsnelheid in op [[speed]]",
+          "da": "Indstil blæserhastighed til [[speed]]",
+          "de": "Gebläsegeschwindigkeit auf [[speed]] einstellen",
+          "es": "Configurar velocidad del ventilador a [[speed]]",
+          "fr": "Régler la vitesse du ventilateur sur [[speed]]",
+          "it": "Imposta la velocità della ventola a [[speed]]",
+          "no": "Sett viftehastighet til [[speed]]",
+          "sv": "Ställ in fläkthastighet till [[speed]]",
+          "pl": "Ustaw prędkość wentylatora na [[speed]]",
+          "ru": "Установить скорость вентилятора на [[speed]]",
+          "ko": "팬 속도를 [[speed]]로 설정"
         },
         "args": [
           {
@@ -599,7 +779,18 @@
             "name": "speed",
             "type": "range",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도"
             },
             "min": 0,
             "max": 1,
@@ -613,10 +804,32 @@
       },
       {
         "title": {
-          "en": "Set fan speed"
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen",
+          "da": "Indstil blæserhastighed",
+          "de": "Lüftergeschwindigkeit einstellen",
+          "es": "Establecer velocidad del ventilador",
+          "fr": "Régler la vitesse du ventilateur",
+          "it": "Imposta velocità ventola",
+          "no": "Sett viftehastighet",
+          "sv": "Ställ in fläkthastighet",
+          "pl": "Ustaw prędkość wentylatora",
+          "ru": "Установить скорость вентилятора",
+          "ko": "팬 속도 설정"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[speed]]"
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Ventilatorsnelheid instellen op [[speed]]",
+          "da": "Indstil blæserhastighed til [[speed]]",
+          "de": "Lüftergeschwindigkeit auf [[speed]] einstellen",
+          "es": "Establecer velocidad del ventilador a [[speed]]",
+          "fr": "Régler la vitesse du ventilateur à [[speed]]",
+          "it": "Imposta la velocità della ventola a [[speed]]",
+          "no": "Sett viftehastighet til [[speed]]",
+          "sv": "Ställ in fläkthastighet till [[speed]]",
+          "pl": "Ustaw prędkość wentylatora na [[speed]]",
+          "ru": "Установить скорость вентилятора на [[speed]]",
+          "ko": "팬 속도를 [[speed]]로 설정"
         },
         "args": [
           {
@@ -628,7 +841,18 @@
             "name": "speed",
             "type": "autocomplete",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도"
             }
           }
         ],
@@ -935,11 +1159,31 @@
         "id": "change_hvac_mode",
         "title": {
           "en": "Change HVAC mode",
-          "fr": "Change le mode de fonctionnement HVAC"
+          "fr": "Change le mode de fonctionnement HVAC",
+          "nl": "Wijzig HVAC-modus",
+          "da": "Skift HVAC-tilstand",
+          "de": "HVAC-Modus ändern",
+          "es": "Cambiar el modo del HVAC",
+          "it": "Cambia modalità HVAC",
+          "no": "Endre HVAC-modus",
+          "sv": "Ändra HVAC-läge",
+          "pl": "Zmień tryb HVAC",
+          "ru": "Изменить режим HVAC",
+          "ko": "HVAC 모드 변경"
         },
         "titleFormatted": {
           "en": "Change mode to [[mode]]",
-          "fr": "Changer le mode à [[mode]]"
+          "fr": "Changer le mode à [[mode]]",
+          "nl": "Wijzig modus naar [[mode]]",
+          "da": "Skift tilstand til [[mode]]",
+          "de": "Modus ändern zu [[mode]]",
+          "es": "Cambiar modo a [[mode]]",
+          "it": "Cambia modalità in [[mode]]",
+          "no": "Endre modus til [[mode]]",
+          "sv": "Ändra läge till [[mode]]",
+          "pl": "Zmień tryb na [[mode]]",
+          "ru": "Изменить режим на [[mode]]",
+          "ko": "[[mode]]로 모드 변경"
         },
         "args": [
           {
@@ -951,7 +1195,18 @@
             "name": "mode",
             "type": "dropdown",
             "title": {
-              "en": "Mode"
+              "en": "Mode",
+              "nl": "Modus",
+              "da": "Tilstand",
+              "de": "Modus",
+              "es": "Modo",
+              "fr": "Mode",
+              "it": "Modalità",
+              "no": "Modus",
+              "sv": "Läge",
+              "pl": "Tryb",
+              "ru": "Режим",
+              "ko": "모드"
             },
             "values": [
               {
@@ -975,28 +1230,68 @@
                 "id": "1",
                 "title": {
                   "en": "Comfort",
-                  "fr": "Confort"
+                  "fr": "Confort",
+                  "nl": "Comfort",
+                  "da": "Komfort",
+                  "de": "Komfort",
+                  "es": "Confort",
+                  "it": "Comfort",
+                  "no": "Komfort",
+                  "sv": "Komfort",
+                  "pl": "Komfort",
+                  "ru": "Комфорт",
+                  "ko": "편안함"
                 }
               },
               {
                 "id": "2",
                 "title": {
                   "en": "Standby / Absence",
-                  "fr": "Veille / Absence"
+                  "fr": "Veille / Absence",
+                  "nl": "Stand-by / Afwezig",
+                  "da": "Standby / Fravær",
+                  "de": "Standby / Abwesenheit",
+                  "es": "Espera / Ausencia",
+                  "it": "Standby / Assente",
+                  "no": "Standby / Fravær",
+                  "sv": "Standby / Frånvaro",
+                  "pl": "Czuwanie / Nieobecność",
+                  "ru": "Режим ожидания / Отсутствие",
+                  "ko": "대기 / 부재"
                 }
               },
               {
                 "id": "3",
                 "title": {
                   "en": "Economy / Night",
-                  "fr": "Economie / Nuit"
+                  "fr": "Economie / Nuit",
+                  "nl": "Eco / Nacht",
+                  "da": "Økonomi / Nat",
+                  "de": "Sparmodus / Nacht",
+                  "es": "Economía / Noche",
+                  "it": "Economia / Notte",
+                  "no": "Økonomi / Natt",
+                  "sv": "Ekonomi / Natt",
+                  "pl": "Ekonomiczny / Nocny",
+                  "ru": "Эконом / Ночной",
+                  "ko": "경제 / 야간"
                 }
               },
               {
                 "id": "4",
                 "title": {
                   "en": "Building protection",
-                  "fr": "Protection du bâtiment / Hors gel"
+                  "fr": "Protection du bâtiment / Hors gel",
+                  "nl": "Gebouwenbescherming",
+                  "da": "Bygningsbeskyttelse",
+                  "de": "Gebäudeschutz",
+                  "es": "Protección del edificio",
+                  "it": "Protezione dell'edificio",
+                  "no": "Bygningsbeskyttelse",
+                  "sv": "Byggnadsskydd",
+                  "pl": "Ochrona budynku",
+                  "ru": "Защита здания",
+                  "ko": "건물 보호"
                 }
               }
             ]
@@ -1034,7 +1329,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -1044,7 +1352,17 @@
       "id": "knx_contact_sensor",
       "name": {
         "en": "Contact Sensor",
-        "fr": "Capteur de contact"
+        "fr": "Capteur de contact",
+        "nl": "Contactsensor",
+        "da": "Kontakt sensor",
+        "de": "Kontaktsensor",
+        "es": "Sensor de contacto",
+        "it": "Sensore di contatto",
+        "no": "Kontaktsensor",
+        "sv": "Kontaktsensor",
+        "pl": "Czujnik kontaktowy",
+        "ru": "Датчик контакта",
+        "ko": "접촉 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -1966,7 +2284,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -2160,7 +2491,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -2168,7 +2512,17 @@
         }
       ],
       "name": {
-        "en": "Electric Energy Measuring Sensor"
+        "en": "Electric Energy Measuring Sensor",
+        "da": "Elektrisk energimålingssensor",
+        "de": "Elektrischer Energiemesssensor",
+        "es": "Sensor de medida de energía eléctrica",
+        "fr": "Capteur de mesure d'énergie électrique",
+        "it": "Sensore di misurazione dell'energia elettrica",
+        "no": "Elektrisk energimålingssensor",
+        "sv": "Elektrisk energimätarsensor",
+        "pl": "Czujnik pomiaru energii elektrycznej",
+        "ru": "Датчик измерения электрической энергии",
+        "ko": "전기 에너지 측정 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -2343,7 +2697,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -2354,13 +2721,13 @@
       "name": {
         "en": "Humidity Sensor",
         "nl": "Vochtigheids sensor",
-        "da": "Feuchtigkeitssensor",
+        "da": "Fugtighedssensor",
         "de": "Feuchtigkeitssensor",
-        "es": "Sensor de umidade",
+        "es": "Sensor de humedad",
         "fr": "Capteur d'humidité",
         "it": "Sensore di umidità",
-        "no": "Feuchtigkeitssensor",
-        "sv": "Feuchtigkeitssensor",
+        "no": "Fuktighetssensor",
+        "sv": "Fuktighetssensor",
         "pl": "Czujnik wilgotności\n",
         "ru": "Датчик влажности",
         "ko": "습도 센서"
@@ -2393,7 +2760,7 @@
               "label": {
                 "en": "Humidity measurement address",
                 "nl": "Vochtigheids meting adres",
-                "da": "Fugtmålingsadresse",
+                "da": "Fugtighedsmålingsadresse",
                 "de": "Adresse der Feuchtemessung",
                 "es": "Dirección de medición de humedad",
                 "fr": "Adresse de mesure d'humidité",
@@ -2445,7 +2812,7 @@
               "label": {
                 "en": "Interface MAC address",
                 "nl": "Interface MAC adres",
-                "da": "Interface MAC adresse",
+                "da": "Grænseflade MAC-adresse",
                 "de": "MAC-Adresse der Schnittstelle",
                 "es": "Dirección MAC de la interfaz",
                 "fr": "Adresse MAC de l'interface",
@@ -2478,7 +2845,7 @@
               "label": {
                 "en": "Interface IP address",
                 "nl": "Interface IP adres",
-                "da": "Interface IP-adresse",
+                "da": "Grænseflade IP-adresse",
                 "de": "IP-Adresse der Schnittstelle",
                 "es": "Dirección IP de la interfaz",
                 "fr": "Adresse IP de l'interface",
@@ -2764,7 +3131,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -2958,7 +3338,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -2968,7 +3361,17 @@
       "id": "knx_motion_sensor",
       "name": {
         "en": "Motion Sensor",
-        "fr": "Capteur de mouvement"
+        "fr": "Capteur de mouvement",
+        "nl": "Bewegingssensor",
+        "da": "Bevægelsessensor",
+        "de": "Bewegungssensor",
+        "es": "Sensor de movimiento",
+        "it": "Sensore di movimento",
+        "no": "Bevegelsessensor",
+        "sv": "Rörelsesensor",
+        "pl": "Czujnik ruchu",
+        "ru": "Датчик движения",
+        "ko": "움직임 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -3152,7 +3555,17 @@
       "id": "knx_rgb",
       "name": {
         "en": "RGB Lights",
-        "nl": "RGB Verlichting"
+        "nl": "RGB Verlichting",
+        "da": "RGB Lys",
+        "de": "RGB Lichter",
+        "es": "Luces RGB",
+        "fr": "Lumières RGB",
+        "it": "Luci RGB",
+        "no": "RGB Lys",
+        "sv": "RGB Lampor",
+        "pl": "Światła RGB",
+        "ru": "RGB Огни",
+        "ko": "RGB 조명"
       },
       "class": "light",
       "capabilities": [
@@ -3166,7 +3579,17 @@
           "type": "group",
           "label": {
             "en": "KNX groupaddresses",
-            "nl": "KNX groepadressen"
+            "nl": "KNX groepadressen",
+            "da": "KNX gruppeadresser",
+            "de": "KNX-Gruppenadressen",
+            "es": "Direcciones de grupo KNX",
+            "fr": "Adresses de groupe KNX",
+            "it": "Indirizzi di gruppo KNX",
+            "no": "KNX gruppeadresser",
+            "sv": "KNX gruppadresser",
+            "pl": "Adresy grupowe KNX",
+            "ru": "Групповые адреса KNX",
+            "ko": "KNX 그룹 주소"
           },
           "children": [
             {
@@ -3174,12 +3597,32 @@
               "type": "text",
               "label": {
                 "en": "Red switch address",
-                "nl": "Rood schakel adres"
+                "nl": "Rood schakel adres",
+                "da": "Rød skifte adresse",
+                "de": "Rote Schalteradresse",
+                "es": "Dirección de interruptor rojo",
+                "fr": "Adresse du commutateur rouge",
+                "it": "Indirizzo interruttore rosso",
+                "no": "Rød bryteradresse",
+                "sv": "Röd brytaradress",
+                "pl": "Adres przełącznika czerwonego",
+                "ru": "Адрес красного переключателя",
+                "ko": "빨간 스위치 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3187,12 +3630,32 @@
               "type": "text",
               "label": {
                 "en": "Red switch status address",
-                "nl": "Rood schakel status adres"
+                "nl": "Rood schakel status adres",
+                "da": "Rød skiftestatus adresse",
+                "de": "Statusadresse des roten Schalters",
+                "es": "Dirección de estado del interruptor rojo",
+                "fr": "Adresse de statut du commutateur rouge",
+                "it": "Indirizzo stato interruttore rosso",
+                "no": "Rød bryterstatus adresse",
+                "sv": "Röd brytarstatusadress",
+                "pl": "Adres statusu przełącznika czerwonego",
+                "ru": "Адрес статуса красного переключателя",
+                "ko": "빨간 스위치 상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3200,12 +3663,32 @@
               "type": "text",
               "label": {
                 "en": "Red dimming address",
-                "nl": "Rood dim adres"
+                "nl": "Rood dim adres",
+                "da": "Rød dæmpningsadresse",
+                "de": "Adresse zum Dimmen des Rotlichts",
+                "es": "Dirección de atenuación roja",
+                "fr": "Adresse de gradation rouge",
+                "it": "Indirizzo attenuazione rosso",
+                "no": "Rød dimming adresse",
+                "sv": "Röd dimningsadress",
+                "pl": "Adres ściemniania czerwonego",
+                "ru": "Адрес диммирования красного",
+                "ko": "빨간 밝기 조정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3213,12 +3696,32 @@
               "type": "text",
               "label": {
                 "en": "Red dimming status address",
-                "nl": "Rood dim status adres"
+                "nl": "Rood dim status adres",
+                "da": "Rød dæmpningsstatus adresse",
+                "de": "Dimmstatus Adresse des roten Lichtes",
+                "es": "Dirección de estado de atenuación roja",
+                "fr": "Adresse du statut de gradation rouge",
+                "it": "Indirizzo stato attenuazione rosso",
+                "no": "Rød dimmingstatus adresse",
+                "sv": "Röd dimningsstatusadress",
+                "pl": "Adres statusu ściemniania czerwonego",
+                "ru": "Адрес статуса диммирования красного",
+                "ko": "빨간 밝기 조정 상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3226,12 +3729,32 @@
               "type": "text",
               "label": {
                 "en": "Green switch address",
-                "nl": "Groen schakel adres"
+                "nl": "Groen schakel adres",
+                "da": "Grøn skifte adresse",
+                "de": "Grüne Schalteradresse",
+                "es": "Dirección de interruptor verde",
+                "fr": "Adresse du commutateur vert",
+                "it": "Indirizzo interruttore verde",
+                "no": "Grønn bryteradresse",
+                "sv": "Grön brytaradress",
+                "pl": "Adres przełącznika zielonego",
+                "ru": "Адрес зеленого переключателя",
+                "ko": "녹색 스위치 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3239,12 +3762,32 @@
               "type": "text",
               "label": {
                 "en": "Green switch status address",
-                "nl": "Groen schakel status adres"
+                "nl": "Groen schakel status adres",
+                "da": "Grøn skiftestatus adresse",
+                "de": "Statusadresse des grünen Schalters",
+                "es": "Dirección de estado del interruptor verde",
+                "fr": "Adresse de statut du commutateur vert",
+                "it": "Indirizzo stato interruttore verde",
+                "no": "Grønn bryterstatus adresse",
+                "sv": "Grön brytarstatusadress",
+                "pl": "Adres statusu przełącznika zielonego",
+                "ru": "Адрес статуса зеленого переключателя",
+                "ko": "녹색 스위치 상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3252,12 +3795,32 @@
               "type": "text",
               "label": {
                 "en": "Green dimming address",
-                "nl": "Groen dim adres"
+                "nl": "Groen dim adres",
+                "da": "Grøn dæmpningsadresse",
+                "de": "Adresse zum Dimmen des grünen Lichts",
+                "es": "Dirección de atenuación verde",
+                "fr": "Adresse de gradation verte",
+                "it": "Indirizzo attenuazione verde",
+                "no": "Grønn dimming adresse",
+                "sv": "Grön dimningsadress",
+                "pl": "Adres ściemniania zielonego",
+                "ru": "Адрес диммирования зеленого",
+                "ko": "녹색 밝기 조정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3265,12 +3828,32 @@
               "type": "text",
               "label": {
                 "en": "Green dimming status address",
-                "nl": "Groen dim status adres"
+                "nl": "Groen dim status adres",
+                "da": "Grøn dæmpningsstatus adresse",
+                "de": "Dimmstatus Adresse des grünen Lichtes",
+                "es": "Dirección de estado de atenuación verde",
+                "fr": "Adresse du statut de gradation verte",
+                "it": "Indirizzo stato attenuazione verde",
+                "no": "Grønn dimmingstatus adresse",
+                "sv": "Grön dimningsstatusadress",
+                "pl": "Adres statusu ściemniania zielonego",
+                "ru": "Адрес статуса диммирования зеленого",
+                "ko": "녹색 밝기 조정 상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3278,12 +3861,32 @@
               "type": "text",
               "label": {
                 "en": "Blue switch address",
-                "nl": "Blauw schakel adres"
+                "nl": "Blauw schakel adres",
+                "da": "Blå skifte adresse",
+                "de": "Blaue Schalteradresse",
+                "es": "Dirección de interruptor azul",
+                "fr": "Adresse du commutateur bleu",
+                "it": "Indirizzo interruttore blu",
+                "no": "Blå bryteradresse",
+                "sv": "Blå brytaradress",
+                "pl": "Adres przełącznika niebieskiego",
+                "ru": "Адрес синего переключателя",
+                "ko": "파란 스위치 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3291,12 +3894,32 @@
               "type": "text",
               "label": {
                 "en": "Blue switch status address",
-                "nl": "Blauw schakel status adres "
+                "nl": "Blauw schakel status adres ",
+                "da": "Blå skiftestatus adresse",
+                "de": "Statusadresse des blauen Schalters",
+                "es": "Dirección de estado del interruptor azul",
+                "fr": "Adresse de statut du commutateur bleu",
+                "it": "Indirizzo stato interruttore blu",
+                "no": "Blå bryterstatus adresse",
+                "sv": "Blå brytarstatusadress",
+                "pl": "Adres statusu przełącznika niebieskiego",
+                "ru": "Адрес статуса синего переключателя",
+                "ko": "파란 스위치 상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3304,12 +3927,32 @@
               "type": "text",
               "label": {
                 "en": "Blue dimming address",
-                "nl": "Blauw dim adres"
+                "nl": "Blauw dim adres",
+                "da": "Blå dæmpningsadresse",
+                "de": "Adresse zum Dimmen des blauen Lichts",
+                "es": "Dirección de atenuación azul",
+                "fr": "Adresse de gradation bleue",
+                "it": "Indirizzo attenuazione blu",
+                "no": "Blå dimming adresse",
+                "sv": "Blå dimningsadress",
+                "pl": "Adres ściemniania niebieskiego",
+                "ru": "Адрес диммирования синего",
+                "ko": "파란 밝기 조정 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             },
             {
@@ -3317,12 +3960,32 @@
               "type": "text",
               "label": {
                 "en": "Blue dimming status address",
-                "nl": "Blauw dim status adres"
+                "nl": "Blauw dim status adres",
+                "da": "Blå dæmpningsstatus adresse",
+                "de": "Dimmstatus Adresse des blauen Lichtes",
+                "es": "Dirección de estado de atenuación azul",
+                "fr": "Adresse du statut de gradation bleue",
+                "it": "Indirizzo stato attenuazione blu",
+                "no": "Blå dimmingstatus adresse",
+                "sv": "Blå dimningsstatusadress",
+                "pl": "Adres statusu ściemniania niebieskiego",
+                "ru": "Адрес статуса диммирования синего",
+                "ko": "파란 밝기 조정 상태 주소"
               },
               "value": "",
               "hint": {
                 "en": "Enter groupaddress",
-                "nl": "Vul groepadres in"
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Geben Sie die Gruppenadresse ein",
+                "es": "Introduce dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserisci l'indirizzo del gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wpisz adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요"
               }
             }
           ]
@@ -3331,7 +3994,17 @@
           "type": "group",
           "label": {
             "en": "Network settings",
-            "nl": "Netwerk instellingen"
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerkeinstellungen",
+            "es": "Configuración de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieci",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정"
           },
           "children": [
             {
@@ -3339,12 +4012,32 @@
               "type": "text",
               "label": {
                 "en": "Interface MAC address",
-                "nl": "Interface MAC adres"
+                "nl": "Interface MAC adres",
+                "da": "Grænseflade MAC-adresse",
+                "de": "Schnittstellen-MAC-Adresse",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnitt MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소"
               },
               "value": "",
               "hint": {
                 "en": "MAC address of the required KNX IP interface",
-                "nl": "MAC adres van de KNX IP interface"
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse for den krævede KNX IP-grænseflade",
+                "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес требуемого KNX IP-интерфейса",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
               }
             },
             {
@@ -3352,12 +4045,32 @@
               "type": "text",
               "label": {
                 "en": "Interface IP address",
-                "nl": "Interface IP adres"
+                "nl": "Interface IP adres",
+                "da": "Grænseflade IP-adresse",
+                "de": "Schnittstellen-IP-Adresse",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnitt IP-adresse",
+                "sv": "Gränssnittets IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소"
               },
               "value": "",
               "hint": {
                 "en": "IP address of the required KNX IP interface",
-                "nl": "IP adres van de KNX IP interface"
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse for den krævede KNX IP-grænseflade",
+                "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес требуемого KNX IP-интерфейса",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
               }
             }
           ]
@@ -3619,7 +4332,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -3629,7 +4355,17 @@
       "id": "knx_smoke_sensor",
       "name": {
         "en": "Smoke Sensor",
-        "fr": "Détecteur de fumée"
+        "fr": "Détecteur de fumée",
+        "nl": "Rooksensor",
+        "da": "Røgsensor",
+        "de": "Rauchsensor",
+        "es": "Sensor de humo",
+        "it": "Sensore di fumo",
+        "no": "Røykvarsler",
+        "sv": "Röksensor",
+        "pl": "Czujnik dymu",
+        "ru": "Датчик дыма",
+        "ko": "연기 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -4049,7 +4785,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -4059,7 +4808,17 @@
       "id": "knx_tamper_sensor",
       "name": {
         "en": "Tamper Sensor",
-        "fr": "Capteur de sabotage"
+        "fr": "Capteur de sabotage",
+        "nl": "Sabotage Sensor",
+        "da": "Manipulationssensor",
+        "de": "Sabotagesensor",
+        "es": "Sensor de manipulación",
+        "it": "Sensore anti-manomissione",
+        "no": "Manipulasjonssensor",
+        "sv": "Manipulationssensor",
+        "pl": "Czujnik sabotażu",
+        "ru": "Датчик вскрытия",
+        "ko": "탬퍼 센서"
       },
       "class": "sensor",
       "capabilities": [
@@ -4233,7 +4992,20 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": {
+              "en": "sensor",
+              "nl": "sensor",
+              "da": "sensor",
+              "de": "Sensor",
+              "es": "sensor",
+              "fr": "capteur",
+              "it": "sensore",
+              "no": "sensor",
+              "sv": "sensor",
+              "pl": "czujnik",
+              "ru": "датчик",
+              "ko": "센서"
+            }
           },
           "navigation": {
             "prev": "select_interface"
@@ -4586,7 +5358,16 @@
               "type": "text",
               "label": {
                 "en": "HVAC operating mode address",
-                "fr": "Adresse de mode de fonctionnement HVAC"
+                "fr": "Adresse de mode de fonctionnement HVAC",
+                "da": "HVAC driftsmådeadresse",
+                "de": "Adresse des HVAC-Betriebsmodus",
+                "es": "Dirección del modo de funcionamiento HVAC",
+                "it": "Indirizzo della modalità di funzionamento HVAC",
+                "no": "HVAC driftsmodusadresse",
+                "sv": "Adress för HVAC-driftläge",
+                "pl": "Adres trybu pracy HVAC",
+                "ru": "Адрес режима работы HVAC",
+                "ko": "HVAC 작동 모드 주소"
               },
               "value": "",
               "hint": {
@@ -4609,7 +5390,16 @@
               "type": "text",
               "label": {
                 "en": "HVAC operating mode status address",
-                "fr": "Adresse de statut de mode de fonctionnement HVAC"
+                "fr": "Adresse de statut de mode de fonctionnement HVAC",
+                "da": "Statusadresse for HVAC driftsmåde",
+                "de": "Statusadresse des HVAC-Betriebsmodus",
+                "es": "Dirección de estado del modo de funcionamiento HVAC",
+                "it": "Indirizzo di stato della modalità di funzionamento HVAC",
+                "no": "Statusadresse for HVAC driftsmodus",
+                "sv": "Statusadress för HVAC-driftläge",
+                "pl": "Adres statusu trybu pracy HVAC",
+                "ru": "Адрес статуса режима работы HVAC",
+                "ko": "HVAC 작동 모드 상태 주소"
               },
               "value": "",
               "hint": {
@@ -4631,7 +5421,17 @@
               "id": "ga_fan_speed",
               "type": "text",
               "label": {
-                "en": "Fan speed address"
+                "en": "Fan speed address",
+                "da": "Ventilatorhastighedsadresse",
+                "de": "Adresse der Lüftergeschwindigkeit",
+                "es": "Dirección de velocidad del ventilador",
+                "fr": "Adresse de vitesse du ventilateur",
+                "it": "Indirizzo della velocità della ventola",
+                "no": "Viftehastighetsadresse",
+                "sv": "Adress för fläkthastighet",
+                "pl": "Adres prędkości wentylatora",
+                "ru": "Адрес скорости вентилятора",
+                "ko": "팬 속도 주소"
               },
               "value": "",
               "hint": {
@@ -4653,7 +5453,17 @@
               "id": "ga_fan_speed_status",
               "type": "text",
               "label": {
-                "en": "Fan speed status address"
+                "en": "Fan speed status address",
+                "da": "Ventilatorhastighedsstatusadresse",
+                "de": "Statusadresse der Lüftergeschwindigkeit",
+                "es": "Dirección de estado de velocidad del ventilador",
+                "fr": "Adresse de l'état de vitesse du ventilateur",
+                "it": "Indirizzo di stato della velocità della ventola",
+                "no": "Statusadresse for viftehastighet",
+                "sv": "Statusadress för fläkthastighet",
+                "pl": "Adres statusu prędkości wentylatora",
+                "ru": "Адрес статуса скорости вентилятора",
+                "ko": "팬 속도 상태 주소"
               },
               "value": "",
               "hint": {
@@ -4675,10 +5485,30 @@
               "id": "fan_speed_steps",
               "type": "number",
               "label": {
-                "en": "Number of fan speed steps"
+                "en": "Number of fan speed steps",
+                "da": "Antal ventilatorhastighedstrin",
+                "de": "Anzahl der Lüftergeschwindigkeitsstufen",
+                "es": "Número de pasos de velocidad del ventilador",
+                "fr": "Nombre de vitesses du ventilateur",
+                "it": "Numero di passaggi di velocità della ventola",
+                "no": "Antall viftehastighetstrinn",
+                "sv": "Antal fläkthastighetssteg",
+                "pl": "Liczba kroków prędkości wentylatora",
+                "ru": "Количество ступеней скорости вентилятора",
+                "ko": "팬 속도 단계 수"
               },
               "hint": {
-                "en": "e.g. 3 for three on-states and off. Leave empty for 0-100%"
+                "en": "e.g. 3 for three on-states and off. Leave empty for 0-100%",
+                "da": "f.eks. 3 for tre on-tilstande og slukket. Lad tomt for 0-100%",
+                "de": "z. B. 3 für drei Ein-Zustände und Aus. Leer lassen für 0-100%",
+                "es": "por ejemplo, 3 para tres estados encendidos y apagados. Dejar vacío para 0-100%",
+                "fr": "par exemple 3 pour trois états activés et éteints. Laisser vide pour 0-100%",
+                "it": "ad esempio 3 per tre stati accesi e spenti. Lascia vuoto per 0-100%",
+                "no": "f.eks. 3 for tre på-tilstander og av. La tomt for 0-100%",
+                "sv": "t.ex. 3 för tre pålägen och av. Lämna tom för 0-100%",
+                "pl": "np. 3 dla trzech stanów włączonych i wyłączonych. Pozostaw puste dla 0-100%",
+                "ru": "например, 3 для трех включенных и выключенных состояний. Оставьте пустым для 0-100%",
+                "ko": "예: 3개의 켜짐 상태 및 꺼짐 상태. 0-100%로 비워 두기"
               },
               "min": 0,
               "max": 99
@@ -4687,7 +5517,17 @@
               "id": "ga_fan_auto_mode",
               "type": "text",
               "label": {
-                "en": "Fan auto mode address"
+                "en": "Fan auto mode address",
+                "da": "Ventilatorens automatisk tilstandsadresse",
+                "de": "Adresse des Lüfterautomatikmodus",
+                "es": "Dirección del modo automático del ventilador",
+                "fr": "Adresse du mode automatique du ventilateur",
+                "it": "Indirizzo della modalità automatica della ventola",
+                "no": "Adresse for automatisk vifte-modus",
+                "sv": "Adress för fläktens automatikläge",
+                "pl": "Adres automatycznego trybu wentylatora",
+                "ru": "Адрес автоматического режима вентилятора",
+                "ko": "팬 자동 모드 주소"
               },
               "value": "",
               "hint": {
@@ -4709,7 +5549,17 @@
               "id": "ga_fan_auto_mode_status",
               "type": "text",
               "label": {
-                "en": "Fan auto mode status address"
+                "en": "Fan auto mode status address",
+                "da": "Statusadresse for ventilatorens automatisk tilstand",
+                "de": "Statusadresse des Lüfterautomatikmodus",
+                "es": "Dirección de estado del modo automático del ventilador",
+                "fr": "Adresse de l'état du mode automatique du ventilateur",
+                "it": "Indirizzo di stato della modalità automatica della ventola",
+                "no": "Statusadresse for automatisk vifte-modus",
+                "sv": "Statusadress för fläktens automatikläge",
+                "pl": "Adres statusu automatycznego trybu wentylatora",
+                "ru": "Адрес статуса автоматического режима вентилятора",
+                "ko": "팬 자동 모드 상태 주소"
               },
               "value": "",
               "hint": {
@@ -4991,7 +5841,17 @@
               "id": "ga_height",
               "type": "text",
               "label": {
-                "en": "Height address"
+                "en": "Height address",
+                "da": "Højde adresse",
+                "de": "Höhenadresse",
+                "es": "Dirección de altura",
+                "fr": "Adresse de hauteur",
+                "it": "Indirizzo di altezza",
+                "no": "Høydeadresse",
+                "sv": "Höjdadress",
+                "pl": "Adres wysokości",
+                "ru": "Адрес высоты",
+                "ko": "높이 주소"
               },
               "value": "",
               "hint": {
@@ -5013,7 +5873,17 @@
               "id": "ga_height_status",
               "type": "text",
               "label": {
-                "en": "Height status address"
+                "en": "Height status address",
+                "da": "Statusadresse for højde",
+                "de": "Höhenstatusadresse",
+                "es": "Dirección de estado de altura",
+                "fr": "Adresse de statut de hauteur",
+                "it": "Indirizzo di stato dell'altezza",
+                "no": "Høyde statusadresse",
+                "sv": "Höjdstatusadress",
+                "pl": "Adres stanu wysokości",
+                "ru": "Адрес статуса высоты",
+                "ko": "높이 상태 주소"
               },
               "value": "",
               "hint": {
@@ -5183,7 +6053,17 @@
       "type": "enum",
       "title": {
         "en": "Operating mode for heating, ventilation and air-conditioning",
-        "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation"
+        "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation",
+        "nl": "Bedrijfsmodus voor verwarming, ventilatie en airconditioning",
+        "da": "Driftstilstand for opvarmning, ventilation og aircondition",
+        "de": "Betriebsmodus für Heizung, Lüftung und Klimaanlage",
+        "es": "Modo de funcionamiento para calefacción, ventilación y aire acondicionado",
+        "it": "Modalità di funzionamento per riscaldamento, ventilazione e aria condizionata",
+        "no": "Driftsmodus for oppvarming, ventilasjon og klimaanlegg",
+        "sv": "Driftläge för uppvärmning, ventilation och luftkonditionering",
+        "pl": "Tryb pracy dla ogrzewania, wentylacji i klimatyzacji",
+        "ru": "Режим работы для отопления, вентиляции и кондиционирования",
+        "ko": "난방, 환기 및 에어컨 작동 모드"
       },
       "getable": true,
       "setable": true,
@@ -5211,28 +6091,68 @@
           "id": "1",
           "title": {
             "en": "Comfort",
-            "fr": "Confort"
+            "fr": "Confort",
+            "nl": "Comfort",
+            "da": "Komfort",
+            "de": "Komfort",
+            "es": "Confort",
+            "it": "Comfort",
+            "no": "Komfort",
+            "sv": "Komfort",
+            "pl": "Komfort",
+            "ru": "Комфорт",
+            "ko": "편안함"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Standby / Absence",
-            "fr": "Veille / Absence"
+            "fr": "Veille / Absence",
+            "nl": "Standby / Afwezig",
+            "da": "Standby / Fravær",
+            "de": "Standby / Abwesenheit",
+            "es": "Espera / Ausencia",
+            "it": "Standby / Assenza",
+            "no": "Standby / Fravær",
+            "sv": "Standby / Frånvaro",
+            "pl": "Czuwanie / Nieobecność",
+            "ru": "Ожидание / Отсутствие",
+            "ko": "대기 / 부재"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Economy / Night",
-            "fr": "Economie / Nuit"
+            "fr": "Economie / Nuit",
+            "nl": "Economie / Nacht",
+            "da": "Økonomi / Nat",
+            "de": "Sparmodus / Nacht",
+            "es": "Económico / Noche",
+            "it": "Economico / Notte",
+            "no": "Økonomi / Natt",
+            "sv": "Ekonomi / Natt",
+            "pl": "Oszczędność / Noc",
+            "ru": "Экономия / Ночь",
+            "ko": "절약 / 야간"
           }
         },
         {
           "id": "4",
           "title": {
             "en": "Building protection",
-            "fr": "Protection du bâtiment / Hors gel"
+            "fr": "Protection du bâtiment / Hors gel",
+            "nl": "Gebouwbescherming",
+            "da": "Bygningsbeskyttelse",
+            "de": "Gebäudeschutz",
+            "es": "Protección del edificio",
+            "it": "Protezione dell'edificio",
+            "no": "Bygningsbeskyttelse",
+            "sv": "Byggnadsskydd",
+            "pl": "Ochrona budynku",
+            "ru": "Защита здания",
+            "ko": "건물 보호"
           }
         }
       ]
@@ -5241,7 +6161,18 @@
       "type": "boolean",
       "uiComponent": "toggle",
       "title": {
-        "en": "Fan auto mode"
+        "en": "Fan auto mode",
+        "nl": "Ventilator automatische modus",
+        "da": "Ventilator auto-tilstand",
+        "de": "Lüfterautomatikmodus",
+        "es": "Modo automático del ventilador",
+        "fr": "Mode automatique du ventilateur",
+        "it": "Modalità automatica ventola",
+        "no": "Vifte automatisk modus",
+        "sv": "Fläktens automatikläge",
+        "pl": "Automatyczny tryb wentylatora",
+        "ru": "Автоматический режим вентилятора",
+        "ko": "팬 자동 모드"
       },
       "getable": true,
       "setable": true,
@@ -5250,11 +6181,33 @@
     "knx_fan_speed": {
       "type": "number",
       "title": {
-        "en": "Fan speed"
+        "en": "Fan speed",
+        "nl": "Ventilatorsnelheid",
+        "da": "Ventilatorhastighed",
+        "de": "Ventilatordrehzahl",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "no": "Viftehastighet",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도"
       },
       "uiComponent": "slider",
       "units": {
-        "en": "%"
+        "en": "%",
+        "nl": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%"
       },
       "decimals": 2,
       "min": 0,
@@ -5265,7 +6218,18 @@
     "knx_fan_speed_no_step_defined": {
       "type": "string",
       "title": {
-        "en": "Marker capability for thermostats without fan speed step defined"
+        "en": "Marker capability for thermostats without fan speed step defined",
+        "nl": "Markeer mogelijkheid voor thermostaten zonder gedefinieerde ventilatorsnelheidsstap",
+        "da": "Markørfunktion for termostater uden defineret ventilatorhastighedstrin",
+        "de": "Markerfähigkeit für Thermostate ohne definierten Lüftergeschwindigkeitsschritt",
+        "es": "Capacidad de marcador para termostatos sin paso de velocidad del ventilador definido",
+        "fr": "Capacité de marquage pour thermostats sans étape de vitesse de ventilateur définie",
+        "it": "Funzionalità di marker per termostati senza step di velocità della ventola definito",
+        "no": "Markørkapasitet for termostater uten definert trinn for viftehastighet",
+        "sv": "Markörkapacitet för termostater utan definierat fläkthastighetssteg",
+        "pl": "Możliwość zaznaczania dla termostatów bez zdefiniowanego kroku prędkości wentylatora",
+        "ru": "Возможность маркера для термостатов без заданного шага скорости вентилятора",
+        "ko": "팬 속도 단계가 정의되지 않은 온도 조절기에 대한 마커 기능"
       },
       "uiComponent": null,
       "getable": false,
@@ -5275,7 +6239,18 @@
     "knx_fan_speed_step_defined": {
       "type": "string",
       "title": {
-        "en": "Marker capability for thermostats with fan speed step defined"
+        "en": "Marker capability for thermostats with fan speed step defined",
+        "nl": "Markeercapaciteit voor thermostaten met gedefinieerde ventilatorsnelheidstap",
+        "da": "Markørmulighed for termostater med defineret ventilatorhastighedstrin",
+        "de": "Markierungsfunktion für Thermostate mit definiertem Lüfterdrehzahlschritt",
+        "es": "Capacidad de marcador para termostatos con paso de velocidad del ventilador definido",
+        "fr": "Capacité de marqueur pour thermostats avec pas de vitesse de ventilateur défini",
+        "it": "Funzionalità di marcatore per termostati con step di velocità della ventola definito",
+        "no": "Markeringskapasitet for termostater med angitt viftehastighetstrinn",
+        "sv": "Markörkapacitet för termostater med definierat fläkthastighetssteg",
+        "pl": "Zdolność markerowania dla termostatów z zdefiniowanym krokiem prędkości wentylatora",
+        "ru": "Функция маркера для термостатов с определенной ступенью скорости вентилятора",
+        "ko": "팬 속도 스텝이 정의된 온도 조절기용 마커 기능"
       },
       "uiComponent": null,
       "getable": false,

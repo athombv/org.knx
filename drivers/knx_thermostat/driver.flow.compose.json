@@ -4,11 +4,31 @@
       "id": "change_hvac_mode",
       "title": {
         "en": "Change HVAC mode",
-        "fr": "Change le mode de fonctionnement HVAC"
+        "fr": "Change le mode de fonctionnement HVAC",
+        "nl": "Wijzig HVAC-modus",
+        "da": "Skift HVAC-tilstand",
+        "de": "HVAC-Modus ändern",
+        "es": "Cambiar el modo del HVAC",
+        "it": "Cambia modalità HVAC",
+        "no": "Endre HVAC-modus",
+        "sv": "Ändra HVAC-läge",
+        "pl": "Zmień tryb HVAC",
+        "ru": "Изменить режим HVAC",
+        "ko": "HVAC 모드 변경"
       },
       "titleFormatted": {
         "en": "Change mode to [[mode]]",
-        "fr": "Changer le mode à [[mode]]"
+        "fr": "Changer le mode à [[mode]]",
+        "nl": "Wijzig modus naar [[mode]]",
+        "da": "Skift tilstand til [[mode]]",
+        "de": "Modus ändern zu [[mode]]",
+        "es": "Cambiar modo a [[mode]]",
+        "it": "Cambia modalità in [[mode]]",
+        "no": "Endre modus til [[mode]]",
+        "sv": "Ändra läge till [[mode]]",
+        "pl": "Zmień tryb na [[mode]]",
+        "ru": "Изменить режим на [[mode]]",
+        "ko": "[[mode]]로 모드 변경"
       },
       "$filter": "capabilities=hvac_operating_mode",
       "args": [
@@ -16,7 +36,18 @@
           "name": "mode",
           "type": "dropdown",
           "title": {
-            "en": "Mode"
+            "en": "Mode",
+            "nl": "Modus",
+            "da": "Tilstand",
+            "de": "Modus",
+            "es": "Modo",
+            "fr": "Mode",
+            "it": "Modalità",
+            "no": "Modus",
+            "sv": "Läge",
+            "pl": "Tryb",
+            "ru": "Режим",
+            "ko": "모드"
           },
           "values": [
             {
@@ -40,28 +71,68 @@
               "id": "1",
               "title": {
                 "en": "Comfort",
-                "fr": "Confort"
+                "fr": "Confort",
+                "nl": "Comfort",
+                "da": "Komfort",
+                "de": "Komfort",
+                "es": "Confort",
+                "it": "Comfort",
+                "no": "Komfort",
+                "sv": "Komfort",
+                "pl": "Komfort",
+                "ru": "Комфорт",
+                "ko": "편안함"
               }
             },
             {
               "id": "2",
               "title": {
                 "en": "Standby / Absence",
-                "fr": "Veille / Absence"
+                "fr": "Veille / Absence",
+                "nl": "Stand-by / Afwezig",
+                "da": "Standby / Fravær",
+                "de": "Standby / Abwesenheit",
+                "es": "Espera / Ausencia",
+                "it": "Standby / Assente",
+                "no": "Standby / Fravær",
+                "sv": "Standby / Frånvaro",
+                "pl": "Czuwanie / Nieobecność",
+                "ru": "Режим ожидания / Отсутствие",
+                "ko": "대기 / 부재"
               }
             },
             {
               "id": "3",
               "title": {
                 "en": "Economy / Night",
-                "fr": "Economie / Nuit"
+                "fr": "Economie / Nuit",
+                "nl": "Eco / Nacht",
+                "da": "Økonomi / Nat",
+                "de": "Sparmodus / Nacht",
+                "es": "Economía / Noche",
+                "it": "Economia / Notte",
+                "no": "Økonomi / Natt",
+                "sv": "Ekonomi / Natt",
+                "pl": "Ekonomiczny / Nocny",
+                "ru": "Эконом / Ночной",
+                "ko": "경제 / 야간"
               }
             },
             {
               "id": "4",
               "title": {
                 "en": "Building protection",
-                "fr": "Protection du bâtiment / Hors gel"
+                "fr": "Protection du bâtiment / Hors gel",
+                "nl": "Gebouwenbescherming",
+                "da": "Bygningsbeskyttelse",
+                "de": "Gebäudeschutz",
+                "es": "Protección del edificio",
+                "it": "Protezione dell'edificio",
+                "no": "Bygningsbeskyttelse",
+                "sv": "Byggnadsskydd",
+                "pl": "Ochrona budynku",
+                "ru": "Защита здания",
+                "ko": "건물 보호"
               }
             }
           ]

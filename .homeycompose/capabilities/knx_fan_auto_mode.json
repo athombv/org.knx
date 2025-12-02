@@ -2,7 +2,18 @@
   "type": "boolean",
   "uiComponent": "toggle",
   "title": {
-    "en": "Fan auto mode"
+    "en": "Fan auto mode",
+    "nl": "Ventilator automatische modus",
+    "da": "Ventilator auto-tilstand",
+    "de": "Lüfterautomatikmodus",
+    "es": "Modo automático del ventilador",
+    "fr": "Mode automatique du ventilateur",
+    "it": "Modalità automatica ventola",
+    "no": "Vifte automatisk modus",
+    "sv": "Fläktens automatikläge",
+    "pl": "Automatyczny tryb wentylatora",
+    "ru": "Автоматический режим вентилятора",
+    "ko": "팬 자동 모드"
   },
   "getable": true,
   "setable": true,

@@ -3,7 +3,17 @@
     "knx_sensor"
   ],
   "name": {
-    "en": "Electric Energy Measuring Sensor"
+    "en": "Electric Energy Measuring Sensor",
+    "da": "Elektrisk energimålingssensor",
+    "de": "Elektrischer Energiemesssensor",
+    "es": "Sensor de medida de energía eléctrica",
+    "fr": "Capteur de mesure d'énergie électrique",
+    "it": "Sensore di misurazione dell'energia elettrica",
+    "no": "Elektrisk energimålingssensor",
+    "sv": "Elektrisk energimätarsensor",
+    "pl": "Czujnik pomiaru energii elektrycznej",
+    "ru": "Датчик измерения электрической энергии",
+    "ko": "전기 에너지 측정 센서"
   },
   "class": "sensor",
   "capabilities": [

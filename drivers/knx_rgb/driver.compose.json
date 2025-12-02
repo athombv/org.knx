@@ -1,244 +1,556 @@
 {
-    "$extends" :["knx_driver"],
-    "id": "knx_rgb",
-    "name": {
-        "en": "RGB Lights",
-        "nl": "RGB Verlichting"
+  "$extends": [
+    "knx_driver"
+  ],
+  "id": "knx_rgb",
+  "name": {
+    "en": "RGB Lights",
+    "nl": "RGB Verlichting",
+    "da": "RGB Lys",
+    "de": "RGB Lichter",
+    "es": "Luces RGB",
+    "fr": "Lumières RGB",
+    "it": "Luci RGB",
+    "no": "RGB Lys",
+    "sv": "RGB Lampor",
+    "pl": "Światła RGB",
+    "ru": "RGB Огни",
+    "ko": "RGB 조명"
+  },
+  "class": "light",
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_hue",
+    "light_saturation"
+  ],
+  "pair": [
+    {
+      "id": "select_interface",
+      "$template": "select_interface",
+      "navigation": {
+        "next": "select_groupaddresses"
+      }
     },
-    "class": "light",
-    "capabilities": [
-        "onoff",
-        "dim",
-        "light_hue",
-        "light_saturation"
-    ],
-    "pair" : [
+    {
+      "id": "parse_knxproj",
+      "$template": "parse_knxproj",
+      "navigation": {
+        "next": "select_groupaddresses",
+        "prev": "select_groupaddresses"
+      }
+    },
+    {
+      "id": "select_groupaddresses",
+      "$template": "select_groupaddresses",
+      "options": {
+        "devicetype": "rgb"
+      },
+      "navigation": {
+        "prev": "select_interface"
+      }
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "KNX groupaddresses",
+        "nl": "KNX groepadressen",
+        "da": "KNX gruppeadresser",
+        "de": "KNX-Gruppenadressen",
+        "es": "Direcciones de grupo KNX",
+        "fr": "Adresses de groupe KNX",
+        "it": "Indirizzi di gruppo KNX",
+        "no": "KNX gruppeadresser",
+        "sv": "KNX gruppadresser",
+        "pl": "Adresy grupowe KNX",
+        "ru": "Групповые адреса KNX",
+        "ko": "KNX 그룹 주소"
+      },
+      "children": [
         {
-            "id": "select_interface",
-            "$template": "select_interface",
-            "navigation": {
-                "next": "select_groupaddresses"
-            }
+          "id": "ga_red_toggle",
+          "type": "text",
+          "label": {
+            "en": "Red switch address",
+            "nl": "Rood schakel adres",
+            "da": "Rød skifte adresse",
+            "de": "Rote Schalteradresse",
+            "es": "Dirección de interruptor rojo",
+            "fr": "Adresse du commutateur rouge",
+            "it": "Indirizzo interruttore rosso",
+            "no": "Rød bryteradresse",
+            "sv": "Röd brytaradress",
+            "pl": "Adres przełącznika czerwonego",
+            "ru": "Адрес красного переключателя",
+            "ko": "빨간 스위치 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
         },
         {
-            "id": "parse_knxproj",
-            "$template": "parse_knxproj",
-            "navigation": {
-                "next": "select_groupaddresses",
-                "prev": "select_groupaddresses"
-            }
+          "id": "ga_red_toggle_status",
+          "type": "text",
+          "label": {
+            "en": "Red switch status address",
+            "nl": "Rood schakel status adres",
+            "da": "Rød skiftestatus adresse",
+            "de": "Statusadresse des roten Schalters",
+            "es": "Dirección de estado del interruptor rojo",
+            "fr": "Adresse de statut du commutateur rouge",
+            "it": "Indirizzo stato interruttore rosso",
+            "no": "Rød bryterstatus adresse",
+            "sv": "Röd brytarstatusadress",
+            "pl": "Adres statusu przełącznika czerwonego",
+            "ru": "Адрес статуса красного переключателя",
+            "ko": "빨간 스위치 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
         },
         {
-            "id": "select_groupaddresses",
-            "$template": "select_groupaddresses",
-            "options": {
-                "devicetype": "rgb"
-            },
-            "navigation": {
-                "prev": "select_interface"
-            }
+          "id": "ga_red_dim",
+          "type": "text",
+          "label": {
+            "en": "Red dimming address",
+            "nl": "Rood dim adres",
+            "da": "Rød dæmpningsadresse",
+            "de": "Adresse zum Dimmen des Rotlichts",
+            "es": "Dirección de atenuación roja",
+            "fr": "Adresse de gradation rouge",
+            "it": "Indirizzo attenuazione rosso",
+            "no": "Rød dimming adresse",
+            "sv": "Röd dimningsadress",
+            "pl": "Adres ściemniania czerwonego",
+            "ru": "Адрес диммирования красного",
+            "ko": "빨간 밝기 조정 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_red_dim_status",
+          "type": "text",
+          "label": {
+            "en": "Red dimming status address",
+            "nl": "Rood dim status adres",
+            "da": "Rød dæmpningsstatus adresse",
+            "de": "Dimmstatus Adresse des roten Lichtes",
+            "es": "Dirección de estado de atenuación roja",
+            "fr": "Adresse du statut de gradation rouge",
+            "it": "Indirizzo stato attenuazione rosso",
+            "no": "Rød dimmingstatus adresse",
+            "sv": "Röd dimningsstatusadress",
+            "pl": "Adres statusu ściemniania czerwonego",
+            "ru": "Адрес статуса диммирования красного",
+            "ko": "빨간 밝기 조정 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_green_toggle",
+          "type": "text",
+          "label": {
+            "en": "Green switch address",
+            "nl": "Groen schakel adres",
+            "da": "Grøn skifte adresse",
+            "de": "Grüne Schalteradresse",
+            "es": "Dirección de interruptor verde",
+            "fr": "Adresse du commutateur vert",
+            "it": "Indirizzo interruttore verde",
+            "no": "Grønn bryteradresse",
+            "sv": "Grön brytaradress",
+            "pl": "Adres przełącznika zielonego",
+            "ru": "Адрес зеленого переключателя",
+            "ko": "녹색 스위치 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_green_toggle_status",
+          "type": "text",
+          "label": {
+            "en": "Green switch status address",
+            "nl": "Groen schakel status adres",
+            "da": "Grøn skiftestatus adresse",
+            "de": "Statusadresse des grünen Schalters",
+            "es": "Dirección de estado del interruptor verde",
+            "fr": "Adresse de statut du commutateur vert",
+            "it": "Indirizzo stato interruttore verde",
+            "no": "Grønn bryterstatus adresse",
+            "sv": "Grön brytarstatusadress",
+            "pl": "Adres statusu przełącznika zielonego",
+            "ru": "Адрес статуса зеленого переключателя",
+            "ko": "녹색 스위치 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_green_dim",
+          "type": "text",
+          "label": {
+            "en": "Green dimming address",
+            "nl": "Groen dim adres",
+            "da": "Grøn dæmpningsadresse",
+            "de": "Adresse zum Dimmen des grünen Lichts",
+            "es": "Dirección de atenuación verde",
+            "fr": "Adresse de gradation verte",
+            "it": "Indirizzo attenuazione verde",
+            "no": "Grønn dimming adresse",
+            "sv": "Grön dimningsadress",
+            "pl": "Adres ściemniania zielonego",
+            "ru": "Адрес диммирования зеленого",
+            "ko": "녹색 밝기 조정 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_green_dim_status",
+          "type": "text",
+          "label": {
+            "en": "Green dimming status address",
+            "nl": "Groen dim status adres",
+            "da": "Grøn dæmpningsstatus adresse",
+            "de": "Dimmstatus Adresse des grünen Lichtes",
+            "es": "Dirección de estado de atenuación verde",
+            "fr": "Adresse du statut de gradation verte",
+            "it": "Indirizzo stato attenuazione verde",
+            "no": "Grønn dimmingstatus adresse",
+            "sv": "Grön dimningsstatusadress",
+            "pl": "Adres statusu ściemniania zielonego",
+            "ru": "Адрес статуса диммирования зеленого",
+            "ko": "녹색 밝기 조정 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_blue_toggle",
+          "type": "text",
+          "label": {
+            "en": "Blue switch address",
+            "nl": "Blauw schakel adres",
+            "da": "Blå skifte adresse",
+            "de": "Blaue Schalteradresse",
+            "es": "Dirección de interruptor azul",
+            "fr": "Adresse du commutateur bleu",
+            "it": "Indirizzo interruttore blu",
+            "no": "Blå bryteradresse",
+            "sv": "Blå brytaradress",
+            "pl": "Adres przełącznika niebieskiego",
+            "ru": "Адрес синего переключателя",
+            "ko": "파란 스위치 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_blue_toggle_status",
+          "type": "text",
+          "label": {
+            "en": "Blue switch status address",
+            "nl": "Blauw schakel status adres ",
+            "da": "Blå skiftestatus adresse",
+            "de": "Statusadresse des blauen Schalters",
+            "es": "Dirección de estado del interruptor azul",
+            "fr": "Adresse de statut du commutateur bleu",
+            "it": "Indirizzo stato interruttore blu",
+            "no": "Blå bryterstatus adresse",
+            "sv": "Blå brytarstatusadress",
+            "pl": "Adres statusu przełącznika niebieskiego",
+            "ru": "Адрес статуса синего переключателя",
+            "ko": "파란 스위치 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_blue_dim",
+          "type": "text",
+          "label": {
+            "en": "Blue dimming address",
+            "nl": "Blauw dim adres",
+            "da": "Blå dæmpningsadresse",
+            "de": "Adresse zum Dimmen des blauen Lichts",
+            "es": "Dirección de atenuación azul",
+            "fr": "Adresse de gradation bleue",
+            "it": "Indirizzo attenuazione blu",
+            "no": "Blå dimming adresse",
+            "sv": "Blå dimningsadress",
+            "pl": "Adres ściemniania niebieskiego",
+            "ru": "Адрес диммирования синего",
+            "ko": "파란 밝기 조정 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
+        },
+        {
+          "id": "ga_blue_dim_status",
+          "type": "text",
+          "label": {
+            "en": "Blue dimming status address",
+            "nl": "Blauw dim status adres",
+            "da": "Blå dæmpningsstatus adresse",
+            "de": "Dimmstatus Adresse des blauen Lichtes",
+            "es": "Dirección de estado de atenuación azul",
+            "fr": "Adresse du statut de gradation bleue",
+            "it": "Indirizzo stato attenuazione blu",
+            "no": "Blå dimmingstatus adresse",
+            "sv": "Blå dimningsstatusadress",
+            "pl": "Adres statusu ściemniania niebieskiego",
+            "ru": "Адрес статуса диммирования синего",
+            "ko": "파란 밝기 조정 상태 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Geben Sie die Gruppenadresse ein",
+            "es": "Introduce dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo del gruppo",
+            "no": "Skriv inn gruppeadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소를 입력하세요"
+          }
         }
-    ],
-    "settings": [
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Network settings",
+        "nl": "Netwerk instellingen",
+        "da": "Netværksindstillinger",
+        "de": "Netzwerkeinstellungen",
+        "es": "Configuración de red",
+        "fr": "Paramètres réseau",
+        "it": "Impostazioni di rete",
+        "no": "Nettverksinnstillinger",
+        "sv": "Nätverksinställningar",
+        "pl": "Ustawienia sieci",
+        "ru": "Настройки сети",
+        "ko": "네트워크 설정"
+      },
+      "children": [
         {
-            "type": "group",
-            "label": {
-                "en": "KNX groupaddresses",
-                "nl": "KNX groepadressen"
-            },
-            "children": [
-                {
-                    "id": "ga_red_toggle",
-                    "type": "text",
-                    "label": {
-                        "en": "Red switch address",
-                        "nl": "Rood schakel adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_red_toggle_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Red switch status address",
-                        "nl": "Rood schakel status adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_red_dim",
-                    "type": "text",
-                    "label": {
-                        "en": "Red dimming address",
-                        "nl": "Rood dim adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_red_dim_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Red dimming status address",
-                        "nl": "Rood dim status adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_green_toggle",
-                    "type": "text",
-                    "label": {
-                        "en": "Green switch address",
-                        "nl": "Groen schakel adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_green_toggle_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Green switch status address",
-                        "nl": "Groen schakel status adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_green_dim",
-                    "type": "text",
-                    "label": {
-                        "en": "Green dimming address",
-                        "nl": "Groen dim adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_green_dim_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Green dimming status address",
-                        "nl": "Groen dim status adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_blue_toggle",
-                    "type": "text",
-                    "label": {
-                        "en": "Blue switch address",
-                        "nl": "Blauw schakel adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_blue_toggle_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Blue switch status address",
-                        "nl": "Blauw schakel status adres "
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_blue_dim",
-                    "type": "text",
-                    "label": {
-                        "en": "Blue dimming address",
-                        "nl": "Blauw dim adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                },
-                {
-                    "id": "ga_blue_dim_status",
-                    "type": "text",
-                    "label": {
-                        "en": "Blue dimming status address",
-                        "nl": "Blauw dim status adres"
-                    },
-                    "value": "",
-                    "hint": {
-                        "en": "Enter groupaddress",
-                        "nl": "Vul groepadres in"
-                    }
-                }
-            ]
+          "id": "macAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface MAC address",
+            "nl": "Interface MAC adres",
+            "da": "Grænseflade MAC-adresse",
+            "de": "Schnittstellen-MAC-Adresse",
+            "es": "Dirección MAC de la interfaz",
+            "fr": "Adresse MAC de l'interface",
+            "it": "Indirizzo MAC dell'interfaccia",
+            "no": "Grensesnitt MAC-adresse",
+            "sv": "Gränssnitt MAC-adress",
+            "pl": "Adres MAC interfejsu",
+            "ru": "MAC-адрес интерфейса",
+            "ko": "인터페이스 MAC 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "MAC address of the required KNX IP interface",
+            "nl": "MAC adres van de KNX IP interface",
+            "da": "MAC-adresse for den krævede KNX IP-grænseflade",
+            "de": "MAC-Adresse der erforderlichen KNX-IP-Schnittstelle",
+            "es": "Dirección MAC de la interfaz IP KNX requerida",
+            "fr": "Adresse MAC de l'interface IP KNX requise",
+            "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+            "no": "MAC-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+            "pl": "Adres MAC wymaganego interfejsu KNX IP",
+            "ru": "MAC-адрес требуемого KNX IP-интерфейса",
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+          }
         },
         {
-            "type": "group",
-            "label": {
-                "en": "Network settings",
-                "nl": "Netwerk instellingen"
-            },
-            "children": [
-                {
-                    "id": "macAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface MAC address",
-                        "nl": "Interface MAC adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "MAC address of the required KNX IP interface",
-                        "nl": "MAC adres van de KNX IP interface"
-                    }
-                },
-                {
-                    "id": "ipAddress",
-                    "type": "text",
-                    "label": {
-                        "en": "Interface IP address",
-                        "nl": "Interface IP adres"
-                    },
-                    "value" : "",
-                    "hint": {
-                        "en": "IP address of the required KNX IP interface",
-                        "nl": "IP adres van de KNX IP interface"
-                    }
-                }
-            ]
+          "id": "ipAddress",
+          "type": "text",
+          "label": {
+            "en": "Interface IP address",
+            "nl": "Interface IP adres",
+            "da": "Grænseflade IP-adresse",
+            "de": "Schnittstellen-IP-Adresse",
+            "es": "Dirección IP de la interfaz",
+            "fr": "Adresse IP de l'interface",
+            "it": "Indirizzo IP dell'interfaccia",
+            "no": "Grensesnitt IP-adresse",
+            "sv": "Gränssnittets IP-adress",
+            "pl": "Adres IP interfejsu",
+            "ru": "IP-адрес интерфейса",
+            "ko": "인터페이스 IP 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "IP address of the required KNX IP interface",
+            "nl": "IP adres van de KNX IP interface",
+            "da": "IP-adresse for den krævede KNX IP-grænseflade",
+            "de": "IP-Adresse der erforderlichen KNX-IP-Schnittstelle",
+            "es": "Dirección IP de la interfaz IP KNX requerida",
+            "fr": "Adresse IP de l'interface IP KNX requise",
+            "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+            "no": "IP-adresse for den nødvendige KNX IP-grensesnittet",
+            "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+            "pl": "Adres IP wymaganego interfejsu KNX IP",
+            "ru": "IP-адрес требуемого KNX IP-интерфейса",
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

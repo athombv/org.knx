@@ -5,7 +5,17 @@
   "id": "knx_smoke_sensor",
   "name": {
     "en": "Smoke Sensor",
-    "fr": "Détecteur de fumée"
+    "fr": "Détecteur de fumée",
+    "nl": "Rooksensor",
+    "da": "Røgsensor",
+    "de": "Rauchsensor",
+    "es": "Sensor de humo",
+    "it": "Sensore di fumo",
+    "no": "Røykvarsler",
+    "sv": "Röksensor",
+    "pl": "Czujnik dymu",
+    "ru": "Датчик дыма",
+    "ko": "연기 센서"
   },
   "class": "sensor",
   "capabilities": [

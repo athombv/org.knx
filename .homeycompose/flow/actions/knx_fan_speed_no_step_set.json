@@ -1,9 +1,31 @@
 {
   "title": {
-    "en": "Set fan speed"
+    "en": "Set fan speed",
+    "nl": "Stel ventilatorsnelheid in",
+    "da": "Indstil blæserhastighed",
+    "de": "Gebläsegeschwindigkeit einstellen",
+    "es": "Configurar velocidad del ventilador",
+    "fr": "Régler la vitesse du ventilateur",
+    "it": "Imposta velocità ventola",
+    "no": "Angi viftehastighet",
+    "sv": "Ställ in fläkthastighet",
+    "pl": "Ustaw prędkość wentylatora",
+    "ru": "Установить скорость вентилятора",
+    "ko": "팬 속도 설정"
   },
   "titleFormatted": {
-    "en": "Set fan speed to [[speed]]"
+    "en": "Set fan speed to [[speed]]",
+    "nl": "Stel ventilatorsnelheid in op [[speed]]",
+    "da": "Indstil blæserhastighed til [[speed]]",
+    "de": "Gebläsegeschwindigkeit auf [[speed]] einstellen",
+    "es": "Configurar velocidad del ventilador a [[speed]]",
+    "fr": "Régler la vitesse du ventilateur sur [[speed]]",
+    "it": "Imposta la velocità della ventola a [[speed]]",
+    "no": "Sett viftehastighet til [[speed]]",
+    "sv": "Ställ in fläkthastighet till [[speed]]",
+    "pl": "Ustaw prędkość wentylatora na [[speed]]",
+    "ru": "Установить скорость вентилятора на [[speed]]",
+    "ko": "팬 속도를 [[speed]]로 설정"
   },
   "args": [
     {
@@ -15,7 +37,18 @@
       "name": "speed",
       "type": "range",
       "title": {
-        "en": "Speed"
+        "en": "Speed",
+        "nl": "Snelheid",
+        "da": "Hastighed",
+        "de": "Geschwindigkeit",
+        "es": "Velocidad",
+        "fr": "Vitesse",
+        "it": "Velocità",
+        "no": "Hastighet",
+        "sv": "Hastighet",
+        "pl": "Prędkość",
+        "ru": "Скорость",
+        "ko": "속도"
       },
       "min": 0,
       "max": 1,

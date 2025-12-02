@@ -5,7 +5,17 @@
   "id": "knx_tamper_sensor",
   "name": {
     "en": "Tamper Sensor",
-    "fr": "Capteur de sabotage"
+    "fr": "Capteur de sabotage",
+    "nl": "Sabotage Sensor",
+    "da": "Manipulationssensor",
+    "de": "Sabotagesensor",
+    "es": "Sensor de manipulación",
+    "it": "Sensore anti-manomissione",
+    "no": "Manipulasjonssensor",
+    "sv": "Manipulationssensor",
+    "pl": "Czujnik sabotażu",
+    "ru": "Датчик вскрытия",
+    "ko": "탬퍼 센서"
   },
   "class": "sensor",
   "capabilities": [

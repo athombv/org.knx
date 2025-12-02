@@ -6,13 +6,13 @@
   "name": {
     "en": "Humidity Sensor",
     "nl": "Vochtigheids sensor",
-    "da": "Feuchtigkeitssensor",
+    "da": "Fugtighedssensor",
     "de": "Feuchtigkeitssensor",
-    "es": "Sensor de umidade",
+    "es": "Sensor de humedad",
     "fr": "Capteur d'humidité",
     "it": "Sensore di umidità",
-    "no": "Feuchtigkeitssensor",
-    "sv": "Feuchtigkeitssensor",
+    "no": "Fuktighetssensor",
+    "sv": "Fuktighetssensor",
     "pl": "Czujnik wilgotności\n",
     "ru": "Датчик влажности",
     "ko": "습도 센서"
@@ -45,7 +45,7 @@
           "label": {
             "en": "Humidity measurement address",
             "nl": "Vochtigheids meting adres",
-            "da": "Fugtmålingsadresse",
+            "da": "Fugtighedsmålingsadresse",
             "de": "Adresse der Feuchtemessung",
             "es": "Dirección de medición de humedad",
             "fr": "Adresse de mesure d'humidité",
@@ -97,7 +97,7 @@
           "label": {
             "en": "Interface MAC address",
             "nl": "Interface MAC adres",
-            "da": "Interface MAC adresse",
+            "da": "Grænseflade MAC-adresse",
             "de": "MAC-Adresse der Schnittstelle",
             "es": "Dirección MAC de la interfaz",
             "fr": "Adresse MAC de l'interface",
@@ -130,7 +130,7 @@
           "label": {
             "en": "Interface IP address",
             "nl": "Interface IP adres",
-            "da": "Interface IP-adresse",
+            "da": "Grænseflade IP-adresse",
             "de": "IP-Adresse der Schnittstelle",
             "es": "Dirección IP de la interfaz",
             "fr": "Adresse IP de l'interface",

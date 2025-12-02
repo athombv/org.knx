@@ -5,7 +5,17 @@
   "id": "knx_contact_sensor",
   "name": {
     "en": "Contact Sensor",
-    "fr": "Capteur de contact"
+    "fr": "Capteur de contact",
+    "nl": "Contactsensor",
+    "da": "Kontakt sensor",
+    "de": "Kontaktsensor",
+    "es": "Sensor de contacto",
+    "it": "Sensore di contatto",
+    "no": "Kontaktsensor",
+    "sv": "Kontaktsensor",
+    "pl": "Czujnik kontaktowy",
+    "ru": "Датчик контакта",
+    "ko": "접촉 센서"
   },
   "class": "sensor",
   "capabilities": [

@@ -1,6 +1,17 @@
 {
   "title": {
-    "en": "Fan auto mode enabled"
+    "en": "Fan auto mode enabled",
+    "nl": "Ventilator automatische modus ingeschakeld",
+    "da": "Fan automatisk tilstand aktiveret",
+    "de": "Lüfterautomatikmodus aktiviert",
+    "es": "Modo automático del ventilador habilitado",
+    "fr": "Mode auto du ventilateur activé",
+    "it": "Modalità automatica della ventola abilitata",
+    "no": "Vifte automatisk modus aktivert",
+    "sv": "Fläktens automatiska läge aktiverat",
+    "pl": "Tryb automatyczny wentylatora włączony",
+    "ru": "Автоматический режим вентилятора включен",
+    "ko": "팬 자동 모드 활성화됨"
   },
   "args": [
     {

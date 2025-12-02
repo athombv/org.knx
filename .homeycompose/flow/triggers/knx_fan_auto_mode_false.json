@@ -1,6 +1,17 @@
 {
   "title": {
-    "en": "Fan auto mode disabled"
+    "en": "Fan auto mode disabled",
+    "nl": "Ventilator automatische modus uitgeschakeld",
+    "da": "Ventilatorens automode deaktiveret",
+    "de": "Lüfter-Automatikmodus deaktiviert",
+    "es": "Modo automático del ventilador desactivado",
+    "fr": "Mode automatique du ventilateur désactivé",
+    "it": "Modalità automatica della ventola disabilitata",
+    "no": "Vifte automatisk modus deaktivert",
+    "sv": "Fläktens automatiska läge avaktiverat",
+    "pl": "Automatyczny tryb wentylatora wyłączony",
+    "ru": "Автоматический режим вентилятора отключен",
+    "ko": "팬 자동 모드 비활성화됨"
   },
   "args": [
     {
