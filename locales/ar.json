@@ -1,0 +1,117 @@
+{
+  "settings": {
+    "ip": {
+      "title": "إعدادات KNX IP - اختر أو أضف واجهة KNX IP",
+      "body": "أدخل عنوان IP من واجهة KNX IP التي ترغب في استخدامها. اضغط على زر البحث عن واجهة IP للبحث عنها.",
+      "singleip": "تكوين واجهة IP",
+      "interfaceaddress": "أدخل عنوان IPv4",
+      "searchbutton": "ابحث عن الواجهة",
+      "scanbutton": "فحص (مرة أخرى) الشبكة للبحث عن واجهات IP",
+      "manual_interface": "التكوين اليدوي",
+      "manual_interface_input": "أدخل العنوان يدويًا"
+    },
+    "learnmode": {
+      "title": "بدء وضع التعلم",
+      "explanation": "إقران زر KNX بزر افتراضي في Homey.",
+      "testbutton": "اختبر عنوان المجموعة",
+      "no_result": "لم يتم العثور على أي أجهزة."
+    },
+    "projectfile": {
+      "title": "تحميل مشروع ETS",
+      "body": "ارفع ملف تكوين ETS (*.knxproj) لاستخراج عناوين مجموعة KNX.",
+      "newxml": {
+        "title": "تكوين ETS جديد",
+        "explanation": "إذا كان متاحًا، يمكنك "
+      },
+      "existingxml": {
+        "title": "يوجد بالفعل تصدير ETS متاح، ولكن يمكنك "
+      },
+      "upload": "رفع مشروع ETS"
+    },
+    "groupaddresses": {
+      "generic": "عنوان المجموعة",
+      "pairing_list": ", عنوان المجموعة: ",
+      "select": "اختر عنوان المجموعة من مشروع ETS",
+      "body": "اختر عناوين المجموعات التي ترغب في استخدامها مع الجهاز الجديد",
+      "generic_status": "الحالة",
+      "save": "احفظ الجهاز",
+      "duplicate_groupaddress": " هذا العنوان مستخدم بالفعل بواسطة ",
+      "optional": "عناوين المجموعات الاختيارية، اتركها فارغة إذا لم يكن جهازك يدعم هذه الميزات.",
+      "switch": {
+        "toggle": "عنوان التبديل",
+        "status": "عنوان الحالة"
+      },
+      "dimmer": {
+        "value": "عنوان التعتيم",
+        "status": "عنوان الحالة"
+      },
+      "thermostat": {
+        "target": "عنوان درجة الحرارة المستهدفة",
+        "target_status": "عنوان حالة درجة الحرارة المستهدفة",
+        "measure": "عنوان قياس درجة الحرارة",
+        "mode": "عنوان وضع HVAC",
+        "mode_status": "عنوان حالة وضع HVAC",
+        "fan_speed": "عنوان سرعة المروحة",
+        "fan_speed_status": "عنوان حالة سرعة المروحة",
+        "fan_speed_steps": "عدد خطوات سرعة المروحة (اتركه فارغًا لنسبة 0-100%، لا حاجة لتضمين حالة الإيقاف)",
+        "fan_auto_mode": "عنوان وضع المروحة التلقائي",
+        "fan_auto_mode_status": "عنوان حالة وضع المروحة التلقائي"
+      },
+      "rgb": {
+        "red_toggle_action": "عنوان التبديل لقناة الأحمر",
+        "red_toggle_status": "عنوان الحالة لقناة الأحمر",
+        "red_dim_value": "عنوان التعتيم لقناة الأحمر",
+        "red_dim_status": "عنوان حالة التعتيم لقناة الأحمر",
+        "green_toggle_action": "عنوان التبديل لقناة الأخضر",
+        "green_toggle_status": "عنوان الحالة لقناة الأخضر",
+        "green_dim_value": "عنوان التعتيم لقناة الأخضر",
+        "green_dim_status": "عنوان حالة التعتيم لقناة الأخضر",
+        "blue_toggle_action": "عنوان التبديل لقناة الأزرق",
+        "blue_toggle_status": "عنوان الحالة لقناة الأزرق",
+        "blue_dim_value": "عنوان التعتيم لقناة الأزرق",
+        "blue_dim_status": "عنوان حالة التعتيم لقناة الأزرق"
+      },
+      "windowcovering": {
+        "updown": "عنوان الرفع/الخفض",
+        "stop": "عنوان التوقف",
+        "tilt": "عنوان الإمالة",
+        "tilt_status": "عنوان حالة الإمالة",
+        "height": "عنوان الارتفاع",
+        "height_status": "عنوان حالة الارتفاع"
+      },
+      "sensor": "عنوان المستشعر",
+      "scene": "عنوان المشهد"
+    },
+    "scene_number": "رقم المشهد"
+  },
+  "errors": {
+    "generic_error": "حدث خطأ: ",
+    "save_error": "لا يمكن حفظ الجهاز.",
+    "settings_save": "لا يمكن حفظ الإعدادات، ",
+    "switch_failed": "فشل تبديل الجهاز!",
+    "dim_failed": "فشل تعتيم الجهاز!",
+    "rgb_failed": "فشل تعيين اللون!",
+    "temperature_set_failed": "فشل تعيين درجة الحرارة!",
+    "temperature_get_failed": "فشل الحصول على درجة الحرارة!",
+    "hvac_operating_mode_get_failed": "فشل الحصول على وضع التشغيل!",
+    "hvac_operating_mode_set_failed": "فشل تعيين وضع التشغيل!",
+    "windowcovering_failed": "فشل تغيير الحالة!",
+    "windowcovering_stop_failed": "فشل إيقاف تغطية النوافذ!",
+    "invalid_group_address": "عنوان المجموعة غير صالح.",
+    "invalid_scene_number": "رقم المشهد غير صالح.",
+    "ip": {
+      "invalid_ip": "عنوان IP غير صالح أو إدخال فارغ.",
+      "interface_not_found": "لم يتم العثور على واجهة IP المحددة.",
+      "interface_not_available": "واجهة IP المحددة غير متاحة.",
+      "interface_not_selected": "لم يتم اختيار أي واجهة IP.",
+      "search_already_running": "يتم البحث بالفعل عن واجهة IP.",
+      "no_valid_mac": "عنوان MAC غير صالح.",
+      "no_matching_interface": "لا توجد واجهة IP بهذا العنوان MAC متوفرة."
+    },
+    "projectfile": {
+      "no_valid_xml": "لم يتم العثور على ملف XML صالح لعناوين المجموعة في الملف. يرجى تحميل مشروع آخر.",
+      "invalid_ga_structure": "هيكل عنوان المجموعة غير صالح في ملف المشروع",
+      "no_ga_found": "لم يتم العثور على أي عنوان مجموعة، ربما تكون قد قمت بتحميل مشروع فارغ."
+    }
+  }
+}

@@ -11,7 +11,8 @@
     "sv": "Dimma ner",
     "pl": "Przyciemnić",
     "ru": "Уменьшить",
-    "ko": "어둡게"
+    "ko": "어둡게",
+    "ar": "اخفض"
   },
   "type": "boolean",
   "getable": true,

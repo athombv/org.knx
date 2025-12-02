@@ -11,7 +11,8 @@
     "sv": "Dimma upp",
     "pl": "Ściemnij",
     "ru": "Увеличить яркость",
-    "ko": "올리기"
+    "ko": "올리기",
+    "ar": "زيادة السطوع"
   },
   "type": "boolean",
   "getable": true,

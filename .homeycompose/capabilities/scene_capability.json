@@ -11,7 +11,8 @@
     "sv": "Scen",
     "pl": "Scena",
     "ru": "Сцена",
-    "ko": "장면"
+    "ko": "장면",
+    "ar": "مشهد"
   },
   "type": "boolean",
   "getable": false,

@@ -11,7 +11,8 @@
     "sv": "Utlöst av en KNX-scen",
     "pl": "Wyzwolone przez scenę KNX",
     "ru": "Сцена KNX активирована",
-    "ko": "KNX 장면으로 트리거"
+    "ko": "KNX 장면으로 트리거",
+    "ar": "يتم تشغيله بواسطة مشهد KNX"
   },
   "args": [
     {

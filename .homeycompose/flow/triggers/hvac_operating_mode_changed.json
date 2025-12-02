@@ -1,78 +1,166 @@
 {
-    "title": {
-        "en": "Operating mode changed",
-        "fr": "Mode de fonctionnement changé"
+  "title": {
+    "en": "Operating mode changed",
+    "fr": "Mode de fonctionnement changé",
+    "nl": "Bedrijfsmodus gewijzigd",
+    "da": "Driftstilstand ændret",
+    "de": "Betriebsmodus geändert",
+    "es": "Modo de funcionamiento cambiado",
+    "it": "Modo operativo cambiato",
+    "no": "Driftsmodus endret",
+    "sv": "Driftläge ändrat",
+    "pl": "Tryb działania zmieniony",
+    "ru": "Режим работы изменен",
+    "ko": "작동 모드 변경됨",
+    "ar": "تم تغيير وضع التشغيل"
+  },
+  "titleFormatted": {
+    "en": "Operating mode changed to [[hvac_operating_mode]]",
+    "fr": "Mode de fonctionnement changé à [[hvac_operating_mode]]",
+    "nl": "Bedrijfsmodus gewijzigd naar [[hvac_operating_mode]]",
+    "da": "Driftsmodus ændret til [[hvac_operating_mode]]",
+    "de": "Betriebsmodus geändert zu [[hvac_operating_mode]]",
+    "es": "Modo de funcionamiento cambiado a [[hvac_operating_mode]]",
+    "it": "Modo operativo cambiato in [[hvac_operating_mode]]",
+    "no": "Driftsmodus endret til [[hvac_operating_mode]]",
+    "sv": "Driftläge ändrat till [[hvac_operating_mode]]",
+    "pl": "Tryb działania zmieniony na [[hvac_operating_mode]]",
+    "ru": "Режим работы изменен на [[hvac_operating_mode]]",
+    "ko": "[[hvac_operating_mode]]로 작동 모드 변경됨",
+    "ar": "تم تغيير وضع التشغيل إلى [[hvac_operating_mode]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=knx_thermostat&capabilities=hvac_operating_mode"
     },
-    "titleFormatted": {
-        "en": "Operating mode changed to [[hvac_operating_mode]]",
-        "fr": "Mode de fonctionnement changé à [[hvac_operating_mode]]"
-    },
-    "args": [
+    {
+      "name": "hvac_operating_mode",
+      "type": "dropdown",
+      "title": {
+        "en": "Operating mode",
+        "fr": "Mode de fonctionnement",
+        "nl": "Bedrijfsmodus",
+        "da": "Driftsmåde",
+        "de": "Betriebsmodus",
+        "es": "Modo de funcionamiento",
+        "it": "Modo operativo",
+        "no": "Driftsmodus",
+        "sv": "Driftläge",
+        "pl": "Tryb działania",
+        "ru": "Режим работы",
+        "ko": "작동 모드",
+        "ar": "وضع التشغيل"
+      },
+      "values": [
         {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=knx_thermostat&capabilities=hvac_operating_mode"
+          "id": "Any",
+          "title": {
+            "en": "Any",
+            "nl": "Om het even",
+            "da": "Enhver",
+            "de": "Irgendein",
+            "es": "Cualquiera",
+            "it": "Qualsiasi",
+            "no": "Enhver",
+            "sv": "Någon",
+            "pl": "Dowolny",
+            "ru": "Любой",
+            "ko": "어떤",
+            "ar": "أي"
+          }
         },
         {
-            "name": "hvac_operating_mode",
-            "type": "dropdown",
-            "title": {
-                "en": "Operating mode",
-                "fr": "Mode de fonctionnement"
-            },
-            "values": [
-                {
-                    "id": "Any",
-                    "title": {
-                        "en": "Any"
-                    }
-                },
-                {
-                    "id": "0",
-                    "title": {
-                        "en": "Automatic",
-                        "nl": "Automatisch",
-                        "de": "Automatisch",
-                        "fr": "Automatique",
-                        "it": "Automatica",
-                        "sv": "Automatiskt",
-                        "no": "Automatisk",
-                        "es": "Automático",
-                        "da": "Automatisk",
-                        "ru": "Автоматически",
-                        "pl": "Automatyczny",
-                        "ko": "자동"
-                    }
-                },
-                {
-                    "id": "1",
-                    "title": {
-                        "en": "Comfort",
-                        "fr": "Confort"
-                    }
-                },
-                {
-                    "id": "2",
-                    "title": {
-                        "en": "Standby / Absence",
-                        "fr": "Veille / Absence"
-                    }
-                },
-                {
-                    "id": "3",
-                    "title": {
-                        "en": "Economy / Night",
-                        "fr": "Economie / Nuit"
-                    }
-                },
-                {
-                    "id": "4",
-                    "title": {
-                        "en": "Building protection",
-                        "fr": "Protection du bâtiment / Hors gel"
-                    }
-                }
-            ]
+          "id": "0",
+          "title": {
+            "en": "Automatic",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatica",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk",
+            "ru": "Автоматически",
+            "pl": "Automatyczny",
+            "ko": "자동"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Comfort",
+            "fr": "Confort",
+            "nl": "Comfort",
+            "da": "Komfort",
+            "de": "Komfort",
+            "es": "Confort",
+            "it": "Comfort",
+            "no": "Komfort",
+            "sv": "Komfort",
+            "pl": "Komfort",
+            "ru": "Комфорт",
+            "ko": "편안함",
+            "ar": "راحة"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Standby / Absence",
+            "fr": "Veille / Absence",
+            "nl": "Standby / Afwezigheid",
+            "da": "Standby / Fravær",
+            "de": "Standby / Abwesenheit",
+            "es": "Espera / Ausencia",
+            "it": "Standby / Assenza",
+            "no": "Standby / Fravær",
+            "sv": "Standby / Frånvaro",
+            "pl": "Tryb gotowości / Nieobecność",
+            "ru": "Режим ожидания / Отсутствие",
+            "ko": "대기 중 / 부재중",
+            "ar": "الاستعداد / الغياب"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Economy / Night",
+            "fr": "Economie / Nuit",
+            "nl": "Economie / Nacht",
+            "da": "Økonomi / Nat",
+            "de": "Sparmodus / Nacht",
+            "es": "Económico / Noche",
+            "it": "Economy / Notte",
+            "no": "Økonomi / Natt",
+            "sv": "Ekonomi / Natt",
+            "pl": "Ekonomiczny / Noc",
+            "ru": "Экономия / Ночь",
+            "ko": "절약 / 밤",
+            "ar": "الاقتصاد / الليل"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Building protection",
+            "fr": "Protection du bâtiment / Hors gel",
+            "nl": "Gebouwbescherming",
+            "da": "Bygningsbeskyttelse",
+            "de": "Gebäudeschutz",
+            "es": "Protección del edificio",
+            "it": "Protezione dell'edificio",
+            "no": "Bygningsbeskyttelse",
+            "sv": "Byggnadsskydd",
+            "pl": "Ochrona budynku",
+            "ru": "Защита здания",
+            "ko": "건물 보호",
+            "ar": "حماية المبنى"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

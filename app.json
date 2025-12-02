@@ -31,7 +31,8 @@
     "sv": "Livet gjort smart",
     "pl": "Życie uczynione inteligentnym",
     "ru": "Умная жизнь",
-    "ko": "생활을 스마트하게"
+    "ko": "생활을 스마트하게",
+    "ar": "الحياة أصبحت ذكية"
   },
   "category": [
     "appliances"
@@ -55,11 +56,33 @@
       {
         "title": {
           "en": "Operating mode changed",
-          "fr": "Mode de fonctionnement changé"
+          "fr": "Mode de fonctionnement changé",
+          "nl": "Bedrijfsmodus gewijzigd",
+          "da": "Driftstilstand ændret",
+          "de": "Betriebsmodus geändert",
+          "es": "Modo de funcionamiento cambiado",
+          "it": "Modo operativo cambiato",
+          "no": "Driftsmodus endret",
+          "sv": "Driftläge ändrat",
+          "pl": "Tryb działania zmieniony",
+          "ru": "Режим работы изменен",
+          "ko": "작동 모드 변경됨",
+          "ar": "تم تغيير وضع التشغيل"
         },
         "titleFormatted": {
           "en": "Operating mode changed to [[hvac_operating_mode]]",
-          "fr": "Mode de fonctionnement changé à [[hvac_operating_mode]]"
+          "fr": "Mode de fonctionnement changé à [[hvac_operating_mode]]",
+          "nl": "Bedrijfsmodus gewijzigd naar [[hvac_operating_mode]]",
+          "da": "Driftsmodus ændret til [[hvac_operating_mode]]",
+          "de": "Betriebsmodus geändert zu [[hvac_operating_mode]]",
+          "es": "Modo de funcionamiento cambiado a [[hvac_operating_mode]]",
+          "it": "Modo operativo cambiato in [[hvac_operating_mode]]",
+          "no": "Driftsmodus endret til [[hvac_operating_mode]]",
+          "sv": "Driftläge ändrat till [[hvac_operating_mode]]",
+          "pl": "Tryb działania zmieniony na [[hvac_operating_mode]]",
+          "ru": "Режим работы изменен на [[hvac_operating_mode]]",
+          "ko": "[[hvac_operating_mode]]로 작동 모드 변경됨",
+          "ar": "تم تغيير وضع التشغيل إلى [[hvac_operating_mode]]"
         },
         "args": [
           {
@@ -72,13 +95,35 @@
             "type": "dropdown",
             "title": {
               "en": "Operating mode",
-              "fr": "Mode de fonctionnement"
+              "fr": "Mode de fonctionnement",
+              "nl": "Bedrijfsmodus",
+              "da": "Driftsmåde",
+              "de": "Betriebsmodus",
+              "es": "Modo de funcionamiento",
+              "it": "Modo operativo",
+              "no": "Driftsmodus",
+              "sv": "Driftläge",
+              "pl": "Tryb działania",
+              "ru": "Режим работы",
+              "ko": "작동 모드",
+              "ar": "وضع التشغيل"
             },
             "values": [
               {
                 "id": "Any",
                 "title": {
-                  "en": "Any"
+                  "en": "Any",
+                  "nl": "Om het even",
+                  "da": "Enhver",
+                  "de": "Irgendein",
+                  "es": "Cualquiera",
+                  "it": "Qualsiasi",
+                  "no": "Enhver",
+                  "sv": "Någon",
+                  "pl": "Dowolny",
+                  "ru": "Любой",
+                  "ko": "어떤",
+                  "ar": "أي"
                 }
               },
               {
@@ -102,28 +147,72 @@
                 "id": "1",
                 "title": {
                   "en": "Comfort",
-                  "fr": "Confort"
+                  "fr": "Confort",
+                  "nl": "Comfort",
+                  "da": "Komfort",
+                  "de": "Komfort",
+                  "es": "Confort",
+                  "it": "Comfort",
+                  "no": "Komfort",
+                  "sv": "Komfort",
+                  "pl": "Komfort",
+                  "ru": "Комфорт",
+                  "ko": "편안함",
+                  "ar": "راحة"
                 }
               },
               {
                 "id": "2",
                 "title": {
                   "en": "Standby / Absence",
-                  "fr": "Veille / Absence"
+                  "fr": "Veille / Absence",
+                  "nl": "Standby / Afwezigheid",
+                  "da": "Standby / Fravær",
+                  "de": "Standby / Abwesenheit",
+                  "es": "Espera / Ausencia",
+                  "it": "Standby / Assenza",
+                  "no": "Standby / Fravær",
+                  "sv": "Standby / Frånvaro",
+                  "pl": "Tryb gotowości / Nieobecność",
+                  "ru": "Режим ожидания / Отсутствие",
+                  "ko": "대기 중 / 부재중",
+                  "ar": "الاستعداد / الغياب"
                 }
               },
               {
                 "id": "3",
                 "title": {
                   "en": "Economy / Night",
-                  "fr": "Economie / Nuit"
+                  "fr": "Economie / Nuit",
+                  "nl": "Economie / Nacht",
+                  "da": "Økonomi / Nat",
+                  "de": "Sparmodus / Nacht",
+                  "es": "Económico / Noche",
+                  "it": "Economy / Notte",
+                  "no": "Økonomi / Natt",
+                  "sv": "Ekonomi / Natt",
+                  "pl": "Ekonomiczny / Noc",
+                  "ru": "Экономия / Ночь",
+                  "ko": "절약 / 밤",
+                  "ar": "الاقتصاد / الليل"
                 }
               },
               {
                 "id": "4",
                 "title": {
                   "en": "Building protection",
-                  "fr": "Protection du bâtiment / Hors gel"
+                  "fr": "Protection du bâtiment / Hors gel",
+                  "nl": "Gebouwbescherming",
+                  "da": "Bygningsbeskyttelse",
+                  "de": "Gebäudeschutz",
+                  "es": "Protección del edificio",
+                  "it": "Protezione dell'edificio",
+                  "no": "Bygningsbeskyttelse",
+                  "sv": "Byggnadsskydd",
+                  "pl": "Ochrona budynku",
+                  "ru": "Защита здания",
+                  "ko": "건물 보호",
+                  "ar": "حماية المبنى"
                 }
               }
             ]
@@ -133,7 +222,19 @@
       },
       {
         "title": {
-          "en": "Fan auto mode disabled"
+          "en": "Fan auto mode disabled",
+          "nl": "Ventilator automatische modus uitgeschakeld",
+          "da": "Ventilatorens automode deaktiveret",
+          "de": "Automatikmodus des Lüfters deaktiviert",
+          "es": "Modo automático del ventilador desactivado",
+          "fr": "Mode automatique du ventilateur désactivé",
+          "it": "Modalità automatica della ventola disattivata",
+          "no": "Vifte automatisk modus deaktivert",
+          "sv": "Fläktens autoläge inaktiverat",
+          "pl": "Tryb automatyczny wentylatora wyłączony",
+          "ru": "Автоматический режим вентилятора отключен",
+          "ko": "팬 자동 모드 비활성화됨",
+          "ar": "تم تعطيل الوضع التلقائي للمروحة"
         },
         "args": [
           {
@@ -146,7 +247,19 @@
       },
       {
         "title": {
-          "en": "Fan auto mode enabled"
+          "en": "Fan auto mode enabled",
+          "nl": "Ventilator automatische modus ingeschakeld",
+          "da": "Ventilatorens automode aktiveret",
+          "de": "Lüfterautomatikmodus aktiviert",
+          "es": "Modo automático del ventilador activado",
+          "fr": "Mode automatique du ventilateur activé",
+          "it": "Modalità automatica ventilatore abilitata",
+          "no": "Automodus for vifter aktivert",
+          "sv": "Fläktens automod läge aktiverat",
+          "pl": "Automatyczny tryb wentylatora włączony",
+          "ru": "Автоматический режим вентилятора включен",
+          "ko": "팬 자동 모드가 활성화됨",
+          "ar": "وضع المروحة التلقائي مفعّل"
         },
         "args": [
           {
@@ -159,14 +272,38 @@
       },
       {
         "title": {
-          "en": "Fan speed changed"
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid gewijzigd",
+          "da": "Ventilatorhastighed ændret",
+          "de": "Lüftergeschwindigkeit geändert",
+          "es": "Velocidad del ventilador cambiada",
+          "fr": "Vitesse du ventilateur modifiée",
+          "it": "Velocità della ventola cambiata",
+          "no": "Viftehastighet endret",
+          "sv": "Fläkthastighet ändrad",
+          "pl": "Prędkość wentylatora zmieniona",
+          "ru": "Скорость вентилятора изменена",
+          "ko": "팬 속도 변경됨",
+          "ar": "تم تغيير سرعة المروحة"
         },
         "tokens": [
           {
             "name": "knx_fan_speed",
             "type": "number",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도",
+              "ar": "سرعة"
             },
             "example": 0.5
           }
@@ -182,14 +319,38 @@
       },
       {
         "title": {
-          "en": "Fan speed changed"
+          "en": "Fan speed changed",
+          "nl": "Ventilatorsnelheid gewijzigd",
+          "da": "Blæserhastighed ændret",
+          "de": "Lüftergeschwindigkeit geändert",
+          "es": "Velocidad del ventilador cambiada",
+          "fr": "Vitesse du ventilateur modifiée",
+          "it": "Velocità della ventola cambiata",
+          "no": "Viftehastighet endret",
+          "sv": "Fläkthastighet ändrad",
+          "pl": "Zmiana prędkości wentylatora",
+          "ru": "Скорость вентилятора изменена",
+          "ko": "팬 속도 변경됨",
+          "ar": "تغيرت سرعة المروحة"
         },
         "tokens": [
           {
             "name": "knx_fan_speed",
             "type": "number",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도",
+              "ar": "سرعة"
             },
             "example": 2
           }
@@ -457,7 +618,8 @@
           "sv": "Utlöst av en KNX-scen",
           "pl": "Wyzwolone przez scenę KNX",
           "ru": "Сцена KNX активирована",
-          "ko": "KNX 장면으로 트리거"
+          "ko": "KNX 장면으로 트리거",
+          "ar": "يتم تشغيله بواسطة مشهد KNX"
         },
         "args": [
           {
@@ -482,7 +644,8 @@
           "sv": "Slås på eller av",
           "pl": "Włączone lub wyłączone",
           "ru": "Включено или выключено",
-          "ko": "켜짐 또는 꺼짐"
+          "ko": "켜짐 또는 꺼짐",
+          "ar": "تم تشغيله أو إيقافه"
         },
         "titleFormatted": {
           "en": "Turned on or off",
@@ -496,7 +659,8 @@
           "sv": "Slås på eller av",
           "pl": "Włączone lub wyłączone",
           "ru": "Включено или выключено",
-          "ko": "켜짐 또는 꺼짐"
+          "ko": "켜짐 또는 꺼짐",
+          "ar": "تم تشغيله أو إيقافه"
         },
         "hint": {
           "en": "When the switch is changed from on/off to off/on",
@@ -510,7 +674,8 @@
           "sv": "När brytaren ändras från på/av till av/på",
           "pl": "Gdy przełącznik zmieni się z włączone/wyłączone na wyłączone/włączone",
           "ru": "Когда переключатель изменяется с включено/выключено на выключено/включено",
-          "ko": "스위치가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+          "ko": "스위치가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때",
+          "ar": "عندما يتم تغيير المفتاح من تشغيل/إيقاف إلى إيقاف/تشغيل"
         },
         "tokens": [
           {
@@ -528,7 +693,8 @@
               "sv": "Status",
               "pl": "Status",
               "ru": "Статус",
-              "ko": "상태"
+              "ko": "상태",
+              "ar": "الحالة"
             },
             "example": {
               "en": "The current status of the switch",
@@ -542,7 +708,8 @@
               "sv": "Aktuell status för brytaren",
               "pl": "Aktualny stan przełącznika",
               "ru": "Текущий статус переключателя",
-              "ko": "현재 스위치 상태"
+              "ko": "현재 스위치 상태",
+              "ar": "الحالة الحالية للمفتاح"
             }
           }
         ],
@@ -558,7 +725,19 @@
     "actions": [
       {
         "title": {
-          "en": "Disable fan auto mode"
+          "en": "Disable fan auto mode",
+          "nl": "Schakel automatische ventilatormodus uit",
+          "da": "Deaktiver automatisk blæser tilstand",
+          "de": "Deaktiviere Lüfterautomatikmodus",
+          "es": "Desactivar modo automático del ventilador",
+          "fr": "Désactiver le mode automatique du ventilateur",
+          "it": "Disattiva modalità automatica della ventola",
+          "no": "Deaktiver automatisk vifte modus",
+          "sv": "Inaktivera fläktens automatikläge",
+          "pl": "Wyłącz tryb automatyczny wentylatora",
+          "ru": "Отключить автоматический режим вентилятора",
+          "ko": "팬 자동 모드 비활성화",
+          "ar": "تعطيل وضع المروحة التلقائي"
         },
         "args": [
           {
@@ -571,7 +750,19 @@
       },
       {
         "title": {
-          "en": "Enable fan auto mode"
+          "en": "Enable fan auto mode",
+          "nl": "Ventilator automatische modus inschakelen",
+          "da": "Aktivér fan automodus",
+          "de": "Lüfter-Automatikmodus aktivieren",
+          "es": "Habilitar modo automático del ventilador",
+          "fr": "Activer le mode automatique du ventilateur",
+          "it": "Abilita modalità automatica della ventola",
+          "no": "Aktiver vifte automatisk modus",
+          "sv": "Aktivera fläktens automatiska läge",
+          "pl": "Włącz tryb automatyczny wentylatora",
+          "ru": "Включить автоматический режим вентилятора",
+          "ko": "팬 자동 모드 활성화",
+          "ar": "تمكين وضع المروحة التلقائي"
         },
         "args": [
           {
@@ -584,10 +775,34 @@
       },
       {
         "title": {
-          "en": "Set fan speed"
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen",
+          "da": "Indstil ventilatorhastighed",
+          "de": "Lüftergeschwindigkeit einstellen",
+          "es": "Establecer velocidad del ventilador",
+          "fr": "Régler la vitesse du ventilateur",
+          "it": "Imposta la velocità della ventola",
+          "no": "Sett vifthastighet",
+          "sv": "Ställ in fläkthastighet",
+          "pl": "Ustaw prędkość wentylatora",
+          "ru": "Установить скорость вентилятора",
+          "ko": "팬 속도 설정",
+          "ar": "ضبط سرعة المروحة"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[speed]]"
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Stel ventilatorsnelheid in op [[speed]]",
+          "da": "Indstil ventilatorhastighed til [[speed]]",
+          "de": "Lüftergeschwindigkeit auf [[speed]] einstellen",
+          "es": "Establecer velocidad del ventilador a [[speed]]",
+          "fr": "Régler la vitesse du ventilateur à [[speed]]",
+          "it": "Imposta la velocità della ventola su [[speed]]",
+          "no": "Sett vifthastighet til [[speed]]",
+          "sv": "Ställ in fläkthastighet till [[speed]]",
+          "pl": "Ustaw prędkość wentylatora na [[speed]]",
+          "ru": "Установить скорость вентилятора на [[speed]]",
+          "ko": "팬 속도를 [[speed]]로 설정",
+          "ar": "ضبط سرعة المروحة إلى [[speed]]"
         },
         "args": [
           {
@@ -599,7 +814,19 @@
             "name": "speed",
             "type": "range",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도",
+              "ar": "سرعة"
             },
             "min": 0,
             "max": 1,
@@ -613,10 +840,34 @@
       },
       {
         "title": {
-          "en": "Set fan speed"
+          "en": "Set fan speed",
+          "nl": "Stel ventilatorsnelheid in",
+          "da": "Indstil blæserhastighed",
+          "de": "Lüftergeschwindigkeit einstellen",
+          "es": "Ajustar velocidad del ventilador",
+          "fr": "Régler la vitesse du ventilateur",
+          "it": "Imposta la velocità della ventola",
+          "no": "Still inn vifteshastighet",
+          "sv": "Ställ in fläkthastighet",
+          "pl": "Ustaw prędkość wentylatora",
+          "ru": "Установить скорость вентилятора",
+          "ko": "팬 속도 설정",
+          "ar": "ضبط سرعة المروحة"
         },
         "titleFormatted": {
-          "en": "Set fan speed to [[speed]]"
+          "en": "Set fan speed to [[speed]]",
+          "nl": "Stel ventilatorsnelheid in op [[speed]]",
+          "da": "Indstil blæserhastighed til [[speed]]",
+          "de": "Lüftergeschwindigkeit auf [[speed]] einstellen",
+          "es": "Ajustar velocidad del ventilador a [[speed]]",
+          "fr": "Régler la vitesse du ventilateur à [[speed]]",
+          "it": "Imposta la velocità della ventola a [[speed]]",
+          "no": "Still inn vifteshastighet til [[speed]]",
+          "sv": "Ställ in fläkthastighet till [[speed]]",
+          "pl": "Ustaw prędkość wentylatora na [[speed]]",
+          "ru": "Установить скорость вентилятора на [[speed]]",
+          "ko": "[[speed]]로 팬 속도 설정",
+          "ar": "ضبط سرعة المروحة إلى [[speed]]"
         },
         "args": [
           {
@@ -628,7 +879,19 @@
             "name": "speed",
             "type": "autocomplete",
             "title": {
-              "en": "Speed"
+              "en": "Speed",
+              "nl": "Snelheid",
+              "da": "Hastighed",
+              "de": "Geschwindigkeit",
+              "es": "Velocidad",
+              "fr": "Vitesse",
+              "it": "Velocità",
+              "no": "Hastighet",
+              "sv": "Hastighet",
+              "pl": "Prędkość",
+              "ru": "Скорость",
+              "ko": "속도",
+              "ar": "السرعة"
             }
           }
         ],
@@ -639,15 +902,16 @@
           "en": "Send a Read Telegram",
           "nl": "Verstuur een Lees Telegram",
           "da": "Send en Læs Telegram",
-          "de": "Sende eine Lese-Telegramm",
+          "de": "Ein Lesetelegramm senden",
           "es": "Enviar un Telegrama de Lectura",
-          "fr": "Envoyer une Télécopie de Lecture",
+          "fr": "Envoyer un Télégramme de Lecture",
           "it": "Invia un Telegramma di Lettura",
-          "no": "Send en Les Telegram",
-          "sv": "Skicka en Läs Telegram",
-          "pl": "Wyślij Telegram Czytania",
-          "ru": "Отправить Читаемое Telegram",
-          "ko": "읽기 전보 보내기"
+          "no": "Send et Lesetgram",
+          "sv": "Skicka ett Läs-Telegram",
+          "pl": "Wyślij Telegram Odczytu",
+          "ru": "Отправить Личное Сообщение",
+          "ko": "읽기 전보 보내기",
+          "ar": "إرسال برقية قراءة"
         },
         "titleFormatted": {
           "en": "Send a read request on group address [[group_address]] via [[interface]] interface",
@@ -661,7 +925,8 @@
           "sv": "Skicka en läsförfrågan på gruppadress [[group_address]] via [[interface]] gränssnitt",
           "pl": "Wyślij żądanie odczytu na adres grupowy [[group_address]] za pośrednictwem interfejsu [[interface]]",
           "ru": "Отправить запрос на чтение по групповому адресу [[group_address]] через интерфейс [[interface]]",
-          "ko": "[[interface]] 인터페이스를 통해 그룹 주소 [[group_address]]에서 읽기 요청 보내기"
+          "ko": "[[interface]] 인터페이스를 통해 그룹 주소 [[group_address]]에서 읽기 요청 보내기",
+          "ar": "إرسال طلب قراءة على العنوان الجماعي [[group_address]] عبر واجهة [[interface]]"
         },
         "hint": {
           "en": "Asks the KNX bus to trigger a send. This is useful to get the current value of a group address.",
@@ -675,7 +940,8 @@
           "sv": "Ber KNX-bussen att utlösa en skickning. Detta är användbart för att få det aktuella värdet på en gruppadress.",
           "pl": "Prosi magistralę KNX o wyzwolenie wysyłki. Jest to przydatne do uzyskania aktualnej wartości adresu grupowego.",
           "ru": "Просит шину KNX инициировать отправку. Это полезно для получения текущего значения группового адреса.",
-          "ko": "KNX 버스에 전송 트리거를 요청합니다. 이는 그룹 주소의 현재 값을 얻는 데 유용합니다."
+          "ko": "KNX 버스에 전송 트리거를 요청합니다. 이는 그룹 주소의 현재 값을 얻는 데 유용합니다.",
+          "ar": "يطلب من حافلة KNX تفعيل إرسال. هذا مفيد للحصول على القيمة الحالية لعنوان المجموعة."
         },
         "args": [
           {
@@ -691,7 +957,8 @@
               "sv": "Gränssnitt",
               "pl": "Interfejs",
               "ru": "Интерфейс",
-              "ko": "인터페이스"
+              "ko": "인터페이스",
+              "ar": "واجهة"
             },
             "type": "autocomplete",
             "name": "interface",
@@ -707,7 +974,8 @@
               "sv": "[någon]",
               "pl": "[dowolny]",
               "ru": "[любой]",
-              "ko": "[어떤]"
+              "ko": "[어떤]",
+              "ar": "[أي]"
             }
           },
           {
@@ -723,7 +991,8 @@
               "sv": "Gruppadress",
               "pl": "Adres Grupy",
               "ru": "Групповой Адрес",
-              "ko": "그룹 주소"
+              "ko": "그룹 주소",
+              "ar": "عنوان المجموعة"
             },
             "type": "text",
             "name": "group_address",
@@ -739,7 +1008,8 @@
               "sv": "Gruppadress",
               "pl": "Adres Grupy",
               "ru": "Групповой Адрес",
-              "ko": "그룹 주소"
+              "ko": "그룹 주소",
+              "ar": "عنوان المجموعة"
             }
           }
         ],
@@ -920,7 +1190,8 @@
           "sv": "Utlös scen",
           "pl": "Uruchom scenę",
           "ru": "Запуск сцены",
-          "ko": "장면 트리거"
+          "ko": "장면 트리거",
+          "ar": "تفعيل المشهد"
         },
         "args": [
           {
@@ -935,11 +1206,33 @@
         "id": "change_hvac_mode",
         "title": {
           "en": "Change HVAC mode",
-          "fr": "Change le mode de fonctionnement HVAC"
+          "fr": "Change le mode de fonctionnement HVAC",
+          "nl": "Verander HVAC-modus",
+          "da": "Skift HVAC-tilstand",
+          "de": "Wechseln Sie den HVAC-Modus",
+          "es": "Cambiar modo HVAC",
+          "it": "Cambia modalità HVAC",
+          "no": "Endre HVAC-modus",
+          "sv": "Ändra HVAC-läge",
+          "pl": "Zmień tryb HVAC",
+          "ru": "Изменение режима HVAC",
+          "ko": "HVAC 모드 변경",
+          "ar": "تغيير وضع HVAC"
         },
         "titleFormatted": {
           "en": "Change mode to [[mode]]",
-          "fr": "Changer le mode à [[mode]]"
+          "fr": "Changer le mode à [[mode]]",
+          "nl": "Wijzig modus naar [[mode]]",
+          "da": "Skift tilstand til [[mode]]",
+          "de": "Modus ändern zu [[mode]]",
+          "es": "Cambiar modo a [[mode]]",
+          "it": "Cambia modalità in [[mode]]",
+          "no": "Endre modus til [[mode]]",
+          "sv": "Ändra läge till [[mode]]",
+          "pl": "Zmień tryb na [[mode]]",
+          "ru": "Изменить режим на [[mode]]",
+          "ko": "모드를 [[mode]]로 변경",
+          "ar": "تغيير الوضع إلى [[mode]]"
         },
         "args": [
           {
@@ -951,7 +1244,19 @@
             "name": "mode",
             "type": "dropdown",
             "title": {
-              "en": "Mode"
+              "en": "Mode",
+              "nl": "Modus",
+              "da": "Tilstand",
+              "de": "Modus",
+              "es": "Modo",
+              "fr": "Mode",
+              "it": "Modalità",
+              "no": "Modus",
+              "sv": "Läge",
+              "pl": "Tryb",
+              "ru": "Режим",
+              "ko": "모드",
+              "ar": "الوضع"
             },
             "values": [
               {
@@ -975,28 +1280,72 @@
                 "id": "1",
                 "title": {
                   "en": "Comfort",
-                  "fr": "Confort"
+                  "fr": "Confort",
+                  "nl": "Comfort",
+                  "da": "Komfort",
+                  "de": "Komfort",
+                  "es": "Confort",
+                  "it": "Comfort",
+                  "no": "Komfort",
+                  "sv": "Komfort",
+                  "pl": "Komfort",
+                  "ru": "Комфорт",
+                  "ko": "편안함",
+                  "ar": "راحة"
                 }
               },
               {
                 "id": "2",
                 "title": {
                   "en": "Standby / Absence",
-                  "fr": "Veille / Absence"
+                  "fr": "Veille / Absence",
+                  "nl": "Standby / Afwezigheid",
+                  "da": "Standby / Fravær",
+                  "de": "Standby / Abwesenheit",
+                  "es": "En espera / Ausencia",
+                  "it": "Standby / Assenza",
+                  "no": "Standby / Fravær",
+                  "sv": "Standby / Frånvaro",
+                  "pl": "Czuwanie / Nieobecność",
+                  "ru": "Режим ожидания / Отсутствие",
+                  "ko": "대기 / 부재",
+                  "ar": "الاستعداد / الغياب"
                 }
               },
               {
                 "id": "3",
                 "title": {
                   "en": "Economy / Night",
-                  "fr": "Economie / Nuit"
+                  "fr": "Economie / Nuit",
+                  "nl": "Economie / Nacht",
+                  "da": "Økonomi / Nat",
+                  "de": "Sparmodus / Nacht",
+                  "es": "Economía / Noche",
+                  "it": "Economia / Notte",
+                  "no": "Økonomi / Natt",
+                  "sv": "Ekonomi / Natt",
+                  "pl": "Ekonomia / Noc",
+                  "ru": "Экономия / Ночь",
+                  "ko": "절약 / 야간",
+                  "ar": "اقتصادي / ليلي"
                 }
               },
               {
                 "id": "4",
                 "title": {
                   "en": "Building protection",
-                  "fr": "Protection du bâtiment / Hors gel"
+                  "fr": "Protection du bâtiment / Hors gel",
+                  "nl": "Gebouwbescherming",
+                  "da": "Bygningsbeskyttelse",
+                  "de": "Gebäudeschutz",
+                  "es": "Protección del edificio",
+                  "it": "Protezione dell'edificio",
+                  "no": "Bygningsvern",
+                  "sv": "Byggnadsskydd",
+                  "pl": "Ochrona budynku",
+                  "ru": "Защита здания",
+                  "ko": "건물 보호",
+                  "ar": "حماية المبنى"
                 }
               }
             ]
@@ -1044,7 +1393,18 @@
       "id": "knx_contact_sensor",
       "name": {
         "en": "Contact Sensor",
-        "fr": "Capteur de contact"
+        "fr": "Capteur de contact",
+        "nl": "Contact Sensor",
+        "da": "Kontakt Sensor",
+        "de": "Kontaktsensor",
+        "es": "Sensor de contacto",
+        "it": "Sensore di contatto",
+        "no": "Kontaktsensor",
+        "sv": "Kontaktsensor",
+        "pl": "Czujnik Kontaktowy",
+        "ru": "Контактный датчик",
+        "ko": "접촉 센서",
+        "ar": "مستشعر الاتصال"
       },
       "class": "sensor",
       "capabilities": [
@@ -1238,7 +1598,8 @@
         "sv": "Dimmer relativ",
         "pl": "Ściemniacz względny",
         "ru": "Относительный диммер",
-        "ko": "상대 디머"
+        "ko": "상대 디머",
+        "ar": "معتم نسبي"
       },
       "class": "light",
       "capabilities": [
@@ -1261,7 +1622,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -1279,7 +1641,8 @@
                 "sv": "Byt adress",
                 "pl": "Adres przełącznika",
                 "ru": "Адрес выключателя",
-                "ko": "스위치 주소"
+                "ko": "스위치 주소",
+                "ar": "عنوان المفتاح"
               },
               "value": "",
               "hint": {
@@ -1294,7 +1657,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -1312,7 +1676,8 @@
                 "sv": "Statusadress",
                 "pl": "Adres statusu",
                 "ru": "Адрес состояния",
-                "ko": "상태 주소"
+                "ko": "상태 주소",
+                "ar": "عنوان الحالة"
               },
               "value": "",
               "hint": {
@@ -1327,7 +1692,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -1345,7 +1711,8 @@
                 "sv": "Dimmeradress",
                 "pl": "Adres ściemniacza",
                 "ru": "Адрес затемнения",
-                "ko": "디밍 주소"
+                "ko": "디밍 주소",
+                "ar": "عنوان معتم"
               },
               "value": "",
               "hint": {
@@ -1360,7 +1727,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -1379,7 +1747,8 @@
             "sv": "Dimmerinställningar",
             "pl": "Ustawienia ściemniacza",
             "ru": "Настройки диммера",
-            "ko": "디머 설정"
+            "ko": "디머 설정",
+            "ar": "إعدادات المعتم"
           },
           "children": [
             {
@@ -1398,7 +1767,8 @@
                 "sv": "Dimmer steglängd",
                 "pl": "Rozmiar kroku ściemniacza",
                 "ru": "Размер шага диммера",
-                "ko": "디머 스텝 크기"
+                "ko": "디머 스텝 크기",
+                "ar": "حجم خطوة المعتم"
               },
               "values": [
                 {
@@ -1415,7 +1785,8 @@
                     "sv": "1 procent",
                     "pl": "1 procent",
                     "ru": "1 процент",
-                    "ko": "1 퍼센트"
+                    "ko": "1 퍼센트",
+                    "ar": "1 بالمئة"
                   }
                 },
                 {
@@ -1432,7 +1803,8 @@
                     "sv": "3 procent",
                     "pl": "3 procent",
                     "ru": "3 процента",
-                    "ko": "3 퍼센트"
+                    "ko": "3 퍼센트",
+                    "ar": "3 بالمئة"
                   }
                 },
                 {
@@ -1449,7 +1821,8 @@
                     "sv": "6 procent",
                     "pl": "6 procent",
                     "ru": "6 процентов",
-                    "ko": "6 퍼센트"
+                    "ko": "6 퍼센트",
+                    "ar": "6 بالمئة"
                   }
                 },
                 {
@@ -1466,7 +1839,8 @@
                     "sv": "12 procent",
                     "pl": "12 procent",
                     "ru": "12 процентов",
-                    "ko": "12 퍼센트"
+                    "ko": "12 퍼센트",
+                    "ar": "12 بالمئة"
                   }
                 },
                 {
@@ -1483,7 +1857,8 @@
                     "sv": "25 procent",
                     "pl": "25 procent",
                     "ru": "25 процентов",
-                    "ko": "25 퍼센트"
+                    "ko": "25 퍼센트",
+                    "ar": "25 بالمئة"
                   }
                 },
                 {
@@ -1500,7 +1875,8 @@
                     "sv": "50 procent",
                     "pl": "50 procent",
                     "ru": "50 процентов",
-                    "ko": "50 퍼센트"
+                    "ko": "50 퍼센트",
+                    "ar": "50 بالمئة"
                   }
                 },
                 {
@@ -1517,7 +1893,8 @@
                     "sv": "100 procent / På-Av",
                     "pl": "100 procent / Włącz-Wyłącz",
                     "ru": "100 процентов / Вкл-Выкл",
-                    "ko": "100 퍼센트 / 켜짐-꺼짐"
+                    "ko": "100 퍼센트 / 켜짐-꺼짐",
+                    "ar": "100 بالمئة / تشغيل-إيقاف"
                   }
                 }
               ]
@@ -1538,7 +1915,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -1556,7 +1934,8 @@
                 "sv": "Gränssnitt MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -1571,7 +1950,8 @@
                 "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu IP KNX",
                 "ru": "MAC-адрес необходимого KNX IP-интерфейса",
-                "ko": "요구된 KNX IP 인터페이스의 MAC 주소"
+                "ko": "요구된 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC لواجهة IP KNX المطلوبة"
               }
             },
             {
@@ -1589,7 +1969,8 @@
                 "sv": "Gränssnitt IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -1604,7 +1985,8 @@
                 "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu IP KNX",
                 "ru": "IP-адрес необходимого KNX IP-интерфейса",
-                "ko": "요구된 KNX IP 인터페이스의 IP 주소"
+                "ko": "요구된 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP لواجهة IP KNX المطلوبة"
               }
             }
           ]
@@ -1687,7 +2069,9 @@
         "sv": "Dimmer",
         "pl": "Ściemniacz",
         "ru": "Диммер",
-        "ko": "디머"
+        "ko": "디머",
+        "ar": "مخفض",
+        "pt": "Dimmer"
       },
       "class": "light",
       "capabilities": [
@@ -1714,7 +2098,8 @@
             "sv": "KNX-gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -1732,7 +2117,8 @@
                 "sv": "Strömbrytaradress",
                 "pl": "Adres przełącznika",
                 "ru": "Адрес переключателя",
-                "ko": "스위치 주소"
+                "ko": "스위치 주소",
+                "ar": "عنوان المفتاح"
               },
               "value": "",
               "hint": {
@@ -1747,7 +2133,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -1765,7 +2152,8 @@
                 "sv": "Statusadress",
                 "pl": "Adres statusu",
                 "ru": "Адрес статуса",
-                "ko": "상태 주소"
+                "ko": "상태 주소",
+                "ar": "عنوان الحالة"
               },
               "value": "",
               "hint": {
@@ -1780,7 +2168,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -1798,7 +2187,8 @@
                 "sv": "Dimmadress",
                 "pl": "Adres ściemniacza",
                 "ru": "Адрес регулятора света",
-                "ko": "디밍 주소"
+                "ko": "디밍 주소",
+                "ar": "عنوان مخفض الضوء"
               },
               "value": "",
               "hint": {
@@ -1813,7 +2203,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -1831,7 +2222,8 @@
                 "sv": "Dimmningsstatusadress",
                 "pl": "Adres statusu ściemniacza",
                 "ru": "Адрес состояния регулятора света",
-                "ko": "디밍 상태 주소"
+                "ko": "디밍 상태 주소",
+                "ar": "عنوان حالة مخفض الضوء"
               },
               "value": "",
               "hint": {
@@ -1846,7 +2238,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -1865,7 +2258,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -1883,7 +2277,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -1898,7 +2293,8 @@
                 "sv": "MAC-adress för den nödvändiga KNX-IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
               }
             },
             {
@@ -1916,7 +2312,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -1931,7 +2328,8 @@
                 "sv": "IP-adress för den nödvändiga KNX-IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP لواجهة KNX IP المطلوبة"
               }
             }
           ]
@@ -1976,7 +2374,7 @@
       "name": {
         "en": "Electric Power Measuring Sensor",
         "nl": "Elektrische vermogen sensor",
-        "da": "Elektrisk strømmålesensor",
+        "da": "Elektrisk effektmålersensor",
         "de": "Elektrischer Leistungssensor",
         "es": "Sensor de medición de potencia eléctrica",
         "fr": "Capteur de mesure de puissance électrique",
@@ -1985,7 +2383,8 @@
         "sv": "Elektrisk effektmätningssensor",
         "pl": "Czujnik pomiaru mocy elektrycznej",
         "ru": "Датчик измерения электрической мощности",
-        "ko": "전력 측정 센서"
+        "ko": "전력 측정 센서",
+        "ar": "مستشعر قياس القدرة الكهربائية"
       },
       "class": "sensor",
       "capabilities": [
@@ -2006,7 +2405,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان المجموعة KNX"
           },
           "children": [
             {
@@ -2024,7 +2424,8 @@
                 "sv": "Mätadress",
                 "pl": "Adres pomiarowy",
                 "ru": "Адрес измерения",
-                "ko": "측정 주소"
+                "ko": "측정 주소",
+                "ar": "عنوان القياس"
               },
               "value": "",
               "hint": {
@@ -2039,7 +2440,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -2058,7 +2460,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Сетевые настройки",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -2076,7 +2479,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -2091,7 +2495,8 @@
                 "sv": "MAC-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres MAC wymagany dla interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC مطلوب للواجهة KNX IP"
               }
             },
             {
@@ -2109,7 +2514,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -2124,7 +2530,8 @@
                 "sv": "IP-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres IP wymagany dla interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP مطلوب للواجهة KNX IP"
               }
             }
           ]
@@ -2168,7 +2575,18 @@
         }
       ],
       "name": {
-        "en": "Electric Energy Measuring Sensor"
+        "en": "Electric Energy Measuring Sensor",
+        "da": "Måler til elektrisk energi",
+        "de": "Sensor zur Messung elektrischer Energie",
+        "es": "Sensor de medición de energía eléctrica",
+        "fr": "Capteur de mesure d'énergie électrique",
+        "it": "Sensore di misura dell'energia elettrica",
+        "no": "Sensor for måling av elektrisk energi",
+        "sv": "Mätare för elektrisk energi",
+        "pl": "Czujnik pomiaru energii elektrycznej",
+        "ru": "Датчик измерения электроэнергии",
+        "ko": "전기 에너지 측정 센서",
+        "ar": "مستشعر قياس الطاقة الكهربائية"
       },
       "class": "sensor",
       "capabilities": [
@@ -2189,7 +2607,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -2207,7 +2626,8 @@
                 "sv": "Mätadress",
                 "pl": "Adres pomiarowy",
                 "ru": "Адрес измерения",
-                "ko": "측정 주소"
+                "ko": "측정 주소",
+                "ar": "عنوان القياس"
               },
               "value": "",
               "hint": {
@@ -2222,7 +2642,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -2241,7 +2662,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Сетевые настройки",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -2259,7 +2681,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -2274,7 +2697,8 @@
                 "sv": "MAC-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres MAC wymagany dla interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
               }
             },
             {
@@ -2292,7 +2716,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -2307,7 +2732,8 @@
                 "sv": "IP-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres IP wymagany dla interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة KNX IP"
               }
             }
           ]
@@ -2363,7 +2789,8 @@
         "sv": "Feuchtigkeitssensor",
         "pl": "Czujnik wilgotności\n",
         "ru": "Датчик влажности",
-        "ko": "습도 센서"
+        "ko": "습도 센서",
+        "ar": "جهاز استشعار الرطوبة"
       },
       "class": "sensor",
       "capabilities": [
@@ -2384,7 +2811,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان المجموعة KNX"
           },
           "children": [
             {
@@ -2402,7 +2830,8 @@
                 "sv": "Luftfuktighetsmätningsadress",
                 "pl": "Adres pomiaru wilgotności",
                 "ru": "Адрес измерения влажности",
-                "ko": "습도 측정 주소"
+                "ko": "습도 측정 주소",
+                "ar": "عنوان قياس الرطوبة"
               },
               "value": "",
               "hint": {
@@ -2417,7 +2846,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -2436,7 +2866,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -2454,7 +2885,8 @@
                 "sv": "Gränssnitt MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان واجهة MAC"
               },
               "value": "",
               "hint": {
@@ -2469,7 +2901,8 @@
                 "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
               }
             },
             {
@@ -2487,7 +2920,8 @@
                 "sv": "Gränssnitt IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان واجهة IP"
               },
               "value": "",
               "hint": {
@@ -2502,7 +2936,8 @@
                 "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP لواجهة KNX IP المطلوبة"
               }
             }
           ]
@@ -2557,7 +2992,8 @@
         "sv": "Ljus",
         "pl": "Światło",
         "ru": "Свет",
-        "ko": "조명"
+        "ko": "조명",
+        "ar": "ضوء"
       },
       "class": "light",
       "capabilities": [
@@ -2578,7 +3014,8 @@
             "sv": "KNX-gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -2596,7 +3033,8 @@
                 "sv": "Växeladress",
                 "pl": "Adres przełącznika",
                 "ru": "Адрес переключателя",
-                "ko": "스위치 주소"
+                "ko": "스위치 주소",
+                "ar": "عنوان المفتاح"
               },
               "value": "",
               "hint": {
@@ -2611,7 +3049,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -2629,7 +3068,8 @@
                 "sv": "Statusadress",
                 "pl": "Adres stanu",
                 "ru": "Адрес состояния",
-                "ko": "상태 주소"
+                "ko": "상태 주소",
+                "ar": "عنوان الحالة"
               },
               "value": "",
               "hint": {
@@ -2644,7 +3084,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -2663,7 +3104,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieciowe",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -2681,7 +3123,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -2696,7 +3139,8 @@
                 "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
               }
             },
             {
@@ -2714,7 +3158,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -2729,7 +3174,8 @@
                 "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP لواجهة KNX IP المطلوبة"
               }
             }
           ]
@@ -2784,7 +3230,8 @@
         "sv": "Ljussensor",
         "pl": "Czujnik luminancji",
         "ru": "Датчик освещенности",
-        "ko": "조도 센서"
+        "ko": "조도 센서",
+        "ar": "مستشعر الإضاءة"
       },
       "class": "sensor",
       "capabilities": [
@@ -2805,7 +3252,8 @@
             "sv": "KNX-gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان المجموعة KNX"
           },
           "children": [
             {
@@ -2823,7 +3271,8 @@
                 "sv": "Mätadress för ljusvärde",
                 "pl": "Adres pomiaru luminancji",
                 "ru": "Адрес измерения освещенности",
-                "ko": "조도 측정 주소"
+                "ko": "조도 측정 주소",
+                "ar": "عنوان قياس الإضاءة"
               },
               "value": "",
               "hint": {
@@ -2838,7 +3287,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -2857,7 +3307,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -2875,7 +3326,8 @@
                 "sv": "MAC-adress för gränssnitt",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -2890,7 +3342,8 @@
                 "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymagany dla interfejsu KNX IP",
                 "ru": "MAC-адрес необходимого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
               }
             },
             {
@@ -2908,7 +3361,8 @@
                 "sv": "IP-adress för gränssnitt",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -2923,7 +3377,8 @@
                 "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres IP wymagany dla interfejsu KNX IP",
                 "ru": "IP-адрес необходимого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP لواجهة KNX IP المطلوبة"
               }
             }
           ]
@@ -2968,7 +3423,18 @@
       "id": "knx_motion_sensor",
       "name": {
         "en": "Motion Sensor",
-        "fr": "Capteur de mouvement"
+        "fr": "Capteur de mouvement",
+        "nl": "Bewegingssensor",
+        "da": "Bevægelsessensor",
+        "de": "Bewegungssensor",
+        "es": "Sensor de movimiento",
+        "it": "Sensore di movimento",
+        "no": "Bevegelsessensor",
+        "sv": "Rörelsesensor",
+        "pl": "Czujnik ruchu",
+        "ru": "Датчик движения",
+        "ko": "모션 센서",
+        "ar": "مستشعر الحركة"
       },
       "class": "sensor",
       "capabilities": [
@@ -3403,16 +3869,17 @@
       "name": {
         "en": "Scene",
         "nl": "Scene",
-        "da": "Scene",
+        "da": "Scen",
         "de": "Szene",
         "es": "Escena",
         "fr": "Scène",
-        "it": "Scena",
+        "it": "Scenio",
         "no": "Scene",
         "sv": "Scen",
-        "pl": "Scena",
+        "pl": "Sceneria",
         "ru": "Сцена",
-        "ko": "장면"
+        "ko": "장면",
+        "ar": "مشهد"
       },
       "class": "other",
       "capabilities": [
@@ -3433,7 +3900,8 @@
             "sv": "KNX-inställningar",
             "pl": "Ustawienia KNX",
             "ru": "Настройки KNX",
-            "ko": "KNX 설정"
+            "ko": "KNX 설정",
+            "ar": "إعدادات KNX"
           },
           "children": [
             {
@@ -3451,7 +3919,8 @@
                 "sv": "Scenadress",
                 "pl": "Adres sceny",
                 "ru": "Адрес сцены",
-                "ko": "장면 주소"
+                "ko": "장면 주소",
+                "ar": "عنوان المشهد"
               },
               "value": "",
               "hint": {
@@ -3466,7 +3935,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요."
+                "ko": "그룹 주소를 입력하세요.",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -3484,7 +3954,8 @@
                 "sv": "Scennummer",
                 "pl": "Numer sceny",
                 "ru": "Номер сцены",
-                "ko": "장면 번호"
+                "ko": "장면 번호",
+                "ar": "رقم المشهد"
               },
               "value": "",
               "hint": {
@@ -3499,7 +3970,8 @@
                 "sv": "Ange scen nummer",
                 "pl": "Wprowadź numer sceny",
                 "ru": "Введите номер сцены",
-                "ko": "장면 번호를 입력하세요."
+                "ko": "장면 번호를 입력하세요.",
+                "ar": "أدخل رقم المشهد"
               }
             }
           ]
@@ -3518,7 +3990,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieciowe",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -3536,7 +4009,8 @@
                 "sv": "Gränssnitt MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -3551,7 +4025,8 @@
                 "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymagany przez interfejs KNX IP",
                 "ru": "MAC-адрес требуемого KNX IP-интерфейса",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
               }
             },
             {
@@ -3569,7 +4044,8 @@
                 "sv": "Gränssnitt IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -3584,7 +4060,8 @@
                 "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "IP-adres wymagany przez interfejs KNX IP",
                 "ru": "IP-адрес требуемого KNX IP-интерфейса",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP لواجهة KNX IP المطلوبة"
               }
             }
           ]
@@ -3629,7 +4106,17 @@
       "id": "knx_smoke_sensor",
       "name": {
         "en": "Smoke Sensor",
-        "fr": "Détecteur de fumée"
+        "fr": "Détecteur de fumée",
+        "da": "Røgsensor",
+        "de": "Rauchsensor",
+        "es": "Sensor de humo",
+        "it": "Sensore di fumo",
+        "no": "Røykdetektor",
+        "sv": "Röksensor",
+        "pl": "Czujnik dymu",
+        "ru": "Датчик дыма",
+        "ko": "연기 감지기",
+        "ar": "كاشف الدخان"
       },
       "class": "sensor",
       "capabilities": [
@@ -3650,7 +4137,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -3668,7 +4156,8 @@
                 "sv": "Mätadress",
                 "pl": "Adres pomiarowy",
                 "ru": "Адрес измерения",
-                "ko": "측정 주소"
+                "ko": "측정 주소",
+                "ar": "عنوان القياس"
               },
               "value": "",
               "hint": {
@@ -3683,7 +4172,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -3702,7 +4192,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Сетевые настройки",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -3720,7 +4211,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC لواجهة"
               },
               "value": "",
               "hint": {
@@ -3735,7 +4227,8 @@
                 "sv": "MAC-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres MAC wymagany dla interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
               }
             },
             {
@@ -3753,7 +4246,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP لواجهة"
               },
               "value": "",
               "hint": {
@@ -3768,7 +4262,8 @@
                 "sv": "IP-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres IP wymagany dla interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة KNX IP"
               }
             }
           ]
@@ -3823,7 +4318,8 @@
         "sv": "Strömbrytare",
         "pl": "Przełącznik",
         "ru": "Переключатель",
-        "ko": "스위치"
+        "ko": "스위치",
+        "ar": "مفتاح"
       },
       "class": "remote",
       "capabilities": [
@@ -3844,7 +4340,8 @@
             "sv": "KNX-gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -3862,7 +4359,8 @@
                 "sv": "Strömbrytaradress",
                 "pl": "Adres przełącznika",
                 "ru": "Адрес переключателя",
-                "ko": "스위치 주소"
+                "ko": "스위치 주소",
+                "ar": "عنوان المفتاح"
               },
               "value": "",
               "hint": {
@@ -3877,7 +4375,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -3895,7 +4394,8 @@
                 "sv": "Statusadress",
                 "pl": "Adres statusu",
                 "ru": "Адрес статуса",
-                "ko": "상태 주소"
+                "ko": "상태 주소",
+                "ar": "عنوان الحالة"
               },
               "value": "",
               "hint": {
@@ -3910,7 +4410,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -3931,7 +4432,8 @@
             "sv": "Invertera på/av",
             "pl": "Odwróć włącz/wyłącz",
             "ru": "Инвертировать вкл/выкл",
-            "ko": "켜짐/꺼짐 반전"
+            "ko": "켜짐/꺼짐 반전",
+            "ar": "عكس تشغيل/إيقاف"
           }
         },
         {
@@ -3948,7 +4450,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieciowe",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -3966,7 +4469,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC الواجهة"
               },
               "value": "",
               "hint": {
@@ -3981,7 +4485,8 @@
                 "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu KNX IP",
                 "ru": "MAC-адрес необходимого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
               }
             },
             {
@@ -3999,7 +4504,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP الواجهة"
               },
               "value": "",
               "hint": {
@@ -4014,7 +4520,8 @@
                 "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu KNX IP",
                 "ru": "IP-адрес необходимого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة KNX IP"
               }
             }
           ]
@@ -4059,7 +4566,18 @@
       "id": "knx_tamper_sensor",
       "name": {
         "en": "Tamper Sensor",
-        "fr": "Capteur de sabotage"
+        "fr": "Capteur de sabotage",
+        "nl": "Sabotagesensor",
+        "da": "Manipulationssensor",
+        "de": "Manipulationssensor",
+        "es": "Sensor de manipulación",
+        "it": "Sensore antimanomissione",
+        "no": "Manipuleringssensor",
+        "sv": "Sabotagesensor",
+        "pl": "Czujnik sabotażu",
+        "ru": "Датчик вскрытия",
+        "ko": "탬퍼 센서",
+        "ar": "مستشعر العبث"
       },
       "class": "sensor",
       "capabilities": [
@@ -4080,7 +4598,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان المجموعة KNX"
           },
           "children": [
             {
@@ -4098,7 +4617,8 @@
                 "sv": "Mätadress",
                 "pl": "Adres pomiarowy",
                 "ru": "Адрес измерения",
-                "ko": "측정 주소"
+                "ko": "측정 주소",
+                "ar": "عنوان القياس"
               },
               "value": "",
               "hint": {
@@ -4113,7 +4633,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소 입력"
+                "ko": "그룹 주소 입력",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -4132,7 +4653,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Сетевые настройки",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -4150,7 +4672,8 @@
                 "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -4165,7 +4688,8 @@
                 "sv": "MAC-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres MAC wymagany dla interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
               }
             },
             {
@@ -4183,7 +4707,8 @@
                 "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP لواجهة"
               },
               "value": "",
               "hint": {
@@ -4198,7 +4723,8 @@
                 "sv": "IP-adress för det krävs KNX IP-gränssnitt",
                 "pl": "Adres IP wymagany dla interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة KNX IP"
               }
             }
           ]
@@ -4253,7 +4779,8 @@
         "sv": "Temperatursensor",
         "pl": "Czujnik temperatury",
         "ru": "Датчик температуры",
-        "ko": "온도 센서"
+        "ko": "온도 센서",
+        "ar": "مستشعر الحرارة"
       },
       "class": "sensor",
       "capabilities": [
@@ -4274,7 +4801,8 @@
             "sv": "KNX gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -4292,7 +4820,8 @@
                 "sv": "Temperaturmätningsadress",
                 "pl": "Adres pomiaru temperatury",
                 "ru": "Адрес измерения температуры",
-                "ko": "온도 측정 주소"
+                "ko": "온도 측정 주소",
+                "ar": "عنوان قياس درجة الحرارة"
               },
               "value": "",
               "hint": {
@@ -4307,7 +4836,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wprowadź adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -4326,7 +4856,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieci",
             "ru": "Настройки сети",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -4344,7 +4875,8 @@
                 "sv": "Gränssnitt MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC للواجهة"
               },
               "value": "",
               "hint": {
@@ -4359,7 +4891,8 @@
                 "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu KNX IP",
                 "ru": "MAC-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة على KNX IP"
               }
             },
             {
@@ -4377,7 +4910,8 @@
                 "sv": "Gränssnitt IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -4392,7 +4926,8 @@
                 "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu KNX IP",
                 "ru": "IP-адрес требуемого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة على KNX IP"
               }
             }
           ]
@@ -4461,13 +4996,13 @@
           "label": {
             "en": "KNX groupaddress",
             "nl": "KNX groepadressen",
-            "da": "KNX gruppeadresse",
+            "da": "KNX-gruppe adresse",
             "de": "KNX-Gruppenadresse",
             "es": "Dirección de grupo KNX",
             "fr": "Adresse de groupe KNX",
             "it": "Indirizzo di gruppo KNX",
             "no": "KNX gruppadresse",
-            "sv": "KNX gruppadress",
+            "sv": "KNX-gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
             "ko": "KNX 그룹 주소"
@@ -4518,9 +5053,9 @@
                 "fr": "Adresse de statut de température cible",
                 "it": "Indirizzo di stato di temperatura desiderata",
                 "no": "Måltemperaturstatusadresse",
-                "sv": "Måladress för temperatur status",
-                "pl": "Adres docelowej temperatury statusu",
-                "ru": "Адрес целевой температуры статуса",
+                "sv": "Adress för måltemperaturens status",
+                "pl": "Adres statusu docelowej temperatury",
+                "ru": "Адрес статуса целевой температуры",
                 "ko": "목표 온도 상태 주소"
               },
               "value": "",
@@ -4545,15 +5080,15 @@
               "label": {
                 "en": "Temperature measurement address",
                 "nl": "Temperatuurmetingadres",
-                "da": "Temperaturmålingsadresse",
+                "da": "Adresse til temperaturmåling",
                 "de": "Adresse zur Temperaturmessung",
                 "es": "Dirección de medición de temperatura",
                 "fr": "Adresse de mesure de la température",
                 "it": "Indirizzo di misurazione della temperatura",
                 "no": "Adresse for temperaturmåling",
-                "sv": "Temperaturmätningsadress",
-                "pl": "Adres pomiaru temperatury",
-                "ru": "Адрес измерения температуры",
+                "sv": "Adress för temperaturmätning",
+                "pl": "Adres do pomiaru temperatury",
+                "ru": "Адрес для измерения температуры",
                 "ko": "온도 측정 주소"
               },
               "value": "",
@@ -4578,7 +5113,12 @@
           "type": "group",
           "label": {
             "en": "Optional (Removing these groupadresses will break flows)",
-            "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)"
+            "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)",
+            "da": "Valgfrit (Fjernelse af disse gruppeadresser vil bryde flows)",
+            "sv": "Valfritt (Borttagning av dessa gruppadresser bryter flöden)",
+            "pl": "Opcjonalne (Usunięcie tych adresów grupowych przerwie przepływy)",
+            "ru": "Необязательно (Удаление этих групповых адресов нарушит потоки)",
+            "ko": "선택 사항 (이 그룹 주소를 제거하면 흐름이 중단됩니다)"
           },
           "children": [
             {
@@ -4586,7 +5126,15 @@
               "type": "text",
               "label": {
                 "en": "HVAC operating mode address",
-                "fr": "Adresse de mode de fonctionnement HVAC"
+                "fr": "Adresse de mode de fonctionnement HVAC",
+                "da": "Adresse til HVAC-driftstilstand",
+                "es": "Dirección de modo de funcionamiento HVAC",
+                "it": "Indirizzo modalità operativa HVAC",
+                "no": "Adresse for HVAC-driftmodus",
+                "sv": "Adress för HVAC-driftläge",
+                "pl": "Adres trybu pracy HVAC",
+                "ru": "Адрес режима работы HVAC",
+                "ko": "HVAC 작동 모드 주소"
               },
               "value": "",
               "hint": {
@@ -4609,7 +5157,15 @@
               "type": "text",
               "label": {
                 "en": "HVAC operating mode status address",
-                "fr": "Adresse de statut de mode de fonctionnement HVAC"
+                "fr": "Adresse de statut de mode de fonctionnement HVAC",
+                "da": "Adresse til HVAC-driftstilstandsstatus",
+                "es": "Dirección de estado de modo de funcionamiento HVAC",
+                "it": "Indirizzo stato modalità operativa HVAC",
+                "no": "Adresse for HVAC-driftmodusstatus",
+                "sv": "Adress för status för HVAC-driftläge",
+                "pl": "Adres statusu trybu pracy HVAC",
+                "ru": "Адрес статуса режима работы HVAC",
+                "ko": "HVAC 작동 모드 상태 주소"
               },
               "value": "",
               "hint": {
@@ -4631,7 +5187,16 @@
               "id": "ga_fan_speed",
               "type": "text",
               "label": {
-                "en": "Fan speed address"
+                "en": "Fan speed address",
+                "fr": "Adresse de vitesse du ventilateur",
+                "da": "Adresse til ventilatorhastighed",
+                "es": "Dirección de velocidad del ventilador",
+                "it": "Indirizzo velocità ventilatore",
+                "no": "Adresse for viftehastighet",
+                "sv": "Adress för fläkthastighet",
+                "pl": "Adres prędkości wentylatora",
+                "ru": "Адрес скорости вентилятора",
+                "ko": "팬 속도 주소"
               },
               "value": "",
               "hint": {
@@ -4653,7 +5218,16 @@
               "id": "ga_fan_speed_status",
               "type": "text",
               "label": {
-                "en": "Fan speed status address"
+                "en": "Fan speed status address",
+                "fr": "Adresse de statut de vitesse du ventilateur",
+                "da": "Adresse til status for ventilatorhastighet",
+                "es": "Dirección de estado de velocidad del ventilador",
+                "it": "Indirizzo stato velocità ventilatore",
+                "no": "Adresse for status for viftehastighet",
+                "sv": "Adress för status på fläkthastighet",
+                "pl": "Adres statusu prędkości wentylatora",
+                "ru": "Адрес статуса скорости вентилятора",
+                "ko": "팬 속도 상태 주소"
               },
               "value": "",
               "hint": {
@@ -4675,10 +5249,28 @@
               "id": "fan_speed_steps",
               "type": "number",
               "label": {
-                "en": "Number of fan speed steps"
+                "en": "Number of fan speed steps",
+                "fr": "Nombre de niveaux de vitesse du ventilateur",
+                "da": "Antal trin for ventilatorhastighed",
+                "es": "Número de pasos de velocidad del ventilador",
+                "it": "Numero di passi della velocità del ventilatore",
+                "no": "Antall trinn for viftehastighet",
+                "sv": "Antal steg av fläkthastighet",
+                "pl": "Liczba kroków prędkości wentylatora",
+                "ru": "Количество уровней скорости вентилятора",
+                "ko": "팬 속도 단계 수"
               },
               "hint": {
-                "en": "e.g. 3 for three on-states and off. Leave empty for 0-100%"
+                "en": "e.g. 3 for three on-states and off. Leave empty for 0-100%",
+                "fr": "par exemple 3 pour trois niveaux actifs et off. Laisser vide pour 0-100%",
+                "da": "f.eks. 3 for tre på-tilstande og slukket. Lad stå tomt for 0-100%",
+                "es": "p. ej. 3 para tres estados encendidos y apagado. Dejar vacío para 0-100%",
+                "it": "ad es. 3 per tre stati attivo e spento. Lasciare vuoto per 0-100%",
+                "no": "f.eks. 3 for tre på-stater og av. La stå tom for 0-100%",
+                "sv": "t.ex. 3 för tre på-lägen och av. Lämna tom för 0-100%",
+                "pl": "np. 3 dla trzech stanów włączonych i wyłączony. Pozostaw puste dla 0-100%",
+                "ru": "например, 3 для трех состояний включения и выключения. Оставьте пустым для 0-100%",
+                "ko": "예: 3은 3개의 켜짐 상태 및 꺼짐입니다. 0-100%는 비워 두십시오."
               },
               "min": 0,
               "max": 99
@@ -4687,7 +5279,16 @@
               "id": "ga_fan_auto_mode",
               "type": "text",
               "label": {
-                "en": "Fan auto mode address"
+                "en": "Fan auto mode address",
+                "fr": "Adresse de mode automatique du ventilateur",
+                "da": "Adresse til ventilationsautomatik-tilstand",
+                "es": "Dirección de modo automático del ventilador",
+                "it": "Indirizzo modalità automatica della ventola",
+                "no": "Adresse for auto tilventilations-tilstand",
+                "sv": "Adress för fläktens auto-läge",
+                "pl": "Adres trybu auto wentylatora",
+                "ru": "Адрес режима авто вентилятора",
+                "ko": "팬 자동 모드 주소"
               },
               "value": "",
               "hint": {
@@ -4709,7 +5310,16 @@
               "id": "ga_fan_auto_mode_status",
               "type": "text",
               "label": {
-                "en": "Fan auto mode status address"
+                "en": "Fan auto mode status address",
+                "fr": "Adresse de statut de mode automatique du ventilateur",
+                "da": "Adresse til status for ventilationsautomatik-tilstand",
+                "es": "Dirección de estado de modo automático del ventilador",
+                "it": "Indirizzo stato modalità automatica della ventola",
+                "no": "Adresse for status for auto tilventilations-tilstand",
+                "sv": "Adress för fläktens status i auto-läge",
+                "pl": "Adres statusu trybu auto wentylatora",
+                "ru": "Адрес статуса режима авто вентилятора",
+                "ko": "팬 자동 모드 상태 주소"
               },
               "value": "",
               "hint": {
@@ -4752,13 +5362,13 @@
               "label": {
                 "en": "Interface MAC address",
                 "nl": "Interface MAC adres",
-                "da": "Grænseflade MAC-adresse",
+                "da": "Grænsefladens MAC-adresse",
                 "de": "MAC-Adresse der Schnittstelle",
                 "es": "Dirección MAC de la interfaz",
                 "fr": "Adresse MAC de l'interface",
                 "it": "Indirizzo MAC dell'interfaccia",
                 "no": "MAC-adresse til grensesnittet",
-                "sv": "MA-adress för gränssnitt",
+                "sv": "Gränssnittets MAC-adress",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
                 "ko": "인터페이스 MAC 주소"
@@ -4785,13 +5395,13 @@
               "label": {
                 "en": "Interface IP address",
                 "nl": "Interface IP adres",
-                "da": "Grænseflade IP-adresse",
+                "da": "Grænsefladens IP-adresse",
                 "de": "IP-Adresse der Schnittstelle",
                 "es": "Dirección IP de la interfaz",
                 "fr": "Adresse IP de l'interface",
                 "it": "Indirizzo IP dell'interfaccia",
                 "no": "IP-adresse til grensesnittet",
-                "sv": "IP-adress för gränssnitt",
+                "sv": "Gränssnittets IP-adress",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
                 "ko": "인터페이스 IP 주소"
@@ -4864,7 +5474,8 @@
         "sv": "Fönsterbeklädnader",
         "pl": "Osłony okienne",
         "ru": "Оконные покрытия",
-        "ko": "창문 덮개"
+        "ko": "창문 덮개",
+        "ar": "أغطية النوافذ"
       },
       "class": "windowcoverings",
       "capabilities": [
@@ -4885,7 +5496,8 @@
             "sv": "KNX-gruppadress",
             "pl": "Adres grupowy KNX",
             "ru": "Групповой адрес KNX",
-            "ko": "KNX 그룹 주소"
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
           },
           "children": [
             {
@@ -4903,7 +5515,8 @@
                 "sv": "Upp/Ned adress",
                 "pl": "Adres góra/dół",
                 "ru": "Адрес вверх/вниз",
-                "ko": "상/하 주소"
+                "ko": "상/하 주소",
+                "ar": "عنوان لأعلى/لأسفل"
               },
               "value": "",
               "hint": {
@@ -4918,7 +5531,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wpisz adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -4936,7 +5550,8 @@
                 "sv": "Stoppadress",
                 "pl": "Adres zatrzymania",
                 "ru": "Адрес остановки",
-                "ko": "정지 주소"
+                "ko": "정지 주소",
+                "ar": "عنوان الإيقاف"
               },
               "value": "",
               "hint": {
@@ -4951,7 +5566,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wpisz adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
@@ -4969,7 +5585,8 @@
                 "sv": "Statusadress",
                 "pl": "Adres statusu",
                 "ru": "Адрес статуса",
-                "ko": "상태 주소"
+                "ko": "상태 주소",
+                "ar": "عنوان الحالة"
               },
               "value": "",
               "hint": {
@@ -4984,14 +5601,16 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wpisz adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
               "id": "ga_height",
               "type": "text",
               "label": {
-                "en": "Height address"
+                "en": "Height address",
+                "ar": "عنوان الارتفاع"
               },
               "value": "",
               "hint": {
@@ -5006,14 +5625,16 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wpisz adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             },
             {
               "id": "ga_height_status",
               "type": "text",
               "label": {
-                "en": "Height status address"
+                "en": "Height status address",
+                "ar": "عنوان حالة الارتفاع"
               },
               "value": "",
               "hint": {
@@ -5028,7 +5649,8 @@
                 "sv": "Ange gruppadress",
                 "pl": "Wpisz adres grupowy",
                 "ru": "Введите групповой адрес",
-                "ko": "그룹 주소를 입력하세요"
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
               }
             }
           ]
@@ -5049,7 +5671,8 @@
             "sv": "Invertera upp/ner",
             "pl": "Odwróć góra/dół",
             "ru": "Перевернуть вверх/вниз",
-            "ko": "상/하 반전"
+            "ko": "상/하 반전",
+            "ar": "عكس لأعلى/لأسفل"
           }
         },
         {
@@ -5066,7 +5689,8 @@
             "sv": "Nätverksinställningar",
             "pl": "Ustawienia sieciowe",
             "ru": "Сетевые настройки",
-            "ko": "네트워크 설정"
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
           },
           "children": [
             {
@@ -5084,7 +5708,8 @@
                 "sv": "MAC-adress för gränssnitt",
                 "pl": "Adres MAC interfejsu",
                 "ru": "MAC-адрес интерфейса",
-                "ko": "인터페이스 MAC 주소"
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC لواجهة"
               },
               "value": "",
               "hint": {
@@ -5099,7 +5724,8 @@
                 "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres MAC wymaganego interfejsu KNX IP",
                 "ru": "MAC-адрес необходимого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
               }
             },
             {
@@ -5117,7 +5743,8 @@
                 "sv": "IP-adress för gränssnitt",
                 "pl": "Adres IP interfejsu",
                 "ru": "IP-адрес интерфейса",
-                "ko": "인터페이스 IP 주소"
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP للواجهة"
               },
               "value": "",
               "hint": {
@@ -5132,7 +5759,8 @@
                 "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
                 "pl": "Adres IP wymaganego interfejsu KNX IP",
                 "ru": "IP-адрес необходимого интерфейса KNX IP",
-                "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة KNX IP"
               }
             }
           ]
@@ -5154,7 +5782,8 @@
         "sv": "Dimma ner",
         "pl": "Przyciemnić",
         "ru": "Уменьшить",
-        "ko": "어둡게"
+        "ko": "어둡게",
+        "ar": "اخفض"
       },
       "type": "boolean",
       "getable": true,
@@ -5173,7 +5802,8 @@
         "sv": "Dimma upp",
         "pl": "Ściemnij",
         "ru": "Увеличить яркость",
-        "ko": "올리기"
+        "ko": "올리기",
+        "ar": "زيادة السطوع"
       },
       "type": "boolean",
       "getable": true,
@@ -5183,7 +5813,18 @@
       "type": "enum",
       "title": {
         "en": "Operating mode for heating, ventilation and air-conditioning",
-        "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation"
+        "fr": "Mode de fonctionnement pour le chauffage, la ventilation et la climatisation",
+        "nl": "Bedrijfsmode voor verwarming, ventilatie en airconditioning",
+        "da": "Driftstilstand for opvarmning, ventilation og aircondition",
+        "de": "Betriebsmodus für Heizung, Lüftung und Klimaanlage",
+        "es": "Modo de funcionamiento para calefacción, ventilación y aire acondicionado",
+        "it": "Modalità operativa per riscaldamento, ventilazione e climatizzazione",
+        "no": "Driftsmodus for oppvarming, ventilasjon og klimaanlegg",
+        "sv": "Driftläge för uppvärmning, ventilation och luftkonditionering",
+        "pl": "Tryb pracy dla ogrzewania, wentylacji i klimatyzacji",
+        "ru": "Режим работы систем отопления, вентиляции и кондиционирования",
+        "ko": "난방, 환기 및 공조 작동 모드",
+        "ar": "وضع التشغيل للتدفئة والتهوية وتكييف الهواء"
       },
       "getable": true,
       "setable": true,
@@ -5211,28 +5852,72 @@
           "id": "1",
           "title": {
             "en": "Comfort",
-            "fr": "Confort"
+            "fr": "Confort",
+            "nl": "Comfort",
+            "da": "Komfort",
+            "de": "Komfort",
+            "es": "Confort",
+            "it": "Comfort",
+            "no": "Komfort",
+            "sv": "Komfort",
+            "pl": "Komfort",
+            "ru": "Комфорт",
+            "ko": "쾌적",
+            "ar": "راحة"
           }
         },
         {
           "id": "2",
           "title": {
             "en": "Standby / Absence",
-            "fr": "Veille / Absence"
+            "fr": "Veille / Absence",
+            "nl": "Stand-by / Afwezigheid",
+            "da": "Standby / Fravær",
+            "de": "Standby / Abwesenheit",
+            "es": "Espera / Ausencia",
+            "it": "Standby / Assenza",
+            "no": "Standby / Fravær",
+            "sv": "Standby / Frånvaro",
+            "pl": "Tryb czuwania / Nieobecność",
+            "ru": "Ожидание / Отсутствие",
+            "ko": "대기 / 부재",
+            "ar": "الاستعداد / غياب"
           }
         },
         {
           "id": "3",
           "title": {
             "en": "Economy / Night",
-            "fr": "Economie / Nuit"
+            "fr": "Economie / Nuit",
+            "nl": "Economie / Nacht",
+            "da": "Økonomi / Nat",
+            "de": "Sparmodus / Nacht",
+            "es": "Económico / Noche",
+            "it": "Economia / Notte",
+            "no": "Økonomi / Natt",
+            "sv": "Ekonomi / Natt",
+            "pl": "Ekonomia / Noc",
+            "ru": "Экономия / Ночь",
+            "ko": "에코 / 야간",
+            "ar": "اقتصاد / ليلي"
           }
         },
         {
           "id": "4",
           "title": {
             "en": "Building protection",
-            "fr": "Protection du bâtiment / Hors gel"
+            "fr": "Protection du bâtiment / Hors gel",
+            "nl": "Bescherming van het gebouw",
+            "da": "Bygningsbeskyttelse",
+            "de": "Gebäudeschutz",
+            "es": "Protección del edificio",
+            "it": "Protezione dell'edificio",
+            "no": "Bygningsbeskyttelse",
+            "sv": "Byggnadsskydd",
+            "pl": "Ochrona budynku",
+            "ru": "Защита здания",
+            "ko": "건물 보호",
+            "ar": "حماية المبنى"
           }
         }
       ]
@@ -5241,7 +5926,19 @@
       "type": "boolean",
       "uiComponent": "toggle",
       "title": {
-        "en": "Fan auto mode"
+        "en": "Fan auto mode",
+        "nl": "Ventilator automodus",
+        "da": "Blæser automatisk tilstand",
+        "de": "Lüfterautomatik",
+        "es": "Modo automático del ventilador",
+        "fr": "Mode auto du ventilateur",
+        "it": "Modalità automatica ventilatore",
+        "no": "Vifte automatisk modus",
+        "sv": "Fläkt automatläge",
+        "pl": "Tryb automatyczny wentylatora",
+        "ru": "Автоматический режим вентилятора",
+        "ko": "팬 자동 모드",
+        "ar": "وضع المروحة التلقائي"
       },
       "getable": true,
       "setable": true,
@@ -5250,11 +5947,35 @@
     "knx_fan_speed": {
       "type": "number",
       "title": {
-        "en": "Fan speed"
+        "en": "Fan speed",
+        "nl": "Ventilatorsnelheid",
+        "da": "Blæserhastighed",
+        "de": "Lüftergeschwindigkeit",
+        "es": "Velocidad del ventilador",
+        "fr": "Vitesse du ventilateur",
+        "it": "Velocità della ventola",
+        "no": "Viftehastighet",
+        "sv": "Fläkthastighet",
+        "pl": "Prędkość wentylatora",
+        "ru": "Скорость вентилятора",
+        "ko": "팬 속도",
+        "ar": "سرعة المروحة"
       },
       "uiComponent": "slider",
       "units": {
-        "en": "%"
+        "en": "%",
+        "nl": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%",
+        "ar": "%"
       },
       "decimals": 2,
       "min": 0,
@@ -5265,7 +5986,19 @@
     "knx_fan_speed_no_step_defined": {
       "type": "string",
       "title": {
-        "en": "Marker capability for thermostats without fan speed step defined"
+        "en": "Marker capability for thermostats without fan speed step defined",
+        "nl": "Markeringsfunctie voor thermostaten zonder gedefinieerde ventilatorsnelheidsstap",
+        "da": "Mærkeevne for termostater uden defineret ventilatorhastighedstrin",
+        "de": "Markierfähigkeit für Thermostate ohne definierte Lüftergeschwindigkeitsstufe",
+        "es": "Capacidad de marcador para termostatos sin paso de velocidad de ventilador definido",
+        "fr": "Capacité de marquage pour thermostats sans étape de vitesse de ventilateur définie",
+        "it": "Capacità di marcatura per termostati senza passaggio di velocità del ventilatore definito",
+        "no": "Markørfunksjon for termostater uten definert viftehastighetstrinn",
+        "sv": "Märkningsförmåga för termostater utan definierat fläkthastighetssteg",
+        "pl": "Możliwość markerowania termostatów bez zdefiniowanego kroku prędkości wentylatora",
+        "ru": "Возможность маркировки для термостатов без определенной ступени скорости вентилятора",
+        "ko": "팬 속도 단계가 정의되지 않은 온도의 마커 기능",
+        "ar": "إمكانية وضع العلامات للثرموستات بدون خطوة سرعة المروحة المحددة"
       },
       "uiComponent": null,
       "getable": false,
@@ -5275,7 +6008,19 @@
     "knx_fan_speed_step_defined": {
       "type": "string",
       "title": {
-        "en": "Marker capability for thermostats with fan speed step defined"
+        "en": "Marker capability for thermostats with fan speed step defined",
+        "nl": "Markeringsmogelijkheid voor thermostaten met gedefinieerde ventilatorsnelheid",
+        "da": "Markørfunktion til termostater med defineret blæserhastighedstrin",
+        "de": "Markierungsfunktion für Thermostate mit definierter Lüftergeschwindigkeitsstufe",
+        "es": "Capacidad de marcador para termostatos con paso de velocidad del ventilador definido",
+        "fr": "Capacité de marquage pour les thermostats avec pas de vitesse du ventilateur défini",
+        "it": "Capacità di marcatura per termostati con passo di velocità del ventilatore definito",
+        "no": "Markeringskapasitet for termostater med definert viftehastighetstrinn",
+        "sv": "Markörfunktion för termostater med definierat fläkthastighetssteg",
+        "pl": "Zdolność oznaczania dla termostatów z zdefiniowanym krokiem prędkości wentylatora",
+        "ru": "Возможность маркировки для термостатов с определённым шагом скорости вентилятора",
+        "ko": "팬 속도 단계가 정의된 온도 조절기의 마커 기능",
+        "ar": "قدرة العلامة للثرموستات مع سرعة مروحة محددة"
       },
       "uiComponent": null,
       "getable": false,
@@ -5295,7 +6040,8 @@
         "sv": "Scen",
         "pl": "Scena",
         "ru": "Сцена",
-        "ko": "장면"
+        "ko": "장면",
+        "ar": "مشهد"
       },
       "type": "boolean",
       "getable": false,

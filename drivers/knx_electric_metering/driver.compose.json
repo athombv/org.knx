@@ -3,7 +3,18 @@
     "knx_sensor"
   ],
   "name": {
-    "en": "Electric Energy Measuring Sensor"
+    "en": "Electric Energy Measuring Sensor",
+    "da": "Måler til elektrisk energi",
+    "de": "Sensor zur Messung elektrischer Energie",
+    "es": "Sensor de medición de energía eléctrica",
+    "fr": "Capteur de mesure d'énergie électrique",
+    "it": "Sensore di misura dell'energia elettrica",
+    "no": "Sensor for måling av elektrisk energi",
+    "sv": "Mätare för elektrisk energi",
+    "pl": "Czujnik pomiaru energii elektrycznej",
+    "ru": "Датчик измерения электроэнергии",
+    "ko": "전기 에너지 측정 센서",
+    "ar": "مستشعر قياس الطاقة الكهربائية"
   },
   "class": "sensor",
   "capabilities": [
@@ -24,7 +35,8 @@
         "sv": "KNX gruppadress",
         "pl": "Adres grupowy KNX",
         "ru": "Групповой адрес KNX",
-        "ko": "KNX 그룹 주소"
+        "ko": "KNX 그룹 주소",
+        "ar": "عنوان مجموعة KNX"
       },
       "children": [
         {
@@ -42,7 +54,8 @@
             "sv": "Mätadress",
             "pl": "Adres pomiarowy",
             "ru": "Адрес измерения",
-            "ko": "측정 주소"
+            "ko": "측정 주소",
+            "ar": "عنوان القياس"
           },
           "value": "",
           "hint": {
@@ -57,7 +70,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소 입력"
+            "ko": "그룹 주소 입력",
+            "ar": "أدخل عنوان المجموعة"
           }
         }
       ]
@@ -76,7 +90,8 @@
         "sv": "Nätverksinställningar",
         "pl": "Ustawienia sieci",
         "ru": "Сетевые настройки",
-        "ko": "네트워크 설정"
+        "ko": "네트워크 설정",
+        "ar": "إعدادات الشبكة"
       },
       "children": [
         {
@@ -94,7 +109,8 @@
             "sv": "Gränssnittets MAC-adress",
             "pl": "Adres MAC interfejsu",
             "ru": "MAC-адрес интерфейса",
-            "ko": "인터페이스 MAC 주소"
+            "ko": "인터페이스 MAC 주소",
+            "ar": "عنوان MAC للواجهة"
           },
           "value": "",
           "hint": {
@@ -109,7 +125,8 @@
             "sv": "MAC-adress för det krävs KNX IP-gränssnitt",
             "pl": "Adres MAC wymagany dla interfejsu KNX IP",
             "ru": "MAC-адрес требуемого интерфейса KNX IP",
-            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+            "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
           }
         },
         {
@@ -127,7 +144,8 @@
             "sv": "Gränssnittets IP-adress",
             "pl": "Adres IP interfejsu",
             "ru": "IP-адрес интерфейса",
-            "ko": "인터페이스 IP 주소"
+            "ko": "인터페이스 IP 주소",
+            "ar": "عنوان IP للواجهة"
           },
           "value": "",
           "hint": {
@@ -142,7 +160,8 @@
             "sv": "IP-adress för det krävs KNX IP-gränssnitt",
             "pl": "Adres IP wymagany dla interfejsu KNX IP",
             "ru": "IP-адрес требуемого интерфейса KNX IP",
-            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+            "ar": "عنوان IP للواجهة المطلوبة KNX IP"
           }
         }
       ]

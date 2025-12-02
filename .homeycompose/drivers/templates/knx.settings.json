@@ -14,7 +14,8 @@
         "sv": "Nätverksinställningar",
         "pl": "Ustawienia sieciowe",
         "ru": "Настройки сети",
-        "ko": "네트워크 설정"
+        "ko": "네트워크 설정",
+        "ar": "إعدادات الشبكة"
       },
       "children": [
         {
@@ -32,7 +33,8 @@
             "sv": "Gränssnittets MAC-adress",
             "pl": "Adres MAC interfejsu",
             "ru": "MAC-адрес интерфейса",
-            "ko": "인터페이스 MAC 주소"
+            "ko": "인터페이스 MAC 주소",
+            "ar": "عنوان MAC للواجهة"
           },
           "value": "",
           "hint": {
@@ -47,7 +49,8 @@
             "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
             "pl": "Adres MAC wymagany dla interfejsu KNX IP",
             "ru": "MAC-адрес требуемого KNX IP интерфейса",
-            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+            "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
           }
         },
         {
@@ -65,7 +68,8 @@
             "sv": "Gränssnittets IP-adress",
             "pl": "Adres IP interfejsu",
             "ru": "IP-адрес интерфейса",
-            "ko": "인터페이스 IP 주소"
+            "ko": "인터페이스 IP 주소",
+            "ar": "عنوان IP للواجهة"
           },
           "value": "",
           "hint": {
@@ -80,7 +84,8 @@
             "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
             "pl": "Adres IP wymagany dla interfejsu KNX IP",
             "ru": "IP-адрес требуемого KNX IP интерфейса",
-            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+            "ar": "عنوان IP لواجهة KNX IP المطلوبة"
           }
         }
       ]
