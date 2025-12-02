@@ -16,7 +16,19 @@
       "serverReadyAction": {
         "pattern": "Debugger listening on",
         "action": "startDebugging",
-        "name": "Attach to Homey"
+        "name": "Attach to Homey",
+        "nl": "Verbind met Homey",
+        "da": "Tilslut til Homey",
+        "de": "Verbinden mit Homey",
+        "es": "Conectar a Homey",
+        "fr": "Connecter à Homey",
+        "it": "Collega a Homey",
+        "no": "Koble til Homey",
+        "sv": "Anslut till Homey",
+        "pl": "Połącz z Homey",
+        "ru": "Подключиться к Homey",
+        "ko": "Homey에 연결",
+        "ar": "الاتصال بـ Homey"
       }
     },
     {
@@ -27,7 +39,19 @@
       "address": "${env:HOMEY_DEBUG_IP}",
       "port": 9225,
       "localRoot": "${workspaceFolder}",
-      "remoteRoot": "/app/"
+      "remoteRoot": "/app/",
+      "nl": "Verbind met Homey",
+      "da": "Tilslut til Homey",
+      "de": "Verbinden mit Homey",
+      "es": "Conectar a Homey",
+      "fr": "Connecter à Homey",
+      "it": "Collega a Homey",
+      "no": "Koble til Homey",
+      "sv": "Anslut till Homey",
+      "pl": "Połącz z Homey",
+      "ru": "Подключиться к Homey",
+      "ko": "Homey에 연결",
+      "ar": "الاتصال بـ Homey"
     },
     {
       "type": "node",
@@ -37,7 +61,19 @@
       "address": "${env:HOMEY_DEBUG_IP}",
       "port": 9229,
       "localRoot": "${workspaceFolder}",
-      "remoteRoot": "/app/"
+      "remoteRoot": "/app/",
+      "nl": "Verbind HA met Homey23 Docker",
+      "da": "Tilslut HA til Homey23 Docker",
+      "de": "Verbinde HA mit Homey23 Docker",
+      "es": "Conectar HA a Homey23 Docker",
+      "fr": "Connecter HA à Homey23 Docker",
+      "it": "Collega HA a Homey23 Docker",
+      "no": "Koble HA til Homey23 Docker",
+      "sv": "Anslut HA till Homey23 Docker",
+      "pl": "Połącz HA z Homey23 Docker",
+      "ru": "Подключение HA к Homey23 Docker",
+      "ko": "HA를 Homey23 Docker에 연결",
+      "ar": "قم بتوصيل HA بـ Homey23 Docker"
     }
   ]
 }

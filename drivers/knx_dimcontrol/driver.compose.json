@@ -15,7 +15,8 @@
     "sv": "Dimmer relativ",
     "pl": "Ściemniacz względny",
     "ru": "Относительный диммер",
-    "ko": "상대 디머"
+    "ko": "상대 디머",
+    "ar": "معتم نسبي"
   },
   "class": "light",
   "capabilities": [
@@ -65,7 +66,8 @@
         "sv": "KNX gruppadress",
         "pl": "Adres grupowy KNX",
         "ru": "Групповой адрес KNX",
-        "ko": "KNX 그룹 주소"
+        "ko": "KNX 그룹 주소",
+        "ar": "عنوان مجموعة KNX"
       },
       "children": [
         {
@@ -83,7 +85,8 @@
             "sv": "Byt adress",
             "pl": "Adres przełącznika",
             "ru": "Адрес выключателя",
-            "ko": "스위치 주소"
+            "ko": "스위치 주소",
+            "ar": "عنوان المفتاح"
           },
           "value": "",
           "hint": {
@@ -98,7 +101,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소 입력"
+            "ko": "그룹 주소 입력",
+            "ar": "أدخل عنوان المجموعة"
           }
         },
         {
@@ -116,7 +120,8 @@
             "sv": "Statusadress",
             "pl": "Adres statusu",
             "ru": "Адрес состояния",
-            "ko": "상태 주소"
+            "ko": "상태 주소",
+            "ar": "عنوان الحالة"
           },
           "value": "",
           "hint": {
@@ -131,7 +136,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소 입력"
+            "ko": "그룹 주소 입력",
+            "ar": "أدخل عنوان المجموعة"
           }
         },
         {
@@ -149,7 +155,8 @@
             "sv": "Dimmeradress",
             "pl": "Adres ściemniacza",
             "ru": "Адрес затемнения",
-            "ko": "디밍 주소"
+            "ko": "디밍 주소",
+            "ar": "عنوان معتم"
           },
           "value": "",
           "hint": {
@@ -164,7 +171,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소 입력"
+            "ko": "그룹 주소 입력",
+            "ar": "أدخل عنوان المجموعة"
           }
         }
       ]
@@ -183,7 +191,8 @@
         "sv": "Dimmerinställningar",
         "pl": "Ustawienia ściemniacza",
         "ru": "Настройки диммера",
-        "ko": "디머 설정"
+        "ko": "디머 설정",
+        "ar": "إعدادات المعتم"
       },
       "children": [
         {
@@ -202,7 +211,8 @@
             "sv": "Dimmer steglängd",
             "pl": "Rozmiar kroku ściemniacza",
             "ru": "Размер шага диммера",
-            "ko": "디머 스텝 크기"
+            "ko": "디머 스텝 크기",
+            "ar": "حجم خطوة المعتم"
           },
           "values": [
             {
@@ -219,7 +229,8 @@
                 "sv": "1 procent",
                 "pl": "1 procent",
                 "ru": "1 процент",
-                "ko": "1 퍼센트"
+                "ko": "1 퍼센트",
+                "ar": "1 بالمئة"
               }
             },
             {
@@ -236,7 +247,8 @@
                 "sv": "3 procent",
                 "pl": "3 procent",
                 "ru": "3 процента",
-                "ko": "3 퍼센트"
+                "ko": "3 퍼센트",
+                "ar": "3 بالمئة"
               }
             },
             {
@@ -253,7 +265,8 @@
                 "sv": "6 procent",
                 "pl": "6 procent",
                 "ru": "6 процентов",
-                "ko": "6 퍼센트"
+                "ko": "6 퍼센트",
+                "ar": "6 بالمئة"
               }
             },
             {
@@ -270,7 +283,8 @@
                 "sv": "12 procent",
                 "pl": "12 procent",
                 "ru": "12 процентов",
-                "ko": "12 퍼센트"
+                "ko": "12 퍼센트",
+                "ar": "12 بالمئة"
               }
             },
             {
@@ -287,7 +301,8 @@
                 "sv": "25 procent",
                 "pl": "25 procent",
                 "ru": "25 процентов",
-                "ko": "25 퍼센트"
+                "ko": "25 퍼센트",
+                "ar": "25 بالمئة"
               }
             },
             {
@@ -304,7 +319,8 @@
                 "sv": "50 procent",
                 "pl": "50 procent",
                 "ru": "50 процентов",
-                "ko": "50 퍼센트"
+                "ko": "50 퍼센트",
+                "ar": "50 بالمئة"
               }
             },
             {
@@ -321,7 +337,8 @@
                 "sv": "100 procent / På-Av",
                 "pl": "100 procent / Włącz-Wyłącz",
                 "ru": "100 процентов / Вкл-Выкл",
-                "ko": "100 퍼센트 / 켜짐-꺼짐"
+                "ko": "100 퍼센트 / 켜짐-꺼짐",
+                "ar": "100 بالمئة / تشغيل-إيقاف"
               }
             }
           ]
@@ -342,7 +359,8 @@
         "sv": "Nätverksinställningar",
         "pl": "Ustawienia sieci",
         "ru": "Настройки сети",
-        "ko": "네트워크 설정"
+        "ko": "네트워크 설정",
+        "ar": "إعدادات الشبكة"
       },
       "children": [
         {
@@ -360,7 +378,8 @@
             "sv": "Gränssnitt MAC-adress",
             "pl": "Adres MAC interfejsu",
             "ru": "MAC-адрес интерфейса",
-            "ko": "인터페이스 MAC 주소"
+            "ko": "인터페이스 MAC 주소",
+            "ar": "عنوان MAC للواجهة"
           },
           "value": "",
           "hint": {
@@ -375,7 +394,8 @@
             "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
             "pl": "Adres MAC wymaganego interfejsu IP KNX",
             "ru": "MAC-адрес необходимого KNX IP-интерфейса",
-            "ko": "요구된 KNX IP 인터페이스의 MAC 주소"
+            "ko": "요구된 KNX IP 인터페이스의 MAC 주소",
+            "ar": "عنوان MAC لواجهة IP KNX المطلوبة"
           }
         },
         {
@@ -393,7 +413,8 @@
             "sv": "Gränssnitt IP-adress",
             "pl": "Adres IP interfejsu",
             "ru": "IP-адрес интерфейса",
-            "ko": "인터페이스 IP 주소"
+            "ko": "인터페이스 IP 주소",
+            "ar": "عنوان IP للواجهة"
           },
           "value": "",
           "hint": {
@@ -408,7 +429,8 @@
             "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
             "pl": "Adres IP wymaganego interfejsu IP KNX",
             "ru": "IP-адрес необходимого KNX IP-интерфейса",
-            "ko": "요구된 KNX IP 인터페이스의 IP 주소"
+            "ko": "요구된 KNX IP 인터페이스의 IP 주소",
+            "ar": "عنوان IP لواجهة IP KNX المطلوبة"
           }
         }
       ]

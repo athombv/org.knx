@@ -14,7 +14,8 @@
         "sv": "Slås på eller av",
         "pl": "Włączone lub wyłączone",
         "ru": "Включено или выключено",
-        "ko": "켜짐 또는 꺼짐"
+        "ko": "켜짐 또는 꺼짐",
+        "ar": "تم تشغيله أو إيقافه"
       },
       "titleFormatted": {
         "en": "Turned on or off",
@@ -28,7 +29,8 @@
         "sv": "Slås på eller av",
         "pl": "Włączone lub wyłączone",
         "ru": "Включено или выключено",
-        "ko": "켜짐 또는 꺼짐"
+        "ko": "켜짐 또는 꺼짐",
+        "ar": "تم تشغيله أو إيقافه"
       },
       "hint": {
         "en": "When the switch is changed from on/off to off/on",
@@ -42,7 +44,8 @@
         "sv": "När brytaren ändras från på/av till av/på",
         "pl": "Gdy przełącznik zmieni się z włączone/wyłączone na wyłączone/włączone",
         "ru": "Когда переключатель изменяется с включено/выключено на выключено/включено",
-        "ko": "스위치가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때"
+        "ko": "스위치가 켜짐/꺼짐에서 꺼짐/켜짐으로 변경될 때",
+        "ar": "عندما يتم تغيير المفتاح من تشغيل/إيقاف إلى إيقاف/تشغيل"
       },
       "tokens": [
         {
@@ -60,7 +63,8 @@
             "sv": "Status",
             "pl": "Status",
             "ru": "Статус",
-            "ko": "상태"
+            "ko": "상태",
+            "ar": "الحالة"
           },
           "example": {
             "en": "The current status of the switch",
@@ -74,7 +78,8 @@
             "sv": "Aktuell status för brytaren",
             "pl": "Aktualny stan przełącznika",
             "ru": "Текущий статус переключателя",
-            "ko": "현재 스위치 상태"
+            "ko": "현재 스위치 상태",
+            "ar": "الحالة الحالية للمفتاح"
           }
         }
       ]

@@ -15,7 +15,8 @@
     "sv": "Feuchtigkeitssensor",
     "pl": "Czujnik wilgotności\n",
     "ru": "Датчик влажности",
-    "ko": "습도 센서"
+    "ko": "습도 센서",
+    "ar": "جهاز استشعار الرطوبة"
   },
   "class": "sensor",
   "capabilities": [
@@ -36,7 +37,8 @@
         "sv": "KNX gruppadress",
         "pl": "Adres grupowy KNX",
         "ru": "Групповой адрес KNX",
-        "ko": "KNX 그룹 주소"
+        "ko": "KNX 그룹 주소",
+        "ar": "عنوان المجموعة KNX"
       },
       "children": [
         {
@@ -54,7 +56,8 @@
             "sv": "Luftfuktighetsmätningsadress",
             "pl": "Adres pomiaru wilgotności",
             "ru": "Адрес измерения влажности",
-            "ko": "습도 측정 주소"
+            "ko": "습도 측정 주소",
+            "ar": "عنوان قياس الرطوبة"
           },
           "value": "",
           "hint": {
@@ -69,7 +72,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소를 입력하세요"
+            "ko": "그룹 주소를 입력하세요",
+            "ar": "أدخل عنوان المجموعة"
           }
         }
       ]
@@ -88,7 +92,8 @@
         "sv": "Nätverksinställningar",
         "pl": "Ustawienia sieci",
         "ru": "Настройки сети",
-        "ko": "네트워크 설정"
+        "ko": "네트워크 설정",
+        "ar": "إعدادات الشبكة"
       },
       "children": [
         {
@@ -106,7 +111,8 @@
             "sv": "Gränssnitt MAC-adress",
             "pl": "Adres MAC interfejsu",
             "ru": "MAC-адрес интерфейса",
-            "ko": "인터페이스 MAC 주소"
+            "ko": "인터페이스 MAC 주소",
+            "ar": "عنوان واجهة MAC"
           },
           "value": "",
           "hint": {
@@ -121,7 +127,8 @@
             "sv": "MAC-adress för det erforderliga KNX IP-gränssnittet",
             "pl": "Adres MAC wymaganego interfejsu KNX IP",
             "ru": "MAC-адрес требуемого интерфейса KNX IP",
-            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+            "ar": "عنوان MAC لواجهة KNX IP المطلوبة"
           }
         },
         {
@@ -139,7 +146,8 @@
             "sv": "Gränssnitt IP-adress",
             "pl": "Adres IP interfejsu",
             "ru": "IP-адрес интерфейса",
-            "ko": "인터페이스 IP 주소"
+            "ko": "인터페이스 IP 주소",
+            "ar": "عنوان واجهة IP"
           },
           "value": "",
           "hint": {
@@ -154,7 +162,8 @@
             "sv": "IP-adress för det erforderliga KNX IP-gränssnittet",
             "pl": "Adres IP wymaganego interfejsu KNX IP",
             "ru": "IP-адрес требуемого интерфейса KNX IP",
-            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+            "ar": "عنوان IP لواجهة KNX IP المطلوبة"
           }
         }
       ]

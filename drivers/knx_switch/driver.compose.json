@@ -15,7 +15,8 @@
     "sv": "Strömbrytare",
     "pl": "Przełącznik",
     "ru": "Переключатель",
-    "ko": "스위치"
+    "ko": "스위치",
+    "ar": "مفتاح"
   },
   "class": "remote",
   "capabilities": [
@@ -63,7 +64,8 @@
         "sv": "KNX-gruppadress",
         "pl": "Adres grupowy KNX",
         "ru": "Групповой адрес KNX",
-        "ko": "KNX 그룹 주소"
+        "ko": "KNX 그룹 주소",
+        "ar": "عنوان مجموعة KNX"
       },
       "children": [
         {
@@ -81,7 +83,8 @@
             "sv": "Strömbrytaradress",
             "pl": "Adres przełącznika",
             "ru": "Адрес переключателя",
-            "ko": "스위치 주소"
+            "ko": "스위치 주소",
+            "ar": "عنوان المفتاح"
           },
           "value": "",
           "hint": {
@@ -96,7 +99,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소를 입력하세요"
+            "ko": "그룹 주소를 입력하세요",
+            "ar": "أدخل عنوان المجموعة"
           }
         },
         {
@@ -114,7 +118,8 @@
             "sv": "Statusadress",
             "pl": "Adres statusu",
             "ru": "Адрес статуса",
-            "ko": "상태 주소"
+            "ko": "상태 주소",
+            "ar": "عنوان الحالة"
           },
           "value": "",
           "hint": {
@@ -129,7 +134,8 @@
             "sv": "Ange gruppadress",
             "pl": "Wprowadź adres grupowy",
             "ru": "Введите групповой адрес",
-            "ko": "그룹 주소를 입력하세요"
+            "ko": "그룹 주소를 입력하세요",
+            "ar": "أدخل عنوان المجموعة"
           }
         }
       ]
@@ -150,7 +156,8 @@
         "sv": "Invertera på/av",
         "pl": "Odwróć włącz/wyłącz",
         "ru": "Инвертировать вкл/выкл",
-        "ko": "켜짐/꺼짐 반전"
+        "ko": "켜짐/꺼짐 반전",
+        "ar": "عكس تشغيل/إيقاف"
       }
     },
     {
@@ -167,7 +174,8 @@
         "sv": "Nätverksinställningar",
         "pl": "Ustawienia sieciowe",
         "ru": "Настройки сети",
-        "ko": "네트워크 설정"
+        "ko": "네트워크 설정",
+        "ar": "إعدادات الشبكة"
       },
       "children": [
         {
@@ -185,7 +193,8 @@
             "sv": "Gränssnittets MAC-adress",
             "pl": "Adres MAC interfejsu",
             "ru": "MAC-адрес интерфейса",
-            "ko": "인터페이스 MAC 주소"
+            "ko": "인터페이스 MAC 주소",
+            "ar": "عنوان MAC الواجهة"
           },
           "value": "",
           "hint": {
@@ -200,7 +209,8 @@
             "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
             "pl": "Adres MAC wymaganego interfejsu KNX IP",
             "ru": "MAC-адрес необходимого интерфейса KNX IP",
-            "ko": "필요한 KNX IP 인터페이스의 MAC 주소"
+            "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+            "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
           }
         },
         {
@@ -218,7 +228,8 @@
             "sv": "Gränssnittets IP-adress",
             "pl": "Adres IP interfejsu",
             "ru": "IP-адрес интерфейса",
-            "ko": "인터페이스 IP 주소"
+            "ko": "인터페이스 IP 주소",
+            "ar": "عنوان IP الواجهة"
           },
           "value": "",
           "hint": {
@@ -233,7 +244,8 @@
             "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
             "pl": "Adres IP wymaganego interfejsu KNX IP",
             "ru": "IP-адрес необходимого интерфейса KNX IP",
-            "ko": "필요한 KNX IP 인터페이스의 IP 주소"
+            "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+            "ar": "عنوان IP للواجهة المطلوبة KNX IP"
           }
         }
       ]

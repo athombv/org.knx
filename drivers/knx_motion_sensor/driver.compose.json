@@ -5,7 +5,18 @@
   "id": "knx_motion_sensor",
   "name": {
     "en": "Motion Sensor",
-    "fr": "Capteur de mouvement"
+    "fr": "Capteur de mouvement",
+    "nl": "Bewegingssensor",
+    "da": "Bevægelsessensor",
+    "de": "Bewegungssensor",
+    "es": "Sensor de movimiento",
+    "it": "Sensore di movimento",
+    "no": "Bevegelsessensor",
+    "sv": "Rörelsesensor",
+    "pl": "Czujnik ruchu",
+    "ru": "Датчик движения",
+    "ko": "모션 센서",
+    "ar": "مستشعر الحركة"
   },
   "class": "sensor",
   "capabilities": [
