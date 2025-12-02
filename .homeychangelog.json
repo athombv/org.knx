@@ -74,5 +74,8 @@
   },
   "1.4.2": {
     "en": "Fixed issues causing app to crash"
+  },
+  "1.4.3": {
+    "en": "Resolved an issue with parsing data for electric metering device"
   }
 }
