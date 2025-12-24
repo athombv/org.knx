@@ -11,7 +11,7 @@
             "manual_interface_input": "enter adddress manually"
         },
         "learnmode": {
-            "title" : "Start learnmode",
+            "title": "Start learnmode",
             "explanation": "Pair a KNX button to a virtual button in Homey.",
             "testbutton": "Test groupaddress",
             "no_result": "No devices have been found."
@@ -24,17 +24,17 @@
                 "explanation": "If available, you can "
             },
             "existingxml": {
-	            "title": "An ETS export is already available, but you can "
+                "title": "An ETS export is already available, but you can "
             },
             "upload": "upload an ETS project"
         },
-        "groupaddresses" : {
+        "groupaddresses": {
             "generic": "Groupaddress",
             "pairing_list": ", groupaddress: ",
             "select": "Select groupaddress from ETS project",
             "body": "Select which groupaddresses to use with the new device",
             "generic_status": "Status",
-            "save" : "Save device",
+            "save": "Save device",
             "duplicate_groupaddress": " this groupaddress is already in use by ",
             "optional": "Optional groupaddresses, Leave empty if your device does not support these features.",
             "switch": {
@@ -56,6 +56,12 @@
                 "fan_speed_steps": "Number of fan speed steps (leave empty for 0-100%, off-state doesn't need to be included)",
                 "fan_auto_mode": "Fan auto mode address",
                 "fan_auto_mode_status": "Fan auto mode status address"
+            },
+            "vimar_thermostat_02952b": {
+                "summer_winter": "Summer/Winter address",
+                "window_switch": "Window switch address",
+                "valve_heating": "Heating valve status address",
+                "valve_cooling": "Cooling valve status address"
             },
             "rgb": {
                 "red_toggle_action": "Toggle address red channel",
@@ -82,7 +88,7 @@
             "sensor": "Sensor address",
             "scene": "Scene address"
         },
-        "scene_number" : "Scene number"
+        "scene_number": "Scene number"
     },
     "errors": {
         "generic_error": "There was an error: ",
@@ -93,6 +99,9 @@
         "rgb_failed": "Setting color failed!",
         "temperature_set_failed": "Setting temperature failed!",
         "temperature_get_failed": "Getting temperature failed!",
+        "mode_set_failed": "Setting thermostat mode failed!",
+        "window_switch_failed": "Setting window switch failed!",
+        "reset_to_basesetpoint_failed": "Resetting to base setpoint failed!",
         "hvac_operating_mode_get_failed": "Getting operating mode failed!",
         "hvac_operating_mode_set_failed": "Setting operating mode failed!",
         "windowcovering_failed": "Changing state failed!",
