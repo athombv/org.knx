@@ -127,8 +127,13 @@ class KNXThermostat extends KNXGenericDevice {
       const min = this.getCapabilityValue('target_temperature_min') ?? KNXThermostat.DEFAULT_TEMPERATURE_MIN;
       await this.applyTemperatureLimits(min, value);
     });
-    const min = typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN;
-    const max = typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX;
+    // On restart, prefer persisted capability value; fall back to settings (or default) on first install
+    const savedMin = this.getCapabilityValue('target_temperature_min');
+    const savedMax = this.getCapabilityValue('target_temperature_max');
+    const min = typeof savedMin === 'number' ? savedMin
+      : (typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN);
+    const max = typeof savedMax === 'number' ? savedMax
+      : (typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX);
     await this.applyTemperatureLimits(min, max);
   }
 
