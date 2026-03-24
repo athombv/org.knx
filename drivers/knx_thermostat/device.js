@@ -22,6 +22,7 @@ class KNXThermostat extends KNXGenericDevice {
     } else {
       await this.removeCapabilityIfExists('knx_fan_auto_mode');
     }
+    await this.initTemperatureLimitsCapability();
     super.onInit();
   }
 
@@ -57,6 +58,16 @@ class KNXThermostat extends KNXGenericDevice {
         await this.removeCapability('knx_fan_auto_mode').catch(this.error);
       }
     }
+    if (changedKeys.includes('min_temperature') && !newSettings.ga_temperature_min) {
+      const min = typeof newSettings.min_temperature === 'number' ? newSettings.min_temperature : 4;
+      const max = this.getCapabilityValue('target_temperature_max');
+      await this.applyTemperatureLimits(min, max);
+    }
+    if (changedKeys.includes('max_temperature') && !newSettings.ga_temperature_max) {
+      const max = typeof newSettings.max_temperature === 'number' ? newSettings.max_temperature : 35;
+      const min = this.getCapabilityValue('target_temperature_min');
+      await this.applyTemperatureLimits(min, max);
+    }
     await super.onSettings({ oldSettings, newSettings, changedKeys });
   }
 
@@ -90,6 +101,20 @@ class KNXThermostat extends KNXGenericDevice {
   async initFanAutoModeCapability() {
     await this.addCapabilityIfNotExists('knx_fan_auto_mode');
     this.registerCapabilityListener('knx_fan_auto_mode', this.onCapabilityFanAutoMode.bind(this));
+  }
+
+  async initTemperatureLimitsCapability() {
+    await this.addCapabilityIfNotExists('target_temperature_min');
+    await this.addCapabilityIfNotExists('target_temperature_max');
+    const min = typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : 4;
+    const max = typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : 35;
+    await this.applyTemperatureLimits(min, max);
+  }
+
+  async applyTemperatureLimits(min, max) {
+    await this.setCapabilityValue('target_temperature_min', min).catch(this.error);
+    await this.setCapabilityValue('target_temperature_max', max).catch(this.error);
+    this.setCapabilityOptions('target_temperature', { min, max });
   }
 
   onKNXEvent(groupaddress, data) {
@@ -131,6 +156,22 @@ class KNXThermostat extends KNXGenericDevice {
           this.error('Set fan auto mode error', knxerror);
         });
     }
+    if (groupaddress === this.settings.ga_temperature_min) {
+      const min = DatapointTypeParser.dpt9(data);
+      if (min !== null) {
+        const max = this.getCapabilityValue('target_temperature_max')
+          ?? (typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : 35);
+        this.applyTemperatureLimits(min, max).catch(this.error);
+      }
+    }
+    if (groupaddress === this.settings.ga_temperature_max) {
+      const max = DatapointTypeParser.dpt9(data);
+      if (max !== null) {
+        const min = this.getCapabilityValue('target_temperature_min')
+          ?? (typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : 4);
+        this.applyTemperatureLimits(min, max).catch(this.error);
+      }
+    }
   }
 
   onKNXConnection(connectionStatus) {
@@ -146,6 +187,8 @@ class KNXThermostat extends KNXGenericDevice {
     this.getHVACOperatingMode();
     this.getFanAutoMode();
     this.getFanSpeed();
+    this.getTemperatureMin();
+    this.getTemperatureMax();
   }
 
   getTargetTemperature() {
@@ -231,6 +274,22 @@ class KNXThermostat extends KNXGenericDevice {
       return;
     }
     this.knxInterface.readKNXGroupAddress(statusAddress)
+      .catch(this.error);
+  }
+
+  getTemperatureMin() {
+    if (!this.knxInterface || !this.settings.ga_temperature_min) {
+      return;
+    }
+    this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_min)
+      .catch(this.error);
+  }
+
+  getTemperatureMax() {
+    if (!this.knxInterface || !this.settings.ga_temperature_max) {
+      return;
+    }
+    this.knxInterface.readKNXGroupAddress(this.settings.ga_temperature_max)
       .catch(this.error);
   }
 
