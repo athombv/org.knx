@@ -142,9 +142,14 @@ class KNXThermostat extends KNXGenericDevice {
       this.error(`Invalid temperature limits: min=${min}, max=${max}`);
       return;
     }
+    this.log(`applyTemperatureLimits: min=${min}, max=${max}`);
+    // Expand the allowed range of limit capabilities first (built-in caps are capped at 4–35)
+    await this.setCapabilityOptions('target_temperature_min', { min: -50, max: 100 }).catch(this.error);
+    await this.setCapabilityOptions('target_temperature_max', { min: -50, max: 100 }).catch(this.error);
+    // Update the thermostat slider range before setting values
+    await this.setCapabilityOptions('target_temperature', { min, max }).catch(this.error);
     await this.setCapabilityValue('target_temperature_min', min).catch(this.error);
     await this.setCapabilityValue('target_temperature_max', max).catch(this.error);
-    await this.setCapabilityOptions('target_temperature', { min, max }).catch(this.error);
   }
 
   onKNXEvent(groupaddress, data) {
