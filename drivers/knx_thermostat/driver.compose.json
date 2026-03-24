@@ -172,6 +172,75 @@
     {
       "type": "group",
       "label": {
+        "en": "Temperature limits",
+        "fr": "Limites de température",
+        "de": "Temperaturgrenzen",
+        "nl": "Temperatuurgrenzen",
+        "da": "Temperaturgrænser",
+        "es": "Límites de temperatura",
+        "it": "Limiti di temperatura",
+        "no": "Temperaturgrenser",
+        "sv": "Temperaturgränser",
+        "pl": "Limity temperatury",
+        "ru": "Пределы температуры",
+        "ko": "온도 제한"
+      },
+      "children": [
+        {
+          "id": "min_temperature",
+          "type": "number",
+          "label": {
+            "en": "Minimum target temperature",
+            "fr": "Température cible minimale",
+            "de": "Minimale Zieltemperatur",
+            "nl": "Minimale doeltemperatuur",
+            "da": "Minimum måltemperatur",
+            "es": "Temperatura objetivo mínima",
+            "it": "Temperatura target minima",
+            "no": "Minimum måltemperatur",
+            "sv": "Minsta måltemperatur",
+            "pl": "Minimalna temperatura docelowa",
+            "ru": "Минимальная целевая температура",
+            "ko": "최소 목표 온도"
+          },
+          "hint": {
+            "en": "Minimum value for the target temperature slider (°C). Default: 4",
+            "fr": "Valeur minimale du curseur de température cible (°C). Défaut : 4"
+          },
+          "value": 4,
+          "min": -50,
+          "max": 100
+        },
+        {
+          "id": "max_temperature",
+          "type": "number",
+          "label": {
+            "en": "Maximum target temperature",
+            "fr": "Température cible maximale",
+            "de": "Maximale Zieltemperatur",
+            "nl": "Maximale doeltemperatuur",
+            "da": "Maksimal måltemperatur",
+            "es": "Temperatura objetivo máxima",
+            "it": "Temperatura target massima",
+            "no": "Maksimum måltemperatur",
+            "sv": "Högsta måltemperatur",
+            "pl": "Maksymalna temperatura docelowa",
+            "ru": "Максимальная целевая температура",
+            "ko": "최대 목표 온도"
+          },
+          "hint": {
+            "en": "Maximum value for the target temperature slider (°C). Default: 35",
+            "fr": "Valeur maximale du curseur de température cible (°C). Défaut : 35"
+          },
+          "value": 35,
+          "min": -50,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
         "en": "Optional (Removing these groupadresses will break flows)",
         "nl": "Optioneel (Het verwijderen van deze groepadressen zal flows breken)",
         "da": "Valgfrit (Fjernelse af disse gruppeadresser vil bryde flows)",
@@ -395,6 +464,52 @@
             "pl": "Wpisz adres grupowy",
             "ru": "Введите групповой адрес",
             "ko": "그룹 주소 입력"
+          }
+        },
+        {
+          "id": "ga_temperature_min",
+          "type": "text",
+          "label": {
+            "en": "Minimum temperature limit address",
+            "fr": "Adresse de limite de température minimale",
+            "de": "Adresse für minimale Temperaturgrenze",
+            "nl": "Adres voor minimale temperatuurlimiet",
+            "da": "Adresse til minimumstemperaturgrænse",
+            "es": "Dirección de límite de temperatura mínima",
+            "it": "Indirizzo limite temperatura minima",
+            "no": "Adresse for minimumstemperaturgrense",
+            "sv": "Adress för minimitemperaturgräns",
+            "pl": "Adres limitu minimalnej temperatury",
+            "ru": "Адрес минимального предела температуры",
+            "ko": "최소 온도 제한 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "KNX group address that sends the minimum temperature limit (DPT9.1, read-only). Overrides the static minimum when a value is received.",
+            "fr": "Adresse de groupe KNX envoyant la limite minimale de température (DPT9.1, lecture seule). Remplace le minimum statique à la réception."
+          }
+        },
+        {
+          "id": "ga_temperature_max",
+          "type": "text",
+          "label": {
+            "en": "Maximum temperature limit address",
+            "fr": "Adresse de limite de température maximale",
+            "de": "Adresse für maximale Temperaturgrenze",
+            "nl": "Adres voor maximale temperatuurlimiet",
+            "da": "Adresse til maksimumstemperaturgrænse",
+            "es": "Dirección de límite de temperatura máxima",
+            "it": "Indirizzo limite temperatura massima",
+            "no": "Adresse for maksimumstemperaturgrense",
+            "sv": "Adress för maximitemperaturgräns",
+            "pl": "Adres limitu maksymalnej temperatury",
+            "ru": "Адрес максимального предела температуры",
+            "ko": "최대 온도 제한 주소"
+          },
+          "value": "",
+          "hint": {
+            "en": "KNX group address that sends the maximum temperature limit (DPT9.1, read-only). Overrides the static maximum when a value is received.",
+            "fr": "Adresse de groupe KNX envoyant la limite maximale de température (DPT9.1, lecture seule). Remplace le maximum statique à la réception."
           }
         }
       ]
