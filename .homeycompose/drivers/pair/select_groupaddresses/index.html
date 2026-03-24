@@ -276,6 +276,22 @@
 				<select id="fan_auto_mode_status_ga_dropdown" class="knx-dropdown right"></select>
         		<input id="fan_auto_mode_status_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
 			</div>
+			<div class="knx-entry">
+        		<label for="temperature_min_address" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.temperature_min"></label>
+        	</div>
+			<div class="knx-entry">
+				<select id="temperature_min_ga_dropdown" class="knx-dropdown right"></select>
+        		<input id="temperature_min_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+        		<label for="temperature_max_address" class="left"
+             	   data-i18n="settings.groupaddresses.thermostat.temperature_max"></label>
+        	</div>
+			<div class="knx-entry">
+				<select id="temperature_max_ga_dropdown" class="knx-dropdown right"></select>
+        		<input id="temperature_max_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
 		</div>
 	</fieldset>
 	<fieldset id="knx-windowcovering-fieldset" style="display: none">
@@ -590,6 +606,8 @@
             'ga_fan_speed_status': $('#fan_speed_status_address').val(),
             'ga_fan_auto_mode': $('#fan_auto_mode_address').val(),
             'ga_fan_auto_mode_status': $('#fan_auto_mode_status_address').val(),
+            'ga_temperature_min': $('#temperature_min_address').val(),
+            'ga_temperature_max': $('#temperature_max_address').val(),
             'fan_speed_steps': parseInt($('#fan_speed_steps').val()),
             'macAddress': interfaceMAC,
           };
