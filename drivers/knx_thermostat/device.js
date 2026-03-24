@@ -5,6 +5,9 @@ const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 
 class KNXThermostat extends KNXGenericDevice {
 
+  static DEFAULT_TEMPERATURE_MIN = 4;
+  static DEFAULT_TEMPERATURE_MAX = 35;
+
   async onInit() {
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     if (typeof this.settings.ga_hvac_operating_mode === 'string' && this.settings.ga_hvac_operating_mode !== '') {
@@ -22,6 +25,7 @@ class KNXThermostat extends KNXGenericDevice {
     } else {
       await this.removeCapabilityIfExists('knx_fan_auto_mode');
     }
+    // Must run before super.onInit() which calls addKNXEventListeners (checks hasCapability)
     await this.initTemperatureLimitsCapability();
     super.onInit();
   }
@@ -59,14 +63,22 @@ class KNXThermostat extends KNXGenericDevice {
       }
     }
     if (changedKeys.includes('min_temperature') && !newSettings.ga_temperature_min) {
-      const min = typeof newSettings.min_temperature === 'number' ? newSettings.min_temperature : 4;
-      const max = this.getCapabilityValue('target_temperature_max');
+      const min = typeof newSettings.min_temperature === 'number' ? newSettings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN;
+      const max = this.getCapabilityValue('target_temperature_max')
+        ?? (typeof newSettings.max_temperature === 'number' ? newSettings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX);
       await this.applyTemperatureLimits(min, max);
     }
     if (changedKeys.includes('max_temperature') && !newSettings.ga_temperature_max) {
-      const max = typeof newSettings.max_temperature === 'number' ? newSettings.max_temperature : 35;
-      const min = this.getCapabilityValue('target_temperature_min');
+      const max = typeof newSettings.max_temperature === 'number' ? newSettings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX;
+      const min = this.getCapabilityValue('target_temperature_min')
+        ?? (typeof newSettings.min_temperature === 'number' ? newSettings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN);
       await this.applyTemperatureLimits(min, max);
+    }
+    if (changedKeys.includes('ga_temperature_min') && newSettings.ga_temperature_min) {
+      this.getTemperatureMin();
+    }
+    if (changedKeys.includes('ga_temperature_max') && newSettings.ga_temperature_max) {
+      this.getTemperatureMax();
     }
     await super.onSettings({ oldSettings, newSettings, changedKeys });
   }
@@ -106,15 +118,19 @@ class KNXThermostat extends KNXGenericDevice {
   async initTemperatureLimitsCapability() {
     await this.addCapabilityIfNotExists('target_temperature_min');
     await this.addCapabilityIfNotExists('target_temperature_max');
-    const min = typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : 4;
-    const max = typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : 35;
+    const min = typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN;
+    const max = typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX;
     await this.applyTemperatureLimits(min, max);
   }
 
   async applyTemperatureLimits(min, max) {
+    if (typeof min !== 'number' || typeof max !== 'number' || min >= max) {
+      this.error(`Invalid temperature limits: min=${min}, max=${max}`);
+      return;
+    }
     await this.setCapabilityValue('target_temperature_min', min).catch(this.error);
     await this.setCapabilityValue('target_temperature_max', max).catch(this.error);
-    this.setCapabilityOptions('target_temperature', { min, max });
+    await this.setCapabilityOptions('target_temperature', { min, max }).catch(this.error);
   }
 
   onKNXEvent(groupaddress, data) {
@@ -160,7 +176,7 @@ class KNXThermostat extends KNXGenericDevice {
       const min = DatapointTypeParser.dpt9(data);
       if (min !== null) {
         const max = this.getCapabilityValue('target_temperature_max')
-          ?? (typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : 35);
+          ?? (typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX);
         this.applyTemperatureLimits(min, max).catch(this.error);
       }
     }
@@ -168,7 +184,7 @@ class KNXThermostat extends KNXGenericDevice {
       const max = DatapointTypeParser.dpt9(data);
       if (max !== null) {
         const min = this.getCapabilityValue('target_temperature_min')
-          ?? (typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : 4);
+          ?? (typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN);
         this.applyTemperatureLimits(min, max).catch(this.error);
       }
     }
