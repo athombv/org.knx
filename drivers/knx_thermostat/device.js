@@ -118,6 +118,15 @@ class KNXThermostat extends KNXGenericDevice {
   async initTemperatureLimitsCapability() {
     await this.addCapabilityIfNotExists('target_temperature_min');
     await this.addCapabilityIfNotExists('target_temperature_max');
+    // Register listeners required by Homey for setable capabilities
+    this.registerCapabilityListener('target_temperature_min', async (value) => {
+      const max = this.getCapabilityValue('target_temperature_max') ?? KNXThermostat.DEFAULT_TEMPERATURE_MAX;
+      await this.applyTemperatureLimits(value, max);
+    });
+    this.registerCapabilityListener('target_temperature_max', async (value) => {
+      const min = this.getCapabilityValue('target_temperature_min') ?? KNXThermostat.DEFAULT_TEMPERATURE_MIN;
+      await this.applyTemperatureLimits(min, value);
+    });
     const min = typeof this.settings.min_temperature === 'number' ? this.settings.min_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MIN;
     const max = typeof this.settings.max_temperature === 'number' ? this.settings.max_temperature : KNXThermostat.DEFAULT_TEMPERATURE_MAX;
     await this.applyTemperatureLimits(min, max);
