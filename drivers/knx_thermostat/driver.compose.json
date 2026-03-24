@@ -485,8 +485,18 @@
           },
           "value": "",
           "hint": {
-            "en": "KNX group address that sends the minimum temperature limit (DPT9.1, read-only). Overrides the static minimum when a value is received.",
-            "fr": "Adresse de groupe KNX envoyant la limite minimale de température (DPT9.1, lecture seule). Remplace le minimum statique à la réception."
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Angi gruppadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
           }
         },
         {
@@ -508,8 +518,18 @@
           },
           "value": "",
           "hint": {
-            "en": "KNX group address that sends the maximum temperature limit (DPT9.1, read-only). Overrides the static maximum when a value is received.",
-            "fr": "Adresse de groupe KNX envoyant la limite maximale de température (DPT9.1, lecture seule). Remplace le maximum statique à la réception."
+            "en": "Enter groupaddress",
+            "nl": "Vul groepadres in",
+            "da": "Indtast gruppeadresse",
+            "de": "Gruppenadresse eingeben",
+            "es": "Ingrese la dirección de grupo",
+            "fr": "Entrez l'adresse de groupe",
+            "it": "Inserisci l'indirizzo di gruppo",
+            "no": "Angi gruppadresse",
+            "sv": "Ange gruppadress",
+            "pl": "Wpisz adres grupowy",
+            "ru": "Введите групповой адрес",
+            "ko": "그룹 주소 입력"
           }
         }
       ]
