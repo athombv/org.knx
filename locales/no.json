@@ -46,7 +46,9 @@
       "thermostat": {
         "target": "Måltemperaturadresse",
         "target_status": "Måltemperaturstatusadresse",
-        "measure": "Adresse for temperaturmåling"
+        "measure": "Adresse for temperaturmåling",
+        "temperature_min": "Adresse for minimumstemperaturgrense",
+        "temperature_max": "Adresse for maksimumstemperaturgrense"
       },
       "rgb": {
         "red_toggle_action": "Bytt adresse rød kanal",
@@ -82,7 +84,6 @@
     "rgb_failed": "Innstilling av farge mislyktes!",
     "temperature_set_failed": "Innstilling av temperatur mislyktes!",
     "temperature_get_failed": "Henting av temperatur mislyktes!",
-
     "windowcovering_failed": "Endring av tilstand mislyktes!",
     "windowcovering_stop_failed": "Stopp av vindusdekning mislyktes!",
     "invalid_group_address": "Ugyldig gruppadresse.",

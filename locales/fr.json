@@ -48,7 +48,9 @@
         "target_status": "Adresse de statut de température cible",
         "measure": "Adresse de mesure de la température",
         "mode": "Adresse de mode HVAC",
-        "mode_status": "Adresse de statut de mode HVAC"
+        "mode_status": "Adresse de statut de mode HVAC",
+        "temperature_min": "Adresse de limite de température minimale",
+        "temperature_max": "Adresse de limite de température maximale"
       },
       "rgb": {
         "red_toggle_action": "Adresse de basculement du canal rouge",
