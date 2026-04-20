@@ -1,0 +1,10 @@
+{
+  "title": {
+    "en": "Season"
+  },
+  "type": "string",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/capabilities/summer_winter.svg"
+}

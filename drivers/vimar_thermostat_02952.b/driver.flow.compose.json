@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "id": "set-window-switch",
+      "title": {
+        "en": "Set Window Switch"
+      },
+      "titleFormatted": {
+        "en": "Set Window Switch to [[open]]"
+      },
+      "args": [
+        {
+          "type": "checkbox",
+          "name": "open",
+          "title": {
+            "en": "Window open"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reset_to_basesetpoint",
+      "title": {
+        "en": "Reset to Base Setpoint"
+      }
+    }
+  ]
+}
