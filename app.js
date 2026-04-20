@@ -111,6 +111,12 @@ class KNXApp extends Homey.App {
     });
   }
 
+  async onUninit() {
+    if (this.knxInterfaceManager) {
+      this.knxInterfaceManager.destroy();
+    }
+  }
+
   // referenced via this.KNXEventHandler
   async onKNXEvent(args, groupaddress, data) {
     try {
