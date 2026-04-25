@@ -4096,7 +4096,7 @@
         {
           "id": "select_groupaddresses",
           "options": {
-            "devicetype": "sensor"
+            "devicetype": "smoke_sensor"
           },
           "navigation": {
             "prev": "select_interface"
@@ -4174,6 +4174,356 @@
                 "ru": "Введите групповой адрес",
                 "ko": "그룹 주소 입력",
                 "ar": "أدخل عنوان المجموعة"
+              }
+            },
+            {
+              "id": "ga_alarm",
+              "type": "text",
+              "label": {
+                "en": "General alarm address",
+                "nl": "Algemeen alarmadres",
+                "da": "Generel alarmadresse",
+                "de": "Allgemeine Alarmadresse",
+                "es": "Dirección de alarma general",
+                "fr": "Adresse d'alarme générale",
+                "it": "Indirizzo allarme generale",
+                "no": "Generell alarmadresse",
+                "sv": "Allmän larmadress",
+                "pl": "Adres alarmu ogólnego",
+                "ru": "Адрес общей тревоги",
+                "ko": "일반 경보 주소",
+                "ar": "عنوان الإنذار العام"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_heat_alarm",
+              "type": "text",
+              "label": {
+                "en": "Heat alarm address",
+                "nl": "Hittealarmadres",
+                "da": "Varmealarmadresse",
+                "de": "Hitzealarmadresse",
+                "es": "Dirección de alarma de calor",
+                "fr": "Adresse d'alarme chaleur",
+                "it": "Indirizzo allarme calore",
+                "no": "Varmealarmsadresse",
+                "sv": "Värmelarmadress",
+                "pl": "Adres alarmu cieplnego",
+                "ru": "Адрес тепловой тревоги",
+                "ko": "열 경보 주소",
+                "ar": "عنوان إنذار الحرارة"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_signal",
+              "type": "text",
+              "label": {
+                "en": "Signal address",
+                "nl": "Signaaldresres",
+                "da": "Signaladresse",
+                "de": "Signaladresse",
+                "es": "Dirección de señal",
+                "fr": "Adresse de signal",
+                "it": "Indirizzo segnale",
+                "no": "Signaladresse",
+                "sv": "Signaladdress",
+                "pl": "Adres sygnału",
+                "ru": "Адрес сигнала",
+                "ko": "신호 주소",
+                "ar": "عنوان الإشارة"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_temperature",
+              "type": "text",
+              "label": {
+                "en": "Temperature address",
+                "nl": "Temperatuuradres",
+                "da": "Temperaturadresse",
+                "de": "Temperaturadresse",
+                "es": "Dirección de temperatura",
+                "fr": "Adresse de température",
+                "it": "Indirizzo temperatura",
+                "no": "Temperaturadresse",
+                "sv": "Temperaturaddress",
+                "pl": "Adres temperatury",
+                "ru": "Адрес температуры",
+                "ko": "온도 주소",
+                "ar": "عنوان درجة الحرارة"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_failure_battery",
+              "type": "text",
+              "label": {
+                "en": "Battery failure address",
+                "nl": "Batterijstoringadres",
+                "da": "Batterifejladresse",
+                "de": "Batteriefehleradresse",
+                "es": "Dirección de fallo de batería",
+                "fr": "Adresse défaut batterie",
+                "it": "Indirizzo guasto batteria",
+                "no": "Batterifeiladresse",
+                "sv": "Batterifeladress",
+                "pl": "Adres awarii baterii",
+                "ru": "Адрес неисправности батареи",
+                "ko": "배터리 오류 주소",
+                "ar": "عنوان خطأ البطارية"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_failure_230v",
+              "type": "text",
+              "label": {
+                "en": "230V failure address",
+                "nl": "230V storingsadres",
+                "da": "230V fejladresse",
+                "de": "230V-Fehleradresse",
+                "es": "Dirección de fallo de 230V",
+                "fr": "Adresse défaut 230V",
+                "it": "Indirizzo guasto 230V",
+                "no": "230V feiladresse",
+                "sv": "230V feladress",
+                "pl": "Adres awarii 230V",
+                "ru": "Адрес неисправности 230В",
+                "ko": "230V 오류 주소",
+                "ar": "عنوان عطل 230 فولت"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_failure_smoke",
+              "type": "text",
+              "label": {
+                "en": "Smoke sensor failure address",
+                "nl": "Rookmeldestoringadres",
+                "da": "Røgdetektorfejladresse",
+                "de": "Rauchsensorfehleradresse",
+                "es": "Dirección de fallo del sensor de humo",
+                "fr": "Adresse défaut détecteur de fumée",
+                "it": "Indirizzo guasto rilevatore di fumo",
+                "no": "Røykdetektorfeiladresse",
+                "sv": "Rökdetektorfeladress",
+                "pl": "Adres awarii czujnika dymu",
+                "ru": "Адрес неисправности датчика дыма",
+                "ko": "연기 센서 오류 주소",
+                "ar": "عنوان عطل مستشعر الدخان"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_failure_temperature",
+              "type": "text",
+              "label": {
+                "en": "Temperature sensor failure address",
+                "nl": "Temperatuursensor storingsadres",
+                "da": "Temperatursensorfejladresse",
+                "de": "Temperatursensorfehleradresse",
+                "es": "Dirección de fallo del sensor de temperatura",
+                "fr": "Adresse défaut capteur de température",
+                "it": "Indirizzo guasto sensore temperatura",
+                "no": "Temperatursensorfeiladresse",
+                "sv": "Temperatursensorfeladress",
+                "pl": "Adres awarii czujnika temperatury",
+                "ru": "Адрес неисправности датчика температуры",
+                "ko": "온도 센서 오류 주소",
+                "ar": "عنوان عطل مستشعر درجة الحرارة"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_acknowledge_fault",
+              "type": "text",
+              "label": {
+                "en": "Acknowledge fault address",
+                "nl": "Fout bevestigingsadres",
+                "da": "Fejlbekræftelsesadresse",
+                "de": "Fehlerquittierungsadresse",
+                "es": "Dirección de reconocimiento de fallo",
+                "fr": "Adresse d'acquittement de défaut",
+                "it": "Indirizzo conferma guasto",
+                "no": "Feilbekreftelsesadresse",
+                "sv": "Felbekräftelseadress",
+                "pl": "Adres potwierdzenia usterki",
+                "ru": "Адрес подтверждения неисправности",
+                "ko": "오류 확인 주소",
+                "ar": "عنوان تأكيد الخطأ"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
+              }
+            },
+            {
+              "id": "ga_failure_230v",
+              "type": "text",
+              "label": {
+                "en": "230V failure address",
+                "nl": "230V storingsadres",
+                "da": "230V fejladresse",
+                "de": "230V-Fehleradresse",
+                "es": "Dirección de fallo de 230V",
+                "fr": "Adresse défaut 230V",
+                "it": "Indirizzo guasto 230V",
+                "no": "230V feiladresse",
+                "sv": "230V feladress",
+                "pl": "Adres awarii 230V",
+                "ru": "Адрес неисправности 230В",
+                "ko": "230V 오류 주소",
+                "ar": "عنوان عطل 230 فولت"
+              },
+              "value": "",
+              "hint": {
+                "en": "Optional. Leave empty if not supported.",
+                "nl": "Optioneel. Laat leeg als niet ondersteund.",
+                "da": "Valgfri. Lad tom, hvis ikke understøttet.",
+                "de": "Optional. Leer lassen, wenn nicht unterstützt.",
+                "es": "Opcional. Dejar vacío si no se admite.",
+                "fr": "Optionnel. Laisser vide si non pris en charge.",
+                "it": "Facoltativo. Lasciare vuoto se non supportato.",
+                "no": "Valgfritt. La stå tom hvis ikke støttet.",
+                "sv": "Valfritt. Lämna tomt om det inte stöds.",
+                "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
+                "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
+                "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
+                "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
               }
             }
           ]
@@ -5921,6 +6271,112 @@
           }
         }
       ]
+    },
+    "knx_acknowledge_fault": {
+      "type": "boolean",
+      "uiComponent": "button",
+      "title": {
+        "en": "Acknowledge fault",
+        "nl": "Fout bevestigen",
+        "da": "Bekræft fejl",
+        "de": "Fehler quittieren",
+        "es": "Reconocer fallo",
+        "fr": "Acquitter le défaut",
+        "it": "Conferma guasto",
+        "no": "Bekreft feil",
+        "sv": "Bekräfta fel",
+        "pl": "Potwierdź usterkę",
+        "ru": "Подтвердить неисправность",
+        "ko": "오류 확인",
+        "ar": "تأكيد الخطأ"
+      },
+      "getable": false,
+      "setable": true
+    },
+    "knx_alarm_signal": {
+      "type": "boolean",
+      "uiComponent": "toggle",
+      "title": {
+        "en": "Alarm signal",
+        "nl": "Alarmsignaal",
+        "da": "Alarmsignal",
+        "de": "Alarmsignal",
+        "es": "Señal de alarma",
+        "fr": "Signal d'alarme",
+        "it": "Segnale di allarme",
+        "no": "Alarmsignal",
+        "sv": "Larmsignal",
+        "pl": "Sygnał alarmu",
+        "ru": "Сигнал тревоги",
+        "ko": "경보 신호",
+        "ar": "إشارة الإنذار"
+      },
+      "getable": true,
+      "setable": true,
+      "uiQuickAction": false
+    },
+    "knx_failure_230v": {
+      "type": "boolean",
+      "uiComponent": "sensor",
+      "title": {
+        "en": "230V failure",
+        "nl": "230V storing",
+        "da": "230V fejl",
+        "de": "230V-Fehler",
+        "es": "Fallo de 230V",
+        "fr": "Défaut 230V",
+        "it": "Guasto 230V",
+        "no": "230V feil",
+        "sv": "230V fel",
+        "pl": "Awaria 230V",
+        "ru": "Неисправность 230В",
+        "ko": "230V 오류",
+        "ar": "عطل 230 فولت"
+      },
+      "getable": true,
+      "setable": false
+    },
+    "knx_failure_smoke": {
+      "type": "boolean",
+      "uiComponent": "sensor",
+      "title": {
+        "en": "Smoke sensor failure",
+        "nl": "Rookmelder storing",
+        "da": "Røgdetektorfejl",
+        "de": "Rauchsensorfehler",
+        "es": "Fallo del sensor de humo",
+        "fr": "Défaut détecteur de fumée",
+        "it": "Guasto rilevatore di fumo",
+        "no": "Røykdetektorfeil",
+        "sv": "Rökdetektorfel",
+        "pl": "Awaria czujnika dymu",
+        "ru": "Неисправность датчика дыма",
+        "ko": "연기 센서 오류",
+        "ar": "عطل مستشعر الدخان"
+      },
+      "getable": true,
+      "setable": false
+    },
+    "knx_failure_temperature": {
+      "type": "boolean",
+      "uiComponent": "sensor",
+      "title": {
+        "en": "Temperature sensor failure",
+        "nl": "Temperatuursensor storing",
+        "da": "Temperatursensorfejl",
+        "de": "Temperatursensorfehler",
+        "es": "Fallo del sensor de temperatura",
+        "fr": "Défaut capteur de température",
+        "it": "Guasto sensore temperatura",
+        "no": "Temperatursensorfeil",
+        "sv": "Temperatursensorfel",
+        "pl": "Awaria czujnika temperatury",
+        "ru": "Неисправность датчика температуры",
+        "ko": "온도 센서 오류",
+        "ar": "عطل مستشعر درجة الحرارة"
+      },
+      "getable": true,
+      "setable": false
     },
     "knx_fan_auto_mode": {
       "type": "boolean",

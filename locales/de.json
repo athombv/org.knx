@@ -69,6 +69,18 @@
         "tilt_status": "Kipp-Statusadresse"
       },
       "sensor": "Sensoradresse",
+      "smoke_sensor": {
+        "smoke_alarm": "Rauchmelder-Adresse",
+        "alarm": "Allgemeine Alarmadresse",
+        "heat_alarm": "Hitzealarmadresse",
+        "signal": "Signaladresse",
+        "failure_battery": "Batteriefehleradresse",
+        "failure_temperature": "Temperatursensorfehleradresse",
+        "failure_smoke": "Rauchsensorfehleradresse",
+        "temperature": "Temperaturadresse",
+        "failure_230v": "230V-Fehleradresse",
+        "acknowledge_fault": "Fehlerquittierungsadresse"
+      },
       "scene": "Szenenadresse"
     },
     "scene_number": "Szenennummer"

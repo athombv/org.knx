@@ -71,6 +71,18 @@
         "tilt_status": "Adresse de statut d'inclinaison"
       },
       "sensor": "Adresse de capteur",
+      "smoke_sensor": {
+        "smoke_alarm": "Adresse alarme fumée",
+        "alarm": "Adresse d'alarme générale",
+        "heat_alarm": "Adresse alarme chaleur",
+        "signal": "Adresse de signal",
+        "failure_battery": "Adresse défaut batterie",
+        "failure_temperature": "Adresse défaut capteur de température",
+        "failure_smoke": "Adresse défaut détecteur de fumée",
+        "temperature": "Adresse de température",
+        "failure_230v": "Adresse défaut 230V",
+        "acknowledge_fault": "Adresse d'acquittement de défaut"
+      },
       "scene": "Adresse de scène"
     },
     "scene_number": "Numéro de scène"

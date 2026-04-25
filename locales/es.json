@@ -69,6 +69,18 @@
         "tilt_status": "Dirección de estado de inclinación"
       },
       "sensor": "Dirección de sensor",
+      "smoke_sensor": {
+        "smoke_alarm": "Dirección de alarma de humo",
+        "alarm": "Dirección de alarma general",
+        "heat_alarm": "Dirección de alarma de calor",
+        "signal": "Dirección de señal",
+        "failure_battery": "Dirección de fallo de batería",
+        "failure_temperature": "Dirección de fallo del sensor de temperatura",
+        "failure_smoke": "Dirección de fallo del sensor de humo",
+        "temperature": "Dirección de temperatura",
+        "failure_230v": "Dirección de fallo de 230V",
+        "acknowledge_fault": "Dirección de reconocimiento de fallo"
+      },
       "scene": "Dirección de escena"
     },
     "scene_number": "Número de escena"

@@ -1,0 +1,22 @@
+{
+    "type": "boolean",
+    "uiComponent": "toggle",
+    "title": {
+        "en": "Alarm signal",
+        "nl": "Alarmsignaal",
+        "da": "Alarmsignal",
+        "de": "Alarmsignal",
+        "es": "Señal de alarma",
+        "fr": "Signal d'alarme",
+        "it": "Segnale di allarme",
+        "no": "Alarmsignal",
+        "sv": "Larmsignal",
+        "pl": "Sygnał alarmu",
+        "ru": "Сигнал тревоги",
+        "ko": "경보 신호",
+        "ar": "إشارة الإنذار"
+    },
+    "getable": true,
+    "setable": true,
+    "uiQuickAction": false
+}

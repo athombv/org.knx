@@ -69,6 +69,18 @@
         "tilt_status": "기울기 상태 주소"
       },
       "sensor": "센서 주소",
+      "smoke_sensor": {
+        "smoke_alarm": "연기 경보 주소",
+        "alarm": "일반 경보 주소",
+        "heat_alarm": "열 경보 주소",
+        "signal": "신호 주소",
+        "failure_battery": "배터리 오류 주소",
+        "failure_temperature": "온도 센서 오류 주소",
+        "failure_smoke": "연기 센서 오류 주소",
+        "temperature": "온도 주소",
+        "failure_230v": "230V 오류 주소",
+        "acknowledge_fault": "오류 확인 주소"
+      },
       "scene": "장면 주소"
     },
     "scene_number": "장면 번호"
@@ -82,7 +94,6 @@
     "rgb_failed": "색상 설정 실패!",
     "temperature_set_failed": "온도 설정 실패!",
     "temperature_get_failed": "온도 가져오기 실패!",
-
     "windowcovering_failed": "상태 변경 실패!",
     "windowcovering_stop_failed": "창문 덮기 중지 실패!",
     "invalid_group_address": "잘못된 그룹 주소.",
