@@ -83,5 +83,8 @@
   },
   "1.5.1": {
     "en": "Fixes an issue that causes the app to crash"
+  },
+  "1.5.2": {
+    "en": "Improved app stability"
   }
 }
