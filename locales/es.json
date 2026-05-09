@@ -46,7 +46,9 @@
       "thermostat": {
         "target": "Dirección de temperatura objetivo",
         "target_status": "Dirección de estado de temperatura objetivo",
-        "measure": "Dirección de medición de temperatura"
+        "measure": "Dirección de medición de temperatura",
+        "temperature_min": "Dirección de límite de temperatura mínima",
+        "temperature_max": "Dirección de límite de temperatura máxima"
       },
       "rgb": {
         "red_toggle_action": "Dirección de interruptor canal rojo",

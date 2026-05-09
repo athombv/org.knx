@@ -1,107 +1,108 @@
 {
-    "settings": {
-        "ip": {
-            "title": "KNX IP instellingen",
-            "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek interface om deze te controleren.",
-            "singleip": "Configureer IP Interface",
-            "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
-            "searchbutton": "Zoek interface",
-            "scanbutton": "Scan het netwerk voor IP interfaces",
-            "manual_interface": "Handmatige configuratie",
-            "manual_interface_input": "vul handmatig een adres in."
-        },
-        "learnmode": {
-            "title" : "Inleermodus",
-            "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey.",
-            "testbutton": "Test groepadres",
-            "no_result": "Geen apparaten gevonden."
-        },
-        "projectfile": {
-            "title": "ETS project uploaden",
-            "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen.",
-            "newxml": {
-                "title": "Nieuwe ETS configuratie",
-                "explanation": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen en te bewaren in Homey. "
-            },
-            "existingxml": {
-	            "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
-            },
-            "upload": "ETS project uploaden"
-        },
-        "groupaddresses" : {
-            "generic": "Groepadres",
-            "pairing_list": ", groepadres: ",
-            "select": "Selecteer groepsadres uit het ETS project",
-            "body": "Selecteer de groepadressen voor het nieuwe apparaat",
-            "generic_status": "Status adres",
-            "save": "Apparaat opslaan",
-            "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
-            "optional": "Optionele groepadressen, Laat leeg als je apparaat deze functies niet ondersteunt.",
-            "switch": {
-                "toggle": "Schakel adres",
-                "status": "Schakel status"
-            },
-            "dimmer": {
-                "value": "Dimmer adres",
-                "status": "Dimwaarde adres"
-            },
-            "thermostat": {
-                "target": "Doeltemperatuuradres",
-                "target_status": "Doeltemperatuurstatusadres",
-                "measure": "Temperatuurmetingadres"
-            },
-            "rgb": {
-                "red_toggle_action": "Schakel adres rood kanaal",
-                "red_toggle_status": "Status adres rood kanaal",
-                "red_dim_value": "Dim adres rood kanaal",
-                "red_dim_status": "Dim status adres rood kanaal",
-                "green_toggle_action": "Schakel adres groen kanaal",
-                "green_toggle_status": "Status adres groen kanaal",
-                "green_dim_value": "Dim adres groen kanaal",
-                "green_dim_status": "Dim status adres groen kanaal",
-                "blue_toggle_action": "Schakel adres blauw kanaal",
-                "blue_toggle_status": "Status adres blauw kanaal",
-                "blue_dim_value": "Dim adres blauw kanaal",
-                "blue_dim_status": "Dim status adres blauw kanaal"
-            },
-            "windowcovering": {
-                "updown": "Omhoog/omlaag adres",
-                "stop": "Stop adres",
-                "tilt": "Hoekverstelling adres",
-                "tilt_status": "Hoekverstelling status adres"
-            },
-            "sensor": "Sensor adres",
-            "scene": "Scene adres"
-        },
-        "scene_number" : "Scene nummer"
+  "settings": {
+    "ip": {
+      "title": "KNX IP instellingen",
+      "body": "Vul het IP adres in van de te gebruiken KNX IP interface. Druk daarna op zoek interface om deze te controleren.",
+      "singleip": "Configureer IP Interface",
+      "interfaceaddress": "Vul het IPv4 adres van de IP interface in.",
+      "searchbutton": "Zoek interface",
+      "scanbutton": "Scan het netwerk voor IP interfaces",
+      "manual_interface": "Handmatige configuratie",
+      "manual_interface_input": "vul handmatig een adres in."
     },
-    "errors": {
-        "generic_error": "Er is een fout opgetreden: ",
-        "save_error": "Kan apparaat niet opslaan",
-        "settings_save": "Instellingen kunnen niet worden opgeslagen, ",
-        "switch_failed": "Schakelen van apparaat mislukt!",
-        "dim_failed": "Dimmen van apparaat mislukt!",
-        "rgb_failed": "Kleur veranderen mislukt!",
-        "temperature_set_failed": "Temperatuur instellen mislukt!",
-        "temperature_get_failed": "Temperatuur ophalen mislukt!",
-
-        "windowcovering_failed": "Raambedekking schakelen mislukt!",
-        "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
-        "invalid_group_address": "Ongeldig groepadres.",
-        "invalid_scene_number": "Ongeldig scene nummer.",
-        "ip": {
-            "invalid_ip": "Ongeldig IP adres of geen invoer.",
-            "interface_not_found": "Geselecteerde IP interface niet gevonden.",
-            "interface_not_available": "Geselecteerde IP interface niet beschikbaar.",
-            "interface_not_selected": "Geen IP interface geselecteerd.",
-            "search_already_running": "Reeds aan het zoeken naar IP interface(s).",
-            "no_valid_mac": "Het MAC adres is niet juist.",
-            "no_matching_interface": "Geen IP interface met dit MAC adres beschikbaar."
-        },
-        "projectfile": {
-            "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
-            "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
-            "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
-        }
+    "learnmode": {
+      "title": "Inleermodus",
+      "explanation": "Maak een KNX schakelaar aan als virtuele schakelaar binnen Homey.",
+      "testbutton": "Test groepadres",
+      "no_result": "Geen apparaten gevonden."
+    },
+    "projectfile": {
+      "title": "ETS project uploaden",
+      "body": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen.",
+      "newxml": {
+        "title": "Nieuwe ETS configuratie",
+        "explanation": "Upload een ETS configuratie bestand (*.knxproj) om de KNX groepadressen op te halen en te bewaren in Homey. "
+      },
+      "existingxml": {
+        "title": "Een ETS export is al beschikbaar, maar je kunt een ander "
+      },
+      "upload": "ETS project uploaden"
+    },
+    "groupaddresses": {
+      "generic": "Groepadres",
+      "pairing_list": ", groepadres: ",
+      "select": "Selecteer groepsadres uit het ETS project",
+      "body": "Selecteer de groepadressen voor het nieuwe apparaat",
+      "generic_status": "Status adres",
+      "save": "Apparaat opslaan",
+      "duplicate_groupaddress": " dit groepadres is al in gebruik door ",
+      "optional": "Optionele groepadressen, Laat leeg als je apparaat deze functies niet ondersteunt.",
+      "switch": {
+        "toggle": "Schakel adres",
+        "status": "Schakel status"
+      },
+      "dimmer": {
+        "value": "Dimmer adres",
+        "status": "Dimwaarde adres"
+      },
+      "thermostat": {
+        "target": "Doeltemperatuuradres",
+        "target_status": "Doeltemperatuurstatusadres",
+        "measure": "Temperatuurmetingadres",
+        "temperature_min": "Adres voor minimale temperatuurlimiet",
+        "temperature_max": "Adres voor maximale temperatuurlimiet"
+      },
+      "rgb": {
+        "red_toggle_action": "Schakel adres rood kanaal",
+        "red_toggle_status": "Status adres rood kanaal",
+        "red_dim_value": "Dim adres rood kanaal",
+        "red_dim_status": "Dim status adres rood kanaal",
+        "green_toggle_action": "Schakel adres groen kanaal",
+        "green_toggle_status": "Status adres groen kanaal",
+        "green_dim_value": "Dim adres groen kanaal",
+        "green_dim_status": "Dim status adres groen kanaal",
+        "blue_toggle_action": "Schakel adres blauw kanaal",
+        "blue_toggle_status": "Status adres blauw kanaal",
+        "blue_dim_value": "Dim adres blauw kanaal",
+        "blue_dim_status": "Dim status adres blauw kanaal"
+      },
+      "windowcovering": {
+        "updown": "Omhoog/omlaag adres",
+        "stop": "Stop adres",
+        "tilt": "Hoekverstelling adres",
+        "tilt_status": "Hoekverstelling status adres"
+      },
+      "sensor": "Sensor adres",
+      "scene": "Scene adres"
+    },
+    "scene_number": "Scene nummer"
+  },
+  "errors": {
+    "generic_error": "Er is een fout opgetreden: ",
+    "save_error": "Kan apparaat niet opslaan",
+    "settings_save": "Instellingen kunnen niet worden opgeslagen, ",
+    "switch_failed": "Schakelen van apparaat mislukt!",
+    "dim_failed": "Dimmen van apparaat mislukt!",
+    "rgb_failed": "Kleur veranderen mislukt!",
+    "temperature_set_failed": "Temperatuur instellen mislukt!",
+    "temperature_get_failed": "Temperatuur ophalen mislukt!",
+    "windowcovering_failed": "Raambedekking schakelen mislukt!",
+    "windowcovering_stop_failed": "Raambedekking stoppen mislukt!",
+    "invalid_group_address": "Ongeldig groepadres.",
+    "invalid_scene_number": "Ongeldig scene nummer.",
+    "ip": {
+      "invalid_ip": "Ongeldig IP adres of geen invoer.",
+      "interface_not_found": "Geselecteerde IP interface niet gevonden.",
+      "interface_not_available": "Geselecteerde IP interface niet beschikbaar.",
+      "interface_not_selected": "Geen IP interface geselecteerd.",
+      "search_already_running": "Reeds aan het zoeken naar IP interface(s).",
+      "no_valid_mac": "Het MAC adres is niet juist.",
+      "no_matching_interface": "Geen IP interface met dit MAC adres beschikbaar."
+    },
+    "projectfile": {
+      "no_valid_xml": "Geen geldige XML met groepadressen gevonden. Upload een ander projectbestand.",
+      "invalid_ga_structure": "Ongeldige groepadres structuur in projectbestand",
+      "no_ga_found": "Geen groepadressen gevonden, wellicht was het project leeg."
     }
+  }
 }

@@ -46,7 +46,9 @@
       "thermostat": {
         "target": "Måltemperaturadresse",
         "target_status": "Måltemperaturstatusadresse",
-        "measure": "Temperaturmålingsadresse"
+        "measure": "Temperaturmålingsadresse",
+        "temperature_min": "Adresse til minimumstemperaturgrænse",
+        "temperature_max": "Adresse til maksimumstemperaturgrænse"
       },
       "rgb": {
         "red_toggle_action": "Skift adresse rød kanal",

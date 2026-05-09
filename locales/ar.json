@@ -55,7 +55,9 @@
         "fan_speed_status": "عنوان حالة سرعة المروحة",
         "fan_speed_steps": "عدد خطوات سرعة المروحة (اتركه فارغًا لنسبة 0-100%، لا حاجة لتضمين حالة الإيقاف)",
         "fan_auto_mode": "عنوان وضع المروحة التلقائي",
-        "fan_auto_mode_status": "عنوان حالة وضع المروحة التلقائي"
+        "fan_auto_mode_status": "عنوان حالة وضع المروحة التلقائي",
+        "temperature_min": "Minimum temperature limit address",
+        "temperature_max": "Maximum temperature limit address"
       },
       "rgb": {
         "red_toggle_action": "عنوان التبديل لقناة الأحمر",

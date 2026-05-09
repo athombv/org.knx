@@ -46,7 +46,9 @@
       "thermostat": {
         "target": "Indirizzo temperatura desiderata",
         "target_status": "Indirizzo di stato di temperatura desiderata",
-        "measure": "Indirizzo di misurazione della temperatura"
+        "measure": "Indirizzo di misurazione della temperatura",
+        "temperature_min": "Indirizzo limite temperatura minima",
+        "temperature_max": "Indirizzo limite temperatura massima"
       },
       "rgb": {
         "red_toggle_action": "Indirizzo interruttore canale rosso",
@@ -82,7 +84,6 @@
     "rgb_failed": "Impostazione del colore fallita!",
     "temperature_set_failed": "Impostazione della temperatura fallita!",
     "temperature_get_failed": "Recupero della temperatura fallito!",
-
     "windowcovering_failed": "Modifica dello stato fallita!",
     "windowcovering_stop_failed": "Arresto della copertura finestra fallito!",
     "invalid_group_address": "Indirizzo di gruppo non valido.",

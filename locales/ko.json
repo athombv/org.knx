@@ -46,7 +46,9 @@
       "thermostat": {
         "target": "목표 온도 주소",
         "target_status": "목표 온도 상태 주소",
-        "measure": "온도 측정 주소"
+        "measure": "온도 측정 주소",
+        "temperature_min": "최소 온도 제한 주소",
+        "temperature_max": "최대 온도 제한 주소"
       },
       "rgb": {
         "red_toggle_action": "빨간색 채널 토글 주소",
@@ -82,7 +84,6 @@
     "rgb_failed": "색상 설정 실패!",
     "temperature_set_failed": "온도 설정 실패!",
     "temperature_get_failed": "온도 가져오기 실패!",
-
     "windowcovering_failed": "상태 변경 실패!",
     "windowcovering_stop_failed": "창문 덮기 중지 실패!",
     "invalid_group_address": "잘못된 그룹 주소.",
