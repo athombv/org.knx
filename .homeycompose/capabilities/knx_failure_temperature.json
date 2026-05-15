@@ -1,0 +1,21 @@
+{
+    "type": "boolean",
+    "uiComponent": "sensor",
+    "title": {
+        "en": "Temperature sensor failure",
+        "nl": "Temperatuursensor storing",
+        "da": "Temperatursensorfejl",
+        "de": "Temperatursensorfehler",
+        "es": "Fallo del sensor de temperatura",
+        "fr": "Défaut capteur de température",
+        "it": "Guasto sensore temperatura",
+        "no": "Temperatursensorfeil",
+        "sv": "Temperatursensorfel",
+        "pl": "Awaria czujnika temperatury",
+        "ru": "Неисправность датчика температуры",
+        "ko": "온도 센서 오류",
+        "ar": "عطل مستشعر درجة الحرارة"
+    },
+    "getable": true,
+    "setable": false
+}

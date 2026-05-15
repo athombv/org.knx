@@ -1,0 +1,21 @@
+{
+  "type": "boolean",
+  "uiComponent": "sensor",
+  "title": {
+    "en": "230V failure",
+    "nl": "230V storing",
+    "da": "230V fejl",
+    "de": "230V-Fehler",
+    "es": "Fallo de 230V",
+    "fr": "Défaut 230V",
+    "it": "Guasto 230V",
+    "no": "230V feil",
+    "sv": "230V fel",
+    "pl": "Awaria 230V",
+    "ru": "Неисправность 230В",
+    "ko": "230V 오류",
+    "ar": "عطل 230 فولت"
+  },
+  "getable": true,
+  "setable": false
+}

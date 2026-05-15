@@ -69,6 +69,18 @@
         "tilt_status": "Indirizzo stato inclinazione"
       },
       "sensor": "Indirizzo sensore",
+      "smoke_sensor": {
+        "smoke_alarm": "Indirizzo allarme fumo",
+        "alarm": "Indirizzo allarme generale",
+        "heat_alarm": "Indirizzo allarme calore",
+        "signal": "Indirizzo segnale",
+        "failure_battery": "Indirizzo guasto batteria",
+        "failure_temperature": "Indirizzo guasto sensore temperatura",
+        "failure_smoke": "Indirizzo guasto rilevatore di fumo",
+        "temperature": "Indirizzo temperatura",
+        "failure_230v": "Indirizzo guasto 230V",
+        "acknowledge_fault": "Indirizzo conferma guasto"
+      },
       "scene": "Indirizzo scena"
     },
     "scene_number": "Numero di scena"
@@ -82,7 +94,6 @@
     "rgb_failed": "Impostazione del colore fallita!",
     "temperature_set_failed": "Impostazione della temperatura fallita!",
     "temperature_get_failed": "Recupero della temperatura fallito!",
-
     "windowcovering_failed": "Modifica dello stato fallita!",
     "windowcovering_stop_failed": "Arresto della copertura finestra fallito!",
     "invalid_group_address": "Indirizzo di gruppo non valido.",

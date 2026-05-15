@@ -1,0 +1,21 @@
+{
+    "type": "boolean",
+    "uiComponent": "sensor",
+    "title": {
+        "en": "Smoke sensor failure",
+        "nl": "Rookmelder storing",
+        "da": "Røgdetektorfejl",
+        "de": "Rauchsensorfehler",
+        "es": "Fallo del sensor de humo",
+        "fr": "Défaut détecteur de fumée",
+        "it": "Guasto rilevatore di fumo",
+        "no": "Røykdetektorfeil",
+        "sv": "Rökdetektorfel",
+        "pl": "Awaria czujnika dymu",
+        "ru": "Неисправность датчика дыма",
+        "ko": "연기 센서 오류",
+        "ar": "عطل مستشعر الدخان"
+    },
+    "getable": true,
+    "setable": false
+}

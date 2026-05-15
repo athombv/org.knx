@@ -80,6 +80,18 @@
         "height_status": "عنوان حالة الارتفاع"
       },
       "sensor": "عنوان المستشعر",
+      "smoke_sensor": {
+        "smoke_alarm": "عنوان إنذار الدخان",
+        "alarm": "عنوان الإنذار العام",
+        "heat_alarm": "عنوان إنذار الحرارة",
+        "signal": "عنوان الإشارة",
+        "failure_battery": "عنوان خطأ البطارية",
+        "failure_temperature": "عنوان عطل مستشعر درجة الحرارة",
+        "failure_smoke": "عنوان عطل مستشعر الدخان",
+        "temperature": "عنوان درجة الحرارة",
+        "failure_230v": "عنوان عطل 230 فولت",
+        "acknowledge_fault": "عنوان تأكيد الخطأ"
+      },
       "scene": "عنوان المشهد"
     },
     "scene_number": "رقم المشهد"

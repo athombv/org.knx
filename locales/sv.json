@@ -69,6 +69,18 @@
         "tilt_status": "Lutnings statusadress"
       },
       "sensor": "Sensoradress",
+      "smoke_sensor": {
+        "smoke_alarm": "Rökdetektorlarmadress",
+        "alarm": "Allmän larmadress",
+        "heat_alarm": "Värmelarmadress",
+        "signal": "Signaladdress",
+        "failure_battery": "Batterifeladress",
+        "failure_temperature": "Temperatursensorfeladress",
+        "failure_smoke": "Rökdetektorfeladress",
+        "temperature": "Temperaturaddress",
+        "failure_230v": "230V feladress",
+        "acknowledge_fault": "Felbekräftelseadress"
+      },
       "scene": "Scenadress"
     },
     "scene_number": "Scennummer"
@@ -82,7 +94,6 @@
     "rgb_failed": "Inställning av färg misslyckades!",
     "temperature_set_failed": "Inställning av temperatur misslyckades!",
     "temperature_get_failed": "Hämtning av temperatur misslyckades!",
-
     "windowcovering_failed": "Ändring av tillstånd misslyckades!",
     "windowcovering_stop_failed": "Stopp av fönsterbeklädnad misslyckades!",
     "invalid_group_address": "Ogiltig gruppadress.",

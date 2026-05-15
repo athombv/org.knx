@@ -1,0 +1,21 @@
+{
+  "type": "boolean",
+  "uiComponent": "button",
+  "title": {
+    "en": "Acknowledge fault",
+    "nl": "Fout bevestigen",
+    "da": "Bekræft fejl",
+    "de": "Fehler quittieren",
+    "es": "Reconocer fallo",
+    "fr": "Acquitter le défaut",
+    "it": "Conferma guasto",
+    "no": "Bekreft feil",
+    "sv": "Bekräfta fel",
+    "pl": "Potwierdź usterkę",
+    "ru": "Подтвердить неисправность",
+    "ko": "오류 확인",
+    "ar": "تأكيد الخطأ"
+  },
+  "getable": false,
+  "setable": true
+}

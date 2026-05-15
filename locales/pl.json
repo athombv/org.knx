@@ -69,6 +69,18 @@
         "tilt_status": "Status adresu przechyłu"
       },
       "sensor": "Adres czujnika",
+      "smoke_sensor": {
+        "smoke_alarm": "Adres alarmu dymu",
+        "alarm": "Adres alarmu ogólnego",
+        "heat_alarm": "Adres alarmu cieplnego",
+        "signal": "Adres sygnału",
+        "failure_battery": "Adres awarii baterii",
+        "failure_temperature": "Adres awarii czujnika temperatury",
+        "failure_smoke": "Adres awarii czujnika dymu",
+        "temperature": "Adres temperatury",
+        "failure_230v": "Adres awarii 230V",
+        "acknowledge_fault": "Adres potwierdzenia usterki"
+      },
       "scene": "Adres sceny"
     },
     "scene_number": "Numer sceny"
@@ -82,7 +94,6 @@
     "rgb_failed": "Ustawianie koloru nie powiodło się!",
     "temperature_set_failed": "Ustawienie temperatury nie powiodło się!",
     "temperature_get_failed": "Pobieranie temperatury nie powiodło się!",
-
     "windowcovering_failed": "Zmiana stanu nie powiodła się!",
     "windowcovering_stop_failed": "Zatrzymanie osłony okiennej nie powiodło się!",
     "invalid_group_address": "Nieprawidłowy adres grupy.",
