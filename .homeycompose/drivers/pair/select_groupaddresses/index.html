@@ -407,6 +407,11 @@
         $('#knx-switch-fieldset').css('display', 'block');
         $('#knx-learnmode-fieldset').css('display', 'block');
         break;
+	  case 'heating_relay':
+		console.log('device is a heating relay');
+	  	$('#knx-switch-fieldset').css('display', 'block');
+	  	$('#knx-learnmode-fieldset').css('display', 'block');
+	  	break;
       case 'dimmer':
         console.log('device is a dimmer');
         $('#knx-light-fieldset').css('display', 'block');
@@ -541,6 +546,14 @@
             'macAddress': interfaceMAC,
           };
           break;
+		case 'heating_relay':
+		  device.name = 'KNX Heating Relay';
+		  device.settings = {
+		  	'ga_switch': $('#switch_toggle_address').val(),
+		  	'ga_status': $('#switch_status_address').val(),
+		  	'macAddress': interfaceMAC,
+		  };
+		  break;
         case 'dimmer':
           device.name = 'KNX Dimmer';
           device.settings = {
