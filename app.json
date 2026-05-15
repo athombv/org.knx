@@ -631,6 +631,97 @@
         "id": "trigger_from_scene"
       },
       {
+        "id": "heating_changed",
+        "title": {
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet",
+          "da": "Tændt eller slukket",
+          "de": "Ein- oder ausgeschaltet",
+          "es": "Encendido o apagado",
+          "fr": "Allumé ou éteint",
+          "it": "Acceso o spento",
+          "no": "Slått på eller av",
+          "sv": "Slås på eller av",
+          "pl": "Włączone lub wyłączone",
+          "ru": "Включено или выключено",
+          "ko": "켜짐 또는 꺼짐",
+          "ar": "تم تشغيله أو إيقافه"
+        },
+        "titleFormatted": {
+          "en": "Turned on or off",
+          "nl": "Aan of uit gezet",
+          "da": "Tændt eller slukket",
+          "de": "Ein- oder ausgeschaltet",
+          "es": "Encendido o apagado",
+          "fr": "Allumé ou éteint",
+          "it": "Acceso o spento",
+          "no": "Slått på eller av",
+          "sv": "Slås på eller av",
+          "pl": "Włączone lub wyłączone",
+          "ru": "Включено или выключено",
+          "ko": "켜짐 또는 꺼짐",
+          "ar": "تم تشغيله أو إيقافه"
+        },
+        "hint": {
+          "en": "When the heating relay changes from on to off or from off to on",
+          "nl": "Wanneer het verwarmingsrelais van aan naar uit of van uit naar aan gaat",
+          "da": "Når varmerelæet ændres fra tændt til slukket eller omvendt",
+          "de": "Wenn das Heizrelais von ein auf aus oder von aus auf ein wechselt",
+          "es": "Cuando el relé de calefacción cambia de encendido a apagado o viceversa",
+          "fr": "Lorsque le relais de chauffage passe de allumé à éteint ou inversement",
+          "it": "Quando il relè di riscaldamento passa da acceso a spento o viceversa",
+          "no": "Når varmereléet endres fra på til av eller omvendt",
+          "sv": "När värmereläet ändras från på till av eller tvärtom",
+          "pl": "Gdy przekaźnik ogrzewania zmienia się z włączonego na wyłączony lub odwrotnie",
+          "ru": "Когда реле отопления переключается с включено na выключено или наоборот",
+          "ko": "난방 릴레이가 켜짐에서 꺼짐으로 또는 그 반대로 바뀔 때",
+          "ar": "عندما يتغير مرحل التدفئة من تشغيل إلى إيقاف أو بالعكس"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status",
+              "da": "Status",
+              "de": "Status",
+              "es": "Estado",
+              "fr": "État",
+              "it": "Stato",
+              "no": "Status",
+              "sv": "Status",
+              "pl": "Status",
+              "ru": "Статус",
+              "ko": "상태",
+              "ar": "الحالة"
+            },
+            "example": {
+              "en": "The current status of the heating relay",
+              "nl": "De huidige status van het verwarmingsrelais",
+              "da": "Den aktuelle status for varmerelæet",
+              "de": "Der aktuelle Status des Heizrelais",
+              "es": "El estado actual del relé de calefacción",
+              "fr": "L'état actuel du relais de chauffage",
+              "it": "Lo stato attuale del relè di riscaldamento",
+              "no": "Gjeldende status for varmereléet",
+              "sv": "Aktuell status för värmereläet",
+              "pl": "Aktualny stan przekaźnika ogrzewania",
+              "ru": "Текущий статус реле отопления",
+              "ko": "난방 릴레이의 현재 상태",
+              "ar": "الحالة الحالية لمرحل التدفئة"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=knx_heating_relay"
+          }
+        ]
+      },
+      {
         "id": "changed",
         "title": {
           "en": "Turned on or off",
@@ -2740,6 +2831,264 @@
         }
       ],
       "id": "knx_electric_metering"
+    },
+    {
+      "images": {
+        "large": "/drivers/knx_heating_relay/assets/images/large.png",
+        "small": "/drivers/knx_heating_relay/assets/images/small.png"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "select_interface",
+          "navigation": {
+            "next": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "parse_knxproj",
+          "navigation": {
+            "next": "select_groupaddresses",
+            "prev": "select_groupaddresses"
+          }
+        },
+        {
+          "id": "select_groupaddresses",
+          "options": {
+            "devicetype": "heating_relay"
+          },
+          "navigation": {
+            "prev": "select_interface"
+          }
+        }
+      ],
+      "id": "knx_heating_relay",
+      "name": {
+        "en": "Heating Relay",
+        "nl": "Verwarmingsrelais",
+        "da": "Varmerele",
+        "de": "Heizrelais",
+        "es": "Relé de calefacción",
+        "fr": "Relais de chauffage",
+        "it": "Relè di riscaldamento",
+        "no": "Varmerelé",
+        "sv": "Värmerelä",
+        "pl": "Przekaźnik ogrzewania",
+        "ru": "Реле отопления",
+        "ko": "난방 릴레이",
+        "ar": "مرحل التدفئة"
+      },
+      "class": "heater",
+      "capabilities": [
+        "onoff"
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "KNX groupaddress",
+            "nl": "KNX groepadressen",
+            "da": "KNX-gruppeadresse",
+            "de": "KNX-Gruppenadresse",
+            "es": "Dirección de grupo KNX",
+            "fr": "Adresse de groupe KNX",
+            "it": "Indirizzo di gruppo KNX",
+            "no": "KNX gruppadresse",
+            "sv": "KNX-gruppadress",
+            "pl": "Adres grupowy KNX",
+            "ru": "Групповой адрес KNX",
+            "ko": "KNX 그룹 주소",
+            "ar": "عنوان مجموعة KNX"
+          },
+          "children": [
+            {
+              "id": "ga_switch",
+              "type": "text",
+              "label": {
+                "en": "Switch address",
+                "nl": "Schakel adres",
+                "da": "Kontaktadresse",
+                "de": "Schalteradresse",
+                "es": "Dirección del interruptor",
+                "fr": "Adresse de l'interrupteur",
+                "it": "Indirizzo dell'interruttore",
+                "no": "Bryteradresse",
+                "sv": "Strömbrytaradress",
+                "pl": "Adres przełącznika",
+                "ru": "Адрес переключателя",
+                "ko": "스위치 주소",
+                "ar": "عنوان المفتاح"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
+              }
+            },
+            {
+              "id": "ga_status",
+              "type": "text",
+              "label": {
+                "en": "Status address",
+                "nl": "Status adres",
+                "da": "Statusadresse",
+                "de": "Statusadresse",
+                "es": "Dirección de estado",
+                "fr": "Adresse de statut",
+                "it": "Indirizzo di stato",
+                "no": "Statusadresse",
+                "sv": "Statusadress",
+                "pl": "Adres statusu",
+                "ru": "Адрес статуса",
+                "ko": "상태 주소",
+                "ar": "عنوان الحالة"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter groupaddress",
+                "nl": "Vul groepadres in",
+                "da": "Indtast gruppeadresse",
+                "de": "Gruppenadresse eingeben",
+                "es": "Ingrese dirección de grupo",
+                "fr": "Entrez l'adresse de groupe",
+                "it": "Inserire l'indirizzo di gruppo",
+                "no": "Skriv inn gruppeadresse",
+                "sv": "Ange gruppadress",
+                "pl": "Wprowadź adres grupowy",
+                "ru": "Введите групповой адрес",
+                "ko": "그룹 주소를 입력하세요",
+                "ar": "أدخل عنوان المجموعة"
+              }
+            }
+          ]
+        },
+        {
+          "id": "inverted",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Invert on/off",
+            "nl": "Wissel aan/uit",
+            "da": "Invertér til/fra",
+            "de": "Ein/Aus invertieren",
+            "es": "Invertir encendido/apagado",
+            "fr": "Inverser activé/désactivé",
+            "it": "Inverti acceso/spento",
+            "no": "Inverter på/av",
+            "sv": "Invertera på/av",
+            "pl": "Odwróć włącz/wyłącz",
+            "ru": "Инвертировать вкл/выкл",
+            "ko": "켜짐/꺼짐 반전",
+            "ar": "عكس تشغيل/إيقاف"
+          }
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network settings",
+            "nl": "Netwerk instellingen",
+            "da": "Netværksindstillinger",
+            "de": "Netzwerk-Einstellungen",
+            "es": "Configuraciones de red",
+            "fr": "Paramètres réseau",
+            "it": "Impostazioni di rete",
+            "no": "Nettverksinnstillinger",
+            "sv": "Nätverksinställningar",
+            "pl": "Ustawienia sieciowe",
+            "ru": "Настройки сети",
+            "ko": "네트워크 설정",
+            "ar": "إعدادات الشبكة"
+          },
+          "children": [
+            {
+              "id": "macAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface MAC address",
+                "nl": "Interface MAC adres",
+                "da": "Interface MAC-adresse",
+                "de": "MAC-Adresse der Schnittstelle",
+                "es": "Dirección MAC de la interfaz",
+                "fr": "Adresse MAC de l'interface",
+                "it": "Indirizzo MAC dell'interfaccia",
+                "no": "Grensesnitt MAC-adresse",
+                "sv": "Gränssnittets MAC-adress",
+                "pl": "Adres MAC interfejsu",
+                "ru": "MAC-адрес интерфейса",
+                "ko": "인터페이스 MAC 주소",
+                "ar": "عنوان MAC الواجهة"
+              },
+              "value": "",
+              "hint": {
+                "en": "MAC address of the required KNX IP interface",
+                "nl": "MAC adres van de KNX IP interface",
+                "da": "MAC-adresse på det nødvendige KNX IP-interface",
+                "de": "MAC-Adresse der benötigten KNX IP-Schnittstelle",
+                "es": "Dirección MAC de la interfaz IP KNX requerida",
+                "fr": "Adresse MAC de l'interface IP KNX requise",
+                "it": "Indirizzo MAC dell'interfaccia IP KNX richiesta",
+                "no": "MAC-adresse til den nødvendige KNX IP-grensesnittet",
+                "sv": "MAC-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres MAC wymaganego interfejsu KNX IP",
+                "ru": "MAC-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 MAC 주소",
+                "ar": "عنوان MAC للواجهة المطلوبة KNX IP"
+              }
+            },
+            {
+              "id": "ipAddress",
+              "type": "text",
+              "label": {
+                "en": "Interface IP address",
+                "nl": "Interface IP adres",
+                "da": "Interface IP-adresse",
+                "de": "IP-Adresse der Schnittstelle",
+                "es": "Dirección IP de la interfaz",
+                "fr": "Adresse IP de l'interface",
+                "it": "Indirizzo IP dell'interfaccia",
+                "no": "Grensesnittets IP-adresse",
+                "sv": "Gränssnittets IP-adress",
+                "pl": "Adres IP interfejsu",
+                "ru": "IP-адрес интерфейса",
+                "ko": "인터페이스 IP 주소",
+                "ar": "عنوان IP الواجهة"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP address of the required KNX IP interface",
+                "nl": "IP adres van de KNX IP interface",
+                "da": "IP-adresse på det nødvendige KNX IP-interface",
+                "de": "IP-Adresse der benötigten KNX IP-Schnittstelle",
+                "es": "Dirección IP de la interfaz IP KNX requerida",
+                "fr": "Adresse IP de l'interface IP KNX requise",
+                "it": "Indirizzo IP dell'interfaccia IP KNX richiesta",
+                "no": "IP-adresse til den nødvendige KNX IP-grensesnittet",
+                "sv": "IP-adress för det nödvändiga KNX IP-gränssnittet",
+                "pl": "Adres IP wymaganego interfejsu KNX IP",
+                "ru": "IP-адрес необходимого интерфейса KNX IP",
+                "ko": "필요한 KNX IP 인터페이스의 IP 주소",
+                "ar": "عنوان IP للواجهة المطلوبة KNX IP"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "images": {
