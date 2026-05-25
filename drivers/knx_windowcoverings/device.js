@@ -47,7 +47,9 @@ class KNXWindowCovering extends KNXGenericDevice {
     }
 
     if (groupaddress === this.getStatusAddress('ga_height')) {
-      await this.setCapabilityValue('windowcoverings_set', DatapointTypeParser.dim(data))
+      // KNX DPT 5.001 for shutter position: 0% = fully open (up), 100% = fully closed (down).
+      // Homey windowcoverings_set: 1.0 = open, 0.0 = closed. Invert to match.
+      await this.setCapabilityValue('windowcoverings_set', 1 - DatapointTypeParser.dim(data))
         .catch((knxerror) => {
           this.error('Set windowcoverings_set error', knxerror);
         });
@@ -124,7 +126,9 @@ class KNXWindowCovering extends KNXGenericDevice {
       return null;
     }
 
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, value * 255, 'DPT5')
+    // KNX DPT 5.001 for shutter position: 0% = fully open (up), 100% = fully closed (down).
+    // Homey windowcoverings_set: 1.0 = open, 0.0 = closed. Invert to match.
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, (1 - value) * 255, 'DPT5')
       .catch((knxerror) => {
         throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
       });
