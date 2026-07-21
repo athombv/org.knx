@@ -17,6 +17,5 @@
     "ar": "إعادة تعيين الأعطال"
   },
   "getable": false,
-  "setable": true,
-  "icon": "assets/capabilities/knx_acknowledge_fault.svg"
+  "setable": true
 }

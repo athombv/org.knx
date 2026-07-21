@@ -22,6 +22,10 @@ function isConfiguredGA(value) {
 module.exports = class KNXSmokeSensor extends KNXGenericDevice {
 
   async onInit() {
+    // Tracks which write listeners are registered so re-registration
+    // (which Homey rejects) can never happen.
+    this.registeredWriteListeners = new Set();
+
     // Dynamically add or remove optional capabilities based on current settings.
     // This runs every time the device initialises, ensuring the capability list
     // matches whatever GAs the user has configured.
@@ -48,24 +52,28 @@ module.exports = class KNXSmokeSensor extends KNXGenericDevice {
     super.onInit();
 
     if (isConfiguredGA(this.getSetting('ga_acknowledge_fault'))) {
-      this.registerCapabilityListener('knx_acknowledge_fault', async () => {
-        const ga = this.getSetting('ga_acknowledge_fault');
-        if (isConfiguredGA(ga) && this.knxInterface) {
-          await this.knxInterface.writeKNXGroupAddress(ga, true, 'DPT1')
-            .catch((err) => this.error('Acknowledge fault write error', err));
-        }
-      });
+      this.registerWriteListener('knx_acknowledge_fault', 'ga_acknowledge_fault');
     }
 
     if (isConfiguredGA(this.getSetting('ga_signal'))) {
-      this.registerCapabilityListener('knx_alarm_signal', async (value) => {
-        const ga = this.getSetting('ga_signal');
-        if (isConfiguredGA(ga) && this.knxInterface) {
-          await this.knxInterface.writeKNXGroupAddress(ga, value, 'DPT1')
-            .catch((err) => this.error('Signal write error', err));
-        }
-      });
+      this.registerWriteListener('knx_alarm_signal', 'ga_signal');
     }
+  }
+
+  // Registers a capability listener that writes the capability value to the
+  // configured GA. Idempotent: registered at most once per capability, so it is
+  // safe to call again from onSettings when a GA is configured post-pairing.
+  registerWriteListener(capability, gaKey) {
+    if (this.registeredWriteListeners.has(capability)) return;
+    this.registeredWriteListeners.add(capability);
+
+    this.registerCapabilityListener(capability, async (value) => {
+      const ga = this.getSetting(gaKey);
+      if (isConfiguredGA(ga) && this.knxInterface) {
+        await this.knxInterface.writeKNXGroupAddress(ga, value, 'DPT1')
+          .catch((err) => this.error(`${capability} write error`, err));
+      }
+    });
   }
 
   // Override: only register listeners for GAs that are actually configured.
@@ -169,6 +177,11 @@ module.exports = class KNXSmokeSensor extends KNXGenericDevice {
           .catch((err) => this.error(err));
       }
     }
+    if (isConfiguredGA(this.settings.ga_temperature)) {
+      this.knxInterface
+        .readKNXGroupAddress(this.settings.ga_temperature)
+        .catch((err) => this.error(err));
+    }
   }
 
   // Called when the user changes device settings post-pairing.
@@ -195,6 +208,7 @@ module.exports = class KNXSmokeSensor extends KNXGenericDevice {
     if (changedKeys.includes('ga_acknowledge_fault')) {
       if (isConfiguredGA(newSettings.ga_acknowledge_fault)) {
         await this.addCapabilityIfNotExists('knx_acknowledge_fault');
+        this.registerWriteListener('knx_acknowledge_fault', 'ga_acknowledge_fault');
       } else {
         await this.removeCapabilityIfExists('knx_acknowledge_fault');
       }
@@ -203,13 +217,9 @@ module.exports = class KNXSmokeSensor extends KNXGenericDevice {
     if (changedKeys.includes('ga_signal')) {
       if (isConfiguredGA(newSettings.ga_signal)) {
         await this.addCapabilityIfNotExists('knx_alarm_signal');
-        this.registerCapabilityListener('knx_alarm_signal', async (value) => {
-          const ga = this.getSetting('ga_signal');
-          if (isConfiguredGA(ga) && this.knxInterface) {
-            await this.knxInterface.writeKNXGroupAddress(ga, value, 'DPT1')
-              .catch((err) => this.error('Signal write error', err));
-          }
-        });
+        this.registerWriteListener('knx_alarm_signal', 'ga_signal');
+      } else {
+        await this.removeCapabilityIfExists('knx_alarm_signal');
       }
     }
 

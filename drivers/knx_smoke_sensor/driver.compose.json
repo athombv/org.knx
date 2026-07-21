@@ -416,41 +416,6 @@
             "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
             "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
           }
-        },
-        {
-          "id": "ga_failure_230v",
-          "type": "text",
-          "label": {
-            "en": "230V failure address",
-            "nl": "230V storingsadres",
-            "da": "230V fejladresse",
-            "de": "230V-Fehleradresse",
-            "es": "Dirección de fallo de 230V",
-            "fr": "Adresse défaut 230V",
-            "it": "Indirizzo guasto 230V",
-            "no": "230V feiladresse",
-            "sv": "230V feladress",
-            "pl": "Adres awarii 230V",
-            "ru": "Адрес неисправности 230В",
-            "ko": "230V 오류 주소",
-            "ar": "عنوان عطل 230 فولت"
-          },
-          "value": "",
-          "hint": {
-            "en": "Optional. Leave empty if not supported.",
-            "nl": "Optioneel. Laat leeg als niet ondersteund.",
-            "da": "Valgfri. Lad tom, hvis ikke understøttet.",
-            "de": "Optional. Leer lassen, wenn nicht unterstützt.",
-            "es": "Opcional. Dejar vacío si no se admite.",
-            "fr": "Optionnel. Laisser vide si non pris en charge.",
-            "it": "Facoltativo. Lasciare vuoto se non supportato.",
-            "no": "Valgfritt. La stå tom hvis ikke støttet.",
-            "sv": "Valfritt. Lämna tomt om det inte stöds.",
-            "pl": "Opcjonalne. Pozostaw puste, jeśli nieobsługiwane.",
-            "ru": "Необязательно. Оставьте пустым, если не поддерживается.",
-            "ko": "선택 사항. 지원되지 않으면 비워 두세요.",
-            "ar": "اختياري. اتركه فارغاً إذا لم يكن مدعوماً."
-          }
         }
       ]
     },
