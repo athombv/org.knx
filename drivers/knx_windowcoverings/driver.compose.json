@@ -244,6 +244,41 @@
       }
     },
     {
+      "id": "invert_position",
+      "type": "checkbox",
+      "value": false,
+      "label": {
+        "en": "Invert position",
+        "nl": "Wissel positie",
+        "da": "Omvend position",
+        "de": "Position umkehren",
+        "es": "Invertir posición",
+        "fr": "Inverser la position",
+        "it": "Inverti posizione",
+        "no": "Inverter posisjon",
+        "sv": "Invertera position",
+        "pl": "Odwróć pozycję",
+        "ru": "Инвертировать положение",
+        "ko": "위치 반전",
+        "ar": "عكس الموضع"
+      },
+      "hint": {
+        "en": "Uses the legacy position mapping, where the position value is sent to the KNX bus unchanged. Enabled automatically for devices added before this setting existed, so existing flows keep working. Disable for actuators that follow the KNX standard (0% = open, 100% = closed).",
+        "nl": "Gebruikt de oude positie-mapping, waarbij de positiewaarde ongewijzigd naar de KNX-bus wordt gestuurd. Wordt automatisch ingeschakeld voor apparaten die vóór deze instelling zijn toegevoegd, zodat bestaande flows blijven werken. Schakel uit voor actoren die de KNX-standaard volgen (0% = open, 100% = gesloten).",
+        "da": "Bruger den ældre positionstilknytning, hvor positionsværdien sendes uændret til KNX-bussen. Aktiveres automatisk for enheder tilføjet før denne indstilling fandtes, så eksisterende flows fortsat virker. Slå fra for aktuatorer, der følger KNX-standarden (0% = åben, 100% = lukket).",
+        "de": "Verwendet die alte Positionszuordnung, bei der der Positionswert unverändert auf den KNX-Bus gesendet wird. Wird für Geräte, die vor dieser Einstellung hinzugefügt wurden, automatisch aktiviert, damit bestehende Flows weiter funktionieren. Für Aktoren nach KNX-Standard (0% = offen, 100% = geschlossen) deaktivieren.",
+        "es": "Usa la asignación de posición antigua, en la que el valor de posición se envía sin cambios al bus KNX. Se activa automáticamente para dispositivos añadidos antes de que existiera este ajuste, para que los flujos existentes sigan funcionando. Desactívalo para actuadores que siguen el estándar KNX (0% = abierto, 100% = cerrado).",
+        "fr": "Utilise l'ancien mappage de position, où la valeur de position est envoyée telle quelle sur le bus KNX. Activé automatiquement pour les appareils ajoutés avant l'existence de ce réglage, afin que les flux existants continuent de fonctionner. À désactiver pour les actionneurs conformes au standard KNX (0% = ouvert, 100% = fermé).",
+        "it": "Usa la mappatura di posizione precedente, in cui il valore di posizione viene inviato invariato al bus KNX. Attivata automaticamente per i dispositivi aggiunti prima dell'esistenza di questa impostazione, così i flow esistenti continuano a funzionare. Disattivala per attuatori conformi allo standard KNX (0% = aperto, 100% = chiuso).",
+        "no": "Bruker den eldre posisjonstilordningen, der posisjonsverdien sendes uendret til KNX-bussen. Aktiveres automatisk for enheter lagt til før denne innstillingen fantes, slik at eksisterende flows fortsatt virker. Slå av for aktuatorer som følger KNX-standarden (0% = åpen, 100% = lukket).",
+        "sv": "Använder den äldre positionsmappningen, där positionsvärdet skickas oförändrat till KNX-bussen. Aktiveras automatiskt för enheter som lagts till innan denna inställning fanns, så att befintliga flöden fortsätter fungera. Inaktivera för ställdon som följer KNX-standarden (0% = öppen, 100% = stängd).",
+        "pl": "Używa starego mapowania pozycji, w którym wartość pozycji jest wysyłana na magistralę KNX bez zmian. Włączane automatycznie dla urządzeń dodanych przed wprowadzeniem tego ustawienia, aby istniejące przepływy nadal działały. Wyłącz dla siłowników zgodnych ze standardem KNX (0% = otwarte, 100% = zamknięte).",
+        "ru": "Использует старое сопоставление положения, при котором значение положения отправляется на шину KNX без изменений. Автоматически включается для устройств, добавленных до появления этой настройки, чтобы существующие потоки продолжали работать. Отключите для приводов, следующих стандарту KNX (0% = открыто, 100% = закрыто).",
+        "ko": "위치 값을 변경하지 않고 KNX 버스로 전송하는 기존 위치 매핑을 사용합니다. 이 설정이 도입되기 전에 추가된 기기에는 자동으로 활성화되어 기존 플로우가 계속 작동합니다. KNX 표준(0% = 열림, 100% = 닫힘)을 따르는 액추에이터에서는 비활성화하세요.",
+        "ar": "يستخدم تعيين الموضع القديم، حيث تُرسل قيمة الموضع دون تغيير إلى ناقل KNX. يُفعَّل تلقائيًا للأجهزة المضافة قبل وجود هذا الإعداد، حتى تستمر التدفقات الحالية في العمل. عطِّله للمشغّلات المتوافقة مع معيار KNX (0% = مفتوح، 100% = مغلق)."
+      }
+    },
+    {
       "type": "group",
       "label": {
         "en": "Network settings",

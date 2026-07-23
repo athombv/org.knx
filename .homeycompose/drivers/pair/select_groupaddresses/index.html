@@ -604,6 +604,11 @@
             'ga_height_status': $('#windowcover_height_status_address').val(),
             'macAddress': interfaceMAC,
           };
+          // Newly paired devices follow the KNX standard position mapping;
+          // the flag skips the legacy invert_position migration in onInit.
+          device.store = {
+            'windowcoverings_set_migrated': true,
+          };
           break;
         case 'sensor':
           device.name = 'KNX Sensor';
@@ -627,7 +632,7 @@
           Homey.done();
         })
         .catch(function (error) {
-          Homey.alert(err);
+          Homey.alert(error);
         });
     }
     else {

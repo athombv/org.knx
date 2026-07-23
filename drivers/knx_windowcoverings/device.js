@@ -6,6 +6,23 @@ const DatapointTypeParser = require('../../lib/DatapointTypeParser');
 class KNXWindowCovering extends KNXGenericDevice {
 
   async onInit() {
+    // One-time migration for devices paired before the invert_position setting existed:
+    // enable the legacy position mapping so existing flows keep working unchanged.
+    // Newly paired devices get the store flag from the pair view and follow the KNX standard.
+    if (this.getStoreValue('windowcoverings_set_migrated') !== true) {
+      try {
+        // Only devices with a position groupaddress have legacy position
+        // behaviour to preserve; the rest just adopt the KNX standard mapping.
+        if (this.settings.ga_height) {
+          await this.setSettings({ invert_position: true });
+        }
+        await this.setStoreValue('windowcoverings_set_migrated', true);
+      } catch (err) {
+        // Flag not set, so the migration is retried on the next init.
+        this.error('invert_position migration failed', err);
+      }
+    }
+
     this.registerCapabilityListener('windowcoverings_state', this.onCapabilityWindowCovering.bind(this));
     if (this.settings.ga_height) {
       await this.addCapabilityIfNotExists('windowcoverings_set');
@@ -48,8 +65,10 @@ class KNXWindowCovering extends KNXGenericDevice {
 
     if (groupaddress === this.getStatusAddress('ga_height')) {
       // KNX DPT 5.001 for shutter position: 0% = fully open (up), 100% = fully closed (down).
-      // Homey windowcoverings_set: 1.0 = open, 0.0 = closed. Invert to match.
-      await this.setCapabilityValue('windowcoverings_set', 1 - DatapointTypeParser.dim(data))
+      // Homey windowcoverings_set: 1.0 = open, 0.0 = closed. Invert to match,
+      // unless invert_position keeps the legacy mapping for this device.
+      const position = DatapointTypeParser.dim(data);
+      await this.setCapabilityValue('windowcoverings_set', this.settings.invert_position === true ? position : 1 - position)
         .catch((knxerror) => {
           this.error('Set windowcoverings_set error', knxerror);
         });
@@ -127,8 +146,10 @@ class KNXWindowCovering extends KNXGenericDevice {
     }
 
     // KNX DPT 5.001 for shutter position: 0% = fully open (up), 100% = fully closed (down).
-    // Homey windowcoverings_set: 1.0 = open, 0.0 = closed. Invert to match.
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, (1 - value) * 255, 'DPT5')
+    // Homey windowcoverings_set: 1.0 = open, 0.0 = closed. Invert to match,
+    // unless invert_position keeps the legacy mapping for this device.
+    const position = this.settings.invert_position === true ? value : 1 - value;
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, position * 255, 'DPT5')
       .catch((knxerror) => {
         throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
       });
@@ -144,6 +165,17 @@ class KNXWindowCovering extends KNXGenericDevice {
       }
     }
     await super.onSettings({ oldSettings, newSettings, changedKeys });
+    if (changedKeys.includes('invert_position')) {
+      // The stored capability value was written under the old mapping;
+      // flip it so the slider keeps showing the same physical position.
+      const position = this.getCapabilityValue('windowcoverings_set');
+      if (typeof position === 'number') {
+        await this.setCapabilityValue('windowcoverings_set', 1 - position)
+          .catch((knxerror) => {
+            this.error('Set windowcoverings_set error', knxerror);
+          });
+      }
+    }
   }
 
 }
