@@ -149,6 +149,26 @@ class KNXApp extends Homey.App {
             tokens.value_string = value.toISOString();
             tokens.value_number = value.getTime();
             tokens.value_bool = true;
+          } else if (
+            dpt.id === 'DPT3'
+            && dpt.subtypeid === '007'
+            && value.decr_incr !== undefined
+            && value.data !== undefined
+          ) {
+            // DPT 3.007 contains a direction bit (decr_incr) and a 3-bit
+            // stepcode (data). Expose the interval on Homey's -1 to 1 dim
+            // scale: positive = up, negative = down and 0 = stop.
+            tokens.value_bool = value.data > 0;
+            if (value.data === 0) {
+              tokens.value_number = 0;
+              tokens.value_string = 'stop';
+            } else {
+              const step = 1 / 2 ** (value.data - 1);
+              tokens.value_number = value.decr_incr === 1
+                ? step
+                : -step;
+              tokens.value_string = `${value.decr_incr === 1 ? 'up' : 'down'} ${step * 100}%`;
+            }
           } else if (value.scenenumber !== undefined) {
             // DPT 18 values are parsed as object and contain two properties
             // save_recall and scenenumber. We ignore the save_recall and assume this is just used to recall a scene
