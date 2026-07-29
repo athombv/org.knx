@@ -3,6 +3,9 @@
   "version": "1.2.4",
   "description": "Add KNX based devices to Homey.",
   "main": "app.js",
+  "engines": {
+    "node": ">=12.9.0"
+  },
   "dependencies": {
     "color-convert": "^2.0.1",
     "ip": "^2.0.1",
