@@ -1,0 +1,21 @@
+{
+  "type": "boolean",
+  "uiComponent": "button",
+  "title": {
+    "en": "Reset faults",
+    "nl": "Storingen resetten",
+    "da": "Nulstil fejl",
+    "de": "Fehler zurücksetzen",
+    "es": "Restablecer fallos",
+    "fr": "Réinitialiser les défauts",
+    "it": "Reimposta guasti",
+    "no": "Tilbakestill feil",
+    "sv": "Återställ fel",
+    "pl": "Resetuj usterki",
+    "ru": "Сбросить неисправности",
+    "ko": "오류 재설정",
+    "ar": "إعادة تعيين الأعطال"
+  },
+  "getable": false,
+  "setable": true
+}

@@ -333,6 +333,91 @@
 			</div>
 		</div>
 	</fieldset>
+	<fieldset id="knx-smoke-sensor-fieldset" style="display: none">
+		<div class="knx-smoke-sensor field row">
+			<div class="knx-entry">
+				<label for="smoke_sensor_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.smoke_alarm"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_sensor_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_sensor_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<label style="font-weight:bold" data-i18n="settings.groupaddresses.optional"></label>
+			<div class="knx-entry">
+				<label for="smoke_alarm_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.alarm"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_alarm_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_alarm_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_heat_alarm_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.heat_alarm"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_heat_alarm_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_heat_alarm_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_signal_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.signal"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_signal_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_signal_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_temperature_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.temperature"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_temperature_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_temperature_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_failure_battery_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.failure_battery"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_failure_battery_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_failure_battery_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_failure_230v_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.failure_230v"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_failure_230v_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_failure_230v_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_failure_smoke_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.failure_smoke"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_failure_smoke_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_failure_smoke_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_failure_temperature_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.failure_temperature"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_failure_temperature_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_failure_temperature_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+			<div class="knx-entry">
+				<label for="smoke_acknowledge_fault_address" class="left"
+					   data-i18n="settings.groupaddresses.smoke_sensor.acknowledge_fault"></label>
+			</div>
+			<div class="knx-entry">
+				<select id="smoke_acknowledge_fault_ga_dropdown" class="knx-dropdown right"></select>
+				<input id="smoke_acknowledge_fault_address" type="text" class="knx-text" placeholder="e.g. 0/1/2" />
+			</div>
+		</div>
+	</fieldset>
 	<fieldset id="knx-scene-fieldset" style="display: none">
 		<div class="knx-scene field row">
 			<div class="knx-entry">
@@ -438,6 +523,10 @@
       case 'sensor':
         console.log('device is a sensor');
         $('#knx-sensor-fieldset').css('display', 'block');
+        break;
+      case 'smoke_sensor':
+        console.log('device is a smoke sensor');
+        $('#knx-smoke-sensor-fieldset').css('display', 'block');
         break;
       case 'scene':
         console.log('device is a scene');
@@ -622,6 +711,22 @@
           device.name = 'KNX Sensor';
           device.settings = {
             'ga_sensor': $('#sensor_address').val(),
+            'macAddress': interfaceMAC,
+          };
+          break;
+        case 'smoke_sensor':
+          device.name = 'KNX Smoke Sensor';
+          device.settings = {
+            'ga_sensor': $('#smoke_sensor_address').val(),
+            'ga_alarm': $('#smoke_alarm_address').val(),
+            'ga_heat_alarm': $('#smoke_heat_alarm_address').val(),
+            'ga_signal': $('#smoke_signal_address').val(),
+            'ga_temperature': $('#smoke_temperature_address').val(),
+            'ga_failure_battery': $('#smoke_failure_battery_address').val(),
+            'ga_failure_230v': $('#smoke_failure_230v_address').val(),
+            'ga_failure_smoke': $('#smoke_failure_smoke_address').val(),
+            'ga_failure_temperature': $('#smoke_failure_temperature_address').val(),
+            'ga_acknowledge_fault': $('#smoke_acknowledge_fault_address').val(),
             'macAddress': interfaceMAC,
           };
           break;
