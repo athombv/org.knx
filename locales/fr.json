@@ -1,5 +1,11 @@
 {
   "settings": {
+    "addressing": {
+      "title": "Style d'adressage de groupe",
+      "body": "Les adresses de groupe KNX peuvent être écrites en style à 3 niveaux (par exemple 1/0/7) ou à 2 niveaux (par exemple 1/7). Sélectionnez le style correspondant à votre projet ETS.",
+      "checkbox": "Utiliser des adresses de groupe à 2 niveaux (par exemple 1/7)",
+      "note": "La plupart des installations utilisent des adresses à 3 niveaux, ce qui est le réglage par défaut. N'activez cette option que si votre projet ETS est configuré pour des adresses à 2 niveaux. Une fois activée, saisissez toutes les adresses de groupe dans Homey au style à 2 niveaux."
+    },
     "ip": {
       "title": "Paramètres IP KNX - Sélectionnez ou ajoutez une interface IP KNX",
       "body": "Entrez l'adresse IP de l'interface KNX IP à utiliser. Appuyez sur le bouton de recherche d'interface IP pour rechercher.",

@@ -1,5 +1,11 @@
 {
   "settings": {
+    "addressing": {
+      "title": "Gruppeadressestil",
+      "body": "KNX-gruppeadresser kan skrives i 3-niveau-stil (for eksempel 1/0/7) eller 2-niveau-stil (for eksempel 1/7). Vælg den stil, der svarer til dit ETS-projekt.",
+      "checkbox": "Brug 2-niveau gruppeadresser (for eksempel 1/7)",
+      "note": "De fleste installationer bruger 3-niveau-adresser, hvilket er standardindstillingen. Aktiver kun denne indstilling, hvis dit ETS-projekt er konfigureret til 2-niveau-adresser. Når den er aktiveret, skal alle gruppeadresser i Homey indtastes i 2-niveau-stil."
+    },
     "ip": {
       "title": "KNX IP indstillinger - Vælg eller tilføj en KNX IP interface",
       "body": "Indtast IP-adressen fra KNX IP interfacet, der skal bruges. Tryk på søgeknappen for at søge efter IP-interface.",
