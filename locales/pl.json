@@ -1,5 +1,11 @@
 {
   "settings": {
+    "addressing": {
+      "title": "Styl adresów grupowych",
+      "body": "Adresy grupowe KNX mogą być zapisywane w stylu 3-poziomowym (na przykład 1/0/7) lub 2-poziomowym (na przykład 1/7). Wybierz styl zgodny z Twoim projektem ETS.",
+      "checkbox": "Używaj 2-poziomowych adresów grupowych (na przykład 1/7)",
+      "note": "Większość instalacji używa adresów 3-poziomowych i jest to ustawienie domyślne. Włącz tę opcję tylko wtedy, gdy Twój projekt ETS jest skonfigurowany dla adresów 2-poziomowych. Po włączeniu wprowadzaj wszystkie adresy grupowe w Homey w stylu 2-poziomowym."
+    },
     "ip": {
       "title": "Ustawienia KNX IP - Wybierz lub dodaj interfejs KNX IP",
       "body": "Wprowadź adres IP z interfejsu KNX IP do użycia. Naciśnij przycisk wyszukiwania interfejsu IP, aby wyszukać.",

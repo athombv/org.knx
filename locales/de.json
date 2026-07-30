@@ -1,5 +1,11 @@
 {
   "settings": {
+    "addressing": {
+      "title": "Gruppenadressstil",
+      "body": "KNX-Gruppenadressen können im 3-Ebenen-Stil (zum Beispiel 1/0/7) oder im 2-Ebenen-Stil (zum Beispiel 1/7) geschrieben werden. Wählen Sie den Stil, der Ihrem ETS-Projekt entspricht.",
+      "checkbox": "2-Ebenen-Gruppenadressen verwenden (zum Beispiel 1/7)",
+      "note": "Die meisten Installationen verwenden 3-Ebenen-Adressen; dies ist die Standardeinstellung. Aktivieren Sie diese Option nur, wenn Ihr ETS-Projekt für 2-Ebenen-Adressen konfiguriert ist. Geben Sie danach alle Gruppenadressen in Homey im 2-Ebenen-Stil ein."
+    },
     "ip": {
       "title": "KNX IP Einstellungen - Wählen oder fügen Sie eine KNX IP-Schnittstelle hinzu",
       "body": "Geben Sie die IP-Adresse der zu verwendenden KNX IP-Schnittstelle ein. Drücken Sie die Schaltfläche IP-Schnittstelle suchen, um zu suchen.",

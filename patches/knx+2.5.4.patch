@@ -1,0 +1,23 @@
+diff --git a/node_modules/knx/src/KnxProtocol.js b/node_modules/knx/src/KnxProtocol.js
+index 54a3a7c..0ee58f2 100644
+--- a/node_modules/knx/src/KnxProtocol.js
++++ b/node_modules/knx/src/KnxProtocol.js
+@@ -497,7 +497,8 @@ KnxProtocol.define('CEMI', {
+         );
+         hdr.dest_addr = KnxAddress.toString(
+           hdr.dest_addr,
+-          hdr.ctrl.destAddrType
++          hdr.ctrl.destAddrType,
++          KnxProtocol.twoLevelAddressing
+         );
+         switch (hdr.msgcode) {
+           case KnxConstants.MESSAGECODES['L_Data.req']:
+@@ -532,7 +533,7 @@ KnxProtocol.define('CEMI', {
+       .UInt8(ctrlField1)
+       .UInt8(ctrlField2)
+       .raw(KnxAddress.parse(value.src_addr, KnxAddress.TYPE.PHYSICAL), 2)
+-      .raw(KnxAddress.parse(value.dest_addr, value.ctrl.destAddrType), 2);
++      .raw(KnxAddress.parse(value.dest_addr, value.ctrl.destAddrType, KnxProtocol.twoLevelAddressing), 2);
+     // only need to marshal an APDU if this is a
+     // L_Data.* (requet/indication/confirmation)
+     switch (value.msgcode) {

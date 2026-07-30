@@ -2,12 +2,25 @@
 
 const Homey = require('homey');
 const dptlib = require('knx/src/dptlib');
+// Same module instance the knx lib uses internally, so setting its
+// twoLevelAddressing flag here controls encoding and decoding of group addresses.
+const KnxProtocol = require('knx/src/KnxProtocol');
 const KNXInterfaceManager = require('./lib/KNXInterfaceManager');
+
+const TWO_LEVEL_SETTING_KEY = 'two_level_group_addressing';
 
 class KNXApp extends Homey.App {
 
   async onInit() {
     this.log('KNXApp is running...');
+
+    // Apply the group addressing mode (2-level or 3-level, matching the ETS
+    // project's style) before any KNX connection is created.
+    this.applyGroupAddressingMode();
+    this.homey.settings.on('set', (key) => {
+      if (key === TWO_LEVEL_SETTING_KEY) this.applyGroupAddressingMode();
+    });
+
     const address = await this.homey.cloud.getLocalAddress();
     const homeyIP = address.split(':', 1).toString();
 
@@ -109,6 +122,32 @@ class KNXApp extends Homey.App {
       args.device.onCapabilityFanSpeed(speed);
       await args.device.setCapabilityValue('knx_fan_speed', speed).catch(this.error);
     });
+  }
+
+  applyGroupAddressingMode() {
+    const twoLevel = this.homey.settings.get(TWO_LEVEL_SETTING_KEY) === true;
+    KnxProtocol.twoLevelAddressing = twoLevel;
+    this.log(`Group addressing mode: ${twoLevel ? '2-level' : '3-level'}`);
+    if (twoLevel) this.warnAboutThreeLevelAddresses();
+  }
+
+  // In 2-level mode a 3-token address is parsed as main/middle only, which
+  // targets a different group address. Make that visible in the log.
+  warnAboutThreeLevelAddresses() {
+    let count = 0;
+    for (const driver of Object.values(this.homey.drivers.getDrivers())) {
+      for (const device of driver.getDevices()) {
+        const settings = device.getSettings();
+        for (const [key, value] of Object.entries(settings)) {
+          if (key.startsWith('ga_') && typeof value === 'string' && value.split('/').length === 3) {
+            count++;
+          }
+        }
+      }
+    }
+    if (count > 0) {
+      this.error(`2-level addressing is enabled but ${count} configured group address(es) use 3-level style and will not work`);
+    }
   }
 
   async onUninit() {

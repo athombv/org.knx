@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+</head>
+
+<body>
+  <header class="homey-header">
+    <h1 class="homey-title" data-i18n="settings.addressing.title"></h1>
+    <p class="homey-subtitle" data-i18n="settings.addressing.body"></p>
+  </header>
+
+  <fieldset class="homey-form-fieldset">
+    <label class="homey-form-checkbox">
+      <input id="two_level_group_addressing" type="checkbox" class="homey-form-checkbox-input" />
+      <span class="homey-form-checkbox-checkmark"></span>
+      <span class="homey-form-checkbox-text" data-i18n="settings.addressing.checkbox"></span>
+    </label>
+  </fieldset>
+
+  <p data-i18n="settings.addressing.note"></p>
+
+  <script type="text/javascript">
+    function onHomeyReady(Homey) {
+      const checkbox = document.getElementById('two_level_group_addressing');
+
+      Homey.get('two_level_group_addressing', (err, value) => {
+        if (err) Homey.alert(err);
+        else checkbox.checked = value === true;
+        Homey.ready();
+      });
+
+      checkbox.addEventListener('change', () => {
+        Homey.set('two_level_group_addressing', checkbox.checked, (err) => {
+          if (err) Homey.alert(err);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
