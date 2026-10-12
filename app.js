@@ -113,7 +113,7 @@ class KNXApp extends Homey.App {
 
   async onUninit() {
     if (this.knxInterfaceManager) {
-      this.knxInterfaceManager.destroy();
+      await this.knxInterfaceManager.shutdown();
     }
   }
 
