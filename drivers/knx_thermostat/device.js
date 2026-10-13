@@ -2,6 +2,7 @@
 
 const KNXGenericDevice = require('../../lib/GenericKNXDevice');
 const DatapointTypeParser = require('../../lib/DatapointTypeParser');
+const HeatingCoolingMode = require('../../lib/HeatingCoolingMode');
 
 class KNXThermostat extends KNXGenericDevice {
 
@@ -22,6 +23,7 @@ class KNXThermostat extends KNXGenericDevice {
     } else {
       await this.removeCapabilityIfExists('knx_fan_auto_mode');
     }
+    await this.initHeatingCoolingModeCapability();
     super.onInit();
   }
 
@@ -87,6 +89,15 @@ class KNXThermostat extends KNXGenericDevice {
     this.registerCapabilityListener('knx_fan_speed', this.onCapabilityFanSpeed.bind(this));
   }
 
+  async initHeatingCoolingModeCapability() {
+    if (!this.hasCapability('thermostat_mode')) await this.addCapability('thermostat_mode');
+    this.registerCapabilityListener('thermostat_mode', this.onCapabilityThermostatMode.bind(this));
+    const storedMode = this.getStoreValue('heating_cooling_mode');
+    if (storedMode) {
+      await this.setCapabilityValue('thermostat_mode', storedMode).catch(this.error);
+    }
+  }
+
   async initFanAutoModeCapability() {
     await this.addCapabilityIfNotExists('knx_fan_auto_mode');
     this.registerCapabilityListener('knx_fan_auto_mode', this.onCapabilityFanAutoMode.bind(this));
@@ -125,12 +136,44 @@ class KNXThermostat extends KNXGenericDevice {
           this.error('Set fan speed error', knxerror);
         });
     }
+    if (groupaddress === this.settings.ga_heating_cooling_mode) {
+      this.onHeatingCoolingModeEvent(data);
+    }
     if (groupaddress === this.getStatusAddress('ga_fan_auto_mode')) {
       this.setCapabilityValue('knx_fan_auto_mode', DatapointTypeParser.bitFormat(data))
         .catch((knxerror) => {
           this.error('Set fan auto mode error', knxerror);
         });
     }
+  }
+
+  addKNXEventListeners(settings) {
+    super.addKNXEventListeners(settings);
+    if (this.hasCapability('thermostat_mode')) {
+      this.knxInterface.addKNXEventListener(settings.ga_heating_cooling_mode, this.KNXEventHandler);
+    }
+  }
+
+  removeKNXEventListeners(settings) {
+    super.removeKNXEventListeners(settings);
+    if (this.hasCapability('thermostat_mode')) {
+      this.knxInterface.removeKNXEventListener(settings.ga_heating_cooling_mode, this.KNXEventHandler);
+    }
+  }
+
+  onHeatingCoolingModeEvent(data) {
+    let mode;
+    try {
+      mode = HeatingCoolingMode.fromDpt1(data);
+    } catch (error) {
+      this.error('Parse heating/cooling mode error', error);
+      return;
+    }
+    this.setCapabilityValue('thermostat_mode', mode)
+      .then(() => this.setStoreValue('heating_cooling_mode', mode))
+      .catch((knxerror) => {
+        this.error('Set thermostat mode error', knxerror);
+      });
   }
 
   onKNXConnection(connectionStatus) {
@@ -146,6 +189,7 @@ class KNXThermostat extends KNXGenericDevice {
     this.getHVACOperatingMode();
     this.getFanAutoMode();
     this.getFanSpeed();
+    // No read of ga_heating_cooling_mode: status-only policy, the address has no KNX responder.
   }
 
   getTargetTemperature() {
@@ -185,6 +229,11 @@ class KNXThermostat extends KNXGenericDevice {
         this.error(knxerror);
         throw new Error(this.homey.__('errors.hvac_operating_mode_set_failed'));
       });
+  }
+
+  async onCapabilityThermostatMode() {
+    // The heating/cooling mode is owned by the bus; nothing is ever sent for this capability.
+    throw new Error('The heating/cooling mode is set by the KNX bus and cannot be changed from Homey');
   }
 
   getMeasuredTemperature() {

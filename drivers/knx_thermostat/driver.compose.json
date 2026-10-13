@@ -21,8 +21,28 @@
   "capabilities": [
     "target_temperature",
     "measure_temperature",
-    "hvac_operating_mode"
+    "hvac_operating_mode",
+    "thermostat_mode"
   ],
+  "capabilitiesOptions": {
+    "thermostat_mode": {
+      "setable": false,
+      "values": [
+        {
+          "id": "heat",
+          "title": {
+            "en": "Heat"
+          }
+        },
+        {
+          "id": "cool",
+          "title": {
+            "en": "Cool"
+          }
+        }
+      ]
+    }
+  },
   "pair": [
     {
       "id": "select_interface",
@@ -395,6 +415,17 @@
             "pl": "Wpisz adres grupowy",
             "ru": "Введите групповой адрес",
             "ko": "그룹 주소 입력"
+          }
+        },
+        {
+          "id": "ga_heating_cooling_mode",
+          "type": "text",
+          "label": {
+            "en": "Heating/Cooling mode address"
+          },
+          "value": "",
+          "hint": {
+            "en": "DPT 1.100 group address. 1 = heating, 0 = cooling. Homey only listens; the mode is set by the bus."
           }
         }
       ]
