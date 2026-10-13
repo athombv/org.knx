@@ -240,13 +240,13 @@ class KNXRGB extends KNXGenericDevice {
     if (this.knxInterface) {
       const promiseQue = [];
       if (this.settings.ga_red_dim) {
-        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_dim, (colors.r), 'DPT5'));
+        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_red_dim, (colors.r), 'DPT5', this.KNXEventHandler));
       }
       if (this.settings.ga_green_dim) {
-        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_dim, (colors.g), 'DPT5'));
+        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_green_dim, (colors.g), 'DPT5', this.KNXEventHandler));
       }
       if (this.settings.ga_blue_dim) {
-        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_dim, (colors.b), 'DPT5'));
+        promiseQue.push(this.knxInterface.writeKNXGroupAddress(this.settings.ga_blue_dim, (colors.b), 'DPT5', this.KNXEventHandler));
       }
 
       return Promise.all(promiseQue)

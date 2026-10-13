@@ -229,7 +229,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_temperature_target) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1', this.KNXEventHandler)
       // Reread the target temperature after a timeout to prevent mismatch between KNX device and Homey
       .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
       .catch((knxerror) => {
@@ -242,7 +242,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_hvac_operating_mode) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102', this.KNXEventHandler)
       // Reread the operating mode after a timeout to prevent mismatch between KNX device and Homey
       .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
       .catch((knxerror) => {
@@ -288,7 +288,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_fan_speed) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5', this.KNXEventHandler)
       .catch((knxerror) => {
         this.error(knxerror);
       });
@@ -307,7 +307,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_fan_auto_mode) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003', this.KNXEventHandler)
       .catch((knxerror) => {
         this.error(knxerror);
       });

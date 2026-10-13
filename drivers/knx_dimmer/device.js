@@ -50,7 +50,7 @@ class KNXDimmer extends KNXGenericDevice {
 
   onCapabilityOnoff(value, opts) {
     if (this.knxInterface && this.settings.ga_switch) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1', this.KNXEventHandler)
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
@@ -67,7 +67,7 @@ class KNXDimmer extends KNXGenericDevice {
           this.log('Set onoff error', knxerror);
         });
 
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5')
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_dim, value * 255, 'DPT5', this.KNXEventHandler)
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.dim_failed'));

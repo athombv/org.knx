@@ -37,7 +37,7 @@ class KNXLight extends KNXGenericDevice {
 
   onCapabilityOnoff(value, opts) {
     if (this.knxInterface && this.settings.ga_switch) {
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1', this.KNXEventHandler)
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));

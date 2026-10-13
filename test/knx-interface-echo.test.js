@@ -38,6 +38,27 @@ async function run() {
   assert.strictEqual(fromDpt1(received[3][2]), 'cool');
   assert.strictEqual(knxInterface.busWrites.length, 2);
 
+  // The writer's own callback is excluded; everyone else on the address hears the echo.
+  const excluding = createInterface();
+  const heard = [];
+  const listenerA = () => heard.push('A');
+  const listenerB = () => heard.push('B');
+  const listenerC = () => heard.push('C');
+  excluding.addKNXEventListener('17/2/0', listenerA);
+  excluding.addKNXEventListener('17/2/0', listenerB);
+  excluding.addKNXEventListener('17/2/0', listenerC);
+  await excluding.writeKNXGroupAddress('17/2/0', true, 'DPT1', listenerB);
+  assert.deepStrictEqual(heard, ['A', 'C']);
+  heard.length = 0;
+  await excluding.writeKNXGroupAddress('17/2/0', false, 'DPT1');
+  assert.deepStrictEqual(heard, ['A', 'B', 'C']);
+  assert.strictEqual(excluding.busWrites.length, 2);
+
+  // Inbound telegrams still reach every listener.
+  heard.length = 0;
+  excluding.onKNXEventListener('GroupValue_Write', '1.1.1', '17/2/0', Buffer.from([0x01]));
+  assert.deepStrictEqual(heard, ['A', 'B', 'C']);
+
   // No listeners: nothing dispatched, write still succeeds.
   const quiet = createInterface();
   await quiet.writeKNXGroupAddress('1/1/1', 1, 'DPT1');
