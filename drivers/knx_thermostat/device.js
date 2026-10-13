@@ -166,7 +166,10 @@ class KNXThermostat extends KNXGenericDevice {
   addKNXEventListeners(settings) {
     super.addKNXEventListeners(settings);
     if (this.hasCapability('thermostat_mode')) {
-      this.knxInterface.addKNXEventListener(this.getHeatingCoolingModeAddress(settings), this.KNXEventHandler);
+      // Homey itself writes this address (a flow switching the house); tunnelling returns no echo
+      // for our own writes, so opt in to the local echo.
+      this.knxInterface.addKNXEventListener(this.getHeatingCoolingModeAddress(settings), this.KNXEventHandler,
+        { echoLocalWrites: true });
     }
   }
 
@@ -229,7 +232,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_temperature_target) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1', this.KNXEventHandler)
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_temperature_target, value, 'DPT9.1')
       // Reread the target temperature after a timeout to prevent mismatch between KNX device and Homey
       .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
       .catch((knxerror) => {
@@ -242,7 +245,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_hvac_operating_mode) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102', this.KNXEventHandler)
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_hvac_operating_mode, value, 'DPT20.102')
       // Reread the operating mode after a timeout to prevent mismatch between KNX device and Homey
       .then(() => this.homey.setTimeout(this.getTargetTemperature.bind(this), 500))
       .catch((knxerror) => {
@@ -288,7 +291,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_fan_speed) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5', this.KNXEventHandler)
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_speed, value * 255, 'DPT5')
       .catch((knxerror) => {
         this.error(knxerror);
       });
@@ -307,7 +310,7 @@ class KNXThermostat extends KNXGenericDevice {
     if (!this.knxInterface || !this.settings.ga_fan_auto_mode) {
       return null;
     }
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003', this.KNXEventHandler)
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_fan_auto_mode, value, 'DPT1.003')
       .catch((knxerror) => {
         this.error(knxerror);
       });

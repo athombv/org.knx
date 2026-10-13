@@ -71,30 +71,30 @@ class KNXWindowCovering extends KNXGenericDevice {
       switch (value) {
         case 'up':
           if (this.settings.invert_updown === true) {
-            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1', this.KNXEventHandler)
+            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1')
               .catch((knxerror) => {
                 throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
               });
           }
-          return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1', this.KNXEventHandler)
+          return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1')
             .catch((knxerror) => {
               throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
             });
         case 'down':
           if (this.settings.invert_updown === true) {
-            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1', this.KNXEventHandler)
+            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 0, 'DPT1')
               .catch((knxerror) => {
                 throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
               });
           }
-          return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1', this.KNXEventHandler)
+          return this.knxInterface.writeKNXGroupAddress(this.settings.ga_up_down, 1, 'DPT1')
             .catch((knxerror) => {
               throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
             });
         case 'idle':
           this.log('stop selected, stop address', this.settings.ga_stop);
           if (this.settings.ga_stop) {
-            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_stop, 1, 'DPT1', this.KNXEventHandler)
+            return this.knxInterface.writeKNXGroupAddress(this.settings.ga_stop, 1, 'DPT1')
               .catch((knxerror) => {
                 throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
               });
@@ -124,7 +124,7 @@ class KNXWindowCovering extends KNXGenericDevice {
       return null;
     }
 
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, value * 255, 'DPT5', this.KNXEventHandler)
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_height, value * 255, 'DPT5')
       .catch((knxerror) => {
         throw new Error(this.homey.__('errors.windowcovering_failed'), knxerror);
       });

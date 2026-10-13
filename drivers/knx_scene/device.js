@@ -48,7 +48,7 @@ class KNXScene extends KNXGenericDevice {
       throw new Error(this.homey.__('errors.invalid_scene_number'));
     }
     // The -1 is temporary until the knx.js lib fully supports scenes
-    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_scene, (this.settings.scene_number - 1), 'DPT17', this.KNXEventHandler)
+    return this.knxInterface.writeKNXGroupAddress(this.settings.ga_scene, (this.settings.scene_number - 1), 'DPT17')
       .catch((knxerror) => {
         throw new Error(this.homey.__('errors.switch_failed'), knxerror);
       });

@@ -57,13 +57,13 @@ class KNXSwitch extends KNXGenericDevice {
   onCapabilityOnoff(value, opts) {
     if (this.knxInterface && this.settings.ga_switch) {
       if (this.settings.inverted === true) {
-        return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1', this.KNXEventHandler)
+        return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, !value, 'DPT1')
           .catch((knxerror) => {
             this.log(knxerror);
             throw new Error(this.homey.__('errors.switch_failed'));
           });
       }
-      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1', this.KNXEventHandler)
+      return this.knxInterface.writeKNXGroupAddress(this.settings.ga_switch, value, 'DPT1')
         .catch((knxerror) => {
           this.log(knxerror);
           throw new Error(this.homey.__('errors.switch_failed'));
