@@ -23,7 +23,11 @@ class KNXThermostat extends KNXGenericDevice {
     } else {
       await this.removeCapabilityIfExists('knx_fan_auto_mode');
     }
-    await this.initHeatingCoolingModeCapability();
+    if (this.getHeatingCoolingModeAddress(this.settings) !== '') {
+      await this.initHeatingCoolingModeCapability();
+    } else {
+      await this.removeCapabilityIfExists('thermostat_mode');
+    }
     super.onInit();
   }
 
@@ -59,6 +63,17 @@ class KNXThermostat extends KNXGenericDevice {
         await this.removeCapability('knx_fan_auto_mode').catch(this.error);
       }
     }
+    if (changedKeys.includes('ga_heating_cooling_mode')) {
+      if (this.getHeatingCoolingModeAddress(newSettings) !== '') {
+        await this.initHeatingCoolingModeCapability();
+      } else {
+        // Drop the listener for the old address before the capability check below stops applying.
+        if (this.knxInterface) {
+          this.knxInterface.removeKNXEventListener(this.getHeatingCoolingModeAddress(oldSettings), this.KNXEventHandler);
+        }
+        await this.removeCapabilityIfExists('thermostat_mode');
+      }
+    }
     await super.onSettings({ oldSettings, newSettings, changedKeys });
   }
 
@@ -90,7 +105,8 @@ class KNXThermostat extends KNXGenericDevice {
   }
 
   async initHeatingCoolingModeCapability() {
-    if (!this.hasCapability('thermostat_mode')) await this.addCapability('thermostat_mode');
+    await this.addCapabilityIfNotExists('thermostat_mode');
+    if (!this.hasCapability('thermostat_mode')) return;
     this.registerCapabilityListener('thermostat_mode', this.onCapabilityThermostatMode.bind(this));
     const storedMode = this.getStoreValue('heating_cooling_mode');
     if (storedMode) {
@@ -136,7 +152,7 @@ class KNXThermostat extends KNXGenericDevice {
           this.error('Set fan speed error', knxerror);
         });
     }
-    if (groupaddress === this.settings.ga_heating_cooling_mode) {
+    if (groupaddress === this.getHeatingCoolingModeAddress(this.settings)) {
       this.onHeatingCoolingModeEvent(data);
     }
     if (groupaddress === this.getStatusAddress('ga_fan_auto_mode')) {
@@ -150,15 +166,19 @@ class KNXThermostat extends KNXGenericDevice {
   addKNXEventListeners(settings) {
     super.addKNXEventListeners(settings);
     if (this.hasCapability('thermostat_mode')) {
-      this.knxInterface.addKNXEventListener(settings.ga_heating_cooling_mode, this.KNXEventHandler);
+      this.knxInterface.addKNXEventListener(this.getHeatingCoolingModeAddress(settings), this.KNXEventHandler);
     }
   }
 
   removeKNXEventListeners(settings) {
     super.removeKNXEventListeners(settings);
     if (this.hasCapability('thermostat_mode')) {
-      this.knxInterface.removeKNXEventListener(settings.ga_heating_cooling_mode, this.KNXEventHandler);
+      this.knxInterface.removeKNXEventListener(this.getHeatingCoolingModeAddress(settings), this.KNXEventHandler);
     }
+  }
+
+  getHeatingCoolingModeAddress(settings) {
+    return typeof settings.ga_heating_cooling_mode === 'string' ? settings.ga_heating_cooling_mode.trim() : '';
   }
 
   onHeatingCoolingModeEvent(data) {
